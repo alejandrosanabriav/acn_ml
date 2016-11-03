@@ -1,5 +1,6 @@
 <?php
 include 'lib/shortcode_factory.php';
+$base = __DIR__;
 
- sc_factory('test_sc', array(), 'test.php');
- 
+//register shortcodes
+sc_factory('test_sc', array(), $base . 'test.php');
