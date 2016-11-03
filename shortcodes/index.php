@@ -8,7 +8,7 @@ $prexis = 'bs_';
 if(function_exists('sc_factory')) {  
 
   sc_factory($prefix . 'test', array(), $base . '/test.php');
-  sc_factory($prefix . 'contact', array(), $base . '/contact.php');
+  sc_factory($prefix . 'contact', array('fields' => ''), $base . '/contact.php');
 
 }
 
