@@ -2,7 +2,7 @@
 import $ from 'jquery';
 
 export default function() {
-  $('input[data-validate]').on('keydown', function(e) {
+  $('input[data-validate]').on('keyup', function(e) {
     let val = $(this).val();
     console.log(val);
   });

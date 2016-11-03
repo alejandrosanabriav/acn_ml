@@ -10297,7 +10297,7 @@
 	});
 
 	exports.default = function () {
-	  (0, _jquery2.default)('input[data-validate]').on('keydown', function (e) {
+	  (0, _jquery2.default)('input[data-validate]').on('keyup', function (e) {
 	    var val = (0, _jquery2.default)(this).val();
 	    console.log(val);
 	  });
