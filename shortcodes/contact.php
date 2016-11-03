@@ -1,4 +1,4 @@
-<h1>
-  <?php echo $atts['fields'] ?>
-</h1>
+<form action="">
+  <?php echo do_shortcode($content) ?>
+</form>
 
