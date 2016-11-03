@@ -4,3 +4,5 @@
  * Alejandro Sanabria <alejandro@brandspa.com>
  * Copyright 2016 BrandSpa
  */
+
+include 'shortcodes/index.php';
