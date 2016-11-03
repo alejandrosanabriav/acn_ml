@@ -54,10 +54,15 @@
 
 	var _input2 = _interopRequireDefault(_input);
 
+	var _form = __webpack_require__(3);
+
+	var _form2 = _interopRequireDefault(_form);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	(0, _jquery2.default)(function () {
 	  (0, _input2.default)();
+	  (0, _form2.default)();
 	});
 
 /***/ },
@@ -10300,6 +10305,30 @@
 	  (0, _jquery2.default)('input[data-validate]').on('keyup', function (e) {
 	    var val = (0, _jquery2.default)(this).val();
 	    console.log(val);
+	  });
+	};
+
+	var _jquery = __webpack_require__(1);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  (0, _jquery2.default)('button[data-validate="true"]').on('click', function (e) {
+	    e.preventDefault();
+	    var inputs = (0, _jquery2.default)(this).find('input');
+	    console.log(inputs);
 	  });
 	};
 
