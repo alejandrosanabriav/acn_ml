@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ACN MD</title>
-  
+ 
+  <title>ACN ML</title>
+   <?php wp_head(); ?>
+   
   <style>
     #header {
       height: 100px;
