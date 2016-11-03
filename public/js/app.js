@@ -10288,7 +10288,7 @@
 
 /***/ },
 /* 2 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -10297,13 +10297,17 @@
 	});
 
 	exports.default = function () {
-	  var _this = this;
-
-	  $('input[data-validate]').on('keydown', function (e) {
-	    var val = $(_this).val();
+	  (0, _jquery2.default)('input[data-validate]').on('keydown', function (e) {
+	    var val = (0, _jquery2.default)(this).val();
 	    console.log(val);
 	  });
 	};
+
+	var _jquery = __webpack_require__(1);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }
 /******/ ]);
