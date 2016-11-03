@@ -7,7 +7,7 @@
     type="text"
     placeholder="<?php echo $at['placeholder'] ?>" 
     name="<?php echo $at['id'] ?>"
-    data-validate="required"
+    data-validate="required|email"
   />
   
 </div>
