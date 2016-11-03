@@ -2,30 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
- 
+ <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+
   <title>ACN ML</title>
    <?php wp_head(); ?>
-
-  <style>
-  body {
-    margin: 0;
-    padding-top: 100px;
-  }
-
-    #header {
-      height: 100px;
-      width: 100%;
-      background: #fff;
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-
-     #header img {
-       float: left;
-       margin: 40px 0 0 40px;
-     }
-  </style>
 
 </head>
 <body>
