@@ -10328,6 +10328,10 @@
 	  (0, _jquery2.default)('form[data-validate="true"]').on('submit', function (e) {
 	    e.preventDefault();
 	    var inputs = (0, _jquery2.default)(this).find('input');
+	    inputs.each(function (input) {
+	      console.log((0, _jquery2.default)(input).data('validate'));
+	    });
+
 	    console.log('inputs: ', inputs);
 	  });
 	};
