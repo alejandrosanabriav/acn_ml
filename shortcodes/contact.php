@@ -1,6 +1,6 @@
 <form action="">
   <?php echo do_shortcode($content) ?>
   
-  <button><?php echo $at['button_title'] ?></button>
+  <button class="btn btn--outline"><?php echo $at['button_title'] ?></button>
 </form>
 

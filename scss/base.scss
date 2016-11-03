@@ -90,3 +90,13 @@ input {
   }
 }
 
+.btn {
+  border: none;
+  
+  &--outline {
+    border-radius: 8px;
+	  border: solid 3px #fff;
+  }
+}
+
+
