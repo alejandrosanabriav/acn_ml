@@ -10335,7 +10335,7 @@
 	      var messages = (0, _jquery2.default)(this).data('messages').split('|');
 
 	      validations.forEach(function (type, i) {
-	        if (validate(type, val)) {
+	        if (!validate(type, val)) {
 	          console.log(name, messages[i]);
 	        }
 	      });

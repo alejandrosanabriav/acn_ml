@@ -26,7 +26,7 @@ export default function() {
       let messages = $(this).data('messages').split('|');
       
       validations.forEach((type, i) => {
-        if(validate(type, val)) {
+        if(!validate(type, val)) {
           console.log(name, messages[i]);
         }
       });
