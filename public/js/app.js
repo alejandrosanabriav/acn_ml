@@ -10334,7 +10334,7 @@
 	      var name = (0, _jquery2.default)(this).attr('name');
 	      var validations = (0, _jquery2.default)(this).data('validate').split('|');
 	      var messages = (0, _jquery2.default)(this).data('messages').split('|');
-
+	      console.log('input[name="' + name + '"]');
 	      validations.forEach(function (type, i) {
 	        if (!validate(type, val)) {
 	          (0, _jquery2.default)('input[name="' + name + '"]').parent().prepend(messages[i]);
