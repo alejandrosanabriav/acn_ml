@@ -8,7 +8,21 @@ $prefix = 'bs_';
 if(function_exists('sc_factory')) {  
 
   sc_factory($prefix . 'test', array(), $base . '/test.php');
-  sc_factory($prefix . 'contact', array('btn_title' => 'PRAY', 'btn_style' => ''), $base . '/contact.php');
-  sc_factory($prefix . 'input', array('label' => '', 'placeholder' => '', 'id' => ''), $base . '/input.php');
+  sc_factory($prefix . 'contact', array(
+      'btn_title' => 'PRAY', 
+      'btn_style' => ''
+    ), 
+    $base . '/contact.php'
+  );
+
+  sc_factory($prefix . 'input', array(
+      'label' => '', 
+      'placeholder' => '', 
+      'id' => '', 
+      'validate' => '', 
+      'messages' => ''
+    ), 
+    $base . '/input.php'
+  );
 
 }

@@ -7,8 +7,8 @@ export default function() {
     let inputs = $(this).find('input');
     inputs.each(function(index) {
       console.log($(this).data('validate').split('|'));
+      console.log($(this).data('messages').split('|'));
     });
 
-    console.log('inputs: ', inputs);
   });
 }

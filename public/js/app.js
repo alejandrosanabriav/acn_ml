@@ -10330,9 +10330,8 @@
 	    var inputs = (0, _jquery2.default)(this).find('input');
 	    inputs.each(function (index) {
 	      console.log((0, _jquery2.default)(this).data('validate').split('|'));
+	      console.log((0, _jquery2.default)(this).data('messages').split('|'));
 	    });
-
-	    console.log('inputs: ', inputs);
 	  });
 	};
 
