@@ -5,6 +5,6 @@
   <input 
     type="text" 
     placeholder="<?php echo $atts['placeholder'] ?>" 
-    name="<?php echo $atts['name'] ?>" 
+    name="<?php echo $atts['id'] ?>" 
   />
 </div>
