@@ -65,7 +65,8 @@ input {
 .btn {
   border: none;
   font-size: 1.5625em;
-  font-weight: bold; }
+  font-weight: bold;
+  cursor: pointer; }
   .btn:focus {
     outline: none; }
   .btn--outline {

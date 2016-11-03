@@ -94,6 +94,7 @@ input {
   border: none;
   font-size: (25 / 16) * 1em;
 	font-weight: bold;
+  cursor: pointer;
 
   &:focus {
     outline: none;
@@ -106,6 +107,7 @@ input {
     color: #fff;
     padding: 10px 15px;
     transition: 300ms all ease;
+
     &:hover {
       background: #fff;
       color: $color_dark;
