@@ -5,6 +5,6 @@ $base = __DIR__;
 
 if(function_exists('sc_factory')) {
   //register shortcodes
-sc_factory('test_sc', array(), $base . 'test.php');
+sc_factory('test_sc', array(), $base . '/test.php');
 
 }
