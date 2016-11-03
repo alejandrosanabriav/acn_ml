@@ -7,6 +7,7 @@
   <title>ACN ML</title>
    <?php wp_head(); ?>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+   <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/public/css/base.css">
 </head>
 <body>
 
