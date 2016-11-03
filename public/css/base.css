@@ -52,7 +52,8 @@ input {
   border-radius: 8px;
   font-size: 1.125em;
   padding: 15px 0 0 20px;
-  background: transparent; }
+  background: transparent;
+  color: #fff; }
   input::-webkit-input-placeholder {
     color: #fff; }
   input:focus {
