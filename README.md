@@ -10,3 +10,12 @@ A theme for ACN
 - stripe
 - mailchimp
 - infusionsoft
+
+## Options
+### Mailchimp 
+- map lists
+- set apikey
+- add merge fields
+
+### Stripe
+- set apikey
