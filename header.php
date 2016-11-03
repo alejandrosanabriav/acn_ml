@@ -5,12 +5,19 @@
  
   <title>ACN ML</title>
    <?php wp_head(); ?>
-   
+
   <style>
+  body {
+    padding-top: 100px;
+  }
+
     #header {
       height: 100px;
       width: 100%;
       background: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
     }
 
      #header img {
