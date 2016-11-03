@@ -1,11 +1,11 @@
 <div class="input-container">
-  <?php if(!empty($atts['label'])): ?>
-    <label for=""><?php echo $atts['label'] ?></label>
+  <?php if(!empty($at['label'])): ?>
+    <label for=""><?php echo $at['label'] ?></label>
   <?php endif; ?>
   <input 
     type="text" 
-    placeholder="<?php echo $atts['placeholder'] ?>" 
-    name="<?php echo $atts['id'] ?>" 
+    placeholder="<?php echo $at['placeholder'] ?>" 
+    name="<?php echo $at['id'] ?>" 
   />
   
 </div>
