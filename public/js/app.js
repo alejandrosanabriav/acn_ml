@@ -10328,8 +10328,8 @@
 	  (0, _jquery2.default)('form[data-validate="true"]').on('submit', function (e) {
 	    e.preventDefault();
 	    var inputs = (0, _jquery2.default)(this).find('input');
-	    inputs.each(function (input) {
-	      console.log(input, (0, _jquery2.default)(this).data('validate'));
+	    inputs.each(function (index) {
+	      console.log((0, _jquery2.default)(this).data('validate').split('|'));
 	    });
 
 	    console.log('inputs: ', inputs);

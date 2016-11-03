@@ -5,8 +5,8 @@ export default function() {
   $('form[data-validate="true"]').on('submit', function(e) {
     e.preventDefault();
     let inputs = $(this).find('input');
-    inputs.each(function(input) {
-      console.log(input, $(this).data('validate'));
+    inputs.each(function(index) {
+      console.log($(this).data('validate').split('|'));
     });
 
     console.log('inputs: ', inputs);
