@@ -10330,11 +10330,12 @@
 	    var inputs = (0, _jquery2.default)(this).find('input');
 	    inputs.each(function (index) {
 	      var val = (0, _jquery2.default)(this).val();
+	      var name = (0, _jquery2.default)(this).attr('name');
 	      var validations = (0, _jquery2.default)(this).data('validate').split('|');
 	      var messages = (0, _jquery2.default)(this).data('messages').split('|');
 
 	      validations.forEach(function (type) {
-	        console.log(validate(type, val));
+	        console.log(name, validate(type, val));
 	      });
 	    });
 	  });

@@ -18,11 +18,12 @@ export default function() {
     let inputs = $(this).find('input');
     inputs.each(function(index) {
       let val = $(this).val();
+      let name = $(this).attr('name');
       let validations = $(this).data('validate').split('|');
       let messages = $(this).data('messages').split('|');
       
       validations.forEach(type => {
-        console.log(validate(type, val));
+        console.log(name, validate(type, val));
       });
 
     });
