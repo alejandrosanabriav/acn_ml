@@ -10,6 +10,9 @@ function validate(type, val) {
     case 'email':
       return validator.isEmail(val);
     break;
+    case 'alpha':
+      return validator.isAlpha(val);
+    break;
     default: 
       return false;
   }

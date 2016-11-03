@@ -10361,6 +10361,9 @@
 	    case 'email':
 	      return _validator2.default.isEmail(val);
 	      break;
+	    case 'alpha':
+	      return _validator2.default.isAlpha(val);
+	      break;
 	    default:
 	      return false;
 	  }
