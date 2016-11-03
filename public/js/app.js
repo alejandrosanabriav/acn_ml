@@ -10356,6 +10356,9 @@
 	    case 'required':
 	      return !_validator2.default.isEmpty(val);
 	      break;
+	    case 'email':
+	      return _validator2.default.isEmail(val);
+	      break;
 	    default:
 	      return false;
 	  }

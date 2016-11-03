@@ -7,6 +7,9 @@ function validate(type, val) {
     case 'required':
       return !validator.isEmpty(val);
     break;
+    case 'email':
+      return validator.isEmail(val);
+    break;
     default: 
       return false;
   }
