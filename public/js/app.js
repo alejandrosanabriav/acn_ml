@@ -10334,8 +10334,8 @@
 	      var validations = (0, _jquery2.default)(this).data('validate').split('|');
 	      var messages = (0, _jquery2.default)(this).data('messages').split('|');
 
-	      validations.forEach(function (type) {
-	        console.log(name, validate(type, val));
+	      validations.forEach(function (type, i) {
+	        console.log(name, validate(type, val), messages[i]);
 	      });
 	    });
 	  });
