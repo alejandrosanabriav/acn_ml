@@ -7,5 +7,5 @@
     placeholder="<?php echo $atts['placeholder'] ?>" 
     name="<?php echo $atts['id'] ?>" 
   />
-  <button><?php echo $atts['button_title'] ?></button>
+  
 </div>
