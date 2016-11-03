@@ -95,12 +95,21 @@ input {
   font-size: (25 / 16) * 1em;
 	font-weight: bold;
 
+  &:focus {
+    outline: none;
+  }
+
   &--outline {
     background: transparent;
     border-radius: 8px;
 	  border: solid 3px #fff;
     color: #fff;
     padding: 10px 15px;
+    transition: 300ms all ease;
+    &:hover {
+      background: #fff;
+      color: $color_dark;
+    }
   }
 }
 

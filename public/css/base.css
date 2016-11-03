@@ -66,9 +66,15 @@ input {
   border: none;
   font-size: 1.5625em;
   font-weight: bold; }
+  .btn:focus {
+    outline: none; }
   .btn--outline {
     background: transparent;
     border-radius: 8px;
     border: solid 3px #fff;
     color: #fff;
-    padding: 10px 15px; }
+    padding: 10px 15px;
+    transition: 300ms all ease; }
+    .btn--outline:hover {
+      background: #fff;
+      color: #1a2127; }
