@@ -5,4 +5,4 @@
  * Copyright 2016 BrandSpa
  */
 
-include 'shortcodes/index.php';
+include_once 'shortcodes/index.php';
