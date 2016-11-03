@@ -1027,7 +1027,8 @@ body {
   background: #fff;
   position: fixed;
   top: 0;
-  left: 0; }
+  left: 0;
+  z-index: 1001; }
   #header img {
     float: left;
     margin: 40px 0 0 40px; }
