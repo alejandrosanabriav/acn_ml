@@ -57,7 +57,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  font-family: 'Rubik', sans-serif;\n  margin: 0;\n  padding-top: 100px;\n  font-size: 14px; }\n\n#header {\n  height: 100px;\n  width: 100%;\n  background: #fff;\n  position: fixed;\n  top: 0;\n  left: 0; }\n  #header img {\n    float: left;\n    margin: 40px 0 0 40px; }\n\nh1 {\n  font-family: Rubik;\n  font-size: 0.2em;\n  font-weight: bold; }\n\nh2 {\n  font-family: Rubik;\n  font-size: 0.36842em;\n  font-weight: bold; }\n\nh3 {\n  font-family: Rubik;\n  font-size: 0.56em;\n  font-weight: bold; }\n\nh4 {\n  font-family: Rubik;\n  font-size: 0.66667em;\n  font-weight: 500; }\n\nh5 {\n  font-size: 1em;\n  font-weight: 300;\n  line-height: 1.3;\n  letter-spacing: 2px; }\n\np {\n  font-size: 0.77778em;\n  font-weight: 300; }\n", ""]);
+	exports.push([module.id, "body {\n  font-family: 'Rubik', sans-serif;\n  margin: 0;\n  padding-top: 100px;\n  font-size: 14px; }\n\n#header {\n  height: 100px;\n  width: 100%;\n  background: #fff;\n  position: fixed;\n  top: 0;\n  left: 0; }\n  #header img {\n    float: left;\n    margin: 40px 0 0 40px; }\n\nh1 {\n  font-family: Rubik;\n  font-size: 5em;\n  font-weight: bold; }\n\nh2 {\n  font-family: Rubik;\n  font-size: 2.71429em;\n  font-weight: bold; }\n\nh3 {\n  font-family: Rubik;\n  font-size: 1.78571em;\n  font-weight: bold; }\n\nh4 {\n  font-family: Rubik;\n  font-size: 1.5em;\n  font-weight: 500; }\n\nh5 {\n  font-size: 1em;\n  font-weight: 300;\n  line-height: 1.3;\n  letter-spacing: 2px; }\n\np {\n  font-size: 1.28571em;\n  font-weight: 300; }\n", ""]);
 
 	// exports
 

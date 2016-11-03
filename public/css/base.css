@@ -17,22 +17,22 @@ body {
 
 h1 {
   font-family: Rubik;
-  font-size: 0.2em;
+  font-size: 5em;
   font-weight: bold; }
 
 h2 {
   font-family: Rubik;
-  font-size: 0.36842em;
+  font-size: 2.71429em;
   font-weight: bold; }
 
 h3 {
   font-family: Rubik;
-  font-size: 0.56em;
+  font-size: 1.78571em;
   font-weight: bold; }
 
 h4 {
   font-family: Rubik;
-  font-size: 0.66667em;
+  font-size: 1.5em;
   font-weight: 500; }
 
 h5 {
@@ -42,5 +42,5 @@ h5 {
   letter-spacing: 2px; }
 
 p {
-  font-size: 0.77778em;
+  font-size: 1.28571em;
   font-weight: 300; }
