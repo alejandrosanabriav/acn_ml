@@ -92,6 +92,8 @@ input {
 
 .btn {
   border: none;
+  font-size: (25 / 16) * 1em;
+	font-weight: bold;
 
   &--outline {
     background: transparent;

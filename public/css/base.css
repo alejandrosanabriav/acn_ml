@@ -63,7 +63,9 @@ input {
     outline: none; }
 
 .btn {
-  border: none; }
+  border: none;
+  font-size: 1.5625em;
+  font-weight: bold; }
   .btn--outline {
     background: transparent;
     border-radius: 8px;
