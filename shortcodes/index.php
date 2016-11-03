@@ -9,6 +9,6 @@ if(function_exists('sc_factory')) {
 
   sc_factory($prefix . 'test', array(), $base . '/test.php');
   sc_factory($prefix . 'contact', array('fields' => ''), $base . '/contact.php');
-  sc_factory($prefix . 'input', array('label' => '', 'placeholder' => '', 'name' => ''), $base . '/contact.php');
+  sc_factory($prefix . 'input', array('label' => '', 'placeholder' => '', 'name' => ''), $base . '/input.php');
 
 }
