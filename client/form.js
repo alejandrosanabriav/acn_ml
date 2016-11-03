@@ -6,7 +6,7 @@ export default function() {
     e.preventDefault();
     let inputs = $(this).find('input');
     inputs.each(function(input) {
-      console.log(input, input.data('validate'));
+      console.log(input, $(this).data('validate'));
     });
 
     console.log('inputs: ', inputs);
