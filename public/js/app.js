@@ -10328,6 +10328,7 @@
 	  (0, _jquery2.default)('form[data-validate="true"]').on('submit', function (e) {
 	    e.preventDefault();
 	    var inputs = (0, _jquery2.default)(this).find('input');
+
 	    inputs.each(function (index) {
 	      var val = (0, _jquery2.default)(this).val();
 	      var name = (0, _jquery2.default)(this).attr('name');
@@ -10336,7 +10337,7 @@
 
 	      validations.forEach(function (type, i) {
 	        if (!validate(type, val)) {
-	          console.log(name, messages[i]);
+	          (0, _jquery2.default)('input[name="' + name + '"]').parent().append(messages[i]);
 	        }
 	      });
 	    });

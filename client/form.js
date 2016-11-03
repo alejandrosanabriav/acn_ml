@@ -22,6 +22,7 @@ export default function() {
   $('form[data-validate="true"]').on('submit', function(e) {
     e.preventDefault();
     let inputs = $(this).find('input');
+
     inputs.each(function(index) {
       let val = $(this).val();
       let name = $(this).attr('name');
@@ -30,7 +31,7 @@ export default function() {
       
       validations.forEach((type, i) => {
         if(!validate(type, val)) {
-          console.log(name, messages[i]);
+          $(`input[name="${name}"]`).parent().append(messages[i]);
         }
       });
 
