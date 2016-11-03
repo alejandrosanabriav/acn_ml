@@ -1,7 +1,7 @@
 <?php
 
 function sc_factory($sc_name, $sc_atts = array(), $template_uri) {
-  add_shortcode( $sc_name, function($atts, $content = null) use($sc_atts) {
+  add_shortcode( $sc_name, function($atts, $content = null) use($sc_atts, $template_uri) {
     $at = shortcode_atts( $sc_atts, $atts );
     ob_start();
     
