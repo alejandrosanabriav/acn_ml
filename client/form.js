@@ -2,7 +2,7 @@
 import $ from 'jquery';
 
 export default function() {
-  $('button[data-validate="true"]').on('click', function(e) {
+  $('form[data-validate="true"]').on('submit', function(e) {
     e.preventDefault();
     let inputs = $(this).find('input');
     console.log('inputs: ', inputs);

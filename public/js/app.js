@@ -10325,7 +10325,7 @@
 	});
 
 	exports.default = function () {
-	  (0, _jquery2.default)('button[data-validate="true"]').on('click', function (e) {
+	  (0, _jquery2.default)('form[data-validate="true"]').on('submit', function (e) {
 	    e.preventDefault();
 	    var inputs = (0, _jquery2.default)(this).find('input');
 	    console.log('inputs: ', inputs);
