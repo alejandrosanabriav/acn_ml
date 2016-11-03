@@ -92,8 +92,9 @@ input {
 
 .btn {
   border: none;
-  
+
   &--outline {
+    background: transparent;
     border-radius: 8px;
 	  border: solid 3px #fff;
   }
