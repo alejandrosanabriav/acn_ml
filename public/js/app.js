@@ -10328,7 +10328,7 @@
 	  (0, _jquery2.default)('button[data-validate="true"]').on('click', function (e) {
 	    e.preventDefault();
 	    var inputs = (0, _jquery2.default)(this).find('input');
-	    console.log(inputs);
+	    console.log('inputs: ', inputs);
 	  });
 	};
 
