@@ -38,12 +38,12 @@ if( file_exists($dir_base . '/vendor/autoload.php') ) {
   // $listKey = $_POST['lang'];
   // $listId = 'e4bd5ff7e0';
 
-  $data = '{
-        "email_address": "'.$email.'",
-        "status": "subscribed",
-        "merge_fields": {"COUNTRY": "'.$country.'", "FNAME": "'. $name .'"},
-        "update_existing": true
-  }';
+  // $data = '{
+  //       "email_address": "'.$email.'",
+  //       "status": "subscribed",
+  //       "merge_fields": {"COUNTRY": "'.$country.'", "FNAME": "'. $name .'"},
+  //       "update_existing": true
+  // }';
 
 function mc_subscribe($data, $listId, $apiKey) {
   $options = array(
