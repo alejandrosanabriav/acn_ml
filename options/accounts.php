@@ -36,6 +36,7 @@ function bs_accounts_options() {
 
     <p>
        <label for="">Mailchimp</label>
+        <br>
         <input 
           style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
           type="text"
@@ -47,6 +48,7 @@ function bs_accounts_options() {
 
     <p>
        <label for="">Stripe</label>
+       <br>
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
@@ -58,6 +60,7 @@ function bs_accounts_options() {
 
     <p>
       <label for="">Stripe</label>
+       <br>
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
