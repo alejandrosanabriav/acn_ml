@@ -29,7 +29,9 @@ function bs_accounts_options() {
   <h1>Accounts keys</h1>
     
   <form method="post" action="options.php" style="position: relative; margin: 0 auto">
-    <input type="text" placeholder="api key" style="width: 50%">
+    <input type="text" placeholder="Mailchimp Api Key" style="width: 50%">
+    <input type="text" placeholder="Stripe Private Api Key" style="width: 50%">
+    <input type="text" placeholder="Stripe Public Api Key" style="width: 50%">
     	<?php submit_button(); ?>
   </form>
 </div>
