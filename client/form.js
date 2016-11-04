@@ -24,7 +24,7 @@ function showErrors(el) {
 
 export default function() {
 
-  on('submit', function(e) {
+  allOn('submit', function(e) {
     e.preventDefault();
     console.log(this);
     let $form = this;
@@ -33,7 +33,7 @@ export default function() {
     let results = [false];
 
     Promise.all(map(showErrors)(inputs)).then(circles => console.log(circles));
-  })(document.querySelector('form[data-validate="true"]'));
+  })(document.querySelectorAll('form[data-validate="true"]'));
 }
 
 
