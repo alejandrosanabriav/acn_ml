@@ -6,7 +6,7 @@ export default function() {
   $('form[data-validate="true"]').on('submit', function(e) {
     e.preventDefault();
     let inputs = $(this).find('input');
-
+    let isValid = false;
     inputs.each(function(index) {
       let $form = $(this);
       let val = $form.val();
@@ -24,12 +24,17 @@ export default function() {
           $err
           .append(messages[i]);
         } else {
-          console.log($form.serialize(), 'nothing to validate');
+          isValid = true;
         }
 
       });
 
+
+
     });
+
+    console.log('is valid: ', isValid);
+
 
   });
 }

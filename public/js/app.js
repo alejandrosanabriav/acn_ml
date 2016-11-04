@@ -10328,7 +10328,7 @@
 	  (0, _jquery2.default)('form[data-validate="true"]').on('submit', function (e) {
 	    e.preventDefault();
 	    var inputs = (0, _jquery2.default)(this).find('input');
-
+	    var isValid = false;
 	    inputs.each(function (index) {
 	      var $form = (0, _jquery2.default)(this);
 	      var val = $form.val();
@@ -10343,10 +10343,12 @@
 	        if (!(0, _validate2.default)(type, val)) {
 	          $err.append(messages[i]);
 	        } else {
-	          console.log($form.serialize(), 'nothing to validate');
+	          isValid = true;
 	        }
 	      });
 	    });
+
+	    console.log('is valid: ', isValid);
 	  });
 	};
 
