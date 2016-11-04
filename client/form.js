@@ -5,8 +5,9 @@ import validate from './validate';
 export default function() {
   $('form[data-validate="true"]').on('submit', function(e) {
     e.preventDefault();
-    let inputs = $(this).find('input');
+    let inputs = $(this).find('input, select');
     let isValid = false;
+
     inputs.each(function(index) {
       let $form = $(this);
       let val = $form.val();

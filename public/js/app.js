@@ -10327,8 +10327,9 @@
 	exports.default = function () {
 	  (0, _jquery2.default)('form[data-validate="true"]').on('submit', function (e) {
 	    e.preventDefault();
-	    var inputs = (0, _jquery2.default)(this).find('input');
+	    var inputs = (0, _jquery2.default)(this).find('input, select');
 	    var isValid = false;
+
 	    inputs.each(function (index) {
 	      var $form = (0, _jquery2.default)(this);
 	      var val = $form.val();
