@@ -52,5 +52,19 @@
     </div>
   </div>
 
+  <div class="bs_donate_form__step bs_donate_form__step-3">
+      <div class="col-md-12">
+      <div class="input-container">
+        <input type="text" name="name" class="input" placeholder="Name">
+      </div>
+    </div>
+    
+     <div class="col-md-12">
+      <div class="input-container">
+        <input type="text" name="email" class="input" placeholder="Email">
+      </div>
+    </div>
+  </div>
+
   <button class="btn">Donate</button>
 </form>
