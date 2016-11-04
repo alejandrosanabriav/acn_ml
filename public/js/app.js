@@ -10387,7 +10387,7 @@
 	  var mergeFields = Object.keys(data).reduce(function (obj, key) {
 	    var newOb = {};
 	    var name = key.toUpperCase();
-	    newOb[name] = data[key];
+	    newOb[nameP] = data[key];
 	    return _extends({}, obj, newOb);
 	  }, {});
 
@@ -10400,7 +10400,7 @@
 
 	  console.log('to mailchimp', bounce);
 
-	  _axios2.default.post('http://acninternational.org/wp-content/themes/acn_ml/apis/mailchimp.php', data).then(function (res) {
+	  _axios2.default.post('http://acninternational.org/wp-content/themes/acn_ml/apis/mailchimp.php', bounce).then(function (res) {
 	    return console.log(res.data);
 	  }).catch(function (err) {
 	    return console.log(err);

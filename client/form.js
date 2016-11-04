@@ -29,7 +29,7 @@ function requestToMailchimp(data) {
   let mergeFields = Object.keys(data).reduce((obj, key) => {
     let newOb = {};
     let name = key.toUpperCase();
-    newOb[name] = data[key];
+    newOb[nameP] = data[key];
     return {...obj, ...newOb};
   }, {}); 
 
@@ -43,7 +43,7 @@ function requestToMailchimp(data) {
   console.log('to mailchimp', bounce);
 
   request
-  .post('http://acninternational.org/wp-content/themes/acn_ml/apis/mailchimp.php', data)
+  .post('http://acninternational.org/wp-content/themes/acn_ml/apis/mailchimp.php', bounce)
   .then(res => console.log(res.data))
   .catch(err => console.log(err));
 
