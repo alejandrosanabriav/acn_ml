@@ -10339,7 +10339,7 @@
 	      $err.empty();
 
 	      validations.forEach(function (type, i) {
-	        if (!validate(type, val)) {
+	        if (!(0, _validate2.default)(type, val)) {
 	          $err.append(messages[i]);
 	        }
 	      });
@@ -10351,27 +10351,11 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _validator = __webpack_require__(4);
+	var _validate = __webpack_require__(69);
 
-	var _validator2 = _interopRequireDefault(_validator);
+	var _validate2 = _interopRequireDefault(_validate);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function validate(type, val) {
-	  switch (type) {
-	    case 'required':
-	      return !_validator2.default.isEmpty(val);
-	      break;
-	    case 'email':
-	      return _validator2.default.isEmail(val);
-	      break;
-	    case 'alpha':
-	      return _validator2.default.isAlpha(val);
-	      break;
-	    default:
-	      return false;
-	  }
-	}
 
 /***/ },
 /* 4 */
@@ -13129,6 +13113,39 @@
 	  return parts.join('@');
 	}
 	module.exports = exports['default'];
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = validate;
+
+	var _validator = __webpack_require__(4);
+
+	var _validator2 = _interopRequireDefault(_validator);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function validate(type, val) {
+	  switch (type) {
+	    case 'required':
+	      return !_validator2.default.isEmpty(val);
+	      break;
+	    case 'email':
+	      return _validator2.default.isEmail(val);
+	      break;
+	    case 'alpha':
+	      return _validator2.default.isAlpha(val);
+	      break;
+	    default:
+	      return false;
+	  }
+	}
 
 /***/ }
 /******/ ]);
