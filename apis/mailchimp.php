@@ -1,7 +1,7 @@
 <?php
 $dir_base =  str_replace('apis', '', __DIR__);
 
-if(file_exists($dir_bas . '/vendor/autoload.php')) {
+if(file_exists($dir_base . '/vendor/autoload.php')) {
 
   require 'vendor/autoload.php';
   $urlBase = 'http://us13.api.mailchimp.com/3.0/';
@@ -56,4 +56,5 @@ if(file_exists($dir_bas . '/vendor/autoload.php')) {
 
   echo file_get_contents('php://input');
 }
+echo $dir_base . '/vendor/autoload.php';
 ?>
