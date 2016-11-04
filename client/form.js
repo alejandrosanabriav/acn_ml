@@ -24,9 +24,9 @@ export default function() {
 
       validations.forEach((type, i) => {
         if(!validate(type, val)) {
-           isValid = false;
           $err
           .append(messages[i]);
+          isValid = false;
         }
 
       });

@@ -10344,8 +10344,8 @@
 
 	      validations.forEach(function (type, i) {
 	        if (!(0, _validate2.default)(type, val)) {
-	          isValid = false;
 	          $err.append(messages[i]);
+	          isValid = false;
 	        }
 	      });
 	    });
