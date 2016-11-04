@@ -10355,8 +10355,8 @@
 	}
 
 	function showErrors(el) {
-	  console.log(el);
-	  var $input = (0, _jquery2.default)(this);
+
+	  var $input = (0, _jquery2.default)(el);
 	  var val = $input.val();
 	  var name = $input.attr('name');
 	  var validations = $input.data('validate').split('|');

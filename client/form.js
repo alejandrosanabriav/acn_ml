@@ -10,8 +10,8 @@ function each(fn) {
 
 
 function showErrors(el) {
-  console.log(el);
-  let $input = $(this);
+
+  let $input = $(el);
   let val = $input.val();
   let name = $input.attr('name');
   let validations = $input.data('validate').split('|');
