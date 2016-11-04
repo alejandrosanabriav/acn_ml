@@ -10322,7 +10322,7 @@
 
 	exports.default = function () {
 
-	  document.querySelectorAll('form[data-validate="true"]').on('submit', function (e) {
+	  (0, _fun.on)('submit', function (e) {
 	    e.preventDefault();
 	    console.log(this);
 	    var $form = this;
@@ -10333,7 +10333,7 @@
 	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (circles) {
 	      return console.log(circles);
 	    });
-	  });
+	  })(document.querySelector('form[data-validate="true"]'));
 	};
 
 	var _validate = __webpack_require__(69);
