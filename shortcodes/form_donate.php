@@ -5,12 +5,15 @@
   <div class="row">
     <div class="bs_donate_form__step bs_donate_form__step-1">
       <div class="col-md-12">
-        <button class="btn" data-amount="10">10</button>
-        <button class="btn" data-amount="30">30</button>
-        <button class="btn" data-amount="50">50</button>
-        <button class="btn" data-amount="100">100</button>
-        <button class="btn" data-amount="">Other</button>
+        <div class="input-container">
+          <button class="btn" data-amount="10">10</button>
+          <button class="btn" data-amount="30">30</button>
+          <button class="btn" data-amount="50">50</button>
+          <button class="btn" data-amount="100">100</button>
+          <button class="btn" data-amount="">Other</button>
+        </div>
       </div>
+      
       <div class="col-sm-6">
         <div class="input_container">
           <input type="text" name="amount" class="input" placeholder="Amount">
