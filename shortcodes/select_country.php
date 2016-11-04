@@ -1,5 +1,5 @@
 <?php
-  include str_replace('shortcodes', '',  __DIR__) . 'lib/countries.php';
+  include_once str_replace('shortcodes', '',  __DIR__) . 'lib/countries.php';
 ?>
 
 <div class="input_container">
@@ -13,7 +13,7 @@
     data-validate="<?php echo $at['validate'] ?>"
     data-messages="<?php echo $at['messages'] ?>"
   >
-  
+
     <option value=""><?php echo $at['placeholder'] ?></option>
     <?php foreach(getCountries() as $country): ?>
       <option value="<?php echo $country ?>"><?php echo $country ?></option>
