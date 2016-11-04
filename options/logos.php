@@ -40,7 +40,7 @@ function logos_settings_page() {
 			<h1>Offices</h1>
 		</div>
 
-  <form method="post" action="options.php" style="position: relative; width: 80%; margin: 0 auto">
+  <form method="post" action="options.php" style="position: relative; width: 100%; margin: 0 auto">
       <?php settings_fields( 'bs_country_info_group' ); ?>
       <?php do_settings_sections( 'bs_country_info_group' ); ?>
 

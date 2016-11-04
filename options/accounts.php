@@ -32,33 +32,33 @@ function bs_accounts_options() {
   <form method="post" action="options.php" style="position: relative; margin: 0 auto">
     <?php settings_fields( 'bs_accounts_info_group' ); ?>
     <?php do_settings_sections( 'bs_accounts_info_group' ); ?>
-    
+
     <p>
         <input 
+          style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
           type="text"
           name="mailchimp_api"
           placeholder="Mailchimp Api Key" 
-          style="width: 50%"
           value="<?php echo get_option('mailchimp_api') ?>"
           >
     </p>
 
     <p>
       <input 
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
         name="stripe_key_private"
         placeholder="Stripe Private Api Key" 
-        style="width: 50%"
         value="<?php echo get_option('stripe_key_private') ?>"
         >
     </p>
 
     <p>
       <input 
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
         name="stripe_key_public"
         placeholder="Stripe Public Api Key" 
-        style="width: 50%"
         value="<?php echo get_option('stripe_key_public') ?>"
         >
     </p>
