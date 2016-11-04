@@ -10327,24 +10327,25 @@
 	exports.default = function () {
 	  (0, _jquery2.default)('form[data-validate="true"]').on('submit', function (e) {
 	    e.preventDefault();
-	    var inputs = (0, _jquery2.default)(this).find('input, select');
+	    var $form = (0, _jquery2.default)(this);
+	    var inputs = (0, _jquery2.default)(this).find('input');
 	    var isValid = false;
 
 	    inputs.each(function (index) {
-	      var $form = (0, _jquery2.default)(this);
-	      var val = $form.val();
-	      var name = $form.attr('name');
-	      var validations = $form.data('validate').split('|');
-	      var messages = $form.data('messages').split('|');
+	      var $input = (0, _jquery2.default)(this);
+	      var val = $input.val();
+	      var name = $input.attr('name');
+	      var validations = $input.data('validate').split('|');
+	      var messages = $input.data('messages').split('|');
 	      var $err = (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors');
 
 	      $err.empty();
+	      isValid = true;
 
 	      validations.forEach(function (type, i) {
 	        if (!(0, _validate2.default)(type, val)) {
+	          isValid = false;
 	          $err.append(messages[i]);
-	        } else {
-	          isValid = true;
 	        }
 	      });
 	    });

@@ -5,32 +5,31 @@ import validate from './validate';
 export default function() {
   $('form[data-validate="true"]').on('submit', function(e) {
     e.preventDefault();
-    let inputs = $(this).find('input, select');
+    let $form = $(this);
+    let inputs = $(this).find('input');
     let isValid = false;
 
     inputs.each(function(index) {
-      let $form = $(this);
-      let val = $form.val();
-      let name = $form.attr('name');
-      let validations = $form.data('validate').split('|');
-      let messages = $form.data('messages').split('|');
+      let $input = $(this);
+      let val = $input.val();
+      let name = $input.attr('name');
+      let validations = $input.data('validate').split('|');
+      let messages = $input.data('messages').split('|');
       let $err = $(`input[name="${name}"]`)
           .parent()
           .find('.input__errors');
       
       $err.empty();
+      isValid = true;
 
       validations.forEach((type, i) => {
         if(!validate(type, val)) {
+           isValid = false;
           $err
           .append(messages[i]);
-        } else {
-          isValid = true;
         }
 
       });
-
-
 
     });
 
