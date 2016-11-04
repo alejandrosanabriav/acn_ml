@@ -14951,7 +14951,7 @@
 	    var step = $form.querySelector('input[name="step"]').value;
 	    var maxStep = 3;
 	    if (step != maxStep) {
-	      $form.querySelector('input[name="step"]').setAttribute('value', step + 1);
+	      $form.querySelector('input[name="step"]').setAttribute('value', parseInt(step) + 1);
 	    }
 
 	    console.log(step);
