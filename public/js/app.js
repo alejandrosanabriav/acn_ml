@@ -14948,7 +14948,7 @@
 	  var onSubmit = function onSubmit(e) {
 	    e.preventDefault();
 	    var $form = this;
-	    console.log(this);
+	    console.log('submit', this);
 	  };
 
 	  (0, _fun.onAll)('submit', onSubmit)($forms);

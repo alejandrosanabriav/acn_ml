@@ -7,7 +7,7 @@ export default function donate() {
   let onSubmit = function(e) {
     e.preventDefault();
     let $form = this;
-    console.log(this);
+    console.log('submit', this);
   };
 
   onAll('submit', onSubmit)($forms);
