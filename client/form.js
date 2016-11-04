@@ -31,7 +31,7 @@ export default function() {
 
       validations.forEach((type, i) => {
         if(!validate(type, val)) {
-          $(`input[name="${name}"]`).parent().empty().prepend(messages[i]);
+          $(`input[name="${name}"]`).parent().prepend(messages[i]);
         }
 
       });
