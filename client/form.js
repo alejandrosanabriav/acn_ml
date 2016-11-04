@@ -18,13 +18,6 @@ function validate(type, val) {
   }
 }
 
-function cleanErrors(name) {
-  return $(`input[name="${name}"]`)
-          .parent()
-          .find('.input__errors')
-          .empty();
-}
-
 export default function() {
   $('form[data-validate="true"]').on('submit', function(e) {
     e.preventDefault();
@@ -35,13 +28,16 @@ export default function() {
       let name = $(this).attr('name');
       let validations = $(this).data('validate').split('|');
       let messages = $(this).data('messages').split('|');
+      let $err = $(`input[name="${name}"]`)
+          .parent()
+          .find('.input__errors');
+      
+      $err.empty();
 
       validations.forEach((type, i) => {
         if(!validate(type, val)) {
-          cleanErrors(name)
+          $err
           .append(messages[i]);
-        } else {
-          cleanErrors(name);
         }
 
       });

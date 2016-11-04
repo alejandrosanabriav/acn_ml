@@ -10334,12 +10334,13 @@
 	      var name = (0, _jquery2.default)(this).attr('name');
 	      var validations = (0, _jquery2.default)(this).data('validate').split('|');
 	      var messages = (0, _jquery2.default)(this).data('messages').split('|');
+	      var $err = (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors');
+
+	      $err.empty();
 
 	      validations.forEach(function (type, i) {
 	        if (!validate(type, val)) {
-	          cleanErrors(name).append(messages[i]);
-	        } else {
-	          cleanErrors(name);
+	          $err.append(messages[i]);
 	        }
 	      });
 	    });
@@ -10370,10 +10371,6 @@
 	    default:
 	      return false;
 	  }
-	}
-
-	function cleanErrors(name) {
-	  return (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors').empty();
 	}
 
 /***/ },
