@@ -22,7 +22,7 @@ export default function() {
       
       $err.empty();
 
-      let f = Promise.all(validations.map((type, i) => {
+      validations.map((type, i) => {
         if(!validate(type, val)) {
           $err
           .append(messages[i]);
@@ -30,13 +30,8 @@ export default function() {
         }
 
         return true;
-      }));
+      });
 
-      return f;
-
-    });
-
-    nea.then(res => console.log(res));
-
+    }).promise().done(e => console.log(e));
   });
 }

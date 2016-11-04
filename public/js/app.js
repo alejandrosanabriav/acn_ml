@@ -10342,20 +10342,16 @@
 
 	      $err.empty();
 
-	      var f = Promise.all(validations.map(function (type, i) {
+	      validations.map(function (type, i) {
 	        if (!(0, _validate2.default)(type, val)) {
 	          $err.append(messages[i]);
 	          return false;
 	        }
 
 	        return true;
-	      }));
-
-	      return f;
-	    });
-
-	    nea.then(function (res) {
-	      return console.log(res);
+	      });
+	    }).promise().done(function (e) {
+	      return console.log(e);
 	    });
 	  });
 	};
