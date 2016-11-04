@@ -3,6 +3,7 @@ import { map, each, on, onAll, reduce, flatten } from './fun';
 
 function changeStep(el = document, step = 1) {
   let nextStep =  (parseInt(step) + 1);
+  console.log(nextStep);
   el.querySelector('input[name="step"]').setAttribute('value', nextStep);
   el.querySelector(`.bs_donate_form__step-${step}`).style.display = 'block';
 }
