@@ -32,7 +32,7 @@ export default function() {
 
 
     });
-
+”
     console.log('is valid: ', isValid);
 
 
