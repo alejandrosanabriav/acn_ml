@@ -11,16 +11,18 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-6">
-      <div class="input-container">
-        <input type="text" name="amout" class="input">
+    <div class="bs_donate_form__step-1">
+      <div class="col-sm-6">
+        <div class="input-container">
+          <input type="text" name="amout" class="input">
+        </div>
       </div>
-    </div>
 
-    <div class="col-sm-6">
-      <a href="#" data-type="monthly">Monthly</a>
-      <a href="#" data-type="once">Once</a>
-      <input type="hidden" name="type" value="monthly">
+      <div class="col-sm-6">
+        <a href="#" data-type="monthly">Monthly</a>
+        <a href="#" data-type="once">Once</a>
+        <input type="hidden" name="type" value="monthly">
+      </div>
     </div>
   </div>
 </form>
