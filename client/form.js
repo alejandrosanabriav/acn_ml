@@ -31,7 +31,11 @@ export default function() {
 
       validations.forEach((type, i) => {
         if(!validate(type, val)) {
-          $(`input[name="${name}"]`).parent().find('.input__errors').empty().append(messages[i]);
+          $(`input[name="${name}"]`)
+          .parent()
+          .find('.input__errors')
+          .empty()
+          .append(messages[i]);
         }
 
       });
