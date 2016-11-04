@@ -1,5 +1,5 @@
 <?php
-
+include_once 'mailchimp.php';
 add_action( 'wp_ajax_nopriv_mailchimp_subscribe', 'mailchimp_subscribe' );
 add_action( 'wp_ajax_mailchimp_subscribe', 'mailchimp_subscribe' );
 
