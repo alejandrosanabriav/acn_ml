@@ -10324,14 +10324,13 @@
 
 	  (0, _fun.allOn)('submit', function (e) {
 	    e.preventDefault();
-	    console.log(this);
 	    var $form = this;
 	    var inputs = $form.querySelectorAll('input');
 	    var isValid = false;
 	    var results = [false];
 
 	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (circles) {
-	      return console.log(circles);
+	      return console.log([].concat(circles));
 	    });
 	  })(document.querySelectorAll('form[data-validate="true"]'));
 	};
@@ -13183,7 +13182,7 @@
 	};
 
 	var allOn = exports.allOn = function allOn(event, fn) {
-	  each(on(event, fn));
+	  return each(on(event, fn));
 	};
 
 /***/ }
