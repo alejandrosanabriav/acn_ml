@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 $urlBase = 'http://us13.api.mailchimp.com/3.0/';
 $apiKey = '709cb76ed68f751a3ae287f2c067a046-us13';
 
