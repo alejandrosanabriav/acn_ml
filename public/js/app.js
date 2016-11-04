@@ -10322,7 +10322,7 @@
 
 	exports.default = function () {
 
-	  allOn('submit', function (e) {
+	  (0, _fun.allOn)('submit', function (e) {
 	    e.preventDefault();
 	    console.log(this);
 	    var $form = this;

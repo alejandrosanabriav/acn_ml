@@ -1,6 +1,6 @@
 'use strict';
 import validate from './validate';
-import {map, each, on} from './fun';
+import {map, each, on, allOn} from './fun';
 
 function showErrors(el) {
   let $input = el;
