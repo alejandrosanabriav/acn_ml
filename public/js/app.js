@@ -14948,7 +14948,7 @@
 	  var onSubmit = function onSubmit(e) {
 	    e.preventDefault();
 	    var $form = this;
-	    var step = $form.querySelector('input[name="step"]').value();
+	    var step = $form.querySelector('input[name="step"]').value;
 	    console.log('submit', step);
 	  };
 

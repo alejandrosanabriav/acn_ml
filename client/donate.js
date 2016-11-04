@@ -7,7 +7,7 @@ export default function donate() {
   let onSubmit = function(e) {
     e.preventDefault();
     let $form = this;
-    let step = $form.querySelector('input[name="step"]').value();
+    let step = $form.querySelector('input[name="step"]').value;
     console.log('submit', step);
   };
 
