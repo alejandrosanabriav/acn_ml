@@ -14943,25 +14943,23 @@
 	var _fun = __webpack_require__(96);
 
 	function donate() {
+	  var $forms = document.querySelectorAll('.bs_donate_form');
+
 	  var onSubmit = function onSubmit(e) {
 	    e.preventDefault();
 	    var $form = this;
 	    console.log(this);
 	  };
 
-	  var $forms = document.querySelectorAll('.bs_donate_form');
-
 	  (0, _fun.onAll)('submit', onSubmit)($forms);
 
 	  (0, _fun.each)(function (el) {
-	    var _this = this;
-
 	    var $form = el;
 	    var $amountBtns = $form.querySelectorAll('button[data-amount]');
 
 	    (0, _fun.onAll)('click', function (e) {
 	      e.preventDefault();
-	      console.log('btn', _this);
+	      console.log('btn', this);
 	    })($amountBtns);
 	  })($forms);
 	}

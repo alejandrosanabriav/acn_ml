@@ -2,13 +2,13 @@
 import { map, each, on, onAll, reduce, flatten } from './fun';
 
 export default function donate() {
+  let $forms = document.querySelectorAll('.bs_donate_form');  
+
   let onSubmit = function(e) {
     e.preventDefault();
     let $form = this;
     console.log(this);
   };
-
-  let $forms = document.querySelectorAll('.bs_donate_form');  
 
   onAll('submit', onSubmit)($forms);
 
@@ -16,7 +16,7 @@ export default function donate() {
     let $form = el;
     let $amountBtns = $form.querySelectorAll('button[data-amount]');
 
-    onAll('click', (e) => {
+    onAll('click', function(e) {
       e.preventDefault();
       console.log('btn', this);
     })($amountBtns);
