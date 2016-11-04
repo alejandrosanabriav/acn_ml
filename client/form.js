@@ -3,6 +3,7 @@ import $ from 'jquery';
 import validate from './validate';
 
 function showErrors() {
+  console.log(this);
         let $input = $(this);
       let val = $input.val();
       let name = $input.attr('name');

@@ -10349,6 +10349,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function showErrors() {
+	  console.log(this);
 	  var $input = (0, _jquery2.default)(this);
 	  var val = $input.val();
 	  var name = $input.attr('name');
