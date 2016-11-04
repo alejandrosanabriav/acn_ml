@@ -14949,18 +14949,22 @@
 	    e.preventDefault();
 	    var $form = this;
 	    var step = $form.querySelector('input[name="step"]').value;
-	    console.log('submit', step);
+	    var maxStep = 3;
+	    console.log('step', step);
 	  };
 
 	  (0, _fun.onAll)('submit', onSubmit)($forms);
 
+	  //handle btns amount
 	  (0, _fun.each)(function (el) {
 	    var $form = el;
 	    var $amountBtns = $form.querySelectorAll('button[data-amount]');
+	    var $amountInput = $form.querySelector('input[name="amount"]');
 
 	    (0, _fun.onAll)('click', function (e) {
 	      e.preventDefault();
-	      console.log('btn', this);
+	      var amount = this.getAttribute('data-amout');
+	      $amountInput.value = amount;
 	    })($amountBtns);
 	  })($forms);
 	}

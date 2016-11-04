@@ -8,18 +8,22 @@ export default function donate() {
     e.preventDefault();
     let $form = this;
     let step = $form.querySelector('input[name="step"]').value;
-    console.log('submit', step);
+    let maxStep = 3;
+    console.log('step', step);
   };
 
   onAll('submit', onSubmit)($forms);
 
+  //handle btns amount
   each(function(el) {
     let $form = el;
     let $amountBtns = $form.querySelectorAll('button[data-amount]');
+    let $amountInput = $form.querySelector('input[name="amount"]');
 
     onAll('click', function(e) {
       e.preventDefault();
-      console.log('btn', this);
+      let amount = this.getAttribute('data-amout');
+      $amountInput.value = amount;
     })($amountBtns);
 
   })($forms);
