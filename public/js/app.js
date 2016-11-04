@@ -10347,7 +10347,10 @@
 	          isValid = false;
 	        }
 	      });
-	      console.log(f);
+
+	      f.then(function (res) {
+	        return console.log('then');
+	      });
 	    });
 
 	    console.log('is valid: ', isValid);

@@ -29,7 +29,10 @@ export default function() {
         }
 
       });
-      console.log(f);
+
+      f.then(res => console.log('then'));
+      
+
     });
 
     console.log('is valid: ', isValid);
