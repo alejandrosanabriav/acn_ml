@@ -10332,7 +10332,7 @@
 	    var isValid = false;
 	    var results = [false];
 	    var data = (0, _fun.reduce)(serializeInput)(inputs);
-
+	    console.log(data);
 	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (res) {
 	      return (0, _fun.flatten)(res);
 	    }).then(function (arr) {
