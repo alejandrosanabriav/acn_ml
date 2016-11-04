@@ -24,10 +24,11 @@ function showErrors(el) {
 }
 
 export default function() {
-  $('form[data-validate="true"]').on('submit', function(e) {
+  document.querySelectorAll('form[data-validate="true"]').addEventListener('submit', function(e) {
     e.preventDefault();
-    let $form = $(this);
-    let inputs = $(this).find('input');
+    console.log(this);
+    let $form = this;
+    let inputs = $form.document.querySelectorAll('input');
     let isValid = false;
     let results = [false];
 

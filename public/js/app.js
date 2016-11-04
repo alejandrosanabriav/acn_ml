@@ -46,10 +46,6 @@
 
 	'use strict';
 
-	var _jquery = __webpack_require__(1);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
 	var _input = __webpack_require__(2);
 
 	var _input2 = _interopRequireDefault(_input);
@@ -60,10 +56,10 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _jquery2.default)(function () {
+	(function () {
 	  (0, _input2.default)();
 	  (0, _form2.default)();
-	});
+	})();
 
 /***/ },
 /* 1 */
@@ -10325,10 +10321,11 @@
 	});
 
 	exports.default = function () {
-	  (0, _jquery2.default)('form[data-validate="true"]').on('submit', function (e) {
+	  document.querySelectorAll('form[data-validate="true"]').addEventListener('submit', function (e) {
 	    e.preventDefault();
-	    var $form = (0, _jquery2.default)(this);
-	    var inputs = (0, _jquery2.default)(this).find('input');
+	    console.log(this);
+	    var $form = this;
+	    var inputs = $form.document.querySelectorAll('input');
 	    var isValid = false;
 	    var results = [false];
 
