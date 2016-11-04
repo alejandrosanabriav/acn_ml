@@ -8,6 +8,6 @@ function mailchimp_subscribe() {
   $listId = get_option('mailchimp_list_id');
   $apiKey =  get_option('mailchimp_api');
   $res = mc_subscribe($data, $listId, $apiKey);
-  echo json_encode($res);
+  echo $res;
   die();
 }
