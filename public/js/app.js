@@ -14942,6 +14942,15 @@
 
 	var _fun = __webpack_require__(96);
 
+	function changeStep() {
+	  var el = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document;
+	  var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+	  var nextStep = parseInt(step) + 1;
+	  el.querySelector('input[name="step"]').setAttribute('value', nextStep);
+	  el.querySelector('.bs_donate_form__step-' + step).style.display = 'block';
+	}
+
 	function donate() {
 	  var $forms = document.querySelectorAll('.bs_donate_form');
 
@@ -14951,12 +14960,8 @@
 	    var step = $form.querySelector('input[name="step"]').value;
 	    var maxStep = 3;
 	    if (step != maxStep) {
-	      $form.querySelector('input[name="step"]').setAttribute('value', parseInt(step) + 1);
+	      changeStep($form, step);
 	    }
-
-	    console.log(step);
-	    $form.querySelector('.bs_donate_form__step-' + step).style.display = 'block';
-	    console.log('step', step);
 	  };
 
 	  (0, _fun.onAll)('submit', onSubmit)($forms);

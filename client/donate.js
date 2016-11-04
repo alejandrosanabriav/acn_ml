@@ -1,6 +1,12 @@
 'use strict';
 import { map, each, on, onAll, reduce, flatten } from './fun';
 
+function changeStep(el = document, step = 1) {
+  let nextStep =  (parseInt(step) + 1);
+  el.querySelector('input[name="step"]').setAttribute('value', nextStep);
+  el.querySelector(`.bs_donate_form__step-${step}`).style.display = 'block';
+}
+
 export default function donate() {
   let $forms = document.querySelectorAll('.bs_donate_form');  
 
@@ -10,12 +16,8 @@ export default function donate() {
     let step = $form.querySelector('input[name="step"]').value;
     let maxStep = 3;
     if(step != maxStep) {
-       $form.querySelector('input[name="step"]').setAttribute('value', (parseInt(step) + 1));
+      changeStep($form, step);
     }
-
-   console.log(step);
-    $form.querySelector(`.bs_donate_form__step-${step}`).style.display = 'block';
-    console.log('step', step);
   };
 
   onAll('submit', onSubmit)($forms);
