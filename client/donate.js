@@ -20,7 +20,6 @@ export default function donate() {
       console.log(this);
     })($amountBtns);
 
-
   })($forms);
   
 }
