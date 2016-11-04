@@ -10330,10 +10330,11 @@
 	    var inputs = (0, _jquery2.default)(this).find('input');
 
 	    inputs.each(function (index) {
-	      var val = (0, _jquery2.default)(this).val();
-	      var name = (0, _jquery2.default)(this).attr('name');
-	      var validations = (0, _jquery2.default)(this).data('validate').split('|');
-	      var messages = (0, _jquery2.default)(this).data('messages').split('|');
+	      var $form = (0, _jquery2.default)(this);
+	      var val = $form.val();
+	      var name = $form.attr('name');
+	      var validations = $form.data('validate').split('|');
+	      var messages = $form.data('messages').split('|');
 	      var $err = (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors');
 
 	      $err.empty();
@@ -10342,7 +10343,7 @@
 	        if (!(0, _validate2.default)(type, val)) {
 	          $err.append(messages[i]);
 	        } else {
-	          console.log('nothing to validate');
+	          console.log($form.serialize(), 'nothing to validate');
 	        }
 	      });
 	    });

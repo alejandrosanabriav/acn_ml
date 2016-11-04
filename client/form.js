@@ -8,10 +8,11 @@ export default function() {
     let inputs = $(this).find('input');
 
     inputs.each(function(index) {
-      let val = $(this).val();
-      let name = $(this).attr('name');
-      let validations = $(this).data('validate').split('|');
-      let messages = $(this).data('messages').split('|');
+      let $form = $(this);
+      let val = $form.val();
+      let name = $form.attr('name');
+      let validations = $form.data('validate').split('|');
+      let messages = $form.data('messages').split('|');
       let $err = $(`input[name="${name}"]`)
           .parent()
           .find('.input__errors');
@@ -23,7 +24,7 @@ export default function() {
           $err
           .append(messages[i]);
         } else {
-          console.log('nothing to validate');
+          console.log($form.serialize(), 'nothing to validate');
         }
 
       });
