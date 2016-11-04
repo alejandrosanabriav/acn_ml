@@ -10331,7 +10331,7 @@
 	    var inputs = $form.querySelectorAll('input');
 	    var isValid = false;
 	    var results = [false];
-	    var data = reduce(serializeInput)(inputs);
+	    var data = (0, _fun.reduce)(serializeInput)(inputs);
 
 	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (res) {
 	      return (0, _fun.flatten)(res);
