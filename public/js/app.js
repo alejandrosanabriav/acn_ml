@@ -54,11 +54,16 @@
 
 	var _form2 = _interopRequireDefault(_form);
 
+	var _donate = __webpack_require__(97);
+
+	var _donate2 = _interopRequireDefault(_donate);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	(function () {
 	  (0, _input2.default)();
 	  (0, _form2.default)();
+	  (0, _donate2.default)();
 	})();
 
 /***/ },
@@ -10324,13 +10329,12 @@
 
 	exports.default = function () {
 
-	  (0, _fun.allOn)('submit', function (e) {
+	  (0, _fun.onAll)('submit', function (e) {
 
 	    e.preventDefault();
 	    var $form = this;
 	    var inputs = $form.querySelectorAll('.input');
 	    var data = (0, _fun.reduce)(serializeInput)(inputs);
-	    console.log(data);
 
 	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (res) {
 	      return (0, _fun.flatten)(res);
@@ -14912,7 +14916,7 @@
 	  };
 	};
 
-	var allOn = exports.allOn = function allOn(event, fn) {
+	var onAll = exports.onAll = function onAll(event, fn) {
 	  return each(on(event, fn));
 	};
 
@@ -14921,6 +14925,30 @@
 	    return a.concat(b);
 	  }, [])(arr);
 	};
+
+/***/ },
+/* 97 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = donate;
+
+	var _fun = __webpack_require__(96);
+
+	function donate() {
+	  var onSubmit = function onSubmit(e) {
+	    e.preventDefault();
+	    console.log('donate');
+	  };
+
+	  var $forms = document.querySelectorAll('.bs_donate_form');
+
+	  (0, _fun.each)('submit', onSubmit)($forms);
+	}
 
 /***/ }
 /******/ ]);

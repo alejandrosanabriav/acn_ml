@@ -2,7 +2,7 @@
 import request from 'axios';
 import $ from 'jquery';
 import validate from './validate';
-import {map, each, on, allOn, reduce, flatten } from './fun';
+import {map, each, on, onAll, reduce, flatten } from './fun';
 
 function showErrors(el) {
   let $input = el;
@@ -62,13 +62,12 @@ function serializeInput(prev, el) {
 
 export default function() {
 
-  allOn('submit', function(e) {
+  onAll('submit', function(e) {
 
     e.preventDefault();
     let $form = this;
     let inputs = $form.querySelectorAll('.input');
     let data = reduce(serializeInput)(inputs);
-    console.log(data);
 
     Promise
     .all(map(showErrors)(inputs))
