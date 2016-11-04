@@ -8,6 +8,7 @@ export default function() {
     let $form = $(this);
     let inputs = $(this).find('input');
     let isValid = false;
+    let results = [];
 
     inputs.each(function(index) {
       let $input = $(this);
@@ -32,7 +33,7 @@ export default function() {
 
       }));
 
-      f.then(res => console.log(res));
+      f.then(res => console.log([...results, ...res] ));
       
 
     });
