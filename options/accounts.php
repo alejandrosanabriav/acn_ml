@@ -7,13 +7,20 @@ function bs_admin_accounts_options_menu() {
     'Accounts info', //menu name
     'manage_options', //allow it options
     'bs-accounts', //slug
-    'accounts_settings_page',
+    'bs_accounts_options',
     get_template_directory_uri() . '/public/img/bs_options.png', //icon on menu
-    110 //position on menu
+    111 //position on menu
   );
 
 	//call register settings function on init admin page
-	add_action( 'admin_init', 'bs_accounts_options' );
+	add_action( 'admin_init', 'bs_accounts_settings' );
+}
+
+function bs_accounts_settings() {
+  register_setting( 'bs_accounts_info_group', 'mailchimp_api' );
+  register_setting( 'bs_accounts_info_group', 'stripe_key_' );
+  register_setting( 'bs_accounts_info_group', 'stripe_api' );
+
 }
 
 function bs_accounts_options() {
