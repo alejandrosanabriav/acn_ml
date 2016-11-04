@@ -1099,7 +1099,8 @@ p {
   border: none;
   font-size: 1.5625em;
   font-weight: bold;
-  cursor: pointer; }
+  cursor: pointer;
+  background: #fff; }
   .btn:focus {
     outline: none; }
   .btn--outline {

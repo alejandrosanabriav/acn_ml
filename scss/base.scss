@@ -119,7 +119,8 @@ p {
   font-size: (25 / 16) * 1em;
 	font-weight: bold;
   cursor: pointer;
-
+  background: #fff;
+  
   &:focus {
     outline: none;
   }
