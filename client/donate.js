@@ -5,7 +5,7 @@ function changeStep(el = document, step = 1) {
   let nextStep =  (parseInt(step) + 1);
   console.log(nextStep);
   el.querySelector('input[name="step"]').setAttribute('value', nextStep);
-  el.querySelector(`.bs_donate_form__step-${step}`).style.display = 'block';
+  
 }
 
 export default function donate() {
@@ -19,6 +19,8 @@ export default function donate() {
     if(step != maxStep) {
       changeStep($form, step);
     }
+    
+    $form.querySelector(`.bs_donate_form__step-${step}`).style.display = 'block';
   };
 
   onAll('submit', onSubmit)($forms);
