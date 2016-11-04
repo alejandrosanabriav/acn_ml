@@ -54,8 +54,11 @@ $default_colours = '
 	';
 $custom_colours = '
 	"FC3938", "red Orange",
-	"334754", "Oxford",
-	';
+	"3c515f", "Oxford",
+	"6b7c82", "Gray",
+	"1a2127", "Dark",
+';
+
 $init['textcolor_map'] = '['.$default_colours.','.$custom_colours.']';
 $init['textcolor_rows'] = 6; // expand colour grid to 6 rows
 return $init;
