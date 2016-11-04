@@ -10323,11 +10323,14 @@
 	exports.default = function () {
 
 	  (0, _fun.allOn)('submit', function (e) {
+
 	    e.preventDefault();
 	    var $form = this;
 	    var inputs = $form.querySelectorAll('input');
 	    var isValid = false;
 	    var results = [false];
+	    var data = (0, _fun.map)(serializeInput)(inputs);
+	    console.log(data);
 
 	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (res) {
 	      return (0, _fun.flatten)(res);
@@ -10373,6 +10376,14 @@
 
 	function requestToMailchimp(data) {
 	  console.log(data);
+	}
+
+	function serializeInput(el) {
+	  var name = el.getAttribute('name');
+	  var val = el.value;
+	  var ob = {};
+	  ob[name] = val;
+	  return ob;
 	}
 
 /***/ },
