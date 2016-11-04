@@ -26,13 +26,13 @@ function bs_accounts_options() {
 ?>
 <div style="padding: 15px; margin: 15px; background: #fff; box-shadow: 1px 1px 5px rgba(0,0,0, .1);">
 
-<div style="text-align: center; text-shadow: 1px 1px 3px rgba(0,0,0, .1)"><h1>Offices</h1></div>
+  <h1>Accounts keys</h1>
     
   <form method="post" action="options.php" style="position: relative; width: 80%; margin: 0 auto">
     <input type="text" placeholder="api key">
+    	<?php submit_button(); ?>
   </form>
 </div>
-
 
 <?php
 }
