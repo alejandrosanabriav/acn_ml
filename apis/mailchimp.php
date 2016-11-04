@@ -50,5 +50,5 @@ $headers = array('Accept' => 'application/json', 'content-type' => 'application/
 // $req = Requests::post($urlBase . 'lists/' . $listId . '/members', $headers, $data, $options);
 
 
-echo json_encode($_POST);
+echo json_encode($HTTP_RAW_POST_DATA);
 ?>
