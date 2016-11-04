@@ -10332,8 +10332,8 @@
 	    var isValid = false;
 	    var results = [false];
 
-	    inputs.each(showErrors).promise().done(function (e) {
-	      return console.log(e);
+	    Promise.all(each(showErrors)(inputs)).then(function (circles) {
+	      return console.log(circles);
 	    });
 	  });
 	};
@@ -10347,6 +10347,12 @@
 	var _validate2 = _interopRequireDefault(_validate);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function each(fn) {
+	  return function (arr) {
+	    Array.prototype.forEach.call(arr, fn);
+	  };
+	}
 
 	function showErrors() {
 	  var $input = (0, _jquery2.default)(this);

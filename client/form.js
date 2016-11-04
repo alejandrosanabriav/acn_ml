@@ -2,6 +2,13 @@
 import $ from 'jquery';
 import validate from './validate';
 
+function each(fn) {
+  return function(arr) {
+    Array.prototype.forEach.call(arr, fn);
+  }
+}
+
+
 function showErrors() {
   let $input = $(this);
   let val = $input.val();
@@ -30,7 +37,7 @@ export default function() {
     let isValid = false;
     let results = [false];
 
-    inputs.each(showErrors).promise().done(e => console.log(e));
+    Promise.all(each(showErrors)(inputs)).then(circles => console.log(circles));
   });
 }
 
