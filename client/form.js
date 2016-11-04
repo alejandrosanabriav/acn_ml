@@ -8,6 +8,13 @@ function each(fn) {
   }
 }
 
+function map(fn) {
+  return function(arr) {
+    Array.prototype.map.call(arr, fn);
+  }
+}
+
+
 
 function showErrors(el) {
   let $input = el;
@@ -16,7 +23,6 @@ function showErrors(el) {
   let validations = $input.getAttribute('data-validate').split('|');
   let messages = $input.getAttribute('data-messages').split('|');
   let $err = document.querySelector(`input[name="${name}"]`).parentNode.querySelector('.input__errors');
-  console.log(validations);
 
   $err.innerHTML = '';
 
@@ -38,7 +44,7 @@ export default function() {
     let isValid = false;
     let results = [false];
 
-    Promise.all(each(showErrors)(inputs)).then(circles => console.log(circles));
+    Promise.all(map(showErrors)(inputs)).then(circles => console.log(circles));
   });
 }
 

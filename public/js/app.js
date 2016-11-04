@@ -10332,7 +10332,7 @@
 	    var isValid = false;
 	    var results = [false];
 
-	    Promise.all(each(showErrors)(inputs)).then(function (circles) {
+	    Promise.all(map(showErrors)(inputs)).then(function (circles) {
 	      return console.log(circles);
 	    });
 	  });
@@ -10354,6 +10354,12 @@
 	  };
 	}
 
+	function map(fn) {
+	  return function (arr) {
+	    Array.prototype.map.call(arr, fn);
+	  };
+	}
+
 	function showErrors(el) {
 	  var $input = el;
 	  var val = $input.value;
@@ -10361,7 +10367,6 @@
 	  var validations = $input.getAttribute('data-validate').split('|');
 	  var messages = $input.getAttribute('data-messages').split('|');
 	  var $err = document.querySelector('input[name="' + name + '"]').parentNode.querySelector('.input__errors');
-	  console.log(validations);
 
 	  $err.innerHTML = '';
 
