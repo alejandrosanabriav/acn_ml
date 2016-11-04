@@ -3,8 +3,9 @@
     <label for=""><?php echo $at['label'] ?></label>
   <?php endif; ?>
   <div class="input__errors"></div>
-  <input 
+  <input
     type="text"
+    class="input"
     placeholder="<?php echo $at['placeholder'] ?>" 
     name="<?php echo $at['id'] ?>"
     data-validate="<?php echo $at['validate'] ?>"

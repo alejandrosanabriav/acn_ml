@@ -40,11 +40,9 @@ export default function() {
 
     e.preventDefault();
     let $form = this;
-    let inputs = $form.querySelectorAll('input');
-    let selects = $form.querySelectorAll('select');
-    let dataSelects = reduce(serializeInput)(selects);
+    let inputs = $form.querySelectorAll('.input');
     let data = reduce(serializeInput)(inputs);
-    console.log(dataSelects);
+    console.log(data);
 
     Promise
     .all(map(showErrors)(inputs))

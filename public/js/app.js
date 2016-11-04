@@ -10328,11 +10328,9 @@
 
 	    e.preventDefault();
 	    var $form = this;
-	    var inputs = $form.querySelectorAll('input');
-	    var selects = $form.querySelectorAll('select');
-	    var dataSelects = (0, _fun.reduce)(serializeInput)(selects);
+	    var inputs = $form.querySelectorAll('.input');
 	    var data = (0, _fun.reduce)(serializeInput)(inputs);
-	    console.log(dataSelects);
+	    console.log(data);
 
 	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (res) {
 	      return (0, _fun.flatten)(res);
