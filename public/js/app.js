@@ -10352,7 +10352,7 @@
 	      }));
 
 	      f.then(function (res) {
-	        return results = [].concat(_toConsumableArray(results), [res]);
+	        return results = [results].concat(_toConsumableArray(res));
 	      });
 	    });
 
