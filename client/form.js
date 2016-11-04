@@ -24,7 +24,22 @@ function showErrors(el) {
 }
 
 function requestToMailchimp(data) {
-  console.log('to mailchimp', data);
+  const {email} = data;
+
+  let mergeFields = Object.keys(data).reduce(obj, key => {
+    let newOb = {};
+    newOb[key.toUpperCase] = data[key];
+    return {..obj, ...newOb};
+  }, {}); 
+
+  let bounce = {
+    "email_address": email,
+    "status": "subscribed",
+    "merge_fields": mergeFields,
+    "update_existing": true
+  };      
+
+  console.log('to mailchimp', bounce);
 
   request
   .post('http://acninternational.org/wp-content/themes/acn_ml/apis/mailchimp.php', data)
