@@ -10332,7 +10332,7 @@
 	    var isValid = false;
 	    var results = [false];
 
-	    var nea = inputs.each(showErrors).promise().done(function (e) {
+	    inputs.each(showErrors).promise().done(function (e) {
 	      return console.log(e);
 	    });
 	  });
@@ -10349,17 +10349,21 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function showErrors() {
-	  console.log(this);
 	  var $input = (0, _jquery2.default)(this);
 	  var val = $input.val();
 	  var name = $input.attr('name');
 	  var validations = $input.data('validate').split('|');
 	  var messages = $input.data('messages').split('|');
 	  var $err = (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors');
+
 	  $err.empty();
+
 	  validations.map(function (type, i) {
 	    if (!(0, _validate2.default)(type, val)) {
+	      $input.data('is-valid', false);
 	      $err.append(messages[i]);
+	    } else {
+	      $input.data('is-valid', true);
 	    }
 	  });
 	}
