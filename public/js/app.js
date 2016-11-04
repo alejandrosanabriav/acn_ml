@@ -14964,7 +14964,7 @@
 	    (0, _fun.onAll)('click', function (e) {
 	      e.preventDefault();
 	      var amount = this.getAttribute('data-amout');
-	      $amountInput.value = amount;
+	      $amountInput.setAttribute('value', amount);
 	    })($amountBtns);
 	  })($forms);
 	}

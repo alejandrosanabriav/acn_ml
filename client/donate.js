@@ -23,7 +23,7 @@ export default function donate() {
     onAll('click', function(e) {
       e.preventDefault();
       let amount = this.getAttribute('data-amout');
-      $amountInput.value = amount;
+      $amountInput.setAttribute('value', amount);
     })($amountBtns);
 
   })($forms);
