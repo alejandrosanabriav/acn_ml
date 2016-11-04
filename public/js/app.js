@@ -13182,8 +13182,8 @@
 	  };
 	};
 
-	var allOn = exports.allOn = function allOn(fn) {
-	  each(on(fn));
+	var allOn = exports.allOn = function allOn(event, fn) {
+	  each(on(event, fn));
 	};
 
 /***/ }
