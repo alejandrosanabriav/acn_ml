@@ -10386,7 +10386,8 @@
 
 	  var mergeFields = Object.keys(data).reduce(function (obj, key) {
 	    var newOb = {};
-	    newOb[key.toUpperCase] = data[key];
+	    var name = key.toUpperCase();
+	    newOb[name] = data[key];
 	    return _extends({}, obj, newOb);
 	  }, {});
 
