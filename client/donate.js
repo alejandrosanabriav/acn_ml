@@ -5,6 +5,7 @@ export default function donate() {
   let onSubmit = function(e) {
     e.preventDefault();
     let $form = this;
+    console.log(this);
   };
 
   let $forms = document.querySelectorAll('.bs_donate_form');  
