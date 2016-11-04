@@ -27,17 +27,36 @@ function bs_accounts_options() {
 <div style="padding: 15px; margin: 15px; background: #fff; box-shadow: 1px 1px 5px rgba(0,0,0, .1);">
 
   <h1>Accounts keys</h1>
-    
+  <p></p>
   <form method="post" action="options.php" style="position: relative; margin: 0 auto">
     <p>
-        <input type="text" placeholder="Mailchimp Api Key" style="width: 50%">
-    </p>
-    <p>
-      <input type="text" placeholder="Stripe Private Api Key" style="width: 50%">
+        <input 
+          type="text"
+          name="mailchimp_api"
+          placeholder="Mailchimp Api Key" 
+          style="width: 50%"
+          value="<?php echo get_option('mailchimp_api') ?>"
+          >
     </p>
 
     <p>
-      <input type="text" placeholder="Stripe Public Api Key" style="width: 50%">
+      <input 
+        type="text"
+        name="stripe_key_private"
+        placeholder="Stripe Private Api Key" 
+        style="width: 50%"
+        value="<?php echo get_option('stripe_key_private') ?>"
+        >
+    </p>
+
+    <p>
+      <input 
+        type="text"
+        name="stripe_key_public"
+        placeholder="Stripe Public Api Key" 
+        style="width: 50%"
+        value="<?php echo get_option('stripe_key_public') ?>"
+        >
     </p>
     <p>
       <?php submit_button(); ?>
