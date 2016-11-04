@@ -44,7 +44,9 @@ export default function() {
     let isValid = false;
     let results = [false];
     let data = reduce(serializeInput)(inputs);
+    
     console.log(data);
+
     Promise
     .all(map(showErrors)(inputs))
     .then(res => flatten(res) )

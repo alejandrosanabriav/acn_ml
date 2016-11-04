@@ -10332,7 +10332,9 @@
 	    var isValid = false;
 	    var results = [false];
 	    var data = (0, _fun.reduce)(serializeInput)(inputs);
+
 	    console.log(data);
+
 	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (res) {
 	      return (0, _fun.flatten)(res);
 	    }).then(function (arr) {
@@ -13199,8 +13201,9 @@
 	};
 
 	var reduce = exports.reduce = function reduce(fn) {
+	  var initial = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 	  return function (arr) {
-	    return Array.prototype.reduce.call(arr, fn);
+	    return Array.prototype.reduce.call(arr, fn, initial);
 	  };
 	};
 
@@ -13217,7 +13220,7 @@
 	var flatten = exports.flatten = function flatten(arr) {
 	  return reduce(function (a, b) {
 	    return a.concat(b);
-	  })(arr);
+	  }, [])(arr);
 	};
 
 /***/ }
