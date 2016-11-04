@@ -10332,7 +10332,7 @@
 	    var isValid = false;
 	    var results = [false];
 
-	    inputs.each(function (index) {
+	    var nea = inputs.each(function (index) {
 	      var $input = (0, _jquery2.default)(this);
 	      var val = $input.val();
 	      var name = $input.attr('name');
@@ -10351,12 +10351,12 @@
 	        return true;
 	      }));
 
-	      f.then(function (res) {
-	        return results = [].concat(_toConsumableArray(results), _toConsumableArray(res));
-	      });
+	      return f;
 	    });
 
-	    console.log('is valid: ', results);
+	    nea.then(function (res) {
+	      return console.log(res);
+	    });
 	  });
 	};
 
@@ -10369,8 +10369,6 @@
 	var _validate2 = _interopRequireDefault(_validate);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 /***/ },
 /* 4 */

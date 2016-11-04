@@ -10,7 +10,7 @@ export default function() {
     let isValid = false;
     let results = [false];
 
-    inputs.each(function(index) {
+    let nea = inputs.each(function(index) {
       let $input = $(this);
       let val = $input.val();
       let name = $input.attr('name');
@@ -30,15 +30,13 @@ export default function() {
         }
 
         return true;
-
       }));
 
-      f.then(res => results = [...results, ...res]);
-      
+      return f;
+
     });
 
-    console.log('is valid: ', results);
-
+    nea.then(res => console.log(res));
 
   });
 }
