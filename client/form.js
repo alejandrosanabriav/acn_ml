@@ -38,7 +38,8 @@ export default function() {
     Promise
     .all(map(showErrors)(inputs))
     .then(res => flatten(res) )
-    .then(arr => console.log(arr.filter(b => b == false) == 0  ) )
+    .then(arr => arr.filter(b => b == false) == 0  )
+    .then(isValid => console.log(isValid))
     .catch(err => console.log('err on form.js: ', err));
 
   })(document.querySelectorAll('form[data-validate="true"]'));

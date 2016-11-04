@@ -10332,9 +10332,11 @@
 	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (res) {
 	      return (0, _fun.flatten)(res);
 	    }).then(function (arr) {
-	      return console.log(arr.filter(function (b) {
+	      return arr.filter(function (b) {
 	        return b == false;
-	      }) == 0);
+	      }) == 0;
+	    }).then(function (isValid) {
+	      return console.log(isValid);
 	    }).catch(function (err) {
 	      return console.log('err on form.js: ', err);
 	    });
