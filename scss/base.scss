@@ -97,6 +97,8 @@ input, select {
   padding-left: 20px;
   background: transparent;
   color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance : none;
   
   &::-webkit-input-placeholder {
     color: #fff;

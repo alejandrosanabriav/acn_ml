@@ -1079,7 +1079,9 @@ input, select {
   font-size: 1.125em;
   padding-left: 20px;
   background: transparent;
-  color: #fff; }
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
   input::-webkit-input-placeholder, select::-webkit-input-placeholder {
     color: #fff; }
   input:focus, select:focus {
