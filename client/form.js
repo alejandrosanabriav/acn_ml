@@ -2,16 +2,8 @@
 import $ from 'jquery';
 import validate from './validate';
 
-export default function() {
-  $('form[data-validate="true"]').on('submit', function(e) {
-    e.preventDefault();
-    let $form = $(this);
-    let inputs = $(this).find('input');
-    let isValid = false;
-    let results = [false];
-
-    let nea = inputs.each(function(index) {
-      let $input = $(this);
+function showErrors() {
+        let $input = $(this);
       let val = $input.val();
       let name = $input.attr('name');
       let validations = $input.data('validate').split('|');
@@ -31,8 +23,17 @@ export default function() {
 
         return true;
       });
-      
-      return false;
-    }).promise().done(e => console.log(e));
+    
+}
+
+export default function() {
+  $('form[data-validate="true"]').on('submit', function(e) {
+    e.preventDefault();
+    let $form = $(this);
+    let inputs = $(this).find('input');
+    let isValid = false;
+    let results = [false];
+
+    let nea = inputs.each(showErrors.apply(this)).promise().done(e => console.log(e));
   });
 }
