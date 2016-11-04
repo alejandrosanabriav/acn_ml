@@ -13,8 +13,9 @@
     data-validate="<?php echo $at['validate'] ?>"
     data-messages="<?php echo $at['messages'] ?>"
   >
+  
     <option value=""><?php echo $at['placeholder'] ?></option>
-    <?php foreach(getContries() as $country): ?>
+    <?php foreach(getCountries() as $country): ?>
       <option value="<?php echo $country ?>"><?php echo $country ?></option>
     <?php endforeach; ?>
   </select>
