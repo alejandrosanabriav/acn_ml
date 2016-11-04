@@ -26,6 +26,7 @@ export default function() {
         if(!validate(type, val)) {
           $err
           .append(messages[i]);
+          console.log(type);
           isValid = false;
         }
 
