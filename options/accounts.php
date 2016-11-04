@@ -35,6 +35,7 @@ function bs_accounts_options() {
     <?php do_settings_sections( 'bs_accounts_info_group' ); ?>
 
     <p>
+       <label for="">Mailchimp</label>
         <input 
           style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
           type="text"
@@ -45,6 +46,7 @@ function bs_accounts_options() {
     </p>
 
     <p>
+       <label for="">Stripe</label>
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
@@ -55,6 +57,7 @@ function bs_accounts_options() {
     </p>
 
     <p>
+      <label for="">Stripe</label>
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
