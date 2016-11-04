@@ -56,5 +56,5 @@ if(file_exists($dir_base . '/vendor/autoload.php')) {
 
   echo file_get_contents('php://input');
 }
-echo $dir_base . '/vendor/autoload.php';
+
 ?>
