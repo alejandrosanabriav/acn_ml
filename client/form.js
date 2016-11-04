@@ -36,6 +36,11 @@ export default function() {
           .find('.input__errors')
           .empty()
           .append(messages[i]);
+        } else {
+          $(`input[name="${name}"]`)
+          .parent()
+          .find('.input__errors')
+          .empty();
         }
 
       });
