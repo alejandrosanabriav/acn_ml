@@ -1,13 +1,11 @@
 'use strict';
 
-export function each(fn) {
-  return function(arr) {
-    return Array.prototype.forEach.call(arr, fn);
-  }
-}
+export const each = fn => arr => Array.prototype.forEach.call(arr, fn);
 
-export function map(fn) {
-  return function(arr) {
-    return Array.prototype.map.call(arr, fn);
-  }
+export const map = fn => arr => Array.prototype.map.call(arr, fn);
+
+export const on = (event, fn) => el => el.addEventListener(event, fn);
+
+export const allOn = function(fn) {
+  each(on(fn));
 }

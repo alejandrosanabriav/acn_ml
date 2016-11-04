@@ -10321,7 +10321,8 @@
 	});
 
 	exports.default = function () {
-	  document.querySelectorAll('form[data-validate="true"]').addEventListener('submit', function (e) {
+
+	  document.querySelectorAll('form[data-validate="true"]').on('submit', function (e) {
 	    e.preventDefault();
 	    console.log(this);
 	    var $form = this;
@@ -10334,10 +10335,6 @@
 	    });
 	  });
 	};
-
-	var _jquery = __webpack_require__(1);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
 
 	var _validate = __webpack_require__(69);
 
@@ -13167,19 +13164,27 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.each = each;
-	exports.map = map;
-	function each(fn) {
+	var each = exports.each = function each(fn) {
 	  return function (arr) {
 	    return Array.prototype.forEach.call(arr, fn);
 	  };
-	}
+	};
 
-	function map(fn) {
+	var map = exports.map = function map(fn) {
 	  return function (arr) {
 	    return Array.prototype.map.call(arr, fn);
 	  };
-	}
+	};
+
+	var on = exports.on = function on(event, fn) {
+	  return function (el) {
+	    return el.addEventListener(event, fn);
+	  };
+	};
+
+	var allOn = exports.allOn = function allOn(fn) {
+	  each(on(fn));
+	};
 
 /***/ }
 /******/ ]);

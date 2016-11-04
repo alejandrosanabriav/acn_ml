@@ -1,7 +1,6 @@
 'use strict';
-import $ from 'jquery';
 import validate from './validate';
-import {map, each} from './fun';
+import {map, each, on} from './fun';
 
 function showErrors(el) {
   let $input = el;
@@ -24,7 +23,8 @@ function showErrors(el) {
 }
 
 export default function() {
-  document.querySelectorAll('form[data-validate="true"]').addEventListener('submit', function(e) {
+
+  document.querySelectorAll('form[data-validate="true"]').on('submit', function(e) {
     e.preventDefault();
     console.log(this);
     let $form = this;
