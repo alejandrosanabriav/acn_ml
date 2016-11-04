@@ -10352,6 +10352,10 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
 	var _validate = __webpack_require__(30);
 
 	var _validate2 = _interopRequireDefault(_validate);
@@ -10400,10 +10404,12 @@
 
 	  bounce = { action: 'mailchimp_subscribe', data: bounce };
 
-	  _axios2.default.post('/wp-admin/admin-ajax.php', bounce).then(function (res) {
-	    return console.log(res.data);
-	  }).catch(function (err) {
-	    return console.log(err);
+	  _jquery2.default.ajax({
+	    type: 'post',
+	    url: '/wp-admin/admin-ajax.php',
+	    data: bounce
+	  }).done(function (res) {
+	    return console.log(res);
 	  });
 	}
 

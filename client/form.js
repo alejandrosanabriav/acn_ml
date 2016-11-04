@@ -1,5 +1,6 @@
 'use strict';
 import request from 'axios';
+import $ from 'jquery';
 import validate from './validate';
 import {map, each, on, allOn, reduce, flatten } from './fun';
 
@@ -42,10 +43,12 @@ function requestToMailchimp(data) {
 
   bounce = {action: 'mailchimp_subscribe', data: bounce};
 
-  request
-  .post('/wp-admin/admin-ajax.php', bounce)
-  .then(res => console.log(res.data))
-  .catch(err => console.log(err));
+  $.ajax({
+    type: 'post',
+    url: '/wp-admin/admin-ajax.php',
+    data: bounce
+  })
+  .done(res => console.log(res));
 
 }
 
