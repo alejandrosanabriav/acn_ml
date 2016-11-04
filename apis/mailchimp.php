@@ -22,6 +22,11 @@ function getList($key) {
 
   return $lists[$key];
 }
+ 
+ function getMergeFields($post) {
+
+   return '';
+ }
 
 $name = $_POST['name'] ? $_POST['name'] : '';
 $email = $_POST['email'];
@@ -42,8 +47,8 @@ $options = array(
 
 $headers = array('Accept' => 'application/json', 'content-type' => 'application/json');
 
-$req = Requests::post($urlBase . 'lists/' . $listId . '/members', $headers, $data, $options);
+// $req = Requests::post($urlBase . 'lists/' . $listId . '/members', $headers, $data, $options);
 
 
-echo json_encode($req->body);
+echo json_encode(['NEA']);
 ?>

@@ -1,6 +1,7 @@
 'use strict';
 import validate from './validate';
 import {map, each, on, allOn, reduce, flatten } from './fun';
+import request from 'axios';
 
 function showErrors(el) {
   let $input = el;
@@ -24,6 +25,10 @@ function showErrors(el) {
 
 function requestToMailchimp(data) {
   console.log('to mailchimp', data);
+
+  request
+  .post('')
+
 }
 
 function serializeInput(prev, el) {
