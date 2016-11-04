@@ -26,7 +26,7 @@ function showErrors(el) {
 function requestToMailchimp(data) {
   const {email} = data;
 
-  let mergeFields = Object.keys(data).reduce(obj, key => {
+  let mergeFields = Object.keys(data).reduce((obj, key) => {
     let newOb = {};
     newOb[key.toUpperCase] = data[key];
     return {..obj, ...newOb};
