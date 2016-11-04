@@ -1063,9 +1063,12 @@ p {
   font-size: 1.28571em;
   font-weight: 300; }
 
-.input-container {
+.input_container {
   display: block;
   margin-bottom: 15px; }
+
+.input__errors {
+  color: #f1364e; }
 
 input {
   display: block;

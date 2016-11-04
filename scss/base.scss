@@ -73,10 +73,18 @@ p {
   font-size: (18 / 14) * 1em;
 	font-weight: 300;
 }
-.input-container {
-  display: block;
-  margin-bottom: 15px;
+.input {
+  &_container {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  &__errors {
+    color: $color_red;
+  }
+
 }
+
 
 input {
   display: block;

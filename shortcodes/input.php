@@ -1,4 +1,4 @@
-<div class="input-container">
+<div class="input_container">
   <?php if(!empty($at['label'])): ?>
     <label for=""><?php echo $at['label'] ?></label>
   <?php endif; ?>
