@@ -1,20 +1,7 @@
 'use strict';
 import $ from 'jquery';
 import validate from './validate';
-
-function each(fn) {
-  return function(arr) {
-    return Array.prototype.forEach.call(arr, fn);
-  }
-}
-
-function map(fn) {
-  return function(arr) {
-    return Array.prototype.map.call(arr, fn);
-  }
-}
-
-
+import {map, each} from './fun';
 
 function showErrors(el) {
   let $input = el;
@@ -28,10 +15,10 @@ function showErrors(el) {
 
   validations.map((type, i) => {
     if(!validate(type, val)) {
-      $input.setAttribute('is-valid', false);
       $err.append(messages[i]);
+      return false;
     } else {
-      $input.setAttribute('is-valid', true);
+      return true;
     }
   });
 }

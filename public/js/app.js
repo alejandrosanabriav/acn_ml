@@ -10332,7 +10332,7 @@
 	    var isValid = false;
 	    var results = [false];
 
-	    Promise.all(map(showErrors)(inputs)).then(function (circles) {
+	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (circles) {
 	      return console.log(circles);
 	    });
 	  });
@@ -10346,19 +10346,9 @@
 
 	var _validate2 = _interopRequireDefault(_validate);
 
+	var _fun = __webpack_require__(71);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function each(fn) {
-	  return function (arr) {
-	    return Array.prototype.forEach.call(arr, fn);
-	  };
-	}
-
-	function map(fn) {
-	  return function (arr) {
-	    return Array.prototype.map.call(arr, fn);
-	  };
-	}
 
 	function showErrors(el) {
 	  var $input = el;
@@ -10372,10 +10362,10 @@
 
 	  validations.map(function (type, i) {
 	    if (!(0, _validate2.default)(type, val)) {
-	      $input.setAttribute('is-valid', false);
 	      $err.append(messages[i]);
+	      return false;
 	    } else {
-	      $input.setAttribute('is-valid', true);
+	      return true;
 	    }
 	  });
 	}
@@ -13168,6 +13158,30 @@
 	    default:
 	      return false;
 	  }
+	}
+
+/***/ },
+/* 70 */,
+/* 71 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.each = each;
+	exports.map = map;
+	function each(fn) {
+	  return function (arr) {
+	    return Array.prototype.forEach.call(arr, fn);
+	  };
+	}
+
+	function map(fn) {
+	  return function (arr) {
+	    return Array.prototype.map.call(arr, fn);
+	  };
 	}
 
 /***/ }
