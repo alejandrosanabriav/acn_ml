@@ -28,7 +28,7 @@ export default function() {
     e.preventDefault();
     console.log(this);
     let $form = this;
-    let inputs = $form.document.querySelectorAll('input');
+    let inputs = $form.querySelectorAll('input');
     let isValid = false;
     let results = [false];
 

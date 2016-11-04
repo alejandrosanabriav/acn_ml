@@ -10326,7 +10326,7 @@
 	    e.preventDefault();
 	    console.log(this);
 	    var $form = this;
-	    var inputs = $form.document.querySelectorAll('input');
+	    var inputs = $form.querySelectorAll('input');
 	    var isValid = false;
 	    var results = [false];
 
