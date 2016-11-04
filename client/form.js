@@ -34,6 +34,8 @@ export default function() {
     let isValid = false;
     let results = [false];
 
-    let nea = inputs.each(showErrors.apply(this)).promise().done(e => console.log(e));
+    let nea = inputs.each(function() {
+      showErrors.call(this);
+    }).promise().done(e => console.log(e));
   });
 }
