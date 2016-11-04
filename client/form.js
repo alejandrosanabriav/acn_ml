@@ -27,7 +27,9 @@ function requestToMailchimp(data) {
   console.log('to mailchimp', data);
 
   request
-  .post('')
+  .post('http://acninternational.org/wp-content/themes/acn_ml/apis/mailchimp.php', data)
+  .then(res => console.log(res.data))
+  .catch(err => console.log(err));
 
 }
 
