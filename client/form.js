@@ -40,10 +40,10 @@ function requestToMailchimp(data) {
     "update_existing": true
   };      
 
-  console.log('to mailchimp', bounce);
+  bounce = {action: 'mailchimp_subscribe', data: bounce};
 
   request
-  .post('http://acninternational.org/wp-content/themes/acn_ml/apis/mailchimp.php', bounce)
+  .post('/wp-admin/admin-ajax.php', bounce)
   .then(res => console.log(res.data))
   .catch(err => console.log(err));
 

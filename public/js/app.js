@@ -10398,9 +10398,9 @@
 	    "update_existing": true
 	  };
 
-	  console.log('to mailchimp', bounce);
+	  bounce = { action: 'mailchimp_subscribe', data: bounce };
 
-	  _axios2.default.post('http://acninternational.org/wp-content/themes/acn_ml/apis/mailchimp.php', bounce).then(function (res) {
+	  _axios2.default.post('/wp-admin/admin-ajax.php', bounce).then(function (res) {
 	    return console.log(res.data);
 	  }).catch(function (err) {
 	    return console.log(err);

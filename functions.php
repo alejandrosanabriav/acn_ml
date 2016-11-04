@@ -7,3 +7,4 @@
 
 include_once 'shortcodes/index.php';
 include_once 'options/index.php';
+include_once 'apis/index.php';
