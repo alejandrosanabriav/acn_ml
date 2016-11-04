@@ -9,7 +9,8 @@ function each(fn) {
 }
 
 
-function showErrors() {
+function showErrors(el) {
+  console.log(el);
   let $input = $(this);
   let val = $input.val();
   let name = $input.attr('name');
