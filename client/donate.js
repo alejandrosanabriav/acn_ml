@@ -7,7 +7,8 @@ export default function donate() {
   let onSubmit = function(e) {
     e.preventDefault();
     let $form = this;
-    console.log('submit', this);
+    let step = $form.querySelector('input[name="step"]').value();
+    console.log('submit', step);
   };
 
   onAll('submit', onSubmit)($forms);
