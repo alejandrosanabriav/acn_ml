@@ -49,7 +49,8 @@ function logos_settings_page() {
 
           <section style="padding: 15px; margin: 15px;background: #fff; box-shadow: 1px 1px 5px rgba(0,0,0, .1);">
 						<h3><?php echo str_replace('_', ' ', $value) ?></h3>
-						<hr>
+						
+						<hr/>
 
 						<h4>Logo url</h4>
 						<p>
