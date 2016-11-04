@@ -4,27 +4,18 @@ import validate from './validate';
 
 function showErrors() {
   console.log(this);
-        let $input = $(this);
-      let val = $input.val();
-      let name = $input.attr('name');
-      let validations = $input.data('validate').split('|');
-      let messages = $input.data('messages').split('|');
-      let $err = $(`input[name="${name}"]`)
-          .parent()
-          .find('.input__errors');
-      
-      $err.empty();
-
-      validations.map((type, i) => {
-        if(!validate(type, val)) {
-          $err
-          .append(messages[i]);
-          return false;
-        }
-
-        return true;
-      });
-    
+  let $input = $(this);
+  let val = $input.val();
+  let name = $input.attr('name');
+  let validations = $input.data('validate').split('|');
+  let messages = $input.data('messages').split('|');
+  let $err = $(`input[name="${name}"]`).parent().find('.input__errors');
+  $err.empty();
+  validations.map((type, i) => {
+    if(!validate(type, val)) {
+      $err.append(messages[i]);
+    }
+  });
 }
 
 export default function() {

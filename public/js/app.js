@@ -10356,16 +10356,11 @@
 	  var validations = $input.data('validate').split('|');
 	  var messages = $input.data('messages').split('|');
 	  var $err = (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors');
-
 	  $err.empty();
-
 	  validations.map(function (type, i) {
 	    if (!(0, _validate2.default)(type, val)) {
 	      $err.append(messages[i]);
-	      return false;
 	    }
-
-	    return true;
 	  });
 	}
 
