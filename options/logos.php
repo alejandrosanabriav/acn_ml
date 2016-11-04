@@ -47,7 +47,7 @@ function logos_settings_page() {
         <?php foreach ($countries as $value): ?>
 					<?php $value = str_replace(' ', '_', $value); ?>
 
-          <section style="padding: 15px; margin: 15px auto;background: #fff; box-shadow: 1px 1px 5px rgba(0,0,0, .1); width: 100%">
+          <section style="padding: 15px; margin: 15px;background: #fff; box-shadow: 1px 1px 5px rgba(0,0,0, .1);">
 						<h3><?php echo str_replace('_', ' ', $value) ?></h3>
 						<hr>
 
