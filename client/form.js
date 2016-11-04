@@ -80,7 +80,9 @@ export default function() {
     .catch(err => console.log('err on form.js: ', err));
 
   };
+
   let $forms = document.querySelectorAll('form[data-validate="true"]');
+  
   onAll('submit', onSubmit)($forms);
 }
 

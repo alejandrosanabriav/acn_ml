@@ -10349,7 +10349,9 @@
 	      return console.log('err on form.js: ', err);
 	    });
 	  };
+
 	  var $forms = document.querySelectorAll('form[data-validate="true"]');
+
 	  (0, _fun.onAll)('submit', onSubmit)($forms);
 	};
 
@@ -14956,11 +14958,10 @@
 
 	    var $form = el;
 	    var $amountBtns = $form.querySelectorAll('button[data-amount]');
-	    console.log(el);
 
 	    (0, _fun.onAll)('click', function (e) {
 	      e.preventDefault();
-	      console.log(_this);
+	      console.log('btn', _this);
 	    })($amountBtns);
 	  })($forms);
 	}

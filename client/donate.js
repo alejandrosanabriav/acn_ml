@@ -15,11 +15,10 @@ export default function donate() {
   each(function(el) {
     let $form = el;
     let $amountBtns = $form.querySelectorAll('button[data-amount]');
-    console.log(el);
 
     onAll('click', (e) => {
       e.preventDefault();
-      console.log(this);
+      console.log('btn', this);
     })($amountBtns);
 
   })($forms);
