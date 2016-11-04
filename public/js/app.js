@@ -10355,15 +10355,15 @@
 	}
 
 	function showErrors(el) {
+	  var $input = el;
+	  var val = $input.getAttribute('value');
+	  var name = $input.getAttribute('name');
+	  var validations = $input.getAttribute('data-validate').split('|');
+	  var messages = $input.getAttribute('data-messages').split('|');
+	  var $err = document.querySelector('input[name="' + name + '"]').parentNode.querySelector('.input__errors');
+	  console.log($err);
 
-	  var $input = (0, _jquery2.default)(el);
-	  var val = $input.val();
-	  var name = $input.attr('name');
-	  var validations = $input.data('validate').split('|');
-	  var messages = $input.data('messages').split('|');
-	  var $err = (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors');
-
-	  $err.empty();
+	  $err.innerHTML = '';
 
 	  validations.map(function (type, i) {
 	    if (!(0, _validate2.default)(type, val)) {

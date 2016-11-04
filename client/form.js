@@ -10,15 +10,15 @@ function each(fn) {
 
 
 function showErrors(el) {
-
-  let $input = $(el);
-  let val = $input.val();
-  let name = $input.attr('name');
-  let validations = $input.data('validate').split('|');
-  let messages = $input.data('messages').split('|');
-  let $err = $(`input[name="${name}"]`).parent().find('.input__errors');
+  let $input = el;
+  let val = $input.getAttribute('value');
+  let name = $input.getAttribute('name');
+  let validations = $input.getAttribute('data-validate').split('|');
+  let messages = $input.getAttribute('data-messages').split('|');
+  let $err = document.querySelector(`input[name="${name}"]`).parentNode.querySelector('.input__errors');
+  console.log($err);
   
-  $err.empty();
+  $err.innerHTML = '';
 
   validations.map((type, i) => {
     if(!validate(type, val)) {
