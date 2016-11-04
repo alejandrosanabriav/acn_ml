@@ -1070,7 +1070,7 @@ p {
 .input__errors {
   color: #f1364e; }
 
-input {
+input, select {
   display: block;
   width: 100%;
   height: 50px;
@@ -1080,9 +1080,9 @@ input {
   padding-left: 20px;
   background: transparent;
   color: #fff; }
-  input::-webkit-input-placeholder {
+  input::-webkit-input-placeholder, select::-webkit-input-placeholder {
     color: #fff; }
-  input:focus {
+  input:focus, select:focus {
     outline: none; }
 
 .btn {
