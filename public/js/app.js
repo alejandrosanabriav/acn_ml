@@ -10328,8 +10328,7 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	exports.default = function () {
-
-	  (0, _fun.onAll)('submit', function (e) {
+	  var onSubmit = function onSubmit(e) {
 
 	    e.preventDefault();
 	    var $form = this;
@@ -10349,7 +10348,9 @@
 	    }).catch(function (err) {
 	      return console.log('err on form.js: ', err);
 	    });
-	  })(document.querySelectorAll('form[data-validate="true"]'));
+	  };
+	  var $forms = document.querySelectorAll('form[data-validate="true"]');
+	  (0, _fun.onAll)('submit', onSubmit)($forms);
 	};
 
 	var _axios = __webpack_require__(4);

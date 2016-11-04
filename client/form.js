@@ -61,8 +61,7 @@ function serializeInput(prev, el) {
 }
 
 export default function() {
-
-  onAll('submit', function(e) {
+  let onSubmit = function(e) {
 
     e.preventDefault();
     let $form = this;
@@ -80,7 +79,9 @@ export default function() {
     })
     .catch(err => console.log('err on form.js: ', err));
 
-  })(document.querySelectorAll('form[data-validate="true"]'));
+  };
+  let $forms = document.querySelectorAll('form[data-validate="true"]');
+  onAll('submit', onSubmit)($forms);
 }
 
 
