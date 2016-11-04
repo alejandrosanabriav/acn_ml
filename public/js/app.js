@@ -14948,7 +14948,7 @@
 
 	  var $forms = document.querySelectorAll('.bs_donate_form');
 
-	  (0, _fun.each)('submit', onSubmit)($forms);
+	  (0, _fun.onAll)('submit', onSubmit)($forms);
 	}
 
 /***/ }

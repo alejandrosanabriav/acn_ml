@@ -6,9 +6,9 @@ export default function donate() {
     e.preventDefault();
     console.log('donate');
   };
-  
+
   let $forms = document.querySelectorAll('.bs_donate_form');
 
-  each('submit', onSubmit)($forms);
+  onAll('submit', onSubmit)($forms);
   
 }
