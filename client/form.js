@@ -33,7 +33,7 @@ export default function() {
 
       }));
 
-      f.then(res => console.log([...results, ...res]));
+      f.then(res => results = [...results, ...res]);
       
     });
 
