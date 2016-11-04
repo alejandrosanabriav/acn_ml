@@ -14956,7 +14956,8 @@
 	    var $form = el;
 	    var $amountBtns = $form.querySelectorAll('button[data-amount]');
 	    console.log(el);
-	    (0, _fun.onAll)(function (e) {
+
+	    (0, _fun.onAll)('click', function (e) {
 	      e.preventDefault();
 	      console.log(_this);
 	    })($amountBtns);
