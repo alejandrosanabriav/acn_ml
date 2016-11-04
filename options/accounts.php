@@ -29,7 +29,10 @@ function bs_accounts_options() {
 <div style="text-align: center; text-shadow: 1px 1px 3px rgba(0,0,0, .1)">
 			<h1>Offices</h1>
 		</div>
-    <input type="text" placeholder="api key">
+    
+    <form method="post" action="options.php" style="position: relative; width: 80%; margin: 0 auto">
+      <input type="text" placeholder="api key">
+    </form>
 </div>
 
 
