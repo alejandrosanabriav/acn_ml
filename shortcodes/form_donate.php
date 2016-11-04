@@ -11,7 +11,7 @@
   </div>
 
   <div class="row">
-    <div class="bs_donate_form__step-1">
+    <div class="bs_donate_form__step bs_donate_form__step-1">
       <div class="col-sm-6">
         <div class="input-container">
           <input type="text" name="amount" class="input">
@@ -25,8 +25,8 @@
       </div>
     </div>
   </div>
-  
-  <div class="bs_donate_form__step-2">
+
+  <div class="bs_donate_form__step bs_donate_form__step-2">
     <div class="col-md-12">
       <div class="input-container">
         <input type="text" name="number" class="input">
