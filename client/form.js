@@ -41,12 +41,11 @@ export default function() {
     e.preventDefault();
     let $form = this;
     let inputs = $form.querySelectorAll('input');
-    let isValid = false;
-    let results = [false];
+    let selects = $form.querySelectorAll('select');
+    let dataSelects = reduce(serializeInput)(inputs);
     let data = reduce(serializeInput)(inputs);
+    console.log(dataSelects);
     
-    console.log(data);
-
     Promise
     .all(map(showErrors)(inputs))
     .then(res => flatten(res) )
