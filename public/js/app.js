@@ -10341,7 +10341,7 @@
 
 	      $err.empty();
 
-	      var f = Promise.all(validations.forEach(function (type, i) {
+	      var f = Promise.all(validations.map(function (type, i) {
 	        if (!(0, _validate2.default)(type, val)) {
 	          $err.append(messages[i]);
 	          isValid = false;

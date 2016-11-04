@@ -21,7 +21,7 @@ export default function() {
       
       $err.empty();
 
-      let f = Promise.all(validations.forEach((type, i) => {
+      let f = Promise.all(validations.map((type, i) => {
         if(!validate(type, val)) {
           $err
           .append(messages[i]);
