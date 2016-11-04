@@ -14950,10 +14950,10 @@
 
 	  (0, _fun.onAll)('submit', onSubmit)($forms);
 
-	  (0, _fun.each)(function () {
+	  (0, _fun.each)(function (el) {
 	    var _this = this;
 
-	    var $form = this;
+	    var $form = el;
 	    var $amountBtns = $form.querySelectorAll('button[data-amount]');
 
 	    (0, _fun.onAll)(function (e) {

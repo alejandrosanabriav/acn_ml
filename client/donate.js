@@ -11,8 +11,8 @@ export default function donate() {
 
   onAll('submit', onSubmit)($forms);
 
-  each(function() {
-     let $form = this;
+  each(function(el) {
+    let $form = el;
     let $amountBtns = $form.querySelectorAll('button[data-amount]');
     
     onAll((e) => {
