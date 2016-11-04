@@ -31,7 +31,7 @@ function serializeInput(prev, el) {
   let val = el.value;
   let ob = {};
   ob[name] = val;
-  return {...prev, ob};
+  return {...prev, ...ob};
 }
 
 export default function() {

@@ -10386,7 +10386,7 @@
 	  var val = el.value;
 	  var ob = {};
 	  ob[name] = val;
-	  return _extends({}, prev, { ob: ob });
+	  return _extends({}, prev, ob);
 	}
 
 /***/ },
