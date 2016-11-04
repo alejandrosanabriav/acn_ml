@@ -1112,3 +1112,6 @@ p {
     .btn--outline:hover {
       background: #fff;
       color: #1a2127; }
+
+.bs_donate_form__step {
+  display: none; }
