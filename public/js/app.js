@@ -10356,7 +10356,7 @@
 
 	function showErrors(el) {
 	  var $input = el;
-	  var val = $input.getAttribute('value');
+	  var val = $input.value;
 	  var name = $input.getAttribute('name');
 	  var validations = $input.getAttribute('data-validate').split('|');
 	  var messages = $input.getAttribute('data-messages').split('|');

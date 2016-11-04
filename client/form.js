@@ -11,7 +11,7 @@ function each(fn) {
 
 function showErrors(el) {
   let $input = el;
-  let val = $input.getAttribute('value');
+  let val = $input.value;
   let name = $input.getAttribute('name');
   let validations = $input.getAttribute('data-validate').split('|');
   let messages = $input.getAttribute('data-messages').split('|');
