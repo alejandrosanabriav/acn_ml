@@ -20,18 +20,16 @@ export default function() {
           .find('.input__errors');
       
       $err.empty();
-      isValid = true;
 
-      validations.forEach((type, i) => {
+      let f = validations.forEach((type, i) => {
         if(!validate(type, val)) {
           $err
           .append(messages[i]);
-          console.log(type);
           isValid = false;
         }
 
       });
-
+      console.log(f);
     });
 
     console.log('is valid: ', isValid);

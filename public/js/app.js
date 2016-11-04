@@ -10340,15 +10340,14 @@
 	      var $err = (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors');
 
 	      $err.empty();
-	      isValid = true;
 
-	      validations.forEach(function (type, i) {
+	      var f = validations.forEach(function (type, i) {
 	        if (!(0, _validate2.default)(type, val)) {
 	          $err.append(messages[i]);
-	          console.log(type);
 	          isValid = false;
 	        }
 	      });
+	      console.log(f);
 	    });
 
 	    console.log('is valid: ', isValid);
