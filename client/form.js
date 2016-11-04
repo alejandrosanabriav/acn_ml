@@ -22,6 +22,8 @@ export default function() {
         if(!validate(type, val)) {
           $err
           .append(messages[i]);
+        } else {
+          console.log('nothing to validate');
         }
 
       });

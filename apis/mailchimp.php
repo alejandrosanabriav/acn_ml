@@ -27,7 +27,7 @@ $name = $_POST['name'] ? $_POST['name'] : '';
 $email = $_POST['email'];
 $country = $_POST['country'];
 $listKey = $_POST['lang'];
-$listId = getList($listKey);
+$listId = 'e4bd5ff7e0';
 
 $data = '{
       "email_address": "'.$email.'",
@@ -45,5 +45,5 @@ $headers = array('Accept' => 'application/json', 'content-type' => 'application/
 $req = Requests::post($urlBase . 'lists/' . $listId . '/members', $headers, $data, $options);
 
 
-var_dump($req->body);
+echo json_encode($req->body);
 ?>
