@@ -18,12 +18,12 @@ function bs_admin_accounts_options_menu() {
 
 function bs_accounts_settings() {
   register_setting( 'bs_accounts_info_group', 'mailchimp_api' );
+  register_setting( 'bs_accounts_info_group', 'mailchimp_list_id' );
   register_setting( 'bs_accounts_info_group', 'stripe_key_private' );
   register_setting( 'bs_accounts_info_group', 'stripe_key_public' );
 }
 
 function bs_accounts_options() {
-
 ?>
 <div style="padding: 15px; margin: 15px; background: #fff; box-shadow: 1px 1px 5px rgba(0,0,0, .1);">
 
@@ -43,6 +43,18 @@ function bs_accounts_options() {
           name="mailchimp_api"
           placeholder="Api Key" 
           value="<?php echo get_option('mailchimp_api') ?>"
+          >
+    </p>
+
+     <p>
+       <label for=""> <b>Mailchimp List id</b> </label>
+        <br>
+        <input 
+          style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
+          type="text"
+          name="mailchimp_list_id"
+          placeholder="list id"
+          value="<?php echo get_option('mailchimp_list_id') ?>"
           >
     </p>
 

@@ -4,7 +4,7 @@ $dir_base =  str_replace('apis', '', __DIR__);
 if( file_exists($dir_base . '/vendor/autoload.php') ) {
 
   require $dir_base . 'vendor/autoload.php';
-  $urlBase = 'http://us13.api.mailchimp.com/3.0/';
+  
   $apiKey = '709cb76ed68f751a3ae287f2c067a046-us13';
 
   function getList($key) {
@@ -45,16 +45,18 @@ if( file_exists($dir_base . '/vendor/autoload.php') ) {
         "update_existing": true
   }';
 
+function mc_subscribe($data, $listId, $apiKey) {
   $options = array(
     'auth' => array('user', $apiKey)
   );
 
   $headers = array('Accept' => 'application/json', 'content-type' => 'application/json');
+  $urlBase = 'http://us13.api.mailchimp.com/3.0/';
+  $req = Requests::post($urlBase . 'lists/' . $listId . '/members', $headers, $data, $options);
+  return $request->body;
+}
+ 
 
-  // $req = Requests::post($urlBase . 'lists/' . $listId . '/members', $headers, $data, $options);
-
-
-  echo file_get_contents('php://input');
 }
 
 ?>
