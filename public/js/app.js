@@ -14953,6 +14953,7 @@
 	  (0, _fun.each)(function () {
 	    var _this = this;
 
+	    var $form = this;
 	    var $amountBtns = $form.querySelectorAll('button[data-amount]');
 
 	    (0, _fun.onAll)(function (e) {
