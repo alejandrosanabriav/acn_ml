@@ -26,14 +26,13 @@ export default function() {
         if(!validate(type, val)) {
           $err
           .append(messages[i]);
-          return false;
         }
 
         return true;
 
       }));
 
-      f.then(res => results = [results, ...res] );
+      f.then(res => console.log(res));
       
     });
 
