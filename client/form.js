@@ -21,16 +21,16 @@ export default function() {
       
       $err.empty();
 
-      let f = validations.forEach((type, i) => {
+      let f = Promise.all(validations.forEach((type, i) => {
         if(!validate(type, val)) {
           $err
           .append(messages[i]);
           isValid = false;
         }
 
-      });
+      }));
 
-      f.then(res => console.log('then'));
+      f.then(res => console.log(res));
       
 
     });
