@@ -4,13 +4,13 @@ import validate from './validate';
 
 function each(fn) {
   return function(arr) {
-    Array.prototype.forEach.call(arr, fn);
+    return Array.prototype.forEach.call(arr, fn);
   }
 }
 
 function map(fn) {
   return function(arr) {
-    Array.prototype.map.call(arr, fn);
+    return Array.prototype.map.call(arr, fn);
   }
 }
 
