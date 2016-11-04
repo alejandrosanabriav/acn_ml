@@ -35,7 +35,7 @@ export default function() {
     let results = [false];
 
     let nea = inputs.each(function() {
-      showErrors.call(this);
+      showErrors().apply(this);
     }).promise().done(e => console.log(e));
   });
 }
