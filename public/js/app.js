@@ -10337,7 +10337,7 @@
 
 	      validations.forEach(function (type, i) {
 	        if (!validate(type, val)) {
-	          (0, _jquery2.default)('input[name="' + name + '"]').parent().prepend(messages[i]);
+	          (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors').empty().append(messages[i]);
 	        }
 	      });
 	    });

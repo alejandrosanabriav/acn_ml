@@ -2,7 +2,7 @@
   <?php if(!empty($at['label'])): ?>
     <label for=""><?php echo $at['label'] ?></label>
   <?php endif; ?>
-
+  <div class="input__errors"></div>
   <input 
     type="text"
     placeholder="<?php echo $at['placeholder'] ?>" 
