@@ -7,7 +7,7 @@ add_action('admin_menu', 'bs_admin_options_menu');
 function bs_admin_options_menu() {
 		add_menu_page(
     'Brandspa theme options',
-    'BS Options', //menu name
+    'Offices info', //menu name
     'manage_options', //allow it options
     'bs-logos', //slug
     'logos_settings_page',
