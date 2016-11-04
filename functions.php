@@ -6,4 +6,4 @@
  */
 
 include_once 'shortcodes/index.php';
-include_once 'options/logos.php';
+include_once 'options/index.php';

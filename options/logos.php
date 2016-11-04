@@ -32,10 +32,8 @@ function bs_add_country_info_settings() {
 }
 
 function logos_settings_page() {
+	$countries = getOfficesCountries();
 ?>
-  <?php
-  $countries = getOfficesCountries();
-   ?>
 
   <div style="background: #f1f1f1; background-size: contain; padding: 15px">
 		<div style="text-align: center; text-shadow: 1px 1px 3px rgba(0,0,0, .1)">
