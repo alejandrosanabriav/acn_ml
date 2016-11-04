@@ -35,37 +35,37 @@ function bs_accounts_options() {
     <?php do_settings_sections( 'bs_accounts_info_group' ); ?>
 
     <p>
-       <label for="">Mailchimp</label>
+       <label for=""> <b>Mailchimp key</b> </label>
         <br>
         <input 
           style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
           type="text"
           name="mailchimp_api"
-          placeholder="Mailchimp Api Key" 
+          placeholder="Api Key" 
           value="<?php echo get_option('mailchimp_api') ?>"
           >
     </p>
 
     <p>
-       <label for="">Stripe</label>
+       <label for=""> <b>Stripe Private key</b> </label>
        <br>
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
         name="stripe_key_private"
-        placeholder="Stripe Private Api Key" 
+        placeholder="Private Api Key" 
         value="<?php echo get_option('stripe_key_private') ?>"
         >
     </p>
 
     <p>
-      <label for="">Stripe</label>
+      <label for=""> <b>Stripe Public Key</b>  </label>
        <br>
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
         name="stripe_key_public"
-        placeholder="Stripe Public Api Key" 
+        placeholder="Public Api Key" 
         value="<?php echo get_option('stripe_key_public') ?>"
         >
     </p>
