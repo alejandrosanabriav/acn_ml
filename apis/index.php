@@ -7,7 +7,7 @@ function mailchimp_subscribe() {
   $data = $_POST['data'];
   $listId = get_option('mailchimp_list_id');
   $apiKey =  get_option('mailchimp_api');
-  // $res = mc_subscribe($data, $listId, $apiKey); ¸
-  echo json_encode($apiKey);
+  $res = mc_subscribe($data, $listId, $apiKey);
+  echo json_encode($req);
   die();
 }
