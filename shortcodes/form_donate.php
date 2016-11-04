@@ -14,7 +14,7 @@
     <div class="bs_donate_form__step-1">
       <div class="col-sm-6">
         <div class="input-container">
-          <input type="text" name="amout" class="input">
+          <input type="text" name="amount" class="input">
         </div>
       </div>
 
