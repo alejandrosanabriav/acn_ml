@@ -10344,8 +10344,10 @@
 	      var f = Promise.all(validations.map(function (type, i) {
 	        if (!(0, _validate2.default)(type, val)) {
 	          $err.append(messages[i]);
-	          isValid = false;
+	          return false;
 	        }
+
+	        return true;
 	      }));
 
 	      f.then(function (res) {

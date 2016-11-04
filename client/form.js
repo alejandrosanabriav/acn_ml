@@ -25,8 +25,10 @@ export default function() {
         if(!validate(type, val)) {
           $err
           .append(messages[i]);
-          isValid = false;
+          return false;
         }
+
+        return true;
 
       }));
 
