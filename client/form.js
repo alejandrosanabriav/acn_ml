@@ -29,7 +29,7 @@ function requestToMailchimp(data) {
   let mergeFields = Object.keys(data).reduce((obj, key) => {
     let newOb = {};
     newOb[key.toUpperCase] = data[key];
-    return {..obj, ...newOb};
+    return {...obj, ...newOb};
   }, {}); 
 
   let bounce = {
