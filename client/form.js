@@ -33,12 +33,12 @@ export default function() {
 
       }));
 
-      f.then(res => console.log([...results, ...res] ));
+      f.then(res => results = [...results, ...res] );
       
 
     });
 
-    console.log('is valid: ', isValid);
+    console.log('is valid: ', results);
 
 
   });
