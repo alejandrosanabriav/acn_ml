@@ -36,4 +36,14 @@ if(function_exists('sc_factory')) {
     $base . '/select_country.php'
   );
 
+  sc_factory($prefix . 'form_donate', array(
+      'label' => '', 
+      'placeholder' => '', 
+      'id' => '', 
+      'validate' => '', 
+      'messages' => ''
+    ),
+    $base . '/form_donate.php'
+  );
+
 }
