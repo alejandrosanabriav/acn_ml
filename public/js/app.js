@@ -10360,7 +10360,7 @@
 
 	  $err.innerHTML = '';
 
-	  validations.map(function (type, i) {
+	  return validations.map(function (type, i) {
 	    if (!(0, _validate2.default)(type, val)) {
 	      $err.append(messages[i]);
 	      return false;

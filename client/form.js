@@ -13,7 +13,7 @@ function showErrors(el) {
 
   $err.innerHTML = '';
 
-  validations.map((type, i) => {
+  return validations.map((type, i) => {
     if(!validate(type, val)) {
       $err.append(messages[i]);
       return false;
