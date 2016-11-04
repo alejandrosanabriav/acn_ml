@@ -9,6 +9,10 @@ export default function donate() {
     let $form = this;
     let step = $form.querySelector('input[name="step"]').value;
     let maxStep = 3;
+    if(step != maxStep) {
+       $form.querySelector('input[name="step"]').setAttribute('value', step + 1);
+    }
+   
     $form.querySelector(`.bs_donate_form__step-${step}`).style.display = 'block';
     console.log('step', step);
   };

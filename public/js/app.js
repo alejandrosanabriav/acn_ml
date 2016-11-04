@@ -14950,6 +14950,10 @@
 	    var $form = this;
 	    var step = $form.querySelector('input[name="step"]').value;
 	    var maxStep = 3;
+	    if (step != maxStep) {
+	      $form.querySelector('input[name="step"]').setAttribute('value', step + 1);
+	    }
+
 	    $form.querySelector('.bs_donate_form__step-' + step).style.display = 'block';
 	    console.log('step', step);
 	  };
