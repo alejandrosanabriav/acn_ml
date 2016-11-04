@@ -10367,10 +10367,10 @@
 
 	  validations.map(function (type, i) {
 	    if (!(0, _validate2.default)(type, val)) {
-	      $input.data('is-valid', false);
+	      $input.setAttribute('is-valid', false);
 	      $err.append(messages[i]);
 	    } else {
-	      $input.data('is-valid', true);
+	      $input.setAttribute('is-valid', true);
 	    }
 	  });
 	}

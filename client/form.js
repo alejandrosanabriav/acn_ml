@@ -22,10 +22,10 @@ function showErrors(el) {
 
   validations.map((type, i) => {
     if(!validate(type, val)) {
-      $input.data('is-valid', false);
+      $input.setAttribute('is-valid', false);
       $err.append(messages[i]);
     } else {
-      $input.data('is-valid', true);
+      $input.setAttribute('is-valid', true);
     }
   });
 }
