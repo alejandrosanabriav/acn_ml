@@ -25,5 +25,34 @@
       </div>
     </div>
   </div>
+  
+  <div class="bs_donate_form__step-2">
+    <div class="col-md-12">
+      <div class="input-container">
+        <input type="text" name="number" class="input">
+      </div>
+    </div>
+    
+    <div class="col-sm-4">
+      <div class="input-container">
+        <input type="text" name="exp_month" class="input">
+      </div>
+    </div>
+    
+    <div class="col-sm-4">
+      <div class="input-container">
+        <input type="text" name="exp_year" class="input">
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="input-container">
+        <input type="text" name="cvc" class="input">
+      </div>
+    </div>
+    
+  
+
+  </div>
   <button>Donate</button>
 </form>
