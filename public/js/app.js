@@ -10330,7 +10330,7 @@
 	    var $form = this;
 	    var inputs = $form.querySelectorAll('input');
 	    var selects = $form.querySelectorAll('select');
-	    var dataSelects = (0, _fun.reduce)(serializeInput)(inputs);
+	    var dataSelects = (0, _fun.reduce)(serializeInput)(selects);
 	    var data = (0, _fun.reduce)(serializeInput)(inputs);
 	    console.log(dataSelects);
 

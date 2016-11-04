@@ -42,10 +42,10 @@ export default function() {
     let $form = this;
     let inputs = $form.querySelectorAll('input');
     let selects = $form.querySelectorAll('select');
-    let dataSelects = reduce(serializeInput)(inputs);
+    let dataSelects = reduce(serializeInput)(selects);
     let data = reduce(serializeInput)(inputs);
     console.log(dataSelects);
-    
+
     Promise
     .all(map(showErrors)(inputs))
     .then(res => flatten(res) )
