@@ -3,9 +3,9 @@
 <input type="hidden" name="step" value="1" />
 
   <div class="row">
-    <button class="button" data-amount="30">10</button>
+    <button class="button" data-amount="10">10</button>
     <button class="button" data-amount="30">30</button>
-    <button class="button" data-amount="30">50</button>
+    <button class="button" data-amount="50">50</button>
     <button class="button" data-amount="100">100</button>
     <button class="button" data-amount="">Other</button>
   </div>
