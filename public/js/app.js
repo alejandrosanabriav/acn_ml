@@ -14942,8 +14942,15 @@
 
 	function donate() {
 	  var onSubmit = function onSubmit(e) {
+	    var _this = this;
+
 	    e.preventDefault();
-	    console.log('donate');
+	    var $form = this;
+	    var $amountBtns = $form.querySelectorAll('button[data-amount]');
+	    (0, _fun.onAll)(function (e) {
+	      e.preventDefault();
+	      console.log(_this);
+	    })($amountBtns);
 	  };
 
 	  var $forms = document.querySelectorAll('.bs_donate_form');
