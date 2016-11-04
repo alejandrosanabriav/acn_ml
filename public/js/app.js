@@ -14954,6 +14954,7 @@
 	      $form.querySelector('input[name="step"]').setAttribute('value', step + 1);
 	    }
 
+	    console.log(step);
 	    $form.querySelector('.bs_donate_form__step-' + step).style.display = 'block';
 	    console.log('step', step);
 	  };
