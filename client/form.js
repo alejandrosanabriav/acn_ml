@@ -1,6 +1,6 @@
 'use strict';
 import validate from './validate';
-import {map, each, on, allOn } from './fun';
+import {map, each, on, allOn, flatten } from './fun';
 
 function showErrors(el) {
   let $input = el;
@@ -31,7 +31,7 @@ export default function() {
     let isValid = false;
     let results = [false];
 
-    Promise.all(map(showErrors)(inputs)).then(circles => console.log([].concat(circles)));
+    Promise.all(map(showErrors)(inputs)).then(circles => console.log( flatten(circles) ) );
   })(document.querySelectorAll('form[data-validate="true"]'));
 }
 

@@ -10330,7 +10330,7 @@
 	    var results = [false];
 
 	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (circles) {
-	      return console.log([].concat(circles));
+	      return console.log((0, _fun.flatten)(circles));
 	    });
 	  })(document.querySelectorAll('form[data-validate="true"]'));
 	};
@@ -13175,6 +13175,12 @@
 	  };
 	};
 
+	var reduce = exports.reduce = function reduce(fn) {
+	  return function (arr) {
+	    return Array.prototype.reduce.call(arr, fn);
+	  };
+	};
+
 	var on = exports.on = function on(event, fn) {
 	  return function (el) {
 	    return el.addEventListener(event, fn);
@@ -13183,6 +13189,12 @@
 
 	var allOn = exports.allOn = function allOn(event, fn) {
 	  return each(on(event, fn));
+	};
+
+	var flatten = exports.flatten = function flatten(arr) {
+	  return reduce(function (a, b) {
+	    return a.concat(b);
+	  })(arr);
 	};
 
 /***/ }
