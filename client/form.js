@@ -1,7 +1,7 @@
 'use strict';
+import request from 'axios';
 import validate from './validate';
 import {map, each, on, allOn, reduce, flatten } from './fun';
-import request from 'axios';
 
 function showErrors(el) {
   let $input = el;

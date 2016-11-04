@@ -10348,15 +10348,15 @@
 	  })(document.querySelectorAll('form[data-validate="true"]'));
 	};
 
+	var _axios = __webpack_require__(71);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
 	var _validate = __webpack_require__(4);
 
 	var _validate2 = _interopRequireDefault(_validate);
 
 	var _fun = __webpack_require__(70);
-
-	var _axios = __webpack_require__(71);
-
-	var _axios2 = _interopRequireDefault(_axios);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

@@ -1,0 +1,6 @@
+{
+    "require": {
+        "rmccue/requests": "^1.7",
+        "stripe/stripe-php": "^4.1"
+    }
+}

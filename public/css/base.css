@@ -1072,14 +1072,7 @@ p {
   font-weight: 300;
   margin: 0; }
 
-.input_container {
-  display: block;
-  margin-bottom: 15px; }
-
-.input__errors {
-  color: #f1364e; }
-
-input, select {
+.input {
   display: block;
   width: 100%;
   height: 50px;
@@ -1091,10 +1084,15 @@ input, select {
   color: #fff;
   -webkit-appearance: none;
   -moz-appearance: none; }
-  input::-webkit-input-placeholder, select::-webkit-input-placeholder {
+  .input::-webkit-input-placeholder {
     color: #fff; }
-  input:focus, select:focus {
+  .input:focus {
     outline: none; }
+  .input_container {
+    display: block;
+    margin-bottom: 15px; }
+  .input__errors {
+    color: #f1364e; }
 
 .btn {
   display: block;
