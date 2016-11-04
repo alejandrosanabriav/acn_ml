@@ -26,14 +26,12 @@ function requestToMailchimp(data) {
   console.log(data);
 }
 
-
-
-function serializeInput(el) {
+function serializeInput(prev, current) {
   let name = el.getAttribute('name');
   let val = el.value;
   let ob = {};
   ob[name] = val;
-  return ob;
+  return {...prev, ob};
 }
 
 export default function() {
@@ -45,8 +43,7 @@ export default function() {
     let inputs = $form.querySelectorAll('input');
     let isValid = false;
     let results = [false];
-    let data = map(serializeInput)(inputs);
-    console.log(data);
+    let data = reduce(serializeInput)(inputs);
 
     Promise
     .all(map(showErrors)(inputs))
