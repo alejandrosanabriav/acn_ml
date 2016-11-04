@@ -32,11 +32,11 @@ if( file_exists($dir_base . '/vendor/autoload.php') ) {
     return '';
   }
 
-  $name = $_POST['name'] ? $_POST['name'] : '';
-  $email = $_POST['email'];
-  $country = $_POST['country'];
-  $listKey = $_POST['lang'];
-  $listId = 'e4bd5ff7e0';
+  // $name = $_POST['name'] ? $_POST['name'] : '';
+  // $email = $_POST['email'];
+  // $country = $_POST['country'];
+  // $listKey = $_POST['lang'];
+  // $listId = 'e4bd5ff7e0';
 
   $data = '{
         "email_address": "'.$email.'",
