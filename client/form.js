@@ -22,6 +22,10 @@ function showErrors(el) {
   });
 }
 
+function requestToMailchimp(data) {
+  console.log(data);
+}
+
 export default function() {
 
   allOn('submit', function(e) {
@@ -31,7 +35,12 @@ export default function() {
     let isValid = false;
     let results = [false];
 
-    Promise.all(map(showErrors)(inputs)).then(circles => console.log( flatten(circles) ) );
+    Promise
+    .all(map(showErrors)(inputs))
+    .then(res => flatten(res) )
+    .then(arr => console.log(arr))
+    .catch(err => console.log('err on form.js: ', err));
+
   })(document.querySelectorAll('form[data-validate="true"]'));
 }
 

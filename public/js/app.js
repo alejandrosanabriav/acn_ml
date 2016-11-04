@@ -10329,8 +10329,12 @@
 	    var isValid = false;
 	    var results = [false];
 
-	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (circles) {
-	      return console.log((0, _fun.flatten)(circles));
+	    Promise.all((0, _fun.map)(showErrors)(inputs)).then(function (res) {
+	      return (0, _fun.flatten)(res);
+	    }).then(function (arr) {
+	      return console.log(arr);
+	    }).catch(function (err) {
+	      return console.log('err on form.js: ', err);
 	    });
 	  })(document.querySelectorAll('form[data-validate="true"]'));
 	};
@@ -10361,6 +10365,10 @@
 	      return true;
 	    }
 	  });
+	}
+
+	function requestToMailchimp(data) {
+	  console.log(data);
 	}
 
 /***/ },
