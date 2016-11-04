@@ -31,7 +31,8 @@ export default function() {
 
         return true;
       });
-
+      
+      return false;
     }).promise().done(e => console.log(e));
   });
 }
