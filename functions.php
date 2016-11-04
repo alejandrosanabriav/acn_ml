@@ -53,7 +53,7 @@ $default_colours = '
 	"FFFFFF", "White"
 	';
 $custom_colours = '
-	"FC3938", "red Orange",
+	"f1364e", "red Orange",
 	"3c515f", "Oxford",
 	"6b7c82", "Gray",
 	"1a2127", "Dark",
