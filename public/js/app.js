@@ -10332,9 +10332,7 @@
 	    var isValid = false;
 	    var results = [false];
 
-	    var nea = inputs.each(function () {
-	      showErrors().bind(this);
-	    }).promise().done(function (e) {
+	    var nea = inputs.each(showErrors.bind(this)).promise().done(function (e) {
 	      return console.log(e);
 	    });
 	  });
