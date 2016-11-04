@@ -28,11 +28,10 @@ export default function() {
       let name = $(this).attr('name');
       let validations = $(this).data('validate').split('|');
       let messages = $(this).data('messages').split('|');
-      console.log(name);
 
       validations.forEach((type, i) => {
         if(!validate(type, val)) {
-          $(`input[name="${name}"]`).parent().prepend(messages[i]);
+          $(`input[name="${name}"]`).parent().empty().prepend(messages[i]);
         }
 
       });
