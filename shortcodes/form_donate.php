@@ -14,7 +14,7 @@
     <div class="bs_donate_form__step bs_donate_form__step-1">
       <div class="col-sm-6">
         <div class="input-container">
-          <input type="text" name="amount" class="input">
+          <input type="text" name="amount" class="input" placeholder="Amount">
         </div>
       </div>
 
@@ -29,30 +29,28 @@
   <div class="bs_donate_form__step bs_donate_form__step-2">
     <div class="col-md-12">
       <div class="input-container">
-        <input type="text" name="number" class="input">
+        <input type="text" name="number" class="input" placeholder="Number">
       </div>
     </div>
     
     <div class="col-sm-4">
       <div class="input-container">
-        <input type="text" name="exp_month" class="input">
+        <input type="text" name="exp_month" class="input" placeholder="Month">
       </div>
     </div>
     
     <div class="col-sm-4">
       <div class="input-container">
-        <input type="text" name="exp_year" class="input">
+        <input type="text" name="exp_year" class="input" placeholder="Year">
       </div>
     </div>
 
     <div class="col-sm-4">
       <div class="input-container">
-        <input type="text" name="cvc" class="input">
+        <input type="text" name="cvc" class="input" placeholder="CVC">
       </div>
     </div>
-    
-  
-
   </div>
-  <button>Donate</button>
+
+  <button class="btn">Donate</button>
 </form>
