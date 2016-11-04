@@ -23,7 +23,7 @@ function showErrors(el) {
 }
 
 function requestToMailchimp(data) {
-  console.log(data);
+  console.log('to mailchimp', data);
 }
 
 function serializeInput(prev, el) {
@@ -51,7 +51,11 @@ export default function() {
     .all(map(showErrors)(inputs))
     .then(res => flatten(res) )
     .then(arr => arr.filter(b => b == false) == 0  )
-    .then(isValid => console.log(isValid))
+    .then(isValid => {
+      if(isValid) {
+        return requestToMailchimp(data);
+      }
+    })
     .catch(err => console.log('err on form.js: ', err));
 
   })(document.querySelectorAll('form[data-validate="true"]'));

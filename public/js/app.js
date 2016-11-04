@@ -10342,7 +10342,9 @@
 	        return b == false;
 	      }) == 0;
 	    }).then(function (isValid) {
-	      return console.log(isValid);
+	      if (isValid) {
+	        return requestToMailchimp(data);
+	      }
 	    }).catch(function (err) {
 	      return console.log('err on form.js: ', err);
 	    });
@@ -10378,7 +10380,7 @@
 	}
 
 	function requestToMailchimp(data) {
-	  console.log(data);
+	  console.log('to mailchimp', data);
 	}
 
 	function serializeInput(prev, el) {
