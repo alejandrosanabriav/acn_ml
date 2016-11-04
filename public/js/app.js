@@ -10360,8 +10360,9 @@
 	  var name = $input.getAttribute('name');
 	  var validations = $input.getAttribute('data-validate').split('|');
 	  var messages = $input.getAttribute('data-messages').split('|');
-	  var $err = document.querySelectorAll('input[name="' + name + '"]').parentNode.querySelectorAll('.input__errors');
-	  console.log($err);
+	  var $err = document.querySelector('input[name="' + name + '"]').parentNode.querySelector('.input__errors');
+	  console.log(validations);
+
 	  $err.innerHTML = '';
 
 	  validations.map(function (type, i) {

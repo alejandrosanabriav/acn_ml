@@ -15,8 +15,9 @@ function showErrors(el) {
   let name = $input.getAttribute('name');
   let validations = $input.getAttribute('data-validate').split('|');
   let messages = $input.getAttribute('data-messages').split('|');
-  let $err = document.querySelectorAll(`input[name="${name}"]`).parentNode.querySelectorAll('.input__errors');
-  console.log($err);
+  let $err = document.querySelector(`input[name="${name}"]`).parentNode.querySelector('.input__errors');
+  console.log(validations);
+
   $err.innerHTML = '';
 
   validations.map((type, i) => {
