@@ -10337,9 +10337,9 @@
 
 	      validations.forEach(function (type, i) {
 	        if (!validate(type, val)) {
-	          (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors').empty().append(messages[i]);
+	          cleanErrors(name).append(messages[i]);
 	        } else {
-	          (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors').empty();
+	          cleanErrors(name);
 	        }
 	      });
 	    });
@@ -10370,6 +10370,10 @@
 	    default:
 	      return false;
 	  }
+	}
+
+	function cleanErrors(name) {
+	  return (0, _jquery2.default)('input[name="' + name + '"]').parent().find('.input__errors').empty();
 	}
 
 /***/ },
