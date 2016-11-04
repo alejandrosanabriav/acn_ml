@@ -6,6 +6,4 @@ export const map = fn => arr => Array.prototype.map.call(arr, fn);
 
 export const on = (event, fn) => el => el.addEventListener(event, fn);
 
-export const allOn = function(event, fn) {
-  return each(on(event, fn));
-}
+export const allOn = (event, fn) => each(on(event, fn));
