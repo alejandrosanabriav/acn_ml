@@ -15,14 +15,6 @@ function bs_admin_options_menu() {
     110 //position on menu
   );
 
-	add_submenu_page(
-		'bs-logos',
-		'Categories options',
-		'BS Categories',
-		'manage_options',
-		'bs-categories'
-	);
-
 	//call register settings function on init admin page
 	add_action( 'admin_init', 'bs_add_country_info_settings' );
 }
