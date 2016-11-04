@@ -24,7 +24,7 @@ function bs_accounts_settings() {
 
 function bs_accounts_options() {
 ?>
-<div style="background: #f1f1f1; background-size: contain; padding: 15px">
+<div style="padding: 15px; margin: 15px auto;background: #fff; box-shadow: 1px 1px 5px rgba(0,0,0, .1); width: 100%">>
 
 <div style="text-align: center; text-shadow: 1px 1px 3px rgba(0,0,0, .1)"><h1>Offices</h1></div>
     
