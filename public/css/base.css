@@ -1095,7 +1095,7 @@ p {
     color: #f1364e; }
 
 .btn {
-  display: block;
+  display: inline-block;
   border: none;
   font-size: 1.5625em;
   font-weight: bold;
