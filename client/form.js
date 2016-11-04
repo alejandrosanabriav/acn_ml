@@ -8,7 +8,7 @@ function showErrors(el) {
   let name = $input.getAttribute('name');
   let validations = $input.getAttribute('data-validate').split('|');
   let messages = $input.getAttribute('data-messages').split('|');
-  let $err = document.querySelector(`input[name="${name}"]`).parentNode.querySelector('.input__errors');
+  let $err = $input.parentNode.querySelector('.input__errors');
 
   $err.innerHTML = '';
 

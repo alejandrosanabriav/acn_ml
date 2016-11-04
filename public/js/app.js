@@ -10349,7 +10349,7 @@
 	  var name = $input.getAttribute('name');
 	  var validations = $input.getAttribute('data-validate').split('|');
 	  var messages = $input.getAttribute('data-messages').split('|');
-	  var $err = document.querySelector('input[name="' + name + '"]').parentNode.querySelector('.input__errors');
+	  var $err = $input.parentNode.querySelector('.input__errors');
 
 	  $err.innerHTML = '';
 
