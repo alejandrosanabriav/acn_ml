@@ -26,7 +26,7 @@ function requestToMailchimp(data) {
   console.log(data);
 }
 
-function serializeInput(prev, current) {
+function serializeInput(prev, el) {
   let name = el.getAttribute('name');
   let val = el.value;
   let ob = {};

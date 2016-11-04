@@ -10379,7 +10379,7 @@
 	  console.log(data);
 	}
 
-	function serializeInput(prev, current) {
+	function serializeInput(prev, el) {
 	  var name = el.getAttribute('name');
 	  var val = el.value;
 	  var ob = {};
