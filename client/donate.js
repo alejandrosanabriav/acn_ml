@@ -3,9 +3,12 @@ import { map, each, on, onAll, reduce, flatten } from './fun';
 
 function changeStep(el = document, step = 1) {
   let nextStep =  (parseInt(step) + 1);
-  console.log(nextStep);
   el.querySelector('input[name="step"]').setAttribute('value', nextStep);
-  
+}
+
+function addClass(el, class) {
+  let prevClasses = el.getAttribute('class');
+  console.log(prevClasses);
 }
 
 export default function donate() {
@@ -16,10 +19,13 @@ export default function donate() {
     let $form = this;
     let step = $form.querySelector('input[name="step"]').value;
     let maxStep = 3;
+
     if(step != maxStep) {
       changeStep($form, step);
     }
-    
+
+    addClass($form.querySelector(`.bs_donate_form__step-${step}`));
+
     $form.querySelector(`.bs_donate_form__step-${step}`).style.display = 'block';
   };
 

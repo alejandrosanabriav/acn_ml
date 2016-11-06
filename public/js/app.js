@@ -54,7 +54,7 @@
 
 	var _form2 = _interopRequireDefault(_form);
 
-	var _donate = __webpack_require__(97);
+	var _donate = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./donate\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _donate2 = _interopRequireDefault(_donate);
 
@@ -14928,59 +14928,6 @@
 	    return a.concat(b);
 	  }, [])(arr);
 	};
-
-/***/ },
-/* 97 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = donate;
-
-	var _fun = __webpack_require__(96);
-
-	function changeStep() {
-	  var el = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document;
-	  var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-
-	  var nextStep = parseInt(step) + 1;
-	  console.log(nextStep);
-	  el.querySelector('input[name="step"]').setAttribute('value', nextStep);
-	}
-
-	function donate() {
-	  var $forms = document.querySelectorAll('.bs_donate_form');
-
-	  var onSubmit = function onSubmit(e) {
-	    e.preventDefault();
-	    var $form = this;
-	    var step = $form.querySelector('input[name="step"]').value;
-	    var maxStep = 3;
-	    if (step != maxStep) {
-	      changeStep($form, step);
-	    }
-
-	    $form.querySelector('.bs_donate_form__step-' + step).style.display = 'block';
-	  };
-
-	  (0, _fun.onAll)('submit', onSubmit)($forms);
-
-	  //handle btns amount
-	  (0, _fun.each)(function (el) {
-	    var $form = el;
-	    var $amountBtns = $form.querySelectorAll('button[data-amount]');
-	    var $amountInput = $form.querySelector('input[name="amount"]');
-
-	    (0, _fun.onAll)('click', function (e) {
-	      e.preventDefault();
-	      var amount = this.getAttribute('data-amount');
-	      $amountInput.setAttribute('value', amount);
-	    })($amountBtns);
-	  })($forms);
-	}
 
 /***/ }
 /******/ ]);

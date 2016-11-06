@@ -3,7 +3,7 @@
 <input type="hidden" name="step" value="1" />
 
   <div class="row">
-    <div class="bs_donate_form__step bs_donate_form__step-1">
+    <div class="bs_donate_form__step bs_donate_form__step--active bs_donate_form__step-1">
       <div class="col-md-12">
         <div class="input_container">
           <button class="btn" data-amount="10">10</button>
