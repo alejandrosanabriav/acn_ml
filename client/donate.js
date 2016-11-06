@@ -6,7 +6,7 @@ function changeStep(el = document, step = 1) {
   el.querySelector('input[name="step"]').setAttribute('value', nextStep);
 }
 
-function addClass(el, class) {
+function addClass(el, newClass) {
   let prevClasses = el.getAttribute('class');
   console.log(prevClasses);
 }
