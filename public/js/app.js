@@ -14952,6 +14952,7 @@
 
 	function addClass(el, newClass) {
 	  var prevClasses = el.getAttribute('class');
+	  el.setAttribute('class', prevClasses + ' ' + newClass);
 	  console.log(prevClasses);
 	}
 
@@ -14968,7 +14969,7 @@
 	      changeStep($form, step);
 	    }
 
-	    addClass($form.querySelector('.bs_donate_form__step-' + step));
+	    addClass($form.querySelector('.bs_donate_form__step-' + step), 'new-nea');
 
 	    $form.querySelector('.bs_donate_form__step-' + step).style.display = 'block';
 	  };

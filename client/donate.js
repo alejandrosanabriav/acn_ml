@@ -8,6 +8,7 @@ function changeStep(el = document, step = 1) {
 
 function addClass(el, newClass) {
   let prevClasses = el.getAttribute('class');
+  el.setAttribute('class', prevClasses + ' ' + newClass);
   console.log(prevClasses);
 }
 
@@ -24,7 +25,7 @@ export default function donate() {
       changeStep($form, step);
     }
 
-    addClass($form.querySelector(`.bs_donate_form__step-${step}`));
+    addClass($form.querySelector(`.bs_donate_form__step-${step}`), 'new-nea');
 
     $form.querySelector(`.bs_donate_form__step-${step}`).style.display = 'block';
   };
