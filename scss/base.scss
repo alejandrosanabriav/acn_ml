@@ -151,7 +151,7 @@ p {
 .form_steps {
   overflow: hidden;
 
-  &__overflow {
+  &__viewport {
     position: relative;
     left: 0;
     transition: all 400ms ease-in-out;
