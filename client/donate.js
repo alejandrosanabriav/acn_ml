@@ -10,15 +10,10 @@ export default function() {
   let viewport = form.find('.form_steps__viewport');
   steps.css({'width':`${stepWidth}%`});
   viewport.css({'width':`${viewportWidth}%` });
-
+  let s = 0;
   form.on('submit', function(evt) {
     evt.preventDefault();
-    let s = 1;
-    
-    function step() {
-      s = s + 1;
-      console.log(s);
-    }
+    s = s + 1;
     step();
 
      $(this).find('.form_steps__viewport').css({left: '-100%'});

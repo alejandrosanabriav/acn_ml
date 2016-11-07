@@ -14948,15 +14948,10 @@
 	  var viewport = form.find('.form_steps__viewport');
 	  steps.css({ 'width': stepWidth + '%' });
 	  viewport.css({ 'width': viewportWidth + '%' });
-
+	  var s = 0;
 	  form.on('submit', function (evt) {
 	    evt.preventDefault();
-	    var s = 1;
-
-	    function step() {
-	      s = s + 1;
-	      console.log(s);
-	    }
+	    s = s + 1;
 	    step();
 
 	    (0, _jquery2.default)(this).find('.form_steps__viewport').css({ left: '-100%' });
