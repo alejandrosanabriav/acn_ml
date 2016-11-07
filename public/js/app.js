@@ -14941,7 +14941,7 @@
 
 	exports.default = function () {
 	  var form = document.querySelector('.bs_donate_form');
-	  console.log(form.querySelector('.bs_donate_form__step'));
+	  console.log(form.querySelectorAll('.bs_donate_form__step').length);
 	};
 
 	var _jquery = __webpack_require__(2);
