@@ -14951,8 +14951,7 @@
 
 	  form.on('submit', function (evt) {
 	    evt.preventDefault();
-	    steps.removeClass('bs_donate_form__step--active');
-	    steps[step++].addClass('bs_donate_form__step--active');
+	    viewport.css({ left: '-100%' });
 	  });
 	};
 

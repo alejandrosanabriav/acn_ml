@@ -1127,7 +1127,8 @@ p {
   overflow: hidden; }
   .form_steps__overflow {
     position: relative;
-    left: 0; }
+    left: 0;
+    transition: all 400ms ease-in-out; }
   .form_steps__step {
     float: left;
     display: inline-block; }
