@@ -14943,7 +14943,11 @@
 	  var form = document.querySelector('.bs_donate_form');
 	  var steps = form.querySelectorAll('.bs_donate_form__step');
 	  var maxStep = steps.length;
-	  console.log(maxStep);
+	  console.log(steps[maxStep]);
+	  form.addEventListener('submit', function (evt) {
+	    evt.preventDefault();
+	    console.log('submit');
+	  });
 	};
 
 	var _jquery = __webpack_require__(2);
