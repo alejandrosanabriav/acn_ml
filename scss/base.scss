@@ -150,7 +150,12 @@ p {
 
 .form_steps {
   overflow: hidden;
-  
+
+  &__overflow {
+    position: relative;
+    left: 0;
+  }
+
   &__step {
     float: left;
     display: inline-block;
