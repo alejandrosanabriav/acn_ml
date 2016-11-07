@@ -14951,7 +14951,7 @@
 
 	  form.on('submit', function (evt) {
 	    evt.preventDefault();
-	    viewport.css({ left: '-100%' });
+	    (0, _jquery2.default)(this).find('.form_steps__viewport').css({ left: '-100%' });
 	  });
 	};
 
