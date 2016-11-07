@@ -11,6 +11,7 @@ export default function() {
   steps.css({'width':`${stepWidth}%`});
   viewport.css({'width':`${viewportWidth}%` });
   let s = 0;
+  
   form.on('submit', function(evt) {
     evt.preventDefault();
     s = s + 1;

@@ -14949,6 +14949,7 @@
 	  steps.css({ 'width': stepWidth + '%' });
 	  viewport.css({ 'width': viewportWidth + '%' });
 	  var s = 0;
+
 	  form.on('submit', function (evt) {
 	    evt.preventDefault();
 	    s = s + 1;
