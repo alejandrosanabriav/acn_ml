@@ -6,10 +6,15 @@ function dollar(selector) {
   
   function Dollar() {
     const els = document.querySelectorAll(selector);
+    this.addNodes(els);
+  }
+  
+  Dollar.prototype.addNodes = function(els) {
     const l = els.length;
+    this['nodes'] = [];
 
     for(var i = 0; i < l; i++ ) {
-      this[i] = els[i];
+      this['nodes'] = this['nodes'].concat( [els[i]]);
     }
 
     this.length = l;
@@ -18,7 +23,7 @@ function dollar(selector) {
   Dollar.prototype.on = function(event, fn) {
     each(function(el) {
       el.addEventListener(event, fn);
-    })(this);
+    })(this.nodes);
 
     return this;
   }
@@ -34,7 +39,7 @@ function dollar(selector) {
       newClass = `${currentClass} ${newClass}`;
 
       el.setAttribute('class', newClass);
-    })(this);
+    })(this.nodes);
 
     return this;
   }
@@ -45,7 +50,7 @@ function dollar(selector) {
       const arrClass = currentClass.split(' '); 
       const newClass = arrClass.filter(cl => cl !== clss);
       el.setAttribute('class', newClass.join(' '));
-    })(this);
+    })(this.nodes);
 
     return this;
   }
@@ -57,6 +62,13 @@ function dollar(selector) {
     } else {
      return map(el.getAttribute(att))(this);
     }
+  }
+
+  Dollar.prototype.find = function(childSelector) {
+    
+    each(function(el) {
+      el.querySelector(childSelector).style.color = 'red';
+    })(this.nodes);
   }
 
   return new Dollar();

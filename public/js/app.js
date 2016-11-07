@@ -14938,51 +14938,17 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = donate;
 
-	var _fun = __webpack_require__(96);
+	exports.default = function () {
+	  var form = document.querySelector('.bs_donate_form');
+	  console.log(form.querySelector('.bs_donate_form__step'));
+	};
 
-	function changeStep() {
-	  var el = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document;
-	  var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+	var _jquery = __webpack_require__(2);
 
-	  var nextStep = parseInt(step) + 1;
-	  el.querySelector('input[name="step"]').setAttribute('value', nextStep);
-	}
+	var _jquery2 = _interopRequireDefault(_jquery);
 
-	function donate() {
-	  var $forms = document.querySelectorAll('.bs_donate_form');
-
-	  var onSubmit = function onSubmit(e) {
-	    e.preventDefault();
-	    var $form = this;
-	    var step = $form.querySelector('input[name="step"]').value;
-	    var maxStep = 3;
-
-	    if (step != maxStep) {
-	      changeStep($form, step);
-	    }
-
-	    addClass($form.querySelector('.bs_donate_form__step-' + step), 'new-nea');
-
-	    $form.querySelector('.bs_donate_form__step-' + step).style.display = 'block';
-	  };
-
-	  (0, _fun.onAll)('submit', onSubmit)($forms);
-
-	  //handle btns amount
-	  (0, _fun.each)(function (el) {
-	    var $form = el;
-	    var $amountBtns = $form.querySelectorAll('button[data-amount]');
-	    var $amountInput = $form.querySelector('input[name="amount"]');
-
-	    (0, _fun.onAll)('click', function (e) {
-	      e.preventDefault();
-	      var amount = this.getAttribute('data-amount');
-	      $amountInput.setAttribute('value', amount);
-	    })($amountBtns);
-	  })($forms);
-	}
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }
 /******/ ]);

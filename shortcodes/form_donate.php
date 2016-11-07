@@ -2,7 +2,7 @@
 <input type="hidden" name="token" />
 <input type="hidden" name="step" value="1" />
 
-  <div class="row bs_donate_form__step bs_donate_form__step--active bs_donate_form__step-1">
+  <div class="row bs_donate_form__step bs_donate_form__step--active">
 
       <div class="col-md-12">
         <div class="input_container">
@@ -28,7 +28,7 @@
 
   </div>
 
-  <div class="bs_donate_form__step bs_donate_form__step-2">
+  <div class="bs_donate_form__step">
     <div class="col-md-12">
       <div class="input_container">
         <input type="text" name="number" class="input" placeholder="Number">
