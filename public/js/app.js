@@ -14953,6 +14953,7 @@
 	  form.on('submit', function (evt) {
 	    evt.preventDefault();
 	    s = s + 1;
+	    console.log(s);
 	    (0, _jquery2.default)(this).find('.form_steps__viewport').css({ left: '-100%' });
 	  });
 	};
