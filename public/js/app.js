@@ -14946,7 +14946,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function donate(form) {
+	function donate() {
+	  var form = (0, _jquery2.default)('.form_steps');
 	  var steps = form.find('.form_steps__step');
 	  var maxStep = steps.length;
 	  var stepWidth = 100 / maxStep;

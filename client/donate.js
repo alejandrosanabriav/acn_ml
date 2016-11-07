@@ -1,7 +1,8 @@
 'use strict';
 import $ from 'jquery';
 
-export default function donate(form) {
+export default function donate() {
+  let form = $('.form_steps');
   let steps = form.find('.form_steps__step');
   let maxStep = steps.length;
   let stepWidth = (100 / maxStep);
