@@ -14940,13 +14940,15 @@
 	});
 
 	exports.default = function () {
-	  var form = document.querySelector('.bs_donate_form');
-	  var steps = form.querySelectorAll('.bs_donate_form__step');
+	  var form = (0, _jquery2.default)('.bs_donate_form');
+	  var steps = form.find('.bs_donate_form__step');
 	  var maxStep = steps.length;
-	  console.log(steps[2]);
+	  var step = 0;
+
 	  form.addEventListener('submit', function (evt) {
 	    evt.preventDefault();
-	    console.log('submit');
+	    steps.removeClass('bs_donate_form__step--active');
+	    steps[step++].addClass('bs_donate_form__step--active');
 	  });
 	};
 
