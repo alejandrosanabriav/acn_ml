@@ -1120,3 +1120,5 @@ p {
 
 .bs_donate_form__step {
   display: none; }
+  .bs_donate_form__step--active {
+    display: block; }
