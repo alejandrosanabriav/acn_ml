@@ -5,9 +5,10 @@ export default function() {
   let form = $('.form_steps');
   let steps = form.find('.form_steps__step');
   let maxStep = steps.length;
-  let step = 0;
+  let stepWidth = (100 / maxStep);
   let viewportWidth = (maxStep * 100);
   let viewport = form.find('.form_steps__viewport');
+  steps.css({'width':`${stepWidth}%`});
   viewport.css({'width':`${viewportWidth}%` });
 
   form.on('submit', function(evt) {

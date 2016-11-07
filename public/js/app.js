@@ -14943,9 +14943,10 @@
 	  var form = (0, _jquery2.default)('.form_steps');
 	  var steps = form.find('.form_steps__step');
 	  var maxStep = steps.length;
-	  var step = 0;
+	  var stepWidth = 100 / maxStep;
 	  var viewportWidth = maxStep * 100;
 	  var viewport = form.find('.form_steps__viewport');
+	  steps.css({ 'width': stepWidth + '%' });
 	  viewport.css({ 'width': viewportWidth + '%' });
 
 	  form.on('submit', function (evt) {

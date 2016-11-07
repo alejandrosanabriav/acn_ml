@@ -1125,3 +1125,6 @@ p {
 
 .form_steps {
   overflow: hidden; }
+  .form_steps__step {
+    float: left;
+    display: inline-block; }
