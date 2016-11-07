@@ -13,6 +13,15 @@ export default function() {
 
   form.on('submit', function(evt) {
     evt.preventDefault();
-    $(this).find('.form_steps__viewport').css({left: '-100%'});
+    let s = 1;
+    
+    function step() {
+      s = s + 1;
+      console.log(s);
+    }
+    step();
+
+     $(this).find('.form_steps__viewport').css({left: '-100%'});
+    
   });
 }

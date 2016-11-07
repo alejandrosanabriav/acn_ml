@@ -14951,6 +14951,14 @@
 
 	  form.on('submit', function (evt) {
 	    evt.preventDefault();
+	    var s = 1;
+
+	    function step() {
+	      s = s + 1;
+	      console.log(s);
+	    }
+	    step();
+
 	    (0, _jquery2.default)(this).find('.form_steps__viewport').css({ left: '-100%' });
 	  });
 	};
