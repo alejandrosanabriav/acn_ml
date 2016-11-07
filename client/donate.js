@@ -15,8 +15,6 @@ export default function() {
   form.on('submit', function(evt) {
     evt.preventDefault();
     s = s + 1;
-
     $(this).find('.form_steps__viewport').css({left: '-100%'});
-    
   });
 }
