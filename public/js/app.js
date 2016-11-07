@@ -14940,10 +14940,13 @@
 	});
 
 	exports.default = function () {
-	  var form = (0, _jquery2.default)('.bs_donate_form');
-	  var steps = form.find('.bs_donate_form__step');
+	  var form = (0, _jquery2.default)('.form_steps');
+	  var steps = form.find('.form_steps__step');
 	  var maxStep = steps.length;
 	  var step = 0;
+	  var viewportWidth = maxStep * 100;
+	  var viewport = form.find('form_steps__viewport');
+	  viewport.css({ 'width': viewportWidth + '%' });
 
 	  form.on('submit', function (evt) {
 	    evt.preventDefault();

@@ -1122,3 +1122,6 @@ p {
   display: none; }
   .bs_donate_form__step--active {
     display: block; }
+
+.form_steps {
+  overflow: hidden; }

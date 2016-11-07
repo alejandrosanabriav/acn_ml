@@ -133,6 +133,7 @@ p {
     padding: 10px 15px;
     transition: 300ms all ease;
 
+
     &:hover {
       background: #fff;
       color: $color_dark;
@@ -145,4 +146,9 @@ p {
   &--active {
     display: block;
   }
+}
+
+.form_steps {
+  overflow: hidden;
+
 }

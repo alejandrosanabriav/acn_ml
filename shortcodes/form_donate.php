@@ -1,8 +1,8 @@
-<form action="" class="bs_donate_form">
+<form action="" class="bs_donate_form form_steps">
 <input type="hidden" name="token" />
 <input type="hidden" name="step" value="1" />
-
-  <div class="row bs_donate_form__step bs_donate_form__step--active">
+  <div class="form_steps__viewport">
+  <div class="row form_steps__step">
 
       <div class="col-md-12">
         <div class="input_container">
@@ -28,7 +28,7 @@
 
   </div>
 
-  <div class="bs_donate_form__step">
+  <div class="form_steps__step">
     <div class="col-md-12">
       <div class="input_container">
         <input type="text" name="number" class="input" placeholder="Number">
@@ -54,7 +54,7 @@
     </div>
   </div>
 
-  <div class="bs_donate_form__step bs_donate_form__step-3">
+  <div class="form_steps__step">
       <div class="col-md-12">
       <div class="input_container">
         <input type="text" name="name" class="input" placeholder="Name">
@@ -67,6 +67,8 @@
       </div>
     </div>
   </div>
+
+</div><!--/steps_wiewport-->
 
   <button class="btn">Donate</button>
 </form>
