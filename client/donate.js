@@ -31,6 +31,7 @@ export default function donate() {
     let next = step * 100;
     step = step + 1;
     $this.data('step', step);
+    console.log(next);
     $this.parent().find('.form_steps__viewport').css({left: '-${next}%'});
   });
   
