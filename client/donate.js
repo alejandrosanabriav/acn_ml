@@ -6,11 +6,6 @@ function changeStep(el = document, step = 1) {
   el.querySelector('input[name="step"]').setAttribute('value', nextStep);
 }
 
-function addClass(el, newClass) {
-  let prevClasses = el.getAttribute('class');
-  el.setAttribute('class', prevClasses + ' ' + newClass);
-  console.log(prevClasses);
-}
 
 export default function donate() {
   let $forms = document.querySelectorAll('.bs_donate_form');  

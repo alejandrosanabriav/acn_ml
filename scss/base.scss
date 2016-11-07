@@ -142,4 +142,7 @@ p {
 
 .bs_donate_form__step {
   display: none;
+  &--active {
+    display: block;
+  }
 }

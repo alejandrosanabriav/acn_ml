@@ -14950,12 +14950,6 @@
 	  el.querySelector('input[name="step"]').setAttribute('value', nextStep);
 	}
 
-	function addClass(el, newClass) {
-	  var prevClasses = el.getAttribute('class');
-	  el.setAttribute('class', prevClasses + ' ' + newClass);
-	  console.log(prevClasses);
-	}
-
 	function donate() {
 	  var $forms = document.querySelectorAll('.bs_donate_form');
 
