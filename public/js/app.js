@@ -14945,7 +14945,7 @@
 	  var maxStep = steps.length;
 	  var step = 0;
 	  var viewportWidth = maxStep * 100;
-	  var viewport = form.find('form_steps__viewport');
+	  var viewport = form.find('.form_steps__viewport');
 	  viewport.css({ 'width': viewportWidth + '%' });
 
 	  form.on('submit', function (evt) {

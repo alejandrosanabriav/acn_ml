@@ -7,9 +7,9 @@ export default function() {
   let maxStep = steps.length;
   let step = 0;
   let viewportWidth = (maxStep * 100);
-  let viewport = form.find('form_steps__viewport');
+  let viewport = form.find('.form_steps__viewport');
   viewport.css({'width':`${viewportWidth}%` });
-  
+
   form.on('submit', function(evt) {
     evt.preventDefault();
     steps.removeClass('bs_donate_form__step--active');
