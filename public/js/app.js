@@ -14943,7 +14943,7 @@
 	  var form = document.querySelector('.bs_donate_form');
 	  var steps = form.querySelectorAll('.bs_donate_form__step');
 	  var maxStep = steps.length;
-	  console.log(steps[maxStep]);
+	  console.log(steps[2]);
 	  form.addEventListener('submit', function (evt) {
 	    evt.preventDefault();
 	    console.log('submit');
