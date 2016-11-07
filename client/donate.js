@@ -11,13 +11,12 @@ export default function() {
   steps.css({'width':`${stepWidth}%`});
   viewport.css({'width':`${viewportWidth}%` });
   let s = 0;
-  
+
   form.on('submit', function(evt) {
     evt.preventDefault();
     s = s + 1;
-    step();
 
-     $(this).find('.form_steps__viewport').css({left: '-100%'});
+    $(this).find('.form_steps__viewport').css({left: '-100%'});
     
   });
 }
