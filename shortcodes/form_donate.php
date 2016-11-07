@@ -70,5 +70,6 @@
 
 </div><!--/steps_wiewport-->
 
-  <button class="btn">Donate</button>
+  <button class="btn form_steps__next" data-step="1">Donate</button>
+  <button class="btn form_steps__back">back</button>
 </form>

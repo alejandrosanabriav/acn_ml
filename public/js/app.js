@@ -14938,31 +14938,46 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	exports.default = function () {
-	  var form = (0, _jquery2.default)('.form_steps');
-	  var steps = form.find('.form_steps__step');
-	  var maxStep = steps.length;
-	  var stepWidth = 100 / maxStep;
-	  var viewportWidth = maxStep * 100;
-	  var viewport = form.find('.form_steps__viewport');
-	  steps.css({ 'width': stepWidth + '%' });
-	  viewport.css({ 'width': viewportWidth + '%' });
-	  var s = 0;
-
-	  form.on('submit', function (evt) {
-	    evt.preventDefault();
-	    s = s + 1;
-	    console.log(s);
-	    (0, _jquery2.default)(this).find('.form_steps__viewport').css({ left: '-100%' });
-	  });
-	};
+	exports.default = donate;
 
 	var _jquery = __webpack_require__(2);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function donate(form) {
+	  var steps = form.find('.form_steps__step');
+	  var maxStep = steps.length;
+	  var stepWidth = 100 / maxStep;
+	  var viewportWidth = maxStep * 100;
+	  var viewport = form.find('.form_steps__viewport');
+	  var s = 0;
+
+	  steps.css({ 'width': stepWidth + '%' });
+	  viewport.css({ 'width': viewportWidth + '%' });
+
+	  (0, _jquery2.default)('.form_steps__back').on('click', function (evt) {
+	    evt.preventDefault();
+	  });
+
+	  form.on('submit', function (evt) {
+	    evt.preventDefault();
+	    var $this = (0, _jquery2.default)(this);
+	    var step = 0;
+	    $this;
+	  });
+
+	  (0, _jquery2.default)('.form_steps__next').on('click', function (evt) {
+	    evt.preventDefault();
+	    var $this = (0, _jquery2.default)(this);
+	    var step = $this.data('step');
+	    var next = step * 100;
+	    step = step + 1;
+	    $this.data('step', step);
+	    $this.parent().find('.form_steps__viewport').css({ left: '-${next}%' });
+	  });
+	}
 
 /***/ }
 /******/ ]);
