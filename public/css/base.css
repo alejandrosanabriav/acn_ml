@@ -199,12 +199,12 @@ button:focus {
         background: #fff; }
   .donate_landing__submit {
     vertical-align: middle;
-    float: right;
     background: transparent;
     border: none;
-    font-size: 46px;
+    font-size: 1.78571em;
     color: #fff;
-    line-height: 67px; }
+    border: 3px solid #fff;
+    border-radius: 8px; }
     .donate_landing__submit-get_token {
       font-size: 16px; }
   .donate_landing .radio {
