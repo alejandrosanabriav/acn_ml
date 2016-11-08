@@ -6,13 +6,9 @@
 
     <?php the_content() ?>
     
-
-
   <?php endwhile; else : ?>
     <h1>
-    <?php
-      
-     ?>
+    <?php echo gett('404') ?>
     </h1>
   <?php endif; ?>
 </div>
