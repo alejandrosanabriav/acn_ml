@@ -91,7 +91,6 @@ p {
     border-left: none; }
 
 .btn {
-  display: inline-block;
   border: none;
   font-size: 1.78571em;
   font-weight: bold;
@@ -210,9 +209,7 @@ button {
         height: 3px;
         background: #fff; }
   .donate_landing__submit {
-    vertical-align: middle;
     background: transparent;
-    border: none;
     font-size: 1.78571em;
     color: #fff;
     border: 3px solid #fff;
