@@ -32,7 +32,6 @@
               <input
               type="text"
               class="form-control"
-              style="font-size: 30px"
               v-model="amount"
               v-el:amount-input
               @keyup="cleanNumber('amount')"
