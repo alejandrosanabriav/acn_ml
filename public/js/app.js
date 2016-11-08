@@ -15140,7 +15140,7 @@
 	      },
 	      handleToken: function handleToken(response) {
 	        this.toggleLoading();
-	        console.log('res', response);
+	        console.log('res', JSON.parse(response));
 	        if (response.id) {
 	          this.stripe.token = response.id;
 	          this.nextSection();
