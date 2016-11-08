@@ -25,3 +25,15 @@ function stripe_token() {
   echo json_encode($res);
   die();
 }
+
+add_action( 'wp_ajax_nopriv_stripe_charge', 'stripe_charge' );
+add_action( 'wp_ajax_stripe_charge', 'stripe_charge' );
+
+function stripe_charge() {
+  $charge = $_POST['data'];
+  $apiKey =  get_option('stripe_key_private');
+  $res = $charge;
+  header('Content-type: application/json');
+  echo json_encode($res);
+  die();
+}

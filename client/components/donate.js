@@ -70,7 +70,7 @@ let componentData = {
     country: null,
     stripe_token: null
   },
-  
+
   card: {
     Visa: false,
     MasterCard: false,
@@ -236,23 +236,23 @@ export default () => ({
 
       this.contactValidations();
 
-      let data = _.extend(this.contact, {
+      let data = {...this.contact,
         amount: this.amount,
         donation_type: this.donation_type,
         stripe_token: this.stripe.token,
-      });
+      };
 
       this.toggleLoading();
 
       $.ajax({
-        url: this.url,
-        type: 'POST',
-        data: data,
+        url: '/wp-admin/admin-ajax.php',
+        type: 'post',
+        data: {action: 'stripe_charge', data: data},
         beforeSend: () => {
           this.removeErrors();
         }
       })
-      .then(this.handleSubmitResponse);
+      .then(res => console.log(res));
 
     },
 
