@@ -8,8 +8,8 @@ import {steps, step} from './components/steps';
 (function() {
   steps();
   step();
+   Vue.component('donate-landing', donate);
   new Vue({el: '#app'});
-  Vue.component('donate-landing', donate);
   input();
   form();
   donate();

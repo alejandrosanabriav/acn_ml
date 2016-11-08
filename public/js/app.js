@@ -69,8 +69,8 @@
 	(function () {
 	  (0, _steps.steps)();
 	  (0, _steps.step)();
-	  new _vue2.default({ el: '#app' });
 	  _vue2.default.component('donate-landing', _donate2.default);
+	  new _vue2.default({ el: '#app' });
 	  (0, _input2.default)();
 	  (0, _form2.default)();
 	  (0, _donate2.default)();
