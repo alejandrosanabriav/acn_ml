@@ -173,6 +173,9 @@ p {
 li {
   list-style: none; }
 
+a:hover {
+  text-decoration: none; }
+
 .change-amount li {
   float: left;
   width: 20%;
