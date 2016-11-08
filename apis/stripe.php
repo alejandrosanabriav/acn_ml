@@ -19,26 +19,54 @@ function stripe_create_token($api_key, $card) {
 
 function stripe_create_customer($api_key, $customer) {
   \Stripe\Stripe::setApiKey($api_key);
-  try {
+    
     $customer = \Stripe\Customer::create(array(
       "email" => $customer['email'],
       "source" => $customer['token']
     ));
-  } catch(Exception $e) {
-    return $e;
-  }
- 
-
-  return $customer;
+    
+    return $customer;
 }
 
 function stripe_create_charge($api_key, $charge) {
   \Stripe\Stripe::setApiKey($api_key);
 
-  \Stripe\Charge::create(array(
+  $charge = \Stripe\Charge::create(array(
     "amount" => $charge['amount'],
     "currency" => $charge['currency'],
     "source" => $charge['token']
   ));
 
+  return $charge;
 }
+
+function stripe_get_plan($api_key, $name) {
+  \Stripe\Stripe::setApiKey("sk_test_vq5s51SGycQ6dvCqC3H7JcCl");
+
+  $plan = \Stripe\Plan::retrieve($name);
+  return $plan;
+}
+
+function stripe_create_plan($api_key, $plan) {
+  \Stripe\Stripe::setApiKey("sk_test_vq5s51SGycQ6dvCqC3H7JcCl");
+
+  \Stripe\Plan::create(array(
+    "amount" => $plan['amount'] . '00',
+    "interval" => "month",
+    "name" => $plan['name'],
+    "currency" => $plan['currency'],
+    "id" => $plan['name'])
+  );
+}
+
+function stripe_create_subscription($api_key, $charge) {
+  \Stripe\Stripe::setApiKey($api_key);
+
+  $subscription = \Stripe\Subscription::create(array(
+    "customer" => $charge['customer'], //"cus_9MzzzON1VtZiKY",
+    "plan" => $charge['plan'] //"donation-55"
+  ));
+
+  return $subscription;
+}
+

@@ -127,7 +127,8 @@ p {
 .alert-danger {
   background: #FC3938;
   border: none;
-  color: #fff; }
+  color: #fff;
+  transition: all 300ms ease; }
 
 button:focus {
   box-shadow: none;
