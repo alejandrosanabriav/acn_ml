@@ -6,10 +6,7 @@
 
     <?php the_content() ?>
     
-    <?php // this is for the footer ?>
 
-    
-    <div style="padding-top: 100px"></div>
 
   <?php endwhile; else : ?>
     <h1>
