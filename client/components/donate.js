@@ -86,7 +86,7 @@ let componentData = {
   section: 1
 };
 
-module.exports = Vue.extend({
+export default donate = Vue.extend({
   template: "#donate-landing-template",
 
   props: [
