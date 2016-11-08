@@ -15133,7 +15133,7 @@
 	          url: '/wp-admin/admin-ajax.php',
 	          data: data
 	        }).done(function (res) {
-	          return console.log('token', res);
+	          return console.log('token', JSON.parse(res));
 	        });
 	      },
 	      handleToken: function handleToken(status, response) {

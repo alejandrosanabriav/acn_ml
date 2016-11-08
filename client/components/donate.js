@@ -166,7 +166,7 @@ export default () => ({
         url: '/wp-admin/admin-ajax.php',
         data: data
       })
-      .done(res => console.log('token', res));
+      .done(res => console.log('token', JSON.parse(res) ));
 
     },
 
