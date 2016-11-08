@@ -131,7 +131,7 @@ button:focus {
   outline: none; }
 
 .card-type {
-  opacity: .8;
+  opacity: .5;
   transition: all 300ms ease; }
   .card-type--active {
     opacity: 1; }
