@@ -52,10 +52,10 @@
             ><?php echo gett('Once') ?></a>
           </div>
         <div class="col-md-12">
-          <button class="donate_landing__submit" v-on:click.prevent="nextSection">
+          <button class="donate_landing__submit pull-left" v-on:click.prevent="nextSection">
           <?php echo gett('Donate') ?>
         </button>
-        <h6 style="text-transform: uppercase; text-align: left; margin-left:15px"> USD ${{amount}} • {{donation_type}}</h6>
+        <h6 class="pull-left" style="margin-left: 25px; font-size: 14px; font-weight: light"> USD ${{amount}} • {{donation_type}}</h6>
         </div>
         
 
