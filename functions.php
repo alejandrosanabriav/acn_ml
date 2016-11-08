@@ -69,4 +69,8 @@ function gett($str) {
 	return $str;
 }
 
+function getCountry() {
+	return '';
+}
+
 add_filter('tiny_mce_before_init', 'my_mce4_options');

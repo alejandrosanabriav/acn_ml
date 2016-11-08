@@ -184,7 +184,7 @@
               <?php endif; ?>
 
               <option value="" selected><?php echo getT('Country') ?></option>
-                <?php foreach(getCountryList() as $country): ?>
+                <?php foreach(getCountries() as $country): ?>
                   <option value="<?php echo $country; ?>"><?php echo $country; ?></option>
                 <?php endforeach; ?>
             </select>
