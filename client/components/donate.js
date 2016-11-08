@@ -5,9 +5,6 @@ import gaEvents from '../ga_events';
 import gaEcommerce from '../ga_ecommerce';
 import validateStripe from '../stripe/validation.js';
 
-// pk_test_kORhSnXY5TPJMXXY5Wwiugzy
-// pk_live_VAx77ruuR7UJpxfSDzStBbm7
-
 function debounce(fn, delay) {
     var delayed;
 
@@ -86,7 +83,7 @@ let componentData = {
   section: 1
 };
 
-let donate = () => ({
+export default () => ({
   template: "#donate-landing-template",
 
   props: [
@@ -322,5 +319,3 @@ let donate = () => ({
     }
   }
 });
-
-export default donate;

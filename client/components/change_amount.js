@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = {
+export default () => ({
   template: "#change-amount-template",
   methods: {
     changeAmount(amount, e) {
@@ -13,4 +13,4 @@ module.exports = {
 
     }
   }
-};
+});

@@ -69,8 +69,10 @@
 	(function () {
 	  (0, _steps.steps)();
 	  (0, _steps.step)();
-	  Vue.component('change-amount', _change_amount2.default);
-	  Vue.component('donate-landing', _donate2.default);
+
+	  Vue.component('change-amount', (0, _change_amount2.default)());
+	  Vue.component('donate-landing', (0, _donate2.default)());
+
 	  new Vue({ el: '#app-ml' });
 	  (0, _input2.default)();
 	  (0, _form2.default)();
@@ -25216,9 +25218,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// pk_test_kORhSnXY5TPJMXXY5Wwiugzy
-	// pk_live_VAx77ruuR7UJpxfSDzStBbm7
-
 	function debounce(fn, delay) {
 	  var delayed;
 
@@ -25296,7 +25295,7 @@
 	  section: 1
 	};
 
-	var donate = function donate() {
+	exports.default = function () {
 	  return {
 	    template: "#donate-landing-template",
 
@@ -25512,8 +25511,6 @@
 	    }
 	  };
 	};
-
-	exports.default = donate;
 
 /***/ },
 /* 99 */
@@ -57099,18 +57096,24 @@
 
 	'use strict';
 
-	module.exports = {
-	  template: "#change-amount-template",
-	  methods: {
-	    changeAmount: function changeAmount(amount, e) {
-	      e.preventDefault();
-	      if (amount == '') {
-	        this.$dispatch('focus-amount');
-	      } else {
-	        this.$parent.amount = amount;
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  return {
+	    template: "#change-amount-template",
+	    methods: {
+	      changeAmount: function changeAmount(amount, e) {
+	        e.preventDefault();
+	        if (amount == '') {
+	          this.$dispatch('focus-amount');
+	        } else {
+	          this.$parent.amount = amount;
+	        }
 	      }
 	    }
-	  }
+	  };
 	};
 
 /***/ }

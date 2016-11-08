@@ -8,8 +8,10 @@ import {steps, step} from './components/steps';
 (function() {
   steps();
   step();
-  Vue.component('change-amount', changeAmount);
-  Vue.component('donate-landing', donate);
+
+  Vue.component('change-amount', changeAmount());
+  Vue.component('donate-landing', donate());
+
   new Vue({el: '#app-ml'});
   input();
   form();
