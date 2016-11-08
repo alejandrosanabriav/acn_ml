@@ -7,7 +7,8 @@ import {steps, step} from './components/steps';
 
 (function() {
   new Vue({el: '#app'});
-
+  steps();
+  step();
   input();
   form();
   donate();

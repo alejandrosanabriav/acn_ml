@@ -68,7 +68,8 @@
 
 	(function () {
 	  new _vue2.default({ el: '#app' });
-
+	  (0, _steps.steps)();
+	  (0, _steps.step)();
 	  (0, _input2.default)();
 	  (0, _form2.default)();
 	  (0, _donate2.default)();
@@ -20687,25 +20688,29 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var steps = exports.steps = _vue2.default.component('steps', {
-	  template: '#steps-template',
-	  data: function data() {
-	    return {
-	      currentStep: 1
-	    };
-	  },
-	  mounted: function mounted() {
-	    console.log('steps');
-	  }
-	});
+	var steps = exports.steps = function steps() {
+	  return _vue2.default.component('steps', {
+	    template: '#steps-template',
+	    data: function data() {
+	      return {
+	        currentStep: 1
+	      };
+	    },
+	    mounted: function mounted() {
+	      console.log('steps');
+	    }
+	  });
+	};
 
-	var step = exports.step = _vue2.default.component('step', {
-	  template: '#step-template',
-	  props: ['step'],
-	  mounted: function mounted() {
-	    console.log(this.step);
-	  }
-	});
+	var step = exports.step = function step() {
+	  return _vue2.default.component('step', {
+	    template: '#step-template',
+	    props: ['step'],
+	    mounted: function mounted() {
+	      console.log(this.step);
+	    }
+	  });
+	};
 
 /***/ }
 /******/ ]);
