@@ -187,4 +187,8 @@ li {
     height: 50px;
     color: #fff;
     text-align: center;
-    width: 100%; }
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center; }
