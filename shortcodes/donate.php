@@ -19,7 +19,7 @@
   <template id="donate-landing-template">
     <div v-if="!success">
 
-    <form method="post" class="donate_landing">
+    <form method="post" class="donate_landing" v-on:submit.prevent>
 
 
       <div class="donate_landing__viewport">
