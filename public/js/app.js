@@ -15116,6 +15116,8 @@
 	        return error;
 	      },
 	      createToken: function createToken() {
+	        var _this2 = this;
+
 	        var stripeData = {
 	          number: this.stripe.number,
 	          cvc: this.stripe.cvc,
@@ -15133,7 +15135,7 @@
 	          url: '/wp-admin/admin-ajax.php',
 	          data: data
 	        }).done(function (res) {
-	          return handleToken;
+	          return _this2.handleToken;
 	        });
 	      },
 	      handleToken: function handleToken(response) {
@@ -15149,14 +15151,14 @@
 	        }
 	      },
 	      contactValidations: function contactValidations() {
-	        var _this2 = this;
+	        var _this3 = this;
 
 	        var fields = ['contact.name', 'contact.email', 'contact.country'];
 
 	        var errors = {};
 
 	        fields.forEach(function (key) {
-	          errors = _lodash2.default.extend(errors, _this2.isRequired(key));
+	          errors = _lodash2.default.extend(errors, _this3.isRequired(key));
 	        });
 
 	        this.errors = errors;
@@ -15186,7 +15188,7 @@
 	        }
 	      },
 	      onSubmit: function onSubmit(e) {
-	        var _this3 = this;
+	        var _this4 = this;
 
 	        e.preventDefault();
 
@@ -15205,7 +15207,7 @@
 	          type: 'POST',
 	          data: data,
 	          beforeSend: function beforeSend() {
-	            _this3.removeErrors();
+	            _this4.removeErrors();
 	          }
 	        }).then(this.handleSubmitResponse);
 	      },
