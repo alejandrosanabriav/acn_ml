@@ -214,7 +214,7 @@
   </div>
 
   <div class="alert alert-success" style="text-align: center" v-if="success">
-    <h2><?php echo gett('Thanks for your support; your donation enable us to continue helping those in need !. For any information regarding your gift, you may contact us to info@acnmercy.org') ?></h2>
+    <h2><?php echo gett('Thanks for your support; your donation enable us to continue helping those in need !.') ?></h2>
   </div>
 
   </template>

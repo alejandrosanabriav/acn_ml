@@ -254,7 +254,9 @@ export default () => ({
           this.removeErrors();
         }
       })
-      .then(res => console.log(res));
+      .then(res => {
+        if(res.id) this.success = true;
+      });
 
     },
 

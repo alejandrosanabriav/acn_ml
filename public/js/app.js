@@ -15214,7 +15214,7 @@
 	            _this4.removeErrors();
 	          }
 	        }).then(function (res) {
-	          return console.log(res);
+	          if (res.id) _this4.success = true;
 	        });
 	      },
 	      changeType: function changeType(type, evt) {
