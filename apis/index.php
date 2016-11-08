@@ -34,6 +34,6 @@ function stripe_charge() {
   $apiKey =  get_option('stripe_key_private');
   $res = stripe_monthly($api_key, $data);
   header('Content-type: application/json');
-  echo json_encode($res);
+  echo json_encode($data);
   die();
 }

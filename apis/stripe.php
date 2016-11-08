@@ -80,10 +80,11 @@ function get_plan_name($amount) {
 
 function stripe_monthly($api_key, $data) {
   $plan_name = get_plan_name($data['amount']);
-
+  
    if(!empty(stripe_get_plan($api_key, $plan_name))) {
      return stripe_get_plan($api_key, $plan_name);
   } else {
-    return stripe_create_plan();
+    return stripe_create_plan($api_key, $plan);
   }
+
 }
