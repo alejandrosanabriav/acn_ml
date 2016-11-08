@@ -8,11 +8,11 @@
 
   <template id="change-amount-template">
     <ul class="change-amount" style="padding: 0 15px">
-      <li><a href="#" @click="changeAmount(10, $event)">$10</a></li>
-      <li><a href="#" @click="changeAmount(30, $event)">$30</a></li>
-      <li><a href="#" @click="changeAmount(50, $event)">$50</a></li>
-      <li><a href="#" @click="changeAmount(100, $event)">$100</a></li>
-      <li><a href="#" @click="changeAmount('', $event)"><?php echo gett('Other') ?></a></li>
+      <li><a href="#" v-on:click="changeAmount(10, $event)">$10</a></li>
+      <li><a href="#" v-on:click="changeAmount(30, $event)">$30</a></li>
+      <li><a href="#" v-on:click="changeAmount(50, $event)">$50</a></li>
+      <li><a href="#" v-on:click="changeAmount(100, $event)">$100</a></li>
+      <li><a href="#" v-on:click="changeAmount('', $event)"><?php echo gett('Other') ?></a></li>
     </ul>
   </template>
 
@@ -34,7 +34,7 @@
                 class="form-control"
                 v-model="amount"
                 v-el:amount-input
-                @keyup="cleanNumber('amount')"
+                v-on:keyup="cleanNumber('amount')"
                 placeholder="<?php echo gett('Amount') ?>"
               >
             </div>
@@ -55,7 +55,7 @@
 
           </div>
 
-        <button class="donate_landing__submit" @click.prevent="nextSection">
+        <button class="donate_landing__submit" v-on:click.prevent="nextSection">
           <?php echo gett('Donate') ?>
         </button>
 
@@ -67,7 +67,7 @@
         <div class="form-group col-sm-12">
           <input
           type="text"
-          @keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16)],showCard()"
+          v-on:keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16)],showCard()"
           class="form-control form-control--outline"
           id="exampleInputAmount"
           v-model="stripe.number"
@@ -91,7 +91,7 @@
         <div class="form-group col-xs-4">
           <input
           type="text"
-          @keyup="[cleanNumber('stripe.exp_month'), maxLength('stripe.exp_month', 2)]"
+          v-on:keyup="[cleanNumber('stripe.exp_month'), maxLength('stripe.exp_month', 2)]"
           class="form-control form-control--outline"
           style="text-align: center;"
           placeholder="<?php echo gett('MM') ?>"
@@ -102,7 +102,7 @@
         <div class="form-group col-xs-4" >
           <input
           type="text"
-          @keyup="[cleanNumber('stripe.exp_year'), maxLength('stripe.exp_year', 2)]"
+          v-on:keyup="[cleanNumber('stripe.exp_year'), maxLength('stripe.exp_year', 2)]"
           class="form-control form-control--outline"
           style="text-align: center;"
           placeholder="<?php echo gett('YY') ?>"
@@ -113,7 +113,7 @@
         <div class="form-group col-xs-4">
           <input
           type="text"
-          @keyup="[cleanNumber('stripe.cvc'), maxLength('stripe.cvc', 4)]"
+          v-on:keyup="[cleanNumber('stripe.cvc'), maxLength('stripe.cvc', 4)]"
           class="form-control form-control--outline"
           style="text-align: center;"
           v-model="stripe.cvc"
@@ -135,10 +135,10 @@
         
         <div class="col-md-12">
 
-            <button class="donate_landing__submit donate_landing__submit-get_token" @click.prevent="getToken" :disabled="loading">
+            <button class="donate_landing__submit donate_landing__submit-get_token" v-on:click.prevent="getToken" :disabled="loading">
               <?php echo getT('PAYMENT INFO >') ?>
             </button>
-            <button @click.prevent="backSection" class="donate_landing__back"><?php echo getT('Back') ?></button>
+            <button v-on:click.prevent="backSection" class="donate_landing__back"><?php echo getT('Back') ?></button>
             </div>
       </div><!-- donate_landing__section-2 -->
 
@@ -199,8 +199,8 @@
     
 
       <div class="col-md-12">
-        <button @click.prevent="backSection" class="donate_landing__back"><?php echo gett('Back') ?></button>
-        <button class="donate_landing__submit" @click.prevent="onSubmit" :disabled="loading">
+        <button v-on:click.prevent="backSection" class="donate_landing__back"><?php echo gett('Back') ?></button>
+        <button class="donate_landing__submit" v-on:click.prevent="onSubmit" :disabled="loading">
           <?php echo gett('Donate') ?>
         </button>
       </div>
