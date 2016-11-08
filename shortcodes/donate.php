@@ -8,11 +8,11 @@
 
   <template id="change-amount-template">
     <ul class="change-amount" style="padding: 0 15px">
-      <li><button @click="changeAmount(10, $event)">$10</button></li>
-      <li><button @click="changeAmount(30, $event)">$30</button></li>
-      <li><button @click="changeAmount(50, $event)">$50</button></li>
-      <li><button @click="changeAmount(100, $event)">$100</button></li>
-      <li><button @click="changeAmount('', $event)"><?php echo gett('Other') ?></button></li>
+      <li><a href="#" @click="changeAmount(10, $event)">$10</a></li>
+      <li><a href="#" @click="changeAmount(30, $event)">$30</a></li>
+      <li><a href="#" @click="changeAmount(50, $event)">$50</a></li>
+      <li><a href="#" @click="changeAmount(100, $event)">$100</a></li>
+      <li><a href="#" @click="changeAmount('', $event)"><?php echo gett('Other') ?></a></li>
     </ul>
   </template>
 
