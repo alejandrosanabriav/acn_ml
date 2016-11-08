@@ -76,6 +76,10 @@ p {
   .input__errors, .form-control__errors {
     color: #f1364e; }
 
+.input-group-addon {
+  background: transparent;
+  border: 3px solid #FFFFFF; }
+
 .btn {
   display: inline-block;
   border: none;
