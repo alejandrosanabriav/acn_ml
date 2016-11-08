@@ -57,9 +57,9 @@ function stripe_create_plan($api_key, $plan) {
   \Stripe\Plan::create(array(
     "amount" => $plan['amount'] . '00',
     "interval" => "month",
-    "name" => $plan['name'],
+    "name" => $plan['plan_name'],
     "currency" => $plan['currency'],
-    "id" => $plan['name'])
+    "id" => $plan['plan_name'])
   );
 }
 
@@ -80,6 +80,7 @@ function get_plan_name($amount) {
 
 function stripe_monthly($api_key, $data) {
   $plan_name = get_plan_name($data['amount']);
+  $data['plan_name'] = $plan_name;
   
    if(!empty(stripe_get_plan($api_key, $plan_name))) {
      return stripe_get_plan($api_key, $plan_name);
