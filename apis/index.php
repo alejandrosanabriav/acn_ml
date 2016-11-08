@@ -21,6 +21,6 @@ function stripe_token() {
   $card = $_POST['data'];
   $apiKey =  get_option('stripe_key_private');
   $res = stripe_create_token( $apiKey, $card);
-  echo $res;
+  echo json_encode($res);
   die();
 }

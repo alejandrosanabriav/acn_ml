@@ -3,7 +3,6 @@ $dir_base =  str_replace('apis', '', __DIR__);
 require $dir_base . 'vendor/autoload.php';
 
 function stripe_create_token($api_key, $card) {
-  try {
     \Stripe\Stripe::setApiKey($api_key);
   
     $token = \Stripe\Token::create(array(
@@ -16,10 +15,6 @@ function stripe_create_token($api_key, $card) {
     ));
 
     return $token;
-  } catch(Exception $e) {
-    return $e;
-  }
-
 }
 
 function stripe_create_customer($api_key, $customer) {
