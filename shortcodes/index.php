@@ -52,4 +52,10 @@ if(function_exists('sc_factory')) {
     $base . '/steps.php'
   );
 
+  sc_factory($prefix . 'donate', array(
+
+    ),
+    $base . '/donate.php'
+  );
+
 }

@@ -24,9 +24,7 @@
 
       <div class="donate_landing__viewport">
       <div class="donate_landing__section donate_landing__section-1">
-        <h6><?php echo gett('SOLO TU DONACIÓN NOS PERMITE CONTINUAR') ?></h6>
         <change-amount></change-amount>
-
 
           <div class="form-group col-sm-8" style="float: left">
             <div class="input-group col-sm-12" >
