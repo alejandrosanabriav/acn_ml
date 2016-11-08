@@ -1,9 +1,10 @@
 'use strict';
-const _ = require('lodash');
-const moment = require('moment');
-const gaEvents = require('../ga_events')();
-const gaEcommerce = require('../ga_ecommerce');
-const validateStripe = require('../stripe/validation.js');
+import _ from'lodash';
+import moment from 'moment';
+import gaEvents from '../ga_events';
+import gaEcommerce from '../ga_ecommerce';
+import validateStripe from '../stripe/validation.js';
+
 // pk_test_kORhSnXY5TPJMXXY5Wwiugzy
 // pk_live_VAx77ruuR7UJpxfSDzStBbm7
 Stripe.setPublishableKey('pk_test_kORhSnXY5TPJMXXY5Wwiugzy');

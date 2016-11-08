@@ -25192,11 +25192,29 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var _ = __webpack_require__(99);
-	var moment = __webpack_require__(101);
-	var gaEvents = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../ga_events\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))();
-	var gaEcommerce = __webpack_require__(208);
-	var validateStripe = __webpack_require__(209);
+
+	var _lodash = __webpack_require__(99);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _moment = __webpack_require__(101);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	var _ga_events = __webpack_require__(207);
+
+	var _ga_events2 = _interopRequireDefault(_ga_events);
+
+	var _ga_ecommerce = __webpack_require__(208);
+
+	var _ga_ecommerce2 = _interopRequireDefault(_ga_ecommerce);
+
+	var _validation = __webpack_require__(209);
+
+	var _validation2 = _interopRequireDefault(_validation);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	// pk_test_kORhSnXY5TPJMXXY5Wwiugzy
 	// pk_live_VAx77ruuR7UJpxfSDzStBbm7
 	Stripe.setPublishableKey('pk_test_kORhSnXY5TPJMXXY5Wwiugzy');
@@ -25273,7 +25291,7 @@
 	  },
 
 	  captcha: null,
-	  created_at: moment().format(),
+	  created_at: (0, _moment2.default)().format(),
 	  amount: 30,
 	  section: 1
 	};
@@ -25372,14 +25390,14 @@
 	      var errors = {};
 
 	      fields.forEach(function (key) {
-	        errors = _.extend(errors, _this2.isRequired(key));
+	        errors = _lodash2.default.extend(errors, _this2.isRequired(key));
 	      });
 
 	      this.errors = errors;
 	    },
 	    showErrors: function showErrors() {
 	      var errorAmount = this.isRequired('amount');
-	      this.errors = _.extend(validateStripe(this.stripe).errors, errorAmount);
+	      this.errors = _lodash2.default.extend((0, _validation2.default)(this.stripe).errors, errorAmount);
 	    },
 	    removeErrors: function removeErrors() {
 	      this.errors = null;
@@ -25388,13 +25406,13 @@
 	      this.loading = !this.loading;
 	    },
 	    cleanData: function cleanData() {
-	      this.stripe = _.extend(this.stripe, componentData.stripe);
-	      this.contact = _.extend(this.contact, componentData.contact);
+	      this.stripe = _lodash2.default.extend(this.stripe, componentData.stripe);
+	      this.contact = _lodash2.default.extend(this.contact, componentData.contact);
 	    },
 	    getToken: function getToken(e) {
 	      e.preventDefault();
 
-	      if (validateStripe(this.stripe).success) {
+	      if ((0, _validation2.default)(this.stripe).success) {
 	        this.removeErrors();
 	        this.createToken();
 	      } else {
@@ -25408,7 +25426,7 @@
 
 	      this.contactValidations();
 
-	      var data = _.extend(this.contact, {
+	      var data = _lodash2.default.extend(this.contact, {
 	        amount: this.amount,
 	        donation_type: this.donation_type,
 	        stripe_token: this.stripe.token
@@ -25427,14 +25445,14 @@
 	    },
 	    sendEccomerceData: function sendEccomerceData(response) {
 	      if (this.donation_type == 'monthly') {
-	        gaEvents.donateMonthly();
-	        if (gaEcommerce) gaEcommerce(response.stripe.id, null, this.amount);
+	        _ga_events2.default.donateMonthly();
+	        if (_ga_ecommerce2.default) (0, _ga_ecommerce2.default)(response.stripe.id, null, this.amount);
 	        if (fbq) fbq('track', 'Purchase', { value: this.amount, currency: 'EUR' });
 	      }
 
 	      if (this.donation_type == 'once') {
-	        gaEvents.donateUnique();
-	        if (gaEcommerce) gaEcommerce(response.stripe.id, null, this.amount);
+	        _ga_events2.default.donateUnique();
+	        if (_ga_ecommerce2.default) (0, _ga_ecommerce2.default)(response.stripe.id, null, this.amount);
 	        if (fbq) fbq('track', 'Purchase', { value: this.amount, currency: 'EUR' });
 	      }
 	    },
@@ -56932,7 +56950,55 @@
 	}));
 
 /***/ },
-/* 207 */,
+/* 207 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+
+	  var sendEvent = function sendEvent(eventCategory, eventAction, eventLabel) {
+	    return new Promise(function (resolve, reject) {
+
+	      ga('send', 'event', eventCategory, eventAction, eventLabel, {
+	        hitCallback: function hitCallback() {
+	          return resolve();
+	        }
+	      });
+	    });
+	  };
+
+	  var fns = {
+	    donateUnique: function donateUnique() {
+	      sendEvent('donate', 'unique', 'donate action').then(function () {
+	        return console.log('donateUnique');
+	      });
+	    },
+	    donateMonthly: function donateMonthly() {
+	      sendEvent('donate', 'monthly', 'donate action').then(function () {
+	        return console.log('donateMonthly');
+	      });
+	    },
+	    donateInClick: function donateInClick() {
+	      sendEvent('donate', 'insiteclick', 'donate intention').then(function () {
+	        return console.log('donateInClick');
+	      });
+	    },
+	    donateOutClick: function donateOutClick() {
+	      sendEvent('donate', 'outclick', 'donate intention').then(function () {
+	        return console.log('donateOutClick');
+	      });
+	    }
+	  };
+
+	  return fns;
+	};
+
+/***/ },
 /* 208 */
 /***/ function(module, exports) {
 
