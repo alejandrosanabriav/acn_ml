@@ -28,7 +28,7 @@ function stripe_create_customer($api_key, $customer) {
       
     return $customer;
   } catch(Exception $e) {
-    return $e;
+    return $e->getMessage();
   }
   
 }
