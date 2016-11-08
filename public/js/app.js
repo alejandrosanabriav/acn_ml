@@ -15062,7 +15062,7 @@
 	  return {
 	    template: "#donate-landing-template",
 
-	    props: ['captcha_name', 'url'],
+	    props: ['captcha_name', 'url', 'currency'],
 
 	    data: function data() {
 	      return _jquery2.default.extend(true, {}, componentData);

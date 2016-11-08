@@ -90,7 +90,8 @@ export default () => ({
 
   props: [
     'captcha_name',
-    'url'
+    'url',
+    'currency'
   ],
 
   data() {
