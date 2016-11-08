@@ -5,7 +5,7 @@
   <div class="input__errors"></div>
   <input
     type="text"
-    class="input"
+    class="form-control"
     placeholder="<?php echo $at['placeholder'] ?>" 
     name="<?php echo $at['id'] ?>"
     data-validate="<?php echo $at['validate'] ?>"
