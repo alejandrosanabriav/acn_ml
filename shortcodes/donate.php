@@ -26,7 +26,7 @@
       <div class="donate_landing__section donate_landing__section-1">
         <change-amount></change-amount>
 
-          <div class="form-group col-sm-8" style="float: left">
+          <div class="form-group col-sm-6" style="float: left">
             <div class="input-group col-sm-12" >
               <div class="input-group-addon">USD</div>
               <input
@@ -40,7 +40,7 @@
             </div>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-6">
             <a href="" v-on:click="changeType('monthly')"><?php echo gett('Monthly') ?></a>
             <a href="" v-on:click="changeType('once')"><?php echo gett('Once') ?></a>
           </div>
