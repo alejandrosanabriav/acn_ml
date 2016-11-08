@@ -15211,6 +15211,9 @@
 	          }
 	        }).then(this.handleSubmitResponse);
 	      },
+	      changeType: function changeType(type) {
+	        this.donation_type = type;
+	      },
 	      sendEccomerceData: function sendEccomerceData(response) {
 	        if (this.donation_type == 'monthly') {
 	          _ga_events2.default.donateMonthly();

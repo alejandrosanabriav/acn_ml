@@ -255,6 +255,10 @@ export default () => ({
 
     },
 
+    changeType(type) {
+      this.donation_type = type;
+    },
+
     sendEccomerceData(response) {
       if(this.donation_type == 'monthly') {
         gaEvents.donateMonthly();
