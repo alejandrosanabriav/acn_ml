@@ -20695,9 +20695,6 @@
 	      return {
 	        currentStep: 1
 	      };
-	    },
-	    mounted: function mounted() {
-	      console.log('steps');
 	    }
 	  });
 	};
@@ -20705,10 +20702,8 @@
 	var step = exports.step = function step() {
 	  return _vue2.default.component('step', {
 	    template: '#step-template',
-	    props: ['step'],
-	    mounted: function mounted() {
-	      console.log(this.step);
-	    }
+	    props: ['step']
+
 	  });
 	};
 
