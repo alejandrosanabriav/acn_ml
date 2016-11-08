@@ -25295,7 +25295,7 @@
 	  section: 1
 	};
 
-	exports.default = {
+	var donate = {
 	  template: "#donate-landing-template",
 
 	  props: ['captcha_name', 'url'],
@@ -25509,6 +25509,8 @@
 	    }
 	  }
 	};
+
+	exports.default = donate;
 
 /***/ },
 /* 99 */
