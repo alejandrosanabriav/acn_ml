@@ -192,4 +192,5 @@ li {
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-    align-items: center; }
+    -ms-flex-line-pack: center;
+    align-content: center; }
