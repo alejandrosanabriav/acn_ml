@@ -19,13 +19,17 @@ function stripe_create_token($api_key, $card) {
 
 function stripe_create_customer($api_key, $customer) {
   \Stripe\Stripe::setApiKey($api_key);
-    
-  $customer = \Stripe\Customer::create(array(
-    "email" => $customer['email'],
-    "source" => $customer['stripe_token']
-  ));
-    
-  return $customer;
+    try {
+      $customer = \Stripe\Customer::create(array(
+      "email" => $customer['email'],
+      "source" => $customer['stripe_token']
+    ));
+      
+    return $customer;
+  } catch(Exception $e) {
+    return $e;
+  }
+  
 }
 
 function stripe_create_charge($api_key, $charge) {
