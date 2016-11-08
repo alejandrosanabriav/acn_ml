@@ -79,8 +79,7 @@ p {
 .input-group-addon {
   background: transparent;
   border: 3px solid #FFFFFF;
-  color: #fff;
-  font-weight: normal; }
+  color: #fff; }
 
 .btn {
   display: inline-block;

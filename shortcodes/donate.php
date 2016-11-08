@@ -28,7 +28,7 @@
 
           <div class="form-group col-sm-8" style="float: left">
             <div class="input-group col-sm-12" >
-              <div class="input-group-addon" style="font-weight: 700; font-size: 30px">USD</div>
+              <div class="input-group-addon">USD</div>
               <input
               type="text"
               class="form-control"
