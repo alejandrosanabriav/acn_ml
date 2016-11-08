@@ -26,8 +26,6 @@ function stripe_token() {
   die();
 }
 
-stripe_create_charge
-
 add_action( 'wp_ajax_nopriv_stripe_token', 'stripe_token' );
 add_action( 'wp_ajax_stripe_token', 'stripe_token' );
 
