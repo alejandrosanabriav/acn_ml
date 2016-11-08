@@ -255,7 +255,8 @@ export default () => ({
 
     },
 
-    changeType(type) {
+    changeType(type, evt) {
+      evt.preventDefault();
       this.donation_type = type;
     },
 

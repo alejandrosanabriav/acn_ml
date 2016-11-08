@@ -15211,7 +15211,8 @@
 	          }
 	        }).then(this.handleSubmitResponse);
 	      },
-	      changeType: function changeType(type) {
+	      changeType: function changeType(type, evt) {
+	        evt.preventDefault();
 	        this.donation_type = type;
 	      },
 	      sendEccomerceData: function sendEccomerceData(response) {
