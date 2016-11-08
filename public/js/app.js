@@ -15133,12 +15133,10 @@
 	          url: '/wp-admin/admin-ajax.php',
 	          data: data
 	        }).done(function (res) {
-	          return JSON.parse(res);
-	        }).then(function (res) {
-	          return console.log(res.id);
+	          return handleToken;
 	        });
 	      },
-	      handleToken: function handleToken(status, response) {
+	      handleToken: function handleToken(response) {
 	        this.toggleLoading();
 
 	        if (response.id) {

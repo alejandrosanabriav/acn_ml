@@ -166,12 +166,11 @@ export default () => ({
         url: '/wp-admin/admin-ajax.php',
         data: data
       })
-      .done(res => JSON.parse(res) )
-      .then(res => console.log(res.id));
+      .done(res => handleToken);
 
     },
 
-    handleToken(status, response) {
+    handleToken(response) {
       this.toggleLoading();
 
       if(response.id) {
