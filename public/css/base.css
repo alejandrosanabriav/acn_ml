@@ -54,7 +54,7 @@ p {
   font-weight: 300;
   margin: 0; }
 
-.input {
+.input, .form-control {
   display: block;
   width: 100%;
   height: 50px;
@@ -66,14 +66,14 @@ p {
   color: #fff;
   -webkit-appearance: none;
   -moz-appearance: none; }
-  .input::-webkit-input-placeholder {
+  .input::-webkit-input-placeholder, .form-control::-webkit-input-placeholder {
     color: #fff; }
-  .input:focus {
+  .input:focus, .form-control:focus {
     outline: none; }
-  .input_container {
+  .input_container, .form-control_container {
     display: block;
     margin-bottom: 15px; }
-  .input__errors {
+  .input__errors, .form-control__errors {
     color: #f1364e; }
 
 .btn {
