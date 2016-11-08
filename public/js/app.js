@@ -71,7 +71,7 @@
 	  (0, _steps.step)();
 	  Vue.component('change-amount', _change_amount2.default);
 	  Vue.component('donate-landing', _donate2.default);
-	  new Vue({ el: '#app' });
+	  new Vue({ el: '#app-ml' });
 	  (0, _input2.default)();
 	  (0, _form2.default)();
 	  (0, _donate2.default)();

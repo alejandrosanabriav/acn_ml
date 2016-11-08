@@ -10,7 +10,7 @@ import {steps, step} from './components/steps';
   step();
   Vue.component('change-amount', changeAmount);
   Vue.component('donate-landing', donate);
-  new Vue({el: '#app'});
+  new Vue({el: '#app-ml'});
   input();
   form();
   donate();
