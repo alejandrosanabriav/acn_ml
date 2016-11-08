@@ -61,7 +61,6 @@ p {
   border: 3px solid #FFFFFF;
   border-radius: 8px;
   font-size: 1.28571em;
-  padding-left: 20px;
   background: transparent;
   color: #fff;
   -webkit-appearance: none;
@@ -121,6 +120,9 @@ p {
   .form_steps__step {
     float: left;
     display: inline-block; }
+
+.alert-danger {
+  background: #FC3938; }
 
 .vc_col-has-fill > .vc_column-inner, .vc_row-has-fill + .vc_row-full-width + .vc_row > .vc_column_container > .vc_column-inner, .vc_row-has-fill + .vc_row > .vc_column_container > .vc_column-inner, .vc_row-has-fill + .vc_vc_row > .vc_row > .vc_vc_column > .vc_column_container > .vc_column-inner, .vc_row-has-fill + .vc_vc_row_inner > .vc_row > .vc_vc_column_inner > .vc_column_container > .vc_column-inner, .vc_row-has-fill > .vc_column_container > .vc_column-inner, .vc_row-has-fill > .vc_row > .vc_vc_column > .vc_column_container > .vc_column-inner, .vc_row-has-fill > .vc_vc_column_inner > .vc_column_container > .vc_column-inner {
   padding-top: 0; }

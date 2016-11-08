@@ -85,7 +85,6 @@ p {
   border: 3px solid #FFFFFF;
   border-radius: 8px;
   font-size: (18 / 14) * 1em;
-  padding-left: 20px;
   background: transparent;
   color: #fff;
   -webkit-appearance: none;
@@ -174,5 +173,10 @@ p {
     display: inline-block;
   }
 }
+
+.alert-danger {
+  background: #FC3938; 
+}
+
 @import 'reset';
 @import 'donate';
