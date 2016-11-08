@@ -86,7 +86,7 @@ let componentData = {
   section: 1
 };
 
-export default donate = Vue.extend({
+export default donate = {
   template: "#donate-landing-template",
 
   props: [
@@ -321,4 +321,4 @@ export default donate = Vue.extend({
       this.section = section - 1;
     }
   }
-});
+};
