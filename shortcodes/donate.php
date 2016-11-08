@@ -53,9 +53,10 @@
           </div>
         <div class="col-md-12">
           <button class="donate_landing__submit pull-left" v-on:click.prevent="nextSection">
-          <?php echo gett('Donate') ?>
-        </button>
-        <span class="pull-left" style="margin-left: 25px; font-size: 14px; font-weight: light">{{amount}} USD {{donation_type}}</span>
+            <?php echo gett('Donate') ?>
+          </button>
+
+          <span class="pull-left" style="margin-left: 25px; font-size: 14px; font-weight: light">{{amount}} USD {{donation_type}}</span>
         </div>
 
       </div> <!-- donate_landing__section-1 -->
@@ -137,7 +138,7 @@
             <button class="donate_landing__submit donate_landing__submit-get_token" v-on:click.prevent="getToken" :disabled="loading">
               <?php echo getT('PAYMENT INFO >') ?>
             </button>
-            <button v-on:click.prevent="backSection" class="donate_landing__back"><?php echo getT('Back') ?></button>
+            <button v-on:click.prevent="backSection" class="donate_landing__back pull-left"><?php echo getT('Back') ?></button>
             </div>
       </div><!-- donate_landing__section-2 -->
 
