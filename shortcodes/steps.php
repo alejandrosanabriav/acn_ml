@@ -11,7 +11,7 @@
 </script>
 
 <bs-steps>
-  <bs-step step="1"> im a step 1</bs-step>
-  <bs-step step="2"> im a step 2</bs-step>
-  <bs-step step="1">< im a step 3</bs-step>
+  <bs-step step="1"> im a step {{step}}</bs-step>
+  <bs-step step="2"> im a step {{step}}</bs-step>
+  <bs-step step="1">im a step {{step}}</bs-step>
 </bs-steps>

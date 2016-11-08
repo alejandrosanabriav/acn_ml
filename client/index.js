@@ -6,10 +6,9 @@ import donate from './donate';
 import {steps, step} from './components/steps';
 
 (function() {
-  new Vue({el: '#app'});
-    
   steps();
   step();
+  new Vue({el: '#app'});
   input();
   form();
   donate();
