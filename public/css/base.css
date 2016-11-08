@@ -82,7 +82,8 @@ p {
   border: 3px solid #FFFFFF;
   border-right: none;
   color: #fff;
-  font-size: 1.28571em; }
+  font-size: 1.5em;
+  font-weight: bold; }
 
 .input-group {
   font-weight: bold; }
