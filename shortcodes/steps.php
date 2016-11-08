@@ -10,8 +10,8 @@
   </div>
 </script>
 
-<steps>
-  <step step="1"> im a step 1</step>
-  <step step="2"> im a step 2</step>
-  <step step="3">< im a step 3</step>
-</steps>
+<bs-steps>
+  <bs-step step="1"> im a step 1</bs-step>
+  <bs-step step="2"> im a step 2</bs-step>
+  <bs-step step="1">< im a step 3</bs-step>
+</bs-steps>

@@ -25253,7 +25253,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var steps = exports.steps = function steps() {
-	  return _vue2.default.component('steps', {
+	  return _vue2.default.component('bs-steps', {
 	    template: '#steps-template',
 	    data: function data() {
 	      return {
@@ -25264,7 +25264,7 @@
 	};
 
 	var step = exports.step = function step() {
-	  return _vue2.default.component('step', {
+	  return _vue2.default.component('bs-step', {
 	    template: '#step-template',
 	    props: ['step']
 

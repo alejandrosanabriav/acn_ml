@@ -1,7 +1,7 @@
 'use strict';
 import Vue from 'vue';
 
-export const steps = () => Vue.component('steps', {
+export const steps = () => Vue.component('bs-steps', {
   template: '#steps-template',
   data() {
     return {
@@ -11,7 +11,7 @@ export const steps = () => Vue.component('steps', {
 
 });
 
-export const step = () => Vue.component('step', {
+export const step = () => Vue.component('bs-step', {
   template: '#step-template',
   props: ['step'],
 
