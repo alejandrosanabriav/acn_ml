@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import input from './input';
 import form from './form';
-import donate from './donate';
+import donate from './components/donate';
 import {steps, step} from './components/steps';
 
 (function() {

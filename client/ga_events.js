@@ -1,7 +1,5 @@
 'use strict';
-const Promise = require('promise');
-
-module.exports = () => {
+export default gaEvents = () => {
 
   let sendEvent = (eventCategory, eventAction, eventLabel) => {
     return new Promise((resolve, reject) => {
