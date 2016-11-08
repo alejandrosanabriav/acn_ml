@@ -67,13 +67,17 @@ function stripe_create_plan($api_key, $plan) {
 
 function stripe_create_subscription($api_key, $charge) {
   \Stripe\Stripe::setApiKey($api_key);
-
-  $subscription = \Stripe\Subscription::create(array(
+  try {
+    $subscription = \Stripe\Subscription::create(array(
     "customer" => $charge['customer'], //"cus_9MzzzON1VtZiKY",
     "plan" => $charge['plan'] //"donation-55"
-  ));
+    ));
 
-  return $subscription;
+    return $subscription;
+  } catch(Exception $e) {
+    return $e;
+  }
+  
 }
 
 function get_plan_name($amount) {
