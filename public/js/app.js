@@ -15131,7 +15131,7 @@
 	        _jquery2.default.ajax({
 	          type: 'post',
 	          url: '/wp-admin/admin-ajax.php',
-	          data: bounce
+	          data: data
 	        }).done(function (res) {
 	          return console.log(res);
 	        });

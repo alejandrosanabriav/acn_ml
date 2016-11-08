@@ -164,7 +164,7 @@ export default () => ({
       $.ajax({
         type: 'post',
         url: '/wp-admin/admin-ajax.php',
-        data: bounce
+        data: data
       })
       .done(res => console.log(res));
 
