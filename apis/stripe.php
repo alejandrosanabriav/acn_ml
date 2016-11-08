@@ -102,7 +102,6 @@ function stripe_monthly($api_key, $data) {
   }
 
   $customer = stripe_create_customer($api_key, $data);
-  return $customer;
   $charge = array();
   $charge['customer'] = $customer->id;
   $charget['plan'] = $plan->id;
