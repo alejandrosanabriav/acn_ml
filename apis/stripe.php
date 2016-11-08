@@ -54,13 +54,15 @@ function stripe_get_plan($api_key, $name) {
 function stripe_create_plan($api_key, $plan) {
   \Stripe\Stripe::setApiKey("sk_test_vq5s51SGycQ6dvCqC3H7JcCl");
 
-  \Stripe\Plan::create(array(
+  $plan = \Stripe\Plan::create(array(
     "amount" => $plan['amount'] . '00',
     "interval" => "month",
     "name" => $plan['plan_name'],
     "currency" => $plan['currency'],
     "id" => $plan['plan_name'])
   );
+  
+  return $plan;
 }
 
 function stripe_create_subscription($api_key, $charge) {
