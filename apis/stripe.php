@@ -19,6 +19,7 @@ function stripe_create_token($api_key, $card) {
 
 function stripe_create_customer($api_key, $customer) {
   \Stripe\Stripe::setApiKey($api_key);
+
     try {
       $customer = \Stripe\Customer::create(array(
       "description" => 'charge for '. $customer['email'],
@@ -46,7 +47,7 @@ function stripe_create_charge($api_key, $charge) {
 }
 
 function stripe_get_plan($api_key, $name) {
-  \Stripe\Stripe::setApiKey("sk_test_vq5s51SGycQ6dvCqC3H7JcCl");
+  \Stripe\Stripe::setApiKey($api_key);
   try{
     $plan = \Stripe\Plan::retrieve($name);
     return $plan;

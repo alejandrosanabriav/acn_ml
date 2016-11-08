@@ -32,7 +32,7 @@ add_action( 'wp_ajax_stripe_charge', 'stripe_charge' );
 function stripe_charge() {
   $data = $_POST['data'];
   $apiKey =  get_option('stripe_key_private');
-  $res = stripe_monthly($api_key, $data);
+  $res = stripe_monthly($apiKey, $data);
   header('Content-type: application/json');
   echo json_encode($res);
   die();
