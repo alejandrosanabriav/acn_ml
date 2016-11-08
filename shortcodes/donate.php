@@ -55,7 +55,7 @@
           <button class="donate_landing__submit pull-left" v-on:click.prevent="nextSection">
           <?php echo gett('Donate') ?>
         </button>
-        <h6 class="pull-left" style="margin-left: 25px; font-size: 14px; font-weight: light">{{amount}} USD {{donation_type}}</h6>
+        <span class="pull-left" style="margin-left: 25px; font-size: 14px; font-weight: light">{{amount}} USD {{donation_type}}</span>
         </div>
 
       </div> <!-- donate_landing__section-1 -->
