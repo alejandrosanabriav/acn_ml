@@ -40,7 +40,7 @@
             </div>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-5">
             <a href="" v-on:click="changeType('monthly')"><?php echo gett('Monthly') ?></a>
             <a href="" v-on:click="changeType('once')"><?php echo gett('Once') ?></a>
           </div>
