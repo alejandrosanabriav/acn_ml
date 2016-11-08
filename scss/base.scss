@@ -116,6 +116,7 @@ p {
   border: 3px solid #FFFFFF;
   border-right: none;
   color: #fff;
+  font-size: (18 / 14) * 1em;
 }
 
 .input-group {
@@ -170,7 +171,6 @@ p {
 
   &__step {
     float: left;
-    display: inline-block;
   }
 }
 

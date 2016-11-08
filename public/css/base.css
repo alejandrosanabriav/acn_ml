@@ -81,7 +81,8 @@ p {
   background: transparent;
   border: 3px solid #FFFFFF;
   border-right: none;
-  color: #fff; }
+  color: #fff;
+  font-size: 1.28571em; }
 
 .input-group .form-control {
   border-left: none; }
@@ -118,8 +119,7 @@ p {
     left: 0;
     transition: all 400ms ease-in-out; }
   .form_steps__step {
-    float: left;
-    display: inline-block; }
+    float: left; }
 
 .alert-danger {
   background: #FC3938;
