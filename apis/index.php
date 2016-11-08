@@ -19,8 +19,13 @@ add_action( 'wp_ajax_stripe_token', 'stripe_token' );
 function stripe_token() {
   $card = $_POST['data'];
   $apiKey =  get_option('stripe_key_private');
-  echo $apiKey;
-  $res = stripe_create_token( $apiKey, $card);
-  echo $res;
+  try {
+     $res = stripe_create_token( $apiKey, $card);
+       echo $res;
+  } catch(Exception $e) {
+    echo $e;
+  }
+ 
+
   die();
 }
