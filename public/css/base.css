@@ -84,6 +84,9 @@ p {
   border-right: none;
   color: #fff; }
 
+.input-group .form-control {
+  border-left: none; }
+
 .btn {
   display: inline-block;
   border: none;
