@@ -1132,3 +1132,55 @@ p {
   .form_steps__step {
     float: left;
     display: inline-block; }
+
+.donate_landing {
+  position: relative;
+  overflow: hidden; }
+  .donate_landing h6 {
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 2.78px;
+    padding-bottom: 6px; }
+  .donate_landing__viewport {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    transition: all 300ms;
+    position: relative;
+    left: 0; }
+  .donate_landing__cards {
+    text-align: left;
+    margin-left: 15px;
+    margin-bottom: 0; }
+    .donate_landing__cards .card-type {
+      width: 40px; }
+  .donate_landing__back {
+    background: transparent;
+    border: none;
+    float: left;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding-top: 30px; }
+  .donate_landing__submit {
+    vertical-align: middle;
+    float: right;
+    background: transparent;
+    border: none;
+    font-size: 46px;
+    color: #fff;
+    line-height: 67px; }
+    .donate_landing__submit-get_token {
+      font-size: 16px; }
+  .donate_landing .radio {
+    color: #fff;
+    float: left; }
+    @media (max-width: 767px) {
+      .donate_landing .radio {
+        text-align: left;
+        width: 100%; } }
+    .donate_landing .radio label {
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 3.11px; }

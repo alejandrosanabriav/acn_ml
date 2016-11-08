@@ -1,0 +1,77 @@
+.donate_landing {
+  position: relative;
+  overflow: hidden;
+
+  h6 {
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 2.78px;
+    padding-bottom: 6px;
+  }
+
+  &__viewport {
+    display: flex;
+    align-items: center;
+    transition: all 300ms;
+    position: relative;
+    left: 0;
+  }
+
+  &__section {
+
+  }
+
+  &__cards {
+    text-align: left;
+    margin-left: 15px;
+    margin-bottom: 0;
+    .card-type {
+      width: 40px;
+    }
+  }
+
+  &__back {
+    background: transparent;
+    border: none;
+    float: left;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding-top: 30px;
+  }
+
+  &__submit {
+    vertical-align: middle;
+    float: right;
+    background: transparent;
+    border: none;
+    font-size: 46px;
+    color: #fff;
+    line-height: 67px;
+
+
+    &-get_token {
+
+      font-size: 16px;
+
+    }
+  }
+
+  .radio {
+    color: #fff;
+    float: left;
+
+    @media #{$mobile} {
+      text-align: left;
+      width: 100%;
+    }
+
+    label {
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 3.11px;
+    }
+
+  }
+
+}
