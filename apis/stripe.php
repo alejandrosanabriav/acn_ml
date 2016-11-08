@@ -80,6 +80,7 @@ function stripe_create_subscription($api_key, $charge) {
     ));
 
     return $subscription;
+
   } catch(Exception $e) {
     return $e;
   }
@@ -96,15 +97,17 @@ function stripe_monthly($api_key, $data) {
   $plan = '';
 
   if(!empty(stripe_get_plan($api_key, $plan_name))) {
-    $plan =  stripe_get_plan($api_key, $plan_name);
+    $plan = stripe_get_plan($api_key, $plan_name);
   } else {
     $plan = stripe_create_plan($api_key, $data);
   }
+  
+  return $plan;
 
   $customer = stripe_create_customer($api_key, $data);
   $charge = array();
   $charge['customer'] = $customer->id;
   $charget['plan'] = $plan->id;
 
-  stripe_create_subscription($api_key, $charge);
+  return stripe_create_subscription($api_key, $charge);
 }
