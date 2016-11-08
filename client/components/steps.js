@@ -1,4 +1,5 @@
 'use strict';
+import Vue from 'vue';
 
 export const steps = Vue.component('steps', {
   template: '#steps-template',
