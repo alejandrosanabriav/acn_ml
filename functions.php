@@ -65,4 +65,8 @@ $init['textcolor_rows'] = 6; // expand colour grid to 6 rows
 return $init;
 }
 
+function gett($str) {
+	return $str;
+}
+
 add_filter('tiny_mce_before_init', 'my_mce4_options');
