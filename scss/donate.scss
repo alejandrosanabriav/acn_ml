@@ -40,7 +40,9 @@
     font-size: (18 / 14) * 1em;
     opacity: .5;
     font-weight: 500;
-
+    color: #fff;
+    float: left;
+    
     &--active {
       opacity: 1;
       padding-bottom: 5px;

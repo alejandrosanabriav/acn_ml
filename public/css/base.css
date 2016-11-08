@@ -180,7 +180,9 @@ button:focus {
   .donate_landing__type {
     font-size: 1.28571em;
     opacity: .5;
-    font-weight: 500; }
+    font-weight: 500;
+    color: #fff;
+    float: left; }
     .donate_landing__type--active {
       opacity: 1;
       padding-bottom: 5px; }
