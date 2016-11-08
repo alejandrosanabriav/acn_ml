@@ -216,7 +216,8 @@ button {
     color: #fff;
     border: 3px solid #fff;
     border-radius: 8px;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    line-height: 0; }
     .donate_landing__submit-get_token {
       font-size: 16px; }
   .donate_landing .radio {
