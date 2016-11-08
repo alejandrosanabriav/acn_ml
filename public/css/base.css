@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body {
   font-family: 'Rubik', sans-serif;
   margin: 0;
@@ -229,21 +228,17 @@ button:focus {
 a:hover {
   text-decoration: none; }
 
-ı
 .change-amount li {
   float: left;
   width: 20%;
   padding: 0 5px;
   margin-bottom: 10px;
   list-style: none; }
-  ı
-.change-amount li:first-child {
+  .change-amount li:first-child {
     padding-left: 0; }
-  ı
-.change-amount li:last-child {
+  .change-amount li:last-child {
     padding-right: 0; }
-  ı
-.change-amount li a {
+  .change-amount li a {
     float: left;
     border: 2px solid #fff;
     border-radius: 8px;
