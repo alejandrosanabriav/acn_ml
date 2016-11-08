@@ -26,6 +26,14 @@
     }
   }
 
+  &__info {
+    margin-left: 25px; 
+    font-size: 14px; 
+    font-weight: light;
+    color: #fff;
+    padding-top: 15px;
+  }
+
   &__back {
     background: transparent;
     border: none;

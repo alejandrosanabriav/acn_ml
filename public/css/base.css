@@ -169,6 +169,12 @@ button:focus {
     margin-bottom: 0; }
     .donate_landing__cards .card-type {
       width: 40px; }
+  .donate_landing__info {
+    margin-left: 25px;
+    font-size: 14px;
+    font-weight: light;
+    color: #fff;
+    padding-top: 15px; }
   .donate_landing__back {
     background: transparent;
     border: none;
