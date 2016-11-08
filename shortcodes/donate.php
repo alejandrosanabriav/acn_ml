@@ -41,18 +41,8 @@
           </div>
 
           <div class="col-md-2">
-            <div class="radio">
-              <label>
-                <input type="radio" value="monthly" v-model="donation_type"> <?php echo gett('Monthly') ?>
-              </label>
-            </div>
-
-            <div class="radio">
-              <label>
-                <input type="radio" value="once" v-model="donation_type"> <?php echo gett('Once') ?>
-              </label>
-            </div>
-
+            <a href="" v-on:click="changeType('monthly')"><?php echo gett('Monthly') ?></a>
+            <a href="" v-on:click="changeType('once')"><?php echo gett('Once') ?></a>
           </div>
 
         <button class="donate_landing__submit" v-on:click.prevent="nextSection">
@@ -196,8 +186,7 @@
             </div>
           </div>
 
-    
-
+  
       <div class="col-md-12">
         <button v-on:click.prevent="backSection" class="donate_landing__back"><?php echo gett('Back') ?></button>
         <button class="donate_landing__submit" v-on:click.prevent="onSubmit" :disabled="loading">
