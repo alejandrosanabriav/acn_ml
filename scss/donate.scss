@@ -107,9 +107,6 @@
 
 }
 
-li {
-  list-style: none;
-}
 
 a {
   &:hover {
@@ -123,6 +120,7 @@ a {
     width: (100 / 5) * 1%;
     padding: 0 5px;
     margin-bottom: 10px;
+    list-style: none;
 
     &:first-child {
       padding-left: 0;

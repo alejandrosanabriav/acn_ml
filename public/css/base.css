@@ -225,9 +225,6 @@ button:focus {
       font-size: 14px;
       letter-spacing: 3.11px; }
 
-li {
-  list-style: none; }
-
 a:hover {
   text-decoration: none; }
 
@@ -235,7 +232,8 @@ a:hover {
   float: left;
   width: 20%;
   padding: 0 5px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  list-style: none; }
   .change-amount li:first-child {
     padding-left: 0; }
   .change-amount li:last-child {
