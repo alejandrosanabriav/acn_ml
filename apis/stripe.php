@@ -101,13 +101,11 @@ function stripe_monthly($api_key, $data) {
   } else {
     $plan = stripe_create_plan($api_key, $data);
   }
-  
-  return $plan;
 
   $customer = stripe_create_customer($api_key, $data);
   $charge = array();
   $charge['customer'] = $customer->id;
-  $charget['plan'] = $plan->id;
+  $charge['plan'] = $plan->id;
 
   return stripe_create_subscription($api_key, $charge);
 }
