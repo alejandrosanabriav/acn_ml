@@ -74,9 +74,12 @@
 
 .change-amount {
   li {
+    float: left;
     a {
-      display: inline-block;
+      float: left;
       border: 2px solid #fff;
+      height: 50px;
+      color: #fff;
     }
   }
 }

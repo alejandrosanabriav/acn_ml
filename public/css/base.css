@@ -170,6 +170,10 @@ p {
       font-size: 14px;
       letter-spacing: 3.11px; }
 
-.change-amount li a {
-  display: inline-block;
-  border: 2px solid #fff; }
+.change-amount li {
+  float: left; }
+  .change-amount li a {
+    float: left;
+    border: 2px solid #fff;
+    height: 50px;
+    color: #fff; }
