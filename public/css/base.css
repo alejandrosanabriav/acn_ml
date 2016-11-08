@@ -130,9 +130,14 @@ p {
   color: #fff;
   transition: all 300ms ease; }
 
-button:focus {
-  box-shadow: none;
-  outline: none; }
+button {
+  height: 50px;
+  min-width: 130;
+  background: transparent;
+  border: 3px solid #fff; }
+  button:focus {
+    box-shadow: none;
+    outline: none; }
 
 .card-type {
   opacity: .5;

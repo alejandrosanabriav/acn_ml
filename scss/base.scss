@@ -185,6 +185,11 @@ p {
 }
 
 button {
+  height: 50px;
+  min-width: 130;
+  background: transparent;
+  border: 3px solid #fff;
+  
   &:focus {
     box-shadow: none;
     outline: none;
