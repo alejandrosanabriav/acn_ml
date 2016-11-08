@@ -41,8 +41,8 @@
           </div>
 
           <div class="col-md-5">
-            <a href="" v-on:click="changeType('monthly')"><?php echo gett('Monthly') ?></a>
-            <a href="" v-on:click="changeType('once')"><?php echo gett('Once') ?></a>
+            <a href="" v-on:click="changeType('monthly', $event)"><?php echo gett('Monthly') ?></a>
+            <a href="" v-on:click="changeType('once', $event)"><?php echo gett('Once') ?></a>
           </div>
 
         <button class="donate_landing__submit" v-on:click.prevent="nextSection">
