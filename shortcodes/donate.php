@@ -221,3 +221,16 @@
   </div>
 
   </template>
+
+  <script>
+   var BS = {};
+
+     BS['trans'] = {
+       'stripeErrors': {
+         'card': "<?php echo gett('card number incorrect') ?>",
+         'expiry': "<?php echo gett('expiry incorrect') ?>",
+         'cvc': "<?php echo gett('cvc incorrect') ?>",
+       }
+     };
+
+  </script>
