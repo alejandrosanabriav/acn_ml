@@ -79,7 +79,7 @@ p {
 .btn {
   display: inline-block;
   border: none;
-  font-size: 1.5625em;
+  font-size: 1.78571em;
   font-weight: bold;
   cursor: pointer;
   background: #fff; }
@@ -187,6 +187,7 @@ a:hover {
   .change-amount li a {
     float: left;
     border: 2px solid #fff;
+    border-radius: 8px;
     height: 50px;
     color: #fff;
     text-align: center;
