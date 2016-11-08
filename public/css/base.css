@@ -183,9 +183,11 @@ button:focus {
     font-weight: 500;
     color: #fff;
     float: left;
-    transition: all 300ms ease; }
+    transition: all 300ms ease;
+    margin-right: 5px; }
     .donate_landing__type:hover {
-      color: #fff; }
+      color: #fff;
+      opacity: 1; }
     .donate_landing__type--active {
       opacity: 1;
       padding-bottom: 5px; }
