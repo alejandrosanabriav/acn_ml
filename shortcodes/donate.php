@@ -51,10 +51,13 @@
               v-bind:class="[donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type' ]"
             ><?php echo gett('Once') ?></a>
           </div>
-
-        <button class="donate_landing__submit" v-on:click.prevent="nextSection">
+        <div class="col-md-12">
+          <button class="donate_landing__submit" v-on:click.prevent="nextSection">
           <?php echo gett('Donate') ?>
         </button>
+        <h6 style="text-transform: uppercase; text-align: left; margin-left:15px"> USD ${{amount}} • {{donation_type}}</h6>
+        </div>
+        
 
       </div> <!-- donate_landing__section-1 -->
 
