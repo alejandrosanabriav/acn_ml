@@ -15143,7 +15143,7 @@
 	      },
 	      handleToken: function handleToken(response) {
 	        this.toggleLoading();
-	        console.log('res', response);
+
 	        if (response.id) {
 	          this.stripe.token = response.id;
 	          this.nextSection();
@@ -15198,6 +15198,7 @@
 	        this.contactValidations();
 
 	        var data = _extends({}, this.contact, {
+	          currency: this.currency,
 	          amount: this.amount,
 	          donation_type: this.donation_type,
 	          stripe_token: this.stripe.token

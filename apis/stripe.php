@@ -74,11 +74,16 @@ function stripe_create_subscription($api_key, $charge) {
   return $subscription;
 }
 
-function create_plan_name($amount) {
+function get_plan_name($amount) {
   return 'donation-' . $amount;
 }
 
 function stripe_monthly($api_key, $data) {
-  $plan_name = create_plan_name($data['amount']);
-  return stripe_get_plan($api_key, $plan_name);
+  $plan_name = get_plan_name($data['amount']);
+
+   if(!empty(stripe_get_plan($api_key, $plan_name))) {
+     return stripe_get_plan($api_key, $plan_name);
+  } else {
+    return stripe_create_plan();
+  }
 }
