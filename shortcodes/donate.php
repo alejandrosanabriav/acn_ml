@@ -199,7 +199,7 @@
 
   
       <div class="col-md-12">
-        <button v-on:click.prevent="backSection" class="donate_landing__back"><?php echo gett('Back') ?></button>
+        <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"><?php echo gett('Back') ?></button>
         <button class="donate_landing__submit" v-on:click.prevent="onSubmit" :disabled="loading">
           <?php echo gett('Donate') ?>
         </button>
