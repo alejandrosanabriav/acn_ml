@@ -30,12 +30,12 @@
             <div class="input-group col-sm-12" >
               <div class="input-group-addon">USD</div>
               <input
-              type="text"
-              class="form-control"
-              v-model="amount"
-              v-el:amount-input
-              @keyup="cleanNumber('amount')"
-              placeholder="<?php echo gett('Amount') ?>"
+                type="text"
+                class="form-control"
+                v-model="amount"
+                v-el:amount-input
+                @keyup="cleanNumber('amount')"
+                placeholder="<?php echo gett('Amount') ?>"
               >
             </div>
           </div>
@@ -69,7 +69,6 @@
           type="text"
           @keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16)],showCard()"
           class="form-control form-control--outline"
-          style="font-size: 30px"
           id="exampleInputAmount"
           v-model="stripe.number"
           placeholder="<?php echo gett('Credit Card Number') ?>"
@@ -94,7 +93,7 @@
           type="text"
           @keyup="[cleanNumber('stripe.exp_month'), maxLength('stripe.exp_month', 2)]"
           class="form-control form-control--outline"
-          style="text-align: center; font-size: 30px"
+          style="text-align: center;"
           placeholder="<?php echo gett('MM') ?>"
           v-model="stripe.exp_month"
           >
@@ -105,7 +104,7 @@
           type="text"
           @keyup="[cleanNumber('stripe.exp_year'), maxLength('stripe.exp_year', 2)]"
           class="form-control form-control--outline"
-          style="text-align: center; font-size: 30px"
+          style="text-align: center;"
           placeholder="<?php echo gett('YY') ?>"
           v-model="stripe.exp_year"
           >
@@ -116,7 +115,7 @@
           type="text"
           @keyup="[cleanNumber('stripe.cvc'), maxLength('stripe.cvc', 4)]"
           class="form-control form-control--outline"
-          style="text-align: center; font-size: 30px"
+          style="text-align: center;"
           v-model="stripe.cvc"
           placeholder="<?php echo gett('CVC') ?>"
           >
