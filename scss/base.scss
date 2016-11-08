@@ -180,5 +180,12 @@ p {
   color: #fff;
 }
 
+button {
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
 @import 'reset';
 @import 'donate';
