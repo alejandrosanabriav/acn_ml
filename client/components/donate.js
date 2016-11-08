@@ -1,6 +1,7 @@
 'use strict';
 import _ from'lodash';
 import moment from 'moment';
+import $ from 'jquery';
 import gaEvents from '../ga_events';
 import gaEcommerce from '../ga_ecommerce';
 import validateStripe from '../stripe/validation.js';
@@ -97,7 +98,6 @@ export default () => ({
 
   ready() {
     configForm();
-    document.addEventListener('resize', e => console.log(e));
   },
 
   computed: {
@@ -159,6 +159,15 @@ export default () => ({
       this.toggleLoading();
 
       //send wp_ajax to get token
+      let data = {action: 'stripe_token', data: stripeData};
+
+      $.ajax({
+        type: 'post',
+        url: '/wp-admin/admin-ajax.php',
+        data: bounce
+      })
+      .done(res => console.log(res));
+
     },
 
     handleToken(status, response) {

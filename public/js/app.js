@@ -14960,6 +14960,10 @@
 
 	var _moment2 = _interopRequireDefault(_moment);
 
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
 	var _ga_events = __webpack_require__(206);
 
 	var _ga_events2 = _interopRequireDefault(_ga_events);
@@ -15058,13 +15062,10 @@
 	    props: ['captcha_name', 'url'],
 
 	    data: function data() {
-	      return $.extend(true, {}, componentData);
+	      return _jquery2.default.extend(true, {}, componentData);
 	    },
 	    ready: function ready() {
 	      configForm();
-	      document.addEventListener('resize', function (e) {
-	        return console.log(e);
-	      });
 	    },
 
 
@@ -15125,6 +15126,15 @@
 	        this.toggleLoading();
 
 	        //send wp_ajax to get token
+	        var data = { action: 'stripe_token', data: stripeData };
+
+	        _jquery2.default.ajax({
+	          type: 'post',
+	          url: '/wp-admin/admin-ajax.php',
+	          data: bounce
+	        }).done(function (res) {
+	          return console.log(res);
+	        });
 	      },
 	      handleToken: function handleToken(status, response) {
 	        this.toggleLoading();
@@ -15190,7 +15200,7 @@
 
 	        this.toggleLoading();
 
-	        $.ajax({
+	        _jquery2.default.ajax({
 	          url: this.url,
 	          type: 'POST',
 	          data: data,
