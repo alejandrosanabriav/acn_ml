@@ -1,5 +1,6 @@
 'use strict';
-export default gaEvents = () => {
+
+export default const gaEvents = () => {
 
   let sendEvent = (eventCategory, eventAction, eventLabel) => {
     return new Promise((resolve, reject) => {

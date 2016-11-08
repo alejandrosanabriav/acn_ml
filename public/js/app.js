@@ -25194,7 +25194,7 @@
 	});
 	var _ = __webpack_require__(99);
 	var moment = __webpack_require__(101);
-	var gaEvents = __webpack_require__(207)();
+	var gaEvents = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../ga_events\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))();
 	var gaEcommerce = __webpack_require__(208);
 	var validateStripe = __webpack_require__(209);
 	// pk_test_kORhSnXY5TPJMXXY5Wwiugzy
@@ -56932,55 +56932,7 @@
 	}));
 
 /***/ },
-/* 207 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports.default = gaEvents = function gaEvents() {
-
-	  var sendEvent = function sendEvent(eventCategory, eventAction, eventLabel) {
-	    return new Promise(function (resolve, reject) {
-
-	      ga('send', 'event', eventCategory, eventAction, eventLabel, {
-	        hitCallback: function hitCallback() {
-	          return resolve();
-	        }
-	      });
-	    });
-	  };
-
-	  var fns = {
-	    donateUnique: function donateUnique() {
-	      sendEvent('donate', 'unique', 'donate action').then(function () {
-	        return console.log('donateUnique');
-	      });
-	    },
-	    donateMonthly: function donateMonthly() {
-	      sendEvent('donate', 'monthly', 'donate action').then(function () {
-	        return console.log('donateMonthly');
-	      });
-	    },
-	    donateInClick: function donateInClick() {
-	      sendEvent('donate', 'insiteclick', 'donate intention').then(function () {
-	        return console.log('donateInClick');
-	      });
-	    },
-	    donateOutClick: function donateOutClick() {
-	      sendEvent('donate', 'outclick', 'donate intention').then(function () {
-	        return console.log('donateOutClick');
-	      });
-	    }
-	  };
-
-	  return fns;
-	};
-
-/***/ },
+/* 207 */,
 /* 208 */
 /***/ function(module, exports) {
 
