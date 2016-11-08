@@ -70,6 +70,7 @@ let componentData = {
     country: null,
     stripe_token: null
   },
+  
   card: {
     Visa: false,
     MasterCard: false,
