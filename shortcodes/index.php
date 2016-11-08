@@ -46,4 +46,10 @@ if(function_exists('sc_factory')) {
     $base . '/form_donate.php'
   );
 
+  sc_factory($prefix . 'steps', array(
+
+    ),
+    $base . '/steps.php'
+  );
+
 }
