@@ -84,8 +84,10 @@ p {
   color: #fff;
   font-size: 1.28571em; }
 
-.input-group .form-control {
-  border-left: none; }
+.input-group {
+  font-weight: bold; }
+  .input-group .form-control {
+    border-left: none; }
 
 .btn {
   display: inline-block;
