@@ -42,9 +42,13 @@ function stripe_create_charge($api_key, $charge) {
 
 function stripe_get_plan($api_key, $name) {
   \Stripe\Stripe::setApiKey("sk_test_vq5s51SGycQ6dvCqC3H7JcCl");
-
-  $plan = \Stripe\Plan::retrieve($name);
-  return $plan;
+  try{
+    $plan = \Stripe\Plan::retrieve($name);
+    return $plan;
+  } catch(Exception $ex) {
+    return '';
+  }
+  
 }
 
 function stripe_create_plan($api_key, $plan) {
