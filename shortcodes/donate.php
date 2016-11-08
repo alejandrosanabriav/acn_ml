@@ -43,12 +43,12 @@
           <div class="col-md-5">
             <a href="" 
               v-on:click="changeType('monthly', $event)"
-              v-bind:class="[donation_type == 'monthly' ? 'donate_landing__type--active' : 'donate_landing__type' ]"
+              v-bind:class="[donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type' ]"
             ><?php echo gett('Monthly') ?></a>
             
             <a href="" 
               v-on:click="changeType('once', $event)"
-              v-bind:class="[donation_type == 'once' ? 'donate_landing__type--active' : 'donate_landing__type' ]"
+              v-bind:class="[donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type' ]"
             ><?php echo gett('Once') ?></a>
           </div>
 

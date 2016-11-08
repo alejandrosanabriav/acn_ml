@@ -36,6 +36,25 @@
     padding-top: 30px;
   }
 
+  &__type {
+    font-size: (18 / 14) * 1em;
+    opacity: .5;
+    font-weight: 500;
+
+    &--active {
+      opacity: 1;
+      padding-bottom: 5px;
+      
+      &::after {
+        display: block;
+        content: '';
+        width: 80%;
+        height: 3px;
+        background: #fff;
+      }
+    }
+  }
+
   &__submit {
     vertical-align: middle;
     float: right;
@@ -88,7 +107,7 @@ a {
     width: (100 / 5) * 1%;
     padding: 0 5px;
     margin-bottom: 10px;
-    
+
     &:first-child {
       padding-left: 0;
     }
