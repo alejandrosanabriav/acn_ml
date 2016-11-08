@@ -2,7 +2,7 @@
 A theme for ACN
 
 ## Features
-- Insert keys for use of Integrations.
+- Insert keys for integrations use.
 - show logo according to country.
 - show donate form or button depending on if insert it keys.
 
