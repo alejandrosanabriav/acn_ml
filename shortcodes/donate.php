@@ -190,12 +190,14 @@
             </select>
           </div>
         </div>
-
-        <div class="donate_landing__alert-danger alert alert-danger" v-if="errors">
-          <span v-if="errors.name"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
-          <span v-if="errors.email"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
-          <span v-if="errors.country"><?php echo gett('Country') . ' ' . gett('required') ?>, </span>
+        <div class="col-md-12">
+          <div class="donate_landing__alert-danger alert alert-danger" v-if="errors">
+            <span v-if="errors.name"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
+            <span v-if="errors.email"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
+            <span v-if="errors.country"><?php echo gett('Country') . ' ' . gett('required') ?>, </span>
+          </div>
         </div>
+     
 
 
       <div class="col-md-12">
