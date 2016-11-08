@@ -46,10 +46,6 @@
 
 	'use strict';
 
-	var _vue = __webpack_require__(1);
-
-	var _vue2 = _interopRequireDefault(_vue);
-
 	var _input = __webpack_require__(3);
 
 	var _input2 = _interopRequireDefault(_input);
@@ -69,8 +65,8 @@
 	(function () {
 	  (0, _steps.steps)();
 	  (0, _steps.step)();
-	  _vue2.default.component('donate-landing', _donate2.default);
-	  new _vue2.default({ el: '#app' });
+	  Vue.component('donate-landing', _donate2.default);
+	  new Vue({ el: '#app' });
 	  (0, _input2.default)();
 	  (0, _form2.default)();
 	  (0, _donate2.default)();

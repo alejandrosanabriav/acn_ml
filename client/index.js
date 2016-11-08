@@ -1,5 +1,4 @@
 'use strict';
-import Vue from 'vue';
 import input from './input';
 import form from './form';
 import donate from './components/donate';
