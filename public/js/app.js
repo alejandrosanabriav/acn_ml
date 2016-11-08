@@ -58,6 +58,10 @@
 
 	var _donate2 = _interopRequireDefault(_donate);
 
+	var _change_amount = __webpack_require__(211);
+
+	var _change_amount2 = _interopRequireDefault(_change_amount);
+
 	var _steps = __webpack_require__(210);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -65,6 +69,7 @@
 	(function () {
 	  (0, _steps.steps)();
 	  (0, _steps.step)();
+	  Vue.component('change-amount', _change_amount2.default);
 	  Vue.component('donate-landing', _donate2.default);
 	  new Vue({ el: '#app' });
 	  (0, _input2.default)();
@@ -57086,6 +57091,26 @@
 	    props: ['step']
 
 	  });
+	};
+
+/***/ },
+/* 211 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = {
+	  template: "#change-amount-template",
+	  methods: {
+	    changeAmount: function changeAmount(amount, e) {
+	      e.preventDefault();
+	      if (amount == '') {
+	        this.$dispatch('focus-amount');
+	      } else {
+	        this.$parent.amount = amount;
+	      }
+	    }
+	  }
 	};
 
 /***/ }
