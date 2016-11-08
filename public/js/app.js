@@ -25295,7 +25295,7 @@
 	  section: 1
 	};
 
-	exports.default = donate = {
+	exports.default = {
 	  template: "#donate-landing-template",
 
 	  props: ['captcha_name', 'url'],

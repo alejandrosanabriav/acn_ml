@@ -86,7 +86,7 @@ let componentData = {
   section: 1
 };
 
-export default donate = {
+export default {
   template: "#donate-landing-template",
 
   props: [
