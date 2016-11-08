@@ -81,13 +81,13 @@ li {
     float: left;
     width: (100 / 5) * 1%;
     padding: 0 5px;
-    
+
     &:first-child {
       padding-left: 0;
     }
 
     &:last-child {
-      padding-left: 0;
+      padding-right: 0;
     }
     a {
       float: left;

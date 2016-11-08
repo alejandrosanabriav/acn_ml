@@ -180,7 +180,7 @@ li {
   .change-amount li:first-child {
     padding-left: 0; }
   .change-amount li:last-child {
-    padding-left: 0; }
+    padding-right: 0; }
   .change-amount li a {
     float: left;
     border: 2px solid #fff;
