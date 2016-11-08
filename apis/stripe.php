@@ -20,12 +20,12 @@ function stripe_create_token($api_key, $card) {
 function stripe_create_customer($api_key, $customer) {
   \Stripe\Stripe::setApiKey($api_key);
     
-    $customer = \Stripe\Customer::create(array(
-      "email" => $customer['email'],
-      "source" => $customer['token']
-    ));
+  $customer = \Stripe\Customer::create(array(
+    "email" => $customer['email'],
+    "source" => $customer['stripe_token']
+  ));
     
-    return $customer;
+  return $customer;
 }
 
 function stripe_create_charge($api_key, $charge) {
@@ -34,7 +34,7 @@ function stripe_create_charge($api_key, $charge) {
   $charge = \Stripe\Charge::create(array(
     "amount" => $charge['amount'],
     "currency" => $charge['currency'],
-    "source" => $charge['token']
+    "source" => $charge['stripe_token']
   ));
 
   return $charge;
@@ -61,7 +61,7 @@ function stripe_create_plan($api_key, $plan) {
     "currency" => $plan['currency'],
     "id" => $plan['plan_name'])
   );
-  
+
   return $plan;
 }
 
@@ -83,11 +83,17 @@ function get_plan_name($amount) {
 function stripe_monthly($api_key, $data) {
   $plan_name = get_plan_name($data['amount']);
   $data['plan_name'] = $plan_name;
+  $plan = '';
 
-   if(!empty(stripe_get_plan($api_key, $plan_name))) {
-     return stripe_get_plan($api_key, $plan_name);
+  if(!empty(stripe_get_plan($api_key, $plan_name))) {
+    $plan =  stripe_get_plan($api_key, $plan_name);
   } else {
-    return stripe_create_plan($api_key, $data);
+    $plan = stripe_create_plan($api_key, $data);
   }
 
+  $customer = stripe_create_customer($api_key, $data);
+  $charge = array();
+  $charge['customer'] = $customer->id;
+  $charget['plan'] = $plan->id;
+  return stripe_create_subscription($api_key, $charge);
 }
