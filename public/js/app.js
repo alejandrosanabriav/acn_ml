@@ -15135,12 +15135,12 @@
 	          url: '/wp-admin/admin-ajax.php',
 	          data: data
 	        }).done(function (res) {
-	          return _this2.handleToken;
+	          return _this2.handleToken(res);
 	        });
 	      },
 	      handleToken: function handleToken(response) {
 	        this.toggleLoading();
-	        console.log('res', JSON.parse(response));
+	        console.log('res', response);
 	        if (response.id) {
 	          this.stripe.token = response.id;
 	          this.nextSection();
