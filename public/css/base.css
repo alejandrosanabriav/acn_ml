@@ -69,7 +69,8 @@ p {
   .input::-webkit-input-placeholder, .form-control::-webkit-input-placeholder {
     color: #fff; }
   .input:focus, .form-control:focus {
-    outline: none; }
+    outline: none;
+    box-shadow: none; }
   .input_container, .form-control_container {
     display: block;
     margin-bottom: 15px; }
