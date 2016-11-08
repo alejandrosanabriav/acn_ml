@@ -72,9 +72,14 @@
 
 }
 
+li {
+  list-style: none;
+}
+
 .change-amount {
   li {
     float: left;
+
     a {
       float: left;
       border: 2px solid #fff;
