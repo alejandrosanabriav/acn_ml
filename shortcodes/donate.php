@@ -56,7 +56,7 @@
             <?php echo gett('Donate') ?>
           </button>
 
-          <span class="pull-left" class="donate_landing__info">{{amount}} USD {{donation_type}}</span>
+          <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
         </div>
 
       </div> <!-- donate_landing__section-1 -->
