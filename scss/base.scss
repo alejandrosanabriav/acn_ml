@@ -187,5 +187,13 @@ button {
   }
 }
 
+.card-type {
+  opacity: .8;
+  transition: all 300ms ease;
+  &--active {
+    opacity: 1;
+  }
+}
+
 @import 'reset';
 @import 'donate';
