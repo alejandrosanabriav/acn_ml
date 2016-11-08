@@ -172,7 +172,7 @@ export default () => ({
 
     handleToken(response) {
       this.toggleLoading();
-
+      console.log('res', response);
       if(response.id) {
         this.stripe.token = response.id;
         this.nextSection();
