@@ -9,7 +9,7 @@
   <div class="input__errors"></div>
 
   <select
-    class="input"
+    class="form-control"
     name="<?php echo $at['id'] ?>"
     data-validate="<?php echo $at['validate'] ?>"
     data-messages="<?php echo $at['messages'] ?>"
