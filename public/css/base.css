@@ -192,7 +192,7 @@ button:focus {
       .donate_landing__type--active::after {
         display: block;
         content: '';
-        width: 80%;
+        width: 60%;
         height: 3px;
         background: #fff; }
   .donate_landing__submit {
