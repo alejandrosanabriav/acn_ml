@@ -7,7 +7,6 @@ import validateStripe from '../stripe/validation.js';
 
 // pk_test_kORhSnXY5TPJMXXY5Wwiugzy
 // pk_live_VAx77ruuR7UJpxfSDzStBbm7
-Stripe.setPublishableKey('pk_test_kORhSnXY5TPJMXXY5Wwiugzy');
 
 function debounce(fn, delay) {
     var delayed;
@@ -162,7 +161,7 @@ export default donate = {
 
       this.toggleLoading();
 
-      Stripe.card.createToken(stripeData, this.handleToken);
+      //send wp_ajax to get token
     },
 
     handleToken(status, response) {
