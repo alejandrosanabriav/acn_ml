@@ -1,7 +1,7 @@
 
   <donate-landing
-    donation_type="<?php echo $atts['donation_type'] ?>"
-    url="<?php echo get_template_directory_uri() ?>/lib/stripe_landing.php"
+    donation_type="monthly"
+    url="<?php echo get_template_directory_uri() ?>"
     captcha_name="recaptcha-monthly"
     >
   </donate-landing>
