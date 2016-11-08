@@ -179,4 +179,6 @@ li {
     float: left;
     border: 2px solid #fff;
     height: 50px;
-    color: #fff; }
+    color: #fff;
+    text-align: center;
+    width: 20%; }
