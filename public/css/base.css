@@ -134,7 +134,8 @@ button {
   height: 50px;
   min-width: 130;
   background: transparent;
-  border: 3px solid #fff; }
+  border: 3px solid #fff;
+  padding: 12px; }
   button:focus {
     box-shadow: none;
     outline: none; }
