@@ -136,7 +136,8 @@ button {
   padding: 12px;
   color: #fff;
   text-align: center;
-  font-size: 1.78571em; }
+  font-size: 1.78571em;
+  text-transform: uppercase; }
   button:focus {
     box-shadow: none;
     outline: none; }
