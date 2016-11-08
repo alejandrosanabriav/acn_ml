@@ -134,7 +134,10 @@ button {
   min-width: 130;
   background: transparent;
   border: 3px solid #fff;
-  padding: 12px; }
+  padding: 12px;
+  color: #fff;
+  text-align: center;
+  font-size: 1.78571em; }
   button:focus {
     box-shadow: none;
     outline: none; }

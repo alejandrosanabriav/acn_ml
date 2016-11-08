@@ -189,7 +189,10 @@ button {
   background: transparent;
   border: 3px solid #fff;
   padding: 12px;
-
+  color: #fff;
+  text-align: center;
+  font-size: (25 / 14) * 1em;
+  
   &:focus {
     box-shadow: none;
     outline: none;
