@@ -179,10 +179,13 @@ button:focus {
     padding-top: 30px; }
   .donate_landing__type {
     font-size: 1.28571em;
-    opacity: .5;
+    opacity: .4;
     font-weight: 500;
     color: #fff;
-    float: left; }
+    float: left;
+    transition: all 300ms ease; }
+    .donate_landing__type:hover {
+      color: #fff; }
     .donate_landing__type--active {
       opacity: 1;
       padding-bottom: 5px; }
