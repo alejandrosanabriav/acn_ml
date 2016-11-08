@@ -79,6 +79,7 @@ li {
 .change-amount {
   li {
     float: left;
+    width: (100 / 5) * 1%;
 
     a {
       float: left;
@@ -86,7 +87,7 @@ li {
       height: 50px;
       color: #fff;
       text-align: center;
-      width: (100 / 5) * 1%;
+      width: 100%;
     }
   }
 }

@@ -174,11 +174,12 @@ li {
   list-style: none; }
 
 .change-amount li {
-  float: left; }
+  float: left;
+  width: 20%; }
   .change-amount li a {
     float: left;
     border: 2px solid #fff;
     height: 50px;
     color: #fff;
     text-align: center;
-    width: 20%; }
+    width: 100%; }
