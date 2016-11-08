@@ -9,7 +9,7 @@ import {steps, step} from './components/steps';
   steps();
   step();
   new Vue({el: '#app'});
-  Vue.component('bs-donate', donate);
+  Vue.component('donate-landing', donate);
   input();
   form();
   donate();
