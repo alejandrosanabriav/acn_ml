@@ -302,7 +302,7 @@ export default () => ({
       let height = nodeSection.offsetHeight;
       let form = parent;
 
-      let viewport = document.querySelector('.donate_landing__viewport');
+      let viewport = parent.querySelector('.donate_landing__viewport');
       let width = form.offsetWidth;
       let next = section * 100;
 

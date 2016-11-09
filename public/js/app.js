@@ -47139,7 +47139,7 @@
 	        var height = nodeSection.offsetHeight;
 	        var form = parent;
 
-	        var viewport = document.querySelector('.donate_landing__viewport');
+	        var viewport = parent.querySelector('.donate_landing__viewport');
 	        var width = form.offsetWidth;
 	        var next = section * 100;
 
