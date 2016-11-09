@@ -46937,7 +46937,7 @@
 	      return _jquery2.default.extend(true, {}, componentData);
 	    },
 	    ready: function ready() {
-	      configForm(this.$parent);
+	      configForm(this.$el);
 	    },
 
 
