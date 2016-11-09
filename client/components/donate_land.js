@@ -39,7 +39,6 @@ function configForm() {
   setViewportWidth();
 }
 
-
 let componentData = {
   donation_type: 'monthly',
   errors: null,
@@ -71,11 +70,12 @@ let componentData = {
   captcha: null,
   created_at: moment().format(),
   amount: 30,
-  section: 1
+  section: 1,
+  families: 2
 };
 
 export default () => ({
-  template: "#donate-landing-template",
+  template: "#donate-land-template",
 
   props: [
     'captcha_name',

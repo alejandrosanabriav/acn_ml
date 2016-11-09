@@ -58,4 +58,10 @@ if(function_exists('sc_factory')) {
     $base . '/donate.php'
   );
 
+  sc_factory($prefix . 'donate_land', array(
+
+    ),
+    $base . '/donate_land.php'
+  );
+
 }
