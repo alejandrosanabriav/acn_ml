@@ -47128,12 +47128,13 @@
 	        }
 	      },
 	      nextSection: function nextSection() {
-	        var nodes = document.querySelectorAll('.donate_landing__section');
+	        var parent = this.$el;
+	        var nodes = parent.querySelectorAll('.donate_landing__section');
 
 	        var section = this.section;
-	        var nodeSection = document.querySelector('.donate_landing__section-' + (section + 1));
+	        var nodeSection = parent.querySelector('.donate_landing__section-' + (section + 1));
 	        var height = nodeSection.offsetHeight;
-	        var form = document.querySelector('.donate_landing');
+	        var form = parent;
 
 	        var viewport = document.querySelector('.donate_landing__viewport');
 	        var width = form.offsetWidth;

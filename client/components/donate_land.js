@@ -293,13 +293,13 @@ export default () => ({
     },
 
     nextSection() {
-      let nodes = document.querySelectorAll('.donate_landing__section');
+      let parent = this.$el;
+      let nodes = parent.querySelectorAll('.donate_landing__section');
 
       let section = this.section;
-      let nodeSection = document.querySelector(`.donate_landing__section-${section + 1}`);
+      let nodeSection = parent.querySelector(`.donate_landing__section-${section + 1}`);
       let height = nodeSection.offsetHeight;
-      let form = document.querySelector('.donate_landing');
-
+      let form = parent;
 
       let viewport = document.querySelector('.donate_landing__viewport');
       let width = form.offsetWidth;

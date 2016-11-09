@@ -16,12 +16,9 @@
       <div class="donate_landing__section donate_landing__section-1">
 
           <div class="form-group col-sm-7" style="float: left">
-            <div class="input-group col-sm-12" >
-              <div class="input-group-addon">USD</div>
-              <button>-</button>
+            <button>-</button>
               {{families}}
               <button>+</button>
-            </div>
           </div>
 
           <div class="col-md-5">
