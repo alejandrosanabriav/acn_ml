@@ -14990,7 +14990,7 @@
 	  console.log('nodes', nodes);
 
 	  var count = 100 / nodes.length;
-
+	  console.log('count', count);
 	  if (nodes.length) {
 	    Array.prototype.slice.call(nodes).forEach(function (node) {
 	      node.style.width = count + '%';

@@ -11,7 +11,7 @@ function addStylesToNodes(parent) {
   console.log('nodes', nodes);
   
   let count = 100 / nodes.length;
-
+  console.log('count', count);
   if(nodes.length) {
     Array.prototype.slice.call(nodes).forEach(node => {
       node.style.width = count + '%';
