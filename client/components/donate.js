@@ -77,6 +77,7 @@ let componentData = {
 
 export default () => ({
   template: "#donate-landing-template",
+  el: '.donate_landing',
 
   props: [
     'captcha_name',
@@ -90,7 +91,7 @@ export default () => ({
 
   ready() {
     configForm();
-    console.log('donate component', this);
+    console.log('donate component', this.$el);
   },
 
   computed: {

@@ -15056,6 +15056,7 @@
 	exports.default = function () {
 	  return {
 	    template: "#donate-landing-template",
+	    el: '.donate_landing',
 
 	    props: ['captcha_name', 'url', 'currency'],
 
@@ -15064,7 +15065,7 @@
 	    },
 	    ready: function ready() {
 	      configForm();
-	      console.log('donate component', this);
+	      console.log('donate component', this.$el);
 	    },
 
 
