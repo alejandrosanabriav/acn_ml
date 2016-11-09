@@ -12,7 +12,6 @@
 
     <form method="post" class="donate_landing">
 
-
       <div class="donate_landing__viewport">
       <div class="donate_landing__section donate_landing__section-1">
 

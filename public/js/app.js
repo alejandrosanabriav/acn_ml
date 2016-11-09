@@ -14986,6 +14986,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function addStylesToNodes() {
+
 	  var nodes = document.querySelectorAll('.donate_landing__section');
 	  var count = 100 / nodes.length;
 	  if (nodes.length) {
@@ -15002,8 +15003,8 @@
 	}
 
 	function setViewportWidth() {
-	  var nodes = document.querySelectorAll('.donate_landing__section');
 	  var form = document.querySelector('.donate_landing');
+	  var nodes = form.querySelectorAll('.donate_landing__section');
 	  var viewport = document.querySelector('.donate_landing__viewport');
 	  var num = nodes.length;
 	  var width = form.offsetWidth;
@@ -15063,6 +15064,7 @@
 	    },
 	    ready: function ready() {
 	      configForm();
+	      console.log('el', this.el);
 	    },
 
 

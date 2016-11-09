@@ -7,6 +7,7 @@ import gaEcommerce from '../ga_ecommerce';
 import validateStripe from '../stripe/validation.js';
 
 function addStylesToNodes() {
+  
   let nodes = document.querySelectorAll('.donate_landing__section');
   let count = 100 / nodes.length;
   if(nodes.length) {
@@ -23,8 +24,8 @@ function showFirstNode() {
 }
 
 function setViewportWidth() {
-  let nodes = document.querySelectorAll('.donate_landing__section');
   let form = document.querySelector('.donate_landing');
+  let nodes = form.querySelectorAll('.donate_landing__section');
   let viewport = document.querySelector('.donate_landing__viewport');
   let num = nodes.length;
   let width = form.offsetWidth;
@@ -89,6 +90,7 @@ export default () => ({
 
   ready() {
     configForm();
+    console.log('el', this.el);
   },
 
   computed: {
