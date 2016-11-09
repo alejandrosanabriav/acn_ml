@@ -58,15 +58,15 @@
 
 	var _donate2 = _interopRequireDefault(_donate);
 
-	var _donate_land = __webpack_require__(212);
+	var _donate_land = __webpack_require__(209);
 
 	var _donate_land2 = _interopRequireDefault(_donate_land);
 
-	var _change_amount = __webpack_require__(209);
+	var _change_amount = __webpack_require__(210);
 
 	var _change_amount2 = _interopRequireDefault(_change_amount);
 
-	var _steps = __webpack_require__(210);
+	var _steps = __webpack_require__(211);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14987,7 +14987,7 @@
 
 	function addStylesToNodes(parent) {
 	  var nodes = parent.querySelectorAll('.donate_landing__section');
-	  console.log(nodes);
+	  console.log('nodes', nodes);
 
 	  var count = 100 / nodes.length;
 
@@ -46826,6 +46826,344 @@
 
 /***/ },
 /* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _lodash = __webpack_require__(98);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _moment = __webpack_require__(100);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _ga_events = __webpack_require__(206);
+
+	var _ga_events2 = _interopRequireDefault(_ga_events);
+
+	var _ga_ecommerce = __webpack_require__(207);
+
+	var _ga_ecommerce2 = _interopRequireDefault(_ga_ecommerce);
+
+	var _validation = __webpack_require__(208);
+
+	var _validation2 = _interopRequireDefault(_validation);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function addStylesToNodes() {
+	  var nodes = document.querySelectorAll('.donate_landing__section');
+	  var count = 100 / nodes.length;
+	  if (nodes.length) {
+	    Array.prototype.slice.call(nodes).forEach(function (node) {
+	      node.style.width = count + '%';
+	      node.style.float = 'left';
+	    });
+	  }
+	}
+
+	function showFirstNode() {
+	  var firstNode = document.querySelector('.donate_landing__section');
+	  firstNode.style.display = 'block';
+	}
+
+	function setViewportWidth() {
+	  var nodes = document.querySelectorAll('.donate_landing__section');
+	  var form = document.querySelector('.donate_landing');
+	  var viewport = document.querySelector('.donate_landing__viewport');
+	  var num = nodes.length;
+	  var width = form.offsetWidth;
+
+	  // viewport.style.width = `${num * width}px`;
+	  viewport.style.width = '300%';
+	}
+
+	function configForm() {
+	  addStylesToNodes();
+	  showFirstNode();
+	  setViewportWidth();
+	}
+
+	var componentData = {
+	  donation_type: 'monthly',
+	  errors: null,
+	  success: false,
+	  loading: false,
+	  stripe: {
+	    number: '',
+	    exp_month: '',
+	    exp_year: '',
+	    cvc: '',
+	    token: ''
+	  },
+
+	  contact: {
+	    name: null,
+	    email: null,
+	    country: null,
+	    stripe_token: null
+	  },
+
+	  card: {
+	    Visa: false,
+	    MasterCard: false,
+	    DinersClub: false,
+	    AmericanExpress: false,
+	    Discover: false
+	  },
+
+	  captcha: null,
+	  created_at: (0, _moment2.default)().format(),
+	  amount: 30,
+	  section: 1,
+	  families: 2
+	};
+
+	exports.default = function () {
+	  return {
+	    template: "#donate-land-template",
+
+	    props: ['captcha_name', 'url', 'currency'],
+
+	    data: function data() {
+	      return _jquery2.default.extend(true, {}, componentData);
+	    },
+	    ready: function ready() {
+	      configForm();
+	    },
+
+
+	    computed: {
+	      cardType: function cardType() {
+	        var type = Stripe.card.cardType(this.stripe.number).replace(" ", "");
+	        return type;
+	      }
+	    },
+
+	    events: {
+	      'focus-amount': function focusAmount() {
+	        this.amount = 1;
+	        this.$els.amountInput.focus();
+	      }
+	    },
+
+	    methods: {
+	      showCard: function showCard() {
+	        var _this = this;
+
+	        Object.keys(this.card).map(function (key) {
+	          if (key === _this.cardType) {
+	            return _this.card[key] = true;
+	          } else {
+	            return _this.card[key] = false;
+	          }
+	        });
+	      },
+	      cleanNumber: function cleanNumber(keypath) {
+	        var val = this.$get(keypath);
+	        this.$set(keypath, val.replace(/[^0-9]+/, ''));
+	      },
+	      maxLength: function maxLength(keypath, length) {
+	        var val = this.$get(keypath);
+	        this.$set(keypath, val.substring(0, length));
+	      },
+	      isRequired: function isRequired(keypath) {
+	        var error = {};
+	        var val = this.$get(keypath) ? this.$get(keypath) : '';
+
+	        if (val === "") {
+	          error[keypath] = true;
+	        } else {
+	          error[keypath] = false;
+	        }
+
+	        return error;
+	      },
+	      createToken: function createToken() {
+	        var _this2 = this;
+
+	        var stripeData = {
+	          number: this.stripe.number,
+	          cvc: this.stripe.cvc,
+	          exp_month: this.stripe.exp_month,
+	          exp_year: this.stripe.exp_year
+	        };
+
+	        this.toggleLoading();
+
+	        //send wp_ajax to get token
+	        var data = { action: 'stripe_token', data: stripeData };
+
+	        _jquery2.default.ajax({
+	          type: 'post',
+	          url: '/wp-admin/admin-ajax.php',
+	          data: data
+	        }).done(function (res) {
+	          return _this2.handleToken(res);
+	        });
+	      },
+	      handleToken: function handleToken(response) {
+	        this.toggleLoading();
+
+	        if (response.id) {
+	          this.stripe.token = response.id;
+	          this.nextSection();
+	        }
+
+	        if (response.error) {
+	          this.errors = { stripe: response.error.message };
+	        }
+	      },
+	      contactValidations: function contactValidations() {
+	        var _this3 = this;
+
+	        var fields = ['contact.name', 'contact.email', 'contact.country'];
+
+	        var errors = {};
+
+	        fields.forEach(function (key) {
+	          errors = _lodash2.default.extend(errors, _this3.isRequired(key));
+	        });
+
+	        this.errors = errors;
+	      },
+	      showErrors: function showErrors() {
+	        var errorAmount = this.isRequired('amount');
+	        this.errors = _lodash2.default.extend((0, _validation2.default)(this.stripe).errors, errorAmount);
+	      },
+	      removeErrors: function removeErrors() {
+	        this.errors = null;
+	      },
+	      toggleLoading: function toggleLoading() {
+	        this.loading = !this.loading;
+	      },
+	      cleanData: function cleanData() {
+	        this.stripe = _lodash2.default.extend(this.stripe, componentData.stripe);
+	        this.contact = _lodash2.default.extend(this.contact, componentData.contact);
+	      },
+	      getToken: function getToken(e) {
+	        e.preventDefault();
+
+	        if ((0, _validation2.default)(this.stripe).success) {
+	          this.removeErrors();
+	          this.createToken();
+	        } else {
+	          this.showErrors();
+	        }
+	      },
+	      onSubmit: function onSubmit(e) {
+	        var _this4 = this;
+
+	        e.preventDefault();
+
+	        this.contactValidations();
+
+	        var data = _extends({}, this.contact, {
+	          currency: this.currency,
+	          amount: this.amount,
+	          donation_type: this.donation_type,
+	          stripe_token: this.stripe.token
+	        });
+
+	        this.toggleLoading();
+
+	        _jquery2.default.ajax({
+	          url: '/wp-admin/admin-ajax.php',
+	          type: 'post',
+	          data: { action: 'stripe_charge', data: data },
+	          beforeSend: function beforeSend() {
+	            _this4.removeErrors();
+	          }
+	        }).then(function (res) {
+	          if (res.id) _this4.success = true;
+	        });
+	      },
+	      changeType: function changeType(type, evt) {
+	        evt.preventDefault();
+	        this.donation_type = type;
+	      },
+	      sendEccomerceData: function sendEccomerceData(response) {
+	        if (this.donation_type == 'monthly') {
+	          _ga_events2.default.donateMonthly();
+	          if (_ga_ecommerce2.default) (0, _ga_ecommerce2.default)(response.stripe.id, null, this.amount);
+	          if (fbq) fbq('track', 'Purchase', { value: this.amount, currency: 'EUR' });
+	        }
+
+	        if (this.donation_type == 'once') {
+	          _ga_events2.default.donateUnique();
+	          if (_ga_ecommerce2.default) (0, _ga_ecommerce2.default)(response.stripe.id, null, this.amount);
+	          if (fbq) fbq('track', 'Purchase', { value: this.amount, currency: 'EUR' });
+	        }
+	      },
+	      handleSubmitResponse: function handleSubmitResponse(res) {
+	        var response = {};
+
+	        try {
+	          response = JSON.parse(res);
+	        } catch (e) {
+	          this.removeErrors();
+	          console.log('donate response err: ', res);
+	        }
+
+	        this.toggleLoading();
+
+	        if (response.success) {
+	          this.removeErrors();
+	          this.success = true;
+	          this.sendEccomerceData(response);
+
+	          var subdata = '?customer_id=' + response.stripe.customer + '&order_revenue=' + this.amount + '&order_id=' + response.stripe.id + '&landing_thanks=true&landing_revenue=' + this.amount;
+
+	          window.location = '/landing-thanks/' + subdata;
+	        } else if (response.errors) {
+	          this.errors = response.errors;
+	        }
+	      },
+	      nextSection: function nextSection() {
+	        var nodes = document.querySelectorAll('.donate_landing__section');
+
+	        var section = this.section;
+	        var nodeSection = document.querySelector('.donate_landing__section-' + (section + 1));
+	        var height = nodeSection.offsetHeight;
+	        var form = document.querySelector('.donate_landing');
+
+	        var viewport = document.querySelector('.donate_landing__viewport');
+	        var width = form.offsetWidth;
+	        var next = section * 100;
+
+	        viewport.style.left = '-' + next + '%';
+	        this.section = section + 1;
+	      },
+	      backSection: function backSection() {
+	        var section = this.section;
+	        var nodeSection = document.querySelector('.donate_landing__section-' + (section - 1));
+	        var height = nodeSection.offsetHeight;
+	        var form = document.querySelector('.donate_landing');
+
+	        var viewport = document.querySelector('.donate_landing__viewport');
+	        var width = form.offsetWidth;
+	        var actual = width * (section - 1);
+	        var prev = actual - width;
+	        viewport.style.left = '-' + prev + 'px';
+	        this.section = section - 1;
+	      }
+	    }
+	  };
+	};
+
+/***/ },
+/* 210 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -46852,7 +47190,7 @@
 	};
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46862,7 +47200,7 @@
 	});
 	exports.step = exports.steps = undefined;
 
-	var _vue = __webpack_require__(211);
+	var _vue = __webpack_require__(212);
 
 	var _vue2 = _interopRequireDefault(_vue);
 
@@ -46888,7 +47226,7 @@
 	};
 
 /***/ },
-/* 211 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/*!
@@ -57130,344 +57468,6 @@
 
 	module.exports = Vue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
-
-/***/ },
-/* 212 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _lodash = __webpack_require__(98);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	var _moment = __webpack_require__(100);
-
-	var _moment2 = _interopRequireDefault(_moment);
-
-	var _jquery = __webpack_require__(2);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _ga_events = __webpack_require__(206);
-
-	var _ga_events2 = _interopRequireDefault(_ga_events);
-
-	var _ga_ecommerce = __webpack_require__(207);
-
-	var _ga_ecommerce2 = _interopRequireDefault(_ga_ecommerce);
-
-	var _validation = __webpack_require__(208);
-
-	var _validation2 = _interopRequireDefault(_validation);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function addStylesToNodes() {
-	  var nodes = document.querySelectorAll('.donate_landing__section');
-	  var count = 100 / nodes.length;
-	  if (nodes.length) {
-	    Array.prototype.slice.call(nodes).forEach(function (node) {
-	      node.style.width = count + '%';
-	      node.style.float = 'left';
-	    });
-	  }
-	}
-
-	function showFirstNode() {
-	  var firstNode = document.querySelector('.donate_landing__section');
-	  firstNode.style.display = 'block';
-	}
-
-	function setViewportWidth() {
-	  var nodes = document.querySelectorAll('.donate_landing__section');
-	  var form = document.querySelector('.donate_landing');
-	  var viewport = document.querySelector('.donate_landing__viewport');
-	  var num = nodes.length;
-	  var width = form.offsetWidth;
-
-	  // viewport.style.width = `${num * width}px`;
-	  viewport.style.width = '300%';
-	}
-
-	function configForm() {
-	  addStylesToNodes();
-	  showFirstNode();
-	  setViewportWidth();
-	}
-
-	var componentData = {
-	  donation_type: 'monthly',
-	  errors: null,
-	  success: false,
-	  loading: false,
-	  stripe: {
-	    number: '',
-	    exp_month: '',
-	    exp_year: '',
-	    cvc: '',
-	    token: ''
-	  },
-
-	  contact: {
-	    name: null,
-	    email: null,
-	    country: null,
-	    stripe_token: null
-	  },
-
-	  card: {
-	    Visa: false,
-	    MasterCard: false,
-	    DinersClub: false,
-	    AmericanExpress: false,
-	    Discover: false
-	  },
-
-	  captcha: null,
-	  created_at: (0, _moment2.default)().format(),
-	  amount: 30,
-	  section: 1,
-	  families: 2
-	};
-
-	exports.default = function () {
-	  return {
-	    template: "#donate-land-template",
-
-	    props: ['captcha_name', 'url', 'currency'],
-
-	    data: function data() {
-	      return _jquery2.default.extend(true, {}, componentData);
-	    },
-	    ready: function ready() {
-	      configForm();
-	    },
-
-
-	    computed: {
-	      cardType: function cardType() {
-	        var type = Stripe.card.cardType(this.stripe.number).replace(" ", "");
-	        return type;
-	      }
-	    },
-
-	    events: {
-	      'focus-amount': function focusAmount() {
-	        this.amount = 1;
-	        this.$els.amountInput.focus();
-	      }
-	    },
-
-	    methods: {
-	      showCard: function showCard() {
-	        var _this = this;
-
-	        Object.keys(this.card).map(function (key) {
-	          if (key === _this.cardType) {
-	            return _this.card[key] = true;
-	          } else {
-	            return _this.card[key] = false;
-	          }
-	        });
-	      },
-	      cleanNumber: function cleanNumber(keypath) {
-	        var val = this.$get(keypath);
-	        this.$set(keypath, val.replace(/[^0-9]+/, ''));
-	      },
-	      maxLength: function maxLength(keypath, length) {
-	        var val = this.$get(keypath);
-	        this.$set(keypath, val.substring(0, length));
-	      },
-	      isRequired: function isRequired(keypath) {
-	        var error = {};
-	        var val = this.$get(keypath) ? this.$get(keypath) : '';
-
-	        if (val === "") {
-	          error[keypath] = true;
-	        } else {
-	          error[keypath] = false;
-	        }
-
-	        return error;
-	      },
-	      createToken: function createToken() {
-	        var _this2 = this;
-
-	        var stripeData = {
-	          number: this.stripe.number,
-	          cvc: this.stripe.cvc,
-	          exp_month: this.stripe.exp_month,
-	          exp_year: this.stripe.exp_year
-	        };
-
-	        this.toggleLoading();
-
-	        //send wp_ajax to get token
-	        var data = { action: 'stripe_token', data: stripeData };
-
-	        _jquery2.default.ajax({
-	          type: 'post',
-	          url: '/wp-admin/admin-ajax.php',
-	          data: data
-	        }).done(function (res) {
-	          return _this2.handleToken(res);
-	        });
-	      },
-	      handleToken: function handleToken(response) {
-	        this.toggleLoading();
-
-	        if (response.id) {
-	          this.stripe.token = response.id;
-	          this.nextSection();
-	        }
-
-	        if (response.error) {
-	          this.errors = { stripe: response.error.message };
-	        }
-	      },
-	      contactValidations: function contactValidations() {
-	        var _this3 = this;
-
-	        var fields = ['contact.name', 'contact.email', 'contact.country'];
-
-	        var errors = {};
-
-	        fields.forEach(function (key) {
-	          errors = _lodash2.default.extend(errors, _this3.isRequired(key));
-	        });
-
-	        this.errors = errors;
-	      },
-	      showErrors: function showErrors() {
-	        var errorAmount = this.isRequired('amount');
-	        this.errors = _lodash2.default.extend((0, _validation2.default)(this.stripe).errors, errorAmount);
-	      },
-	      removeErrors: function removeErrors() {
-	        this.errors = null;
-	      },
-	      toggleLoading: function toggleLoading() {
-	        this.loading = !this.loading;
-	      },
-	      cleanData: function cleanData() {
-	        this.stripe = _lodash2.default.extend(this.stripe, componentData.stripe);
-	        this.contact = _lodash2.default.extend(this.contact, componentData.contact);
-	      },
-	      getToken: function getToken(e) {
-	        e.preventDefault();
-
-	        if ((0, _validation2.default)(this.stripe).success) {
-	          this.removeErrors();
-	          this.createToken();
-	        } else {
-	          this.showErrors();
-	        }
-	      },
-	      onSubmit: function onSubmit(e) {
-	        var _this4 = this;
-
-	        e.preventDefault();
-
-	        this.contactValidations();
-
-	        var data = _extends({}, this.contact, {
-	          currency: this.currency,
-	          amount: this.amount,
-	          donation_type: this.donation_type,
-	          stripe_token: this.stripe.token
-	        });
-
-	        this.toggleLoading();
-
-	        _jquery2.default.ajax({
-	          url: '/wp-admin/admin-ajax.php',
-	          type: 'post',
-	          data: { action: 'stripe_charge', data: data },
-	          beforeSend: function beforeSend() {
-	            _this4.removeErrors();
-	          }
-	        }).then(function (res) {
-	          if (res.id) _this4.success = true;
-	        });
-	      },
-	      changeType: function changeType(type, evt) {
-	        evt.preventDefault();
-	        this.donation_type = type;
-	      },
-	      sendEccomerceData: function sendEccomerceData(response) {
-	        if (this.donation_type == 'monthly') {
-	          _ga_events2.default.donateMonthly();
-	          if (_ga_ecommerce2.default) (0, _ga_ecommerce2.default)(response.stripe.id, null, this.amount);
-	          if (fbq) fbq('track', 'Purchase', { value: this.amount, currency: 'EUR' });
-	        }
-
-	        if (this.donation_type == 'once') {
-	          _ga_events2.default.donateUnique();
-	          if (_ga_ecommerce2.default) (0, _ga_ecommerce2.default)(response.stripe.id, null, this.amount);
-	          if (fbq) fbq('track', 'Purchase', { value: this.amount, currency: 'EUR' });
-	        }
-	      },
-	      handleSubmitResponse: function handleSubmitResponse(res) {
-	        var response = {};
-
-	        try {
-	          response = JSON.parse(res);
-	        } catch (e) {
-	          this.removeErrors();
-	          console.log('donate response err: ', res);
-	        }
-
-	        this.toggleLoading();
-
-	        if (response.success) {
-	          this.removeErrors();
-	          this.success = true;
-	          this.sendEccomerceData(response);
-
-	          var subdata = '?customer_id=' + response.stripe.customer + '&order_revenue=' + this.amount + '&order_id=' + response.stripe.id + '&landing_thanks=true&landing_revenue=' + this.amount;
-
-	          window.location = '/landing-thanks/' + subdata;
-	        } else if (response.errors) {
-	          this.errors = response.errors;
-	        }
-	      },
-	      nextSection: function nextSection() {
-	        var nodes = document.querySelectorAll('.donate_landing__section');
-
-	        var section = this.section;
-	        var nodeSection = document.querySelector('.donate_landing__section-' + (section + 1));
-	        var height = nodeSection.offsetHeight;
-	        var form = document.querySelector('.donate_landing');
-
-	        var viewport = document.querySelector('.donate_landing__viewport');
-	        var width = form.offsetWidth;
-	        var next = section * 100;
-
-	        viewport.style.left = '-' + next + '%';
-	        this.section = section + 1;
-	      },
-	      backSection: function backSection() {
-	        var section = this.section;
-	        var nodeSection = document.querySelector('.donate_landing__section-' + (section - 1));
-	        var height = nodeSection.offsetHeight;
-	        var form = document.querySelector('.donate_landing');
-
-	        var viewport = document.querySelector('.donate_landing__viewport');
-	        var width = form.offsetWidth;
-	        var actual = width * (section - 1);
-	        var prev = actual - width;
-	        viewport.style.left = '-' + prev + 'px';
-	        this.section = section - 1;
-	      }
-	    }
-	  };
-	};
 
 /***/ }
 /******/ ]);
