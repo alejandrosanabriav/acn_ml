@@ -47131,6 +47131,7 @@
 	      },
 	      nextSection: function nextSection() {
 	        var parent = this.$el;
+	        console.log('next', parent);
 	        var nodes = parent.querySelectorAll('.donate_landing__section');
 
 	        var section = this.section;

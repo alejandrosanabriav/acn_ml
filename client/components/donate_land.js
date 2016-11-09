@@ -294,6 +294,7 @@ export default () => ({
 
     nextSection() {
       let parent = this.$el;
+      console.log('next', parent);
       let nodes = parent.querySelectorAll('.donate_landing__section');
 
       let section = this.section;
