@@ -15000,10 +15000,9 @@
 	  }
 	}
 
-	function setViewportWidth() {
+	function setViewportWidth(parent) {
 	  var form = document.querySelector('.donate_landing');
-	  var nodes = form.querySelectorAll('.donate_landing__section');
-	  var viewport = document.querySelector('.donate_landing__viewport');
+	  var viewport = parent.querySelector('.donate_landing__viewport');
 	  var num = nodes.length;
 	  var width = form.offsetWidth;
 

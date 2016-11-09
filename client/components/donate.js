@@ -21,10 +21,9 @@ function addStylesToNodes(parent) {
   }
 }
 
-function setViewportWidth() {
+function setViewportWidth(parent) {
   let form = document.querySelector('.donate_landing');
-  let nodes = form.querySelectorAll('.donate_landing__section');
-  let viewport = document.querySelector('.donate_landing__viewport');
+  let viewport = parent.querySelector('.donate_landing__viewport');
   let num = nodes.length;
   let width = form.offsetWidth;
 
