@@ -14987,6 +14987,7 @@
 
 	function addStylesToNodes(parent) {
 	  var nodes = parent.querySelectorAll('.donate_landing__section');
+	  console.log(nodes);
 	  var count = 100 / nodes.length;
 	  if (nodes.length) {
 	    Array.prototype.slice.call(nodes).forEach(function (node) {
