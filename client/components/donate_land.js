@@ -85,7 +85,7 @@ export default () => ({
   },
 
   ready() {
-    configForm();
+    configForm(this.$parent);
   },
 
   computed: {
