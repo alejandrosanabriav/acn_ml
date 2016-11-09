@@ -7,8 +7,7 @@ import gaEcommerce from '../ga_ecommerce';
 import validateStripe from '../stripe/validation.js';
 
 function addStylesToNodes(parent) {
-  
-  let nodes = document.querySelectorAll('.donate_landing__section');
+  let nodes = parent.querySelectorAll('.donate_landing__section');
   let count = 100 / nodes.length;
   if(nodes.length) {
     Array.prototype.slice.call(nodes).forEach(node => {

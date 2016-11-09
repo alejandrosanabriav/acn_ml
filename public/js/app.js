@@ -14986,8 +14986,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function addStylesToNodes(parent) {
-
-	  var nodes = document.querySelectorAll('.donate_landing__section');
+	  var nodes = parent.querySelectorAll('.donate_landing__section');
 	  var count = 100 / nodes.length;
 	  if (nodes.length) {
 	    Array.prototype.slice.call(nodes).forEach(function (node) {
