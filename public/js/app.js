@@ -46969,6 +46969,10 @@
 	          }
 	        });
 	      },
+	      setFamilies: function setFamilies(type, evt) {
+	        evt.preventDefault();
+	        console.log(type);
+	      },
 	      cleanNumber: function cleanNumber(keypath) {
 	        var val = this.$get(keypath);
 	        this.$set(keypath, val.replace(/[^0-9]+/, ''));

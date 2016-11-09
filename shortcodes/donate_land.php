@@ -16,9 +16,9 @@
       <div class="donate_landing__section donate_landing__section-1">
 
           <div class="form-group col-sm-7" style="float: left">
-            <button>-</button>
-              {{families}}
-              <button>+</button>
+            <button v-on:click="setFamilies('less', $event)">-</button>
+              <h5>{{families}}</h5>
+              <button v-on:click="setFamilies('more', $event)">+</button>
           </div>
 
           <div class="col-md-5">

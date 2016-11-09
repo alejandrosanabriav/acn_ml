@@ -113,6 +113,11 @@ export default () => ({
       });
     },
 
+    setFamilies(type, evt) {
+      evt.preventDefault();
+      console.log(type);
+    },
+
     cleanNumber(keypath) {
       let val = this.$get(keypath);
       this.$set(keypath, val.replace(/[^0-9]+/, ''));
