@@ -90,7 +90,7 @@ export default () => ({
 
   ready() {
     configForm();
-    console.log('el', this.$el);
+    console.log('donate component', this);
   },
 
   computed: {
