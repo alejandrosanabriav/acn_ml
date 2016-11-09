@@ -17,7 +17,7 @@
 
           <div class="form-group col-sm-7" style="float: left">
             <button v-on:click="setFamilies('less', $event)">-</button>
-              <h5>{{families}}</h5>
+              <h2>{{families}}</h2>
               <button v-on:click="setFamilies('more', $event)">+</button>
           </div>
 
