@@ -1,11 +1,11 @@
 
-  <donate-landing
+  <donate-land
     donation_type="monthly"
     url="<?php echo get_template_directory_uri() ?>"
     captcha_name="recaptcha-monthly"
     currency="usd"
     >
-  </donate-landing>
+  </donate-land>
 
   <template id="donate-land-template">
     <div v-if="!success">
