@@ -8,8 +8,10 @@ import validateStripe from '../stripe/validation.js';
 
 function addStylesToNodes(parent) {
   let nodes = parent.querySelectorAll('.donate_landing__section');
-  console.log(nodes);
+  console.log('nodes', nodes);
+  
   let count = 100 / nodes.length;
+
   if(nodes.length) {
     Array.prototype.slice.call(nodes).forEach(node => {
       node.style.width = count + '%';
