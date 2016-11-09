@@ -6,37 +6,34 @@ import gaEvents from '../ga_events';
 import gaEcommerce from '../ga_ecommerce';
 import validateStripe from '../stripe/validation.js';
 
-function addStylesToNodes() {
-  let nodes = document.querySelectorAll('.donate_landing__section');
+function addStylesToNodes(parent) {
+  let nodes = parent.querySelectorAll('.donate_landing__section');
+  console.log('nodes', nodes);
+  
   let count = 100 / nodes.length;
+  console.log('count', count);
   if(nodes.length) {
     Array.prototype.slice.call(nodes).forEach(node => {
+      console.log('node', node, count);
       node.style.width = count + '%';
       node.style.float = 'left';
     });
   }
 }
 
-function showFirstNode() {
-  let firstNode = document.querySelector('.donate_landing__section');
-  firstNode.style.display = 'block';
-}
-
-function setViewportWidth() {
-  let nodes = document.querySelectorAll('.donate_landing__section');
-  let form = document.querySelector('.donate_landing');
+function setViewportWidth(parent) {
+  let form = parent;
+  let nodes = form.querySelectorAll('.donate_landing__section');
   let viewport = document.querySelector('.donate_landing__viewport');
-  let num = nodes.length;
   let width = form.offsetWidth;
 
   // viewport.style.width = `${num * width}px`;
   viewport.style.width = `300%`;
 }
 
-function configForm() {
-  addStylesToNodes();
-  showFirstNode();
-  setViewportWidth();
+function configForm(parent) {
+  addStylesToNodes(parent);
+  setViewportWidth(parent);
 }
 
 let componentData = {

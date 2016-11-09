@@ -46862,37 +46862,34 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function addStylesToNodes() {
-	  var nodes = document.querySelectorAll('.donate_landing__section');
+	function addStylesToNodes(parent) {
+	  var nodes = parent.querySelectorAll('.donate_landing__section');
+	  console.log('nodes', nodes);
+
 	  var count = 100 / nodes.length;
+	  console.log('count', count);
 	  if (nodes.length) {
 	    Array.prototype.slice.call(nodes).forEach(function (node) {
+	      console.log('node', node, count);
 	      node.style.width = count + '%';
 	      node.style.float = 'left';
 	    });
 	  }
 	}
 
-	function showFirstNode() {
-	  var firstNode = document.querySelector('.donate_landing__section');
-	  firstNode.style.display = 'block';
-	}
-
-	function setViewportWidth() {
-	  var nodes = document.querySelectorAll('.donate_landing__section');
-	  var form = document.querySelector('.donate_landing');
+	function setViewportWidth(parent) {
+	  var form = parent;
+	  var nodes = form.querySelectorAll('.donate_landing__section');
 	  var viewport = document.querySelector('.donate_landing__viewport');
-	  var num = nodes.length;
 	  var width = form.offsetWidth;
 
 	  // viewport.style.width = `${num * width}px`;
 	  viewport.style.width = '300%';
 	}
 
-	function configForm() {
-	  addStylesToNodes();
-	  showFirstNode();
-	  setViewportWidth();
+	function configForm(parent) {
+	  addStylesToNodes(parent);
+	  setViewportWidth(parent);
 	}
 
 	var componentData = {
