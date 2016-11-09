@@ -6,7 +6,7 @@ import gaEvents from '../ga_events';
 import gaEcommerce from '../ga_ecommerce';
 import validateStripe from '../stripe/validation.js';
 
-function addStylesToNodes() {
+function addStylesToNodes(parent) {
   
   let nodes = document.querySelectorAll('.donate_landing__section');
   let count = 100 / nodes.length;
@@ -16,11 +16,6 @@ function addStylesToNodes() {
       node.style.float = 'left';
     });
   }
-}
-
-function showFirstNode() {
-  let firstNode = document.querySelector('.donate_landing__section');
-  firstNode.style.display = 'block';
 }
 
 function setViewportWidth() {
@@ -34,10 +29,9 @@ function setViewportWidth() {
   viewport.style.width = `300%`;
 }
 
-function configForm() {
-  addStylesToNodes();
-  showFirstNode();
-  setViewportWidth();
+function configForm(parent) {
+  addStylesToNodes(parent);
+  setViewportWidth(parent);
 }
 
 
@@ -89,8 +83,8 @@ export default () => ({
   },
 
   ready() {
-    configForm();
-    console.log('donate component', this.$el);
+    configForm(this.$el);
+    console.log('donate component', );
   },
 
   computed: {

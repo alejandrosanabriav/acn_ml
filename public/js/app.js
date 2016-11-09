@@ -14985,7 +14985,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function addStylesToNodes() {
+	function addStylesToNodes(parent) {
 
 	  var nodes = document.querySelectorAll('.donate_landing__section');
 	  var count = 100 / nodes.length;
@@ -14995,11 +14995,6 @@
 	      node.style.float = 'left';
 	    });
 	  }
-	}
-
-	function showFirstNode() {
-	  var firstNode = document.querySelector('.donate_landing__section');
-	  firstNode.style.display = 'block';
 	}
 
 	function setViewportWidth() {
@@ -15013,10 +15008,9 @@
 	  viewport.style.width = '300%';
 	}
 
-	function configForm() {
-	  addStylesToNodes();
-	  showFirstNode();
-	  setViewportWidth();
+	function configForm(parent) {
+	  addStylesToNodes(parent);
+	  setViewportWidth(parent);
 	}
 
 	var componentData = {
@@ -15063,8 +15057,8 @@
 	      return _jquery2.default.extend(true, {}, componentData);
 	    },
 	    ready: function ready() {
-	      configForm();
-	      console.log('donate component', this.$el);
+	      configForm(this.$el);
+	      console.log('donate component');
 	    },
 
 
