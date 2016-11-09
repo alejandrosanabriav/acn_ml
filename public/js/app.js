@@ -15056,7 +15056,6 @@
 	exports.default = function () {
 	  return {
 	    template: "#donate-landing-template",
-	    el: '#donate_landing',
 
 	    props: ['captcha_name', 'url', 'currency'],
 
@@ -46842,6 +46841,7 @@
 	exports.default = function () {
 	  return {
 	    template: "#change-amount-template",
+
 	    methods: {
 	      changeAmount: function changeAmount(amount, e) {
 	        e.preventDefault();

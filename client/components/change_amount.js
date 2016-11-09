@@ -2,6 +2,7 @@
 
 export default () => ({
   template: "#change-amount-template",
+  
   methods: {
     changeAmount(amount, e) {
       e.preventDefault();

@@ -18,7 +18,7 @@
   </template>
 
   <template id="donate-landing-template">
-    <div v-if="!success">
+
 
     <form method="post" class="donate_landing">
 
@@ -211,10 +211,6 @@
       </div> <!-- success -->
   </form>
 
-  </div>
-
-  <div class="alert alert-success" style="text-align: center" v-if="success">
-    <h2><?php echo gett('Thanks for your support; your donation enable us to continue helping those in need !.') ?></h2>
   </div>
 
   </template>
