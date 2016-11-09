@@ -14,6 +14,7 @@ function addStylesToNodes(parent) {
   console.log('count', count);
   if(nodes.length) {
     Array.prototype.slice.call(nodes).forEach(node => {
+      console.log('node', node, count);
       node.style.width = count + '%';
       node.style.float = 'left';
     });
