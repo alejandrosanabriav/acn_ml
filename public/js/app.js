@@ -15001,9 +15001,9 @@
 	}
 
 	function setViewportWidth(parent) {
-	  var form = document.querySelector('.donate_landing');
-	  var viewport = parent.querySelector('.donate_landing__viewport');
-	  var num = nodes.length;
+	  var form = parent;
+	  var nodes = form.querySelectorAll('.donate_landing__section');
+	  var viewport = document.querySelector('.donate_landing__viewport');
 	  var width = form.offsetWidth;
 
 	  // viewport.style.width = `${num * width}px`;
