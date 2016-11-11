@@ -4,7 +4,8 @@ body {
   padding-top: 100px;
   font-size: 14px;
   width: 100%;
-  max-width: 100%; }
+  max-width: 100%;
+  overflow-x: hidden; }
 
 #header {
   height: 100px;
