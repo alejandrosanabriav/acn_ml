@@ -38,6 +38,7 @@ function bs_slider_sc($atts, $content = null) {
     $('#<?php echo $id?>').flexslider({
       animation: "slide",
       animationLoop: true,
+      controlNav: <?php echo $at['control_nav'] ?>,
       itemWidth: <?php echo $at['image_width'] ?>,
       itemMargin: <?php echo $at['item_margin'] ?>
     });
@@ -84,7 +85,15 @@ function bs_slider_sc($atts, $content = null) {
             "heading" => "Slider style",
             "param_name" => "slider_style",
             "value" => ''
+          ),
+
+          array(
+            "type" => "checkbox",
+            "heading" => "Control nav",
+            "param_name" => "control_nav",
+            "value" => true
           )
+
 
         )
       ) 
