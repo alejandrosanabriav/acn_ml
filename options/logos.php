@@ -1,5 +1,5 @@
 <?php
-include_once(get_template_directory() . '/lib/get_office_country.php');
+include_once(get_template_directory() . '/lib/offices_countries.php');
 
 // create custom plugin settings menu
 add_action('admin_menu', 'bs_admin_options_menu');

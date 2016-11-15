@@ -1,32 +1,19 @@
 <?php
+include_once(get_template_directory() . '/lib/offices_countries.php');
 
-function getOfficeCountry() {
-  return  array(
-  "default",
-  "Australia" ,
-  "Austria" ,
-  "Belgium" ,
-  "Brazil" ,
-  "Canada" ,
-  "Chile" ,
-  "Colombia" ,
-  "France" ,
-  "Germany" ,
-  "Ireland" ,
-  "Italy" ,
-  "Malta" ,
-  "Mexico" ,
-  "Netherlands" ,
-  "Philippines" ,
-  "Poland" ,
-  "Portugal" ,
-  "Spain" ,
-  "Republic of Korea" ,
-  "Switzerland" ,
-  "United Kingdom",
-  "United States"
-);
+  function getOfficeCountry() {
+    $countries = getOfficesCountries();
+    $countryName = "default";
 
-}
+    if(function_exists('geoip_detect2_get_info_from_current_ip')) {
+      $geo = geoip_detect2_get_info_from_current_ip();
+      $countryName =  $geo->country->names['en'];
+    }
 
+    if(empty($countryName) || !in_array($countryName, $countries)) {
+      $countryName = "default";
+    }
+
+    return $countryName;
+  }
 ?>
