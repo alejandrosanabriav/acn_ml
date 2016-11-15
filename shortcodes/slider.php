@@ -39,6 +39,7 @@ function bs_slider_sc($atts, $content = null) {
     $('#<?php echo $id?>').flexslider({
       animation: "slide",
       animationLoop: true,
+      smoothHeight: true,
       itemWidth: <?php echo $at['image_width'] ?>,
       itemMargin: <?php echo $at['item_margin'] ?>,
       controlNav: <?php echo $at['control_nav'] ?>
