@@ -66,11 +66,26 @@ function bs_slider_sc($atts, $content = null) {
             "type" => "exploded_textarea",
             "param_name" => "links"
           ),
-           array(
+          array(
             "type" => "textfield",
+            "heading" => "Image width",
             "param_name" => "image_width",
             "value" => 200
+          ),
+          array(
+            "type" => "textfield",
+            "heading" => "Image margin",
+            "param_name" => "item_margin",
+            "value" => 5
+          ),
+
+           array(
+            "type" => "textfield",
+            "heading" => "Slider style",
+            "param_name" => "slider_style",
+            "value" => 5
           )
+
         )
       ) 
     );
