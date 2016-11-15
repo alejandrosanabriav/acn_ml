@@ -9,7 +9,7 @@ include_once 'shortcodes/index.php';
 include_once 'shortcodes/slider.php';
 include_once 'options/index.php';
 include_once 'apis/index.php';
-include_once 'lib/countries.php';
+include_once 'lib/index.php';
 
 function my_mce4_options( $init ) {
 $default_colours = '
