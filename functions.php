@@ -76,3 +76,9 @@ function getCountry() {
 }
 
 add_filter('tiny_mce_before_init', 'my_mce4_options');
+
+function enqueue_scripts()
+{
+  wp_enqueue_media();
+  wp_enqueue_script( 'app_script', get_template_directory_uri() . '/public/js/admin.js',array(), '4', true  );
+}
