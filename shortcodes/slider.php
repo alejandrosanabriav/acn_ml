@@ -16,7 +16,7 @@ function bs_slider_sc($atts, $content = null) {
   $linksArr = explode(',', $at['links']);
   $imagesCount = count($imagesArr);
   $id = "slider-" . uniqid();
-     
+
   ob_start();
 ?>
 
@@ -89,10 +89,13 @@ function bs_slider_sc($atts, $content = null) {
           ),
 
           array(
-            "type" => "checkbox",
+            "type" => "dropdown",
             "heading" => "Control nav",
             "param_name" => "control_nav",
-            "value" => true
+            "value" => array(
+              "true" => true,
+              "false" => false
+            )
           )
 
 
