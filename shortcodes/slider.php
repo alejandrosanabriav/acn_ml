@@ -93,8 +93,8 @@ function bs_slider_sc($atts, $content = null) {
             "heading" => "Control nav",
             "param_name" => "control_nav",
             "value" => array(
-              "true" => true,
-              "false" => false
+              "true" => 1,
+              "false" => 0
             ),
             "std" => true,
           )
