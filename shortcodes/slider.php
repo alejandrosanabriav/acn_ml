@@ -8,7 +8,8 @@ function bs_slider_sc($atts, $content = null) {
       "interval" => "8000",
       "image_width" => '200',
       "item_margin" => 5,
-      "slider_style" => ''
+      "slider_style" => '',
+      "control_nav" => true
     ), $atts );
 
   $imagesArr = explode(',', $at['images']);
