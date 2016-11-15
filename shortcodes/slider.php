@@ -6,7 +6,9 @@ function bs_slider_sc($atts, $content = null) {
       "images" => "",
       "links" => "",
       "interval" => "8000",
-      "image_width" => '200'
+      "image_width" => '200',
+      "item_margin" => 5,
+      "slider_style" => ''
     ), $atts );
 
   $imagesArr = explode(',', $at['images']);
@@ -18,7 +20,7 @@ function bs_slider_sc($atts, $content = null) {
 ?>
 
 <?php if($imagesCount > 0): ?>
-<div class="flexslider" id="<?php echo $id?>">
+<div class="flexslider" id="<?php echo $id?>" style="<?php echo $at['slider_style'] ?>">
   <ul class="slides">
       <?php foreach($imagesArr as $key => $imageId): ?>
         <li>
@@ -37,7 +39,7 @@ function bs_slider_sc($atts, $content = null) {
       animation: "slide",
       animationLoop: true,
       itemWidth: <?php echo $at['image_width'] ?>,
-      itemMargin: 5
+      itemMargin: <?php echo $at['item_margin'] ?>
     });
 
   });
