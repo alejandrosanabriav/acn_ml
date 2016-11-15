@@ -83,7 +83,7 @@ function bs_slider_sc($atts, $content = null) {
             "type" => "textfield",
             "heading" => "Slider style",
             "param_name" => "slider_style",
-            "value" => 5
+            "value" => ''
           )
 
         )
