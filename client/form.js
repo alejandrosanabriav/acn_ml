@@ -1,8 +1,7 @@
 'use strict';
-import request from 'axios';
 import $ from 'jquery';
 import validate from './validate';
-import {map, each, on, onAll, reduce, flatten } from './fun';
+import {map, onAll, reduce, flatten } from './fun';
 
 function showErrors(el) {
   let $input = el;
@@ -27,12 +26,12 @@ function showErrors(el) {
 function requestToMailchimp(data) {
   const {email} = data;
 
-  let mergeFields = Object.keys(data).reduce((obj, key) => {
-    let newOb = {};
-    let name = key.toUpperCase();
-    newOb[name] = data[key];
-    return {...obj, ...newOb};
-  }, {}); 
+	let mergeFields = Object.keys(data).reduce((obj, key) => {
+		let newOb = {};
+		let name = key.toUpperCase();
+		newOb[name] = data[key];
+		return {...obj, ...newOb};	
+	}, {}); 
 
   let bounce = {
     "email_address": email,
