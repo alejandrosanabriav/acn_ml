@@ -33,9 +33,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
       <a href="<?php echo $home ?>">
       <?php if( !empty( get_option("logo_" . str_replace(' ', '_', getOfficeCountry())  )) ): ?>
-        <img src='<?php echo get_option("logo_" . str_replace(' ', '_', getOfficeCountry())  ) ?>'  alt="acn logo" class="img-responsive" width="200"  />
+        <img src='<?php echo get_option("logo_" . str_replace(' ', '_', getOfficeCountry())  ) ?>'  alt="acn logo" class="img-responsive" width="150"  />
       <?php else: ?>
-         <img src="<?php echo get_template_directory_uri(); ?>/public/img/logo.png" alt="acn logo" width="200" >
+         <img src="<?php echo get_template_directory_uri(); ?>/public/img/logo.png" alt="acn logo" width="150" >
       <?php endif; ?>
     </a>
 
