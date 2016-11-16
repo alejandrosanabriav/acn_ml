@@ -13544,7 +13544,7 @@
 					this.toggleLoading();
 
 					if (Object.keys(this.errors).length == 0) {
-						console.log('not errors', this.errors);
+						console.log('not errors', this.errors.contact);
 						_jquery2.default.ajax({
 							url: '/wp-admin/admin-ajax.php',
 							type: 'post',
