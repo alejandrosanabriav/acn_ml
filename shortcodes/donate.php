@@ -152,14 +152,11 @@
         </div>
 
         <div class="col-md-12">
-          <div class="donate_landing__alert-danger alert alert-danger" v-if="errors">
-            <span v-if="errors.stripe">{{errors.stripe}}</span>
-          </div>
-        </div>
-        
-        <div class="col-md-12">
-
-            <button class="donate_landing__submit donate_landing__submit-get_token pull-left" v-on:click.prevent="getToken" :disabled="loading">
+            <button 
+              class="donate_landing__submit donate_landing__submit-get_token pull-left" 
+              v-on:click.prevent="getToken" 
+              :disabled="loading"
+            >
               <?php echo getT('PAYMENT INFO >') ?>
             </button>
 
