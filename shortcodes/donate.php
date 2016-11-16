@@ -115,12 +115,12 @@
 
         <div class="form-group col-xs-4">
           <input
-          type="text"
-          v-on:keyup="[cleanNumber('stripe.exp_month'), maxLength('stripe.exp_month', 2)]"
-          class="form-control form-control--outline"
-          style="text-align: center;"
-          placeholder="<?php echo gett('MM') ?>"
-          v-model="stripe.exp_month"
+            type="text"
+            v-on:keyup="[cleanNumber('stripe.exp_month'), maxLength('stripe.exp_month', 2)]"
+            class="form-control form-control--outline"
+            style="text-align: center;"
+            placeholder="<?php echo gett('MM') ?>"
+            v-model="stripe.exp_month"
           >
 
           <span v-if="errors.exp_month"><?php echo gett('Month') . ' ' . gett('incorrect') ?></span> 
@@ -128,12 +128,12 @@
 
         <div class="form-group col-xs-4" >
           <input
-          type="text"
-          v-on:keyup="[cleanNumber('stripe.exp_year'), maxLength('stripe.exp_year', 2)]"
-          class="form-control form-control--outline"
-          style="text-align: center;"
-          placeholder="<?php echo gett('YY') ?>"
-          v-model="stripe.exp_year"
+            type="text"
+            v-on:keyup="[cleanNumber('stripe.exp_year'), maxLength('stripe.exp_year', 2)]"
+            class="form-control form-control--outline"
+            style="text-align: center;"
+            placeholder="<?php echo gett('YY') ?>"
+            v-model="stripe.exp_year"
           >
 
            <span v-if="errors.exp_year"><?php echo gett('Year') . ' ' . gett('incorrect') ?></span>
@@ -176,6 +176,7 @@
               placeholder="<?php echo getT('Name') ?>"
               v-model="contact.name"
               >
+              {{errors}}
                <span v-if="errors.contact.name"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
