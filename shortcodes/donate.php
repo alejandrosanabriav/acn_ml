@@ -204,7 +204,6 @@
                 <option value="" selected><?php echo gett("Country") ?></option>
               <?php endif; ?>
 
-              <option value="" selected><?php echo getT('Country') ?></option>
                 <?php foreach(getCountries() as $country): ?>
                   <option value="<?php echo $country; ?>"><?php echo $country; ?></option>
                 <?php endforeach; ?>
