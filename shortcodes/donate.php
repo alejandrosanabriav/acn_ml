@@ -73,44 +73,46 @@
           v-model="stripe.number"
           placeholder="<?php echo gett('Credit Card Number') ?>"
           >
+           <span v-if="errors.number"><?php echo gett('Credit Card Number') . ' ' . gett('incorrect') ?>, </span>
         </div>
 
         <div class="row">
 
-        <div class="form-group col-sm-6 donate_landing__cards">
-          <img 
-            v-bind:class="{'card-type--active': card.Visa}" 
-            class="card-type" 
-            src="<?php echo get_template_directory_uri() ?>/public/img/cards/Visa.png" 
-          >
+          <div class="form-group col-sm-6 donate_landing__cards">
+            <img 
+              v-bind:class="{'card-type--active': card.Visa}" 
+              class="card-type" 
+              src="<?php echo get_template_directory_uri() ?>/public/img/cards/Visa.png" 
+            >
 
-          <img 
-            v-bind:class="{'card-type--active': card.MasterCard}" 
-            class="card-type" 
-            src="<?php echo get_template_directory_uri() ?>/public/img/cards/MasterCard.png" 
-          >
+            <img 
+              v-bind:class="{'card-type--active': card.MasterCard}" 
+              class="card-type" 
+              src="<?php echo get_template_directory_uri() ?>/public/img/cards/MasterCard.png" 
+            >
 
-          <img 
-            v-bind:class="{'card-type--active': card.DinersClub}" 
-            class="card-type" 
-            src="<?php echo get_template_directory_uri() ?>/public/img/cards/DinersClub.png" 
-          >
-          
-          <img 
-            v-bind:class="{'card-type--active': card.AmericanExpress}" 
-            class="card-type" 
-            src="<?php echo get_template_directory_uri() ?>/public/img/cards/AmericanExpress.png" 
-          >
-          <img 
-            v-bind:class="{'card-type--active': card.Discover}" 
-            class="card-type" 
-            src="<?php echo get_template_directory_uri() ?>/public/img/cards/Discover.png" 
-          >
-        </div>
-        <div class="form-group col-sm-6">
-
-        </div>
+            <img 
+              v-bind:class="{'card-type--active': card.DinersClub}" 
+              class="card-type" 
+              src="<?php echo get_template_directory_uri() ?>/public/img/cards/DinersClub.png" 
+            >
+            
+            <img 
+              v-bind:class="{'card-type--active': card.AmericanExpress}" 
+              class="card-type" 
+              src="<?php echo get_template_directory_uri() ?>/public/img/cards/AmericanExpress.png" 
+            >
+            <img 
+              v-bind:class="{'card-type--active': card.Discover}" 
+              class="card-type" 
+              src="<?php echo get_template_directory_uri() ?>/public/img/cards/Discover.png" 
+            >
           </div>
+
+          <div class="form-group col-sm-6"></div>
+        
+        </div>
+
         <div class="form-group col-xs-4">
           <input
           type="text"
@@ -120,6 +122,8 @@
           placeholder="<?php echo gett('MM') ?>"
           v-model="stripe.exp_month"
           >
+
+          <span v-if="errors.exp_month"><?php echo gett('Month') . ' ' . gett('incorrect') ?></span> 
         </div>
 
         <div class="form-group col-xs-4" >
@@ -131,6 +135,8 @@
           placeholder="<?php echo gett('YY') ?>"
           v-model="stripe.exp_year"
           >
+
+           <span v-if="errors.exp_year"><?php echo gett('Year') . ' ' . gett('incorrect') ?></span>
         </div>
 
         <div class="form-group col-xs-4">
@@ -142,16 +148,11 @@
           v-model="stripe.cvc"
           placeholder="<?php echo gett('CVC') ?>"
           >
+           <span v-if="errors.cvc"><?php echo gett('CVC') . ' ' . gett('incorrect') ?></span>
         </div>
 
         <div class="col-md-12">
           <div class="donate_landing__alert-danger alert alert-danger" v-if="errors">
-            
-            <span v-if="errors.number"><?php echo gett('Credit Card Number') . ' ' . gett('incorrect') ?>, </span>
-            <span v-if="errors.exp_month"><?php echo gett('Month') . ' ' . gett('incorrect') ?>, </span>
-            <span v-if="errors.exp_year"><?php echo gett('Year') . ' ' . gett('incorrect') ?>, </span>
-            <span v-if="errors.cvc"><?php echo gett('CVC') . ' ' . gett('incorrect') ?></span>
-            <span v-if="errors.captcha"><?php echo gett('Captcha') . ' ' . getT('required') ?></span>
             <span v-if="errors.stripe">{{errors.stripe}}</span>
           </div>
         </div>
@@ -178,6 +179,7 @@
               placeholder="<?php echo getT('Name') ?>"
               v-model="contact.name"
               >
+               <span v-if="errors.name"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
 
@@ -190,6 +192,7 @@
               placeholder="<?php echo getT('Email') ?>"
               v-model="contact.email"
             >
+              <span v-if="errors.email"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
 
@@ -208,18 +211,9 @@
                   <option value="<?php echo $country; ?>"><?php echo $country; ?></option>
                 <?php endforeach; ?>
             </select>
+            <span v-if="errors.country"><?php echo gett('Country') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
-
-
-          <div class="col-md-12">
-            <div class="donate_landing__alert-danger alert alert-danger" v-if="errors">
-              <span v-if="errors.name"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
-              <span v-if="errors.email"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
-              <span v-if="errors.country"><?php echo gett('Country') . ' ' . gett('required') ?>, </span>
-            </div>
-          </div>
-
   
       <div class="col-md-12">
         <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"><?php echo gett('Back') ?></button>
