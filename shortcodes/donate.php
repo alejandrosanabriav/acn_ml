@@ -197,10 +197,11 @@
         <div class="col-sm-12">
           <div class="form-group">
             <select class="form-control form-control--outline" name="country" v-model="contact.country">
+            <?php echo getCountry() ?>
               <?php if(getCountry() != "default"): ?>
                 <option value="<?php echo getCountry() ?>" selected><?php echo getCountry() ?></option>
               <?php else: ?>
-                <option value="" selected><?php echo getT("Country") ?></option>
+                <option value="" selected><?php echo gett("Country") ?></option>
               <?php endif; ?>
 
               <option value="" selected><?php echo getT('Country') ?></option>
