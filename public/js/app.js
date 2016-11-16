@@ -13492,7 +13492,7 @@
 						errors = _extends({}, errors, validation);
 					});
 
-					console.log(errors);
+					console.log('errors', errors);
 
 					this.errors = errors;
 				},
