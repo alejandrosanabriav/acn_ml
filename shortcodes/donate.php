@@ -176,7 +176,6 @@
               placeholder="<?php echo getT('Name') ?>"
               v-model="contact.name"
               >
-              {{errors | json }}
                <span v-if="errors['contact.name']"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
@@ -188,7 +187,7 @@
               name="email"
               class="form-control form-control--outline"
               placeholder="<?php echo getT('Email') ?>"
-              v-model="contact.email"
+              v-model="contact.['contact.email']"
             >
 
               <span v-if="errors.email"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
@@ -202,7 +201,7 @@
                   <option value="<?php echo $country; ?>"><?php echo $country; ?></option>
                 <?php endforeach; ?>
             </select>
-            <span v-if="errors.country"><?php echo gett('Country') . ' ' . gett('required') ?>, </span>
+            <span v-if="errors['contact.country']"><?php echo gett('Country') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
   
