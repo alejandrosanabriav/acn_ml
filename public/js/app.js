@@ -13492,9 +13492,9 @@
 						errors = _extends({}, errors, validation);
 					});
 
-					console.log('errors', errors);
-
 					this.errors = errors;
+
+					console.log('errors', this.errors);
 				},
 				showErrors: function showErrors() {
 					var errorAmount = this.isRequired('amount');

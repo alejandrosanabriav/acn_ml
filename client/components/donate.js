@@ -186,10 +186,9 @@ export default () => ({
 				errors = {...errors, ...validation};
 			});
 
-			console.log('errors', errors);
-
 			this.errors = errors;
-
+		
+			console.log('errors', this.errors);
 		},
 
 		showErrors() {
