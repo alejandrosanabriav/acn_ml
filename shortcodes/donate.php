@@ -177,7 +177,7 @@
               v-model="contact.name"
               >
               {{errors | json }}
-               <span v-if="errors.contact.name"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
+               <span v-if="errors['contact.name']"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
 
