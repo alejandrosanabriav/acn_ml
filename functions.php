@@ -80,7 +80,14 @@ function gett($str) {
 }
 
 function getCountry() {
-	return '';
+
+	if(function_exists('geoip_detect2_get_info_from_current_ip')) {
+    if(geoip_detect2_get_info_from_current_ip()->country) {
+      return geoip_detect2_get_info_from_current_ip('me', $locales = array('en'))->country->name;
+    }
+  }
+
+  return '';
 }
 
 add_filter('tiny_mce_before_init', 'my_mce4_options');
