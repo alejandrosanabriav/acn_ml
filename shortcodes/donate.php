@@ -176,7 +176,7 @@
               placeholder="<?php echo getT('Name') ?>"
               v-model="contact.name"
               >
-              {{errors}}
+              {{errors | jsons }}
                <span v-if="errors.contact.name"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
@@ -190,6 +190,7 @@
               placeholder="<?php echo getT('Email') ?>"
               v-model="contact.email"
             >
+
               <span v-if="errors.email"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
