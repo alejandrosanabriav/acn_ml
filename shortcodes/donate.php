@@ -197,13 +197,6 @@
         <div class="col-sm-12">
           <div class="form-group">
             <select class="form-control form-control--outline" name="country" v-model="contact.country">
-            <?php echo getCountry() ?>
-              <?php if(getCountry() != "default"): ?>
-                <option value="<?php echo getCountry() ?>" selected><?php echo getCountry() ?></option>
-              <?php else: ?>
-                <option value="" selected><?php echo gett("Country") ?></option>
-              <?php endif; ?>
-
                 <?php foreach(getCountries() as $country): ?>
                   <option value="<?php echo $country; ?>"><?php echo $country; ?></option>
                 <?php endforeach; ?>
@@ -228,12 +221,13 @@
 
   </script>
 
-    <donate-landing
+  <donate-landing
     donation_type="monthly"
     url="<?php echo get_template_directory_uri() ?>"
     captcha_name="recaptcha-monthly"
     currency="usd"
-    >
+    country="<?php echo getCountry() ?>"
+  >
   </donate-landing>
 
   <script>

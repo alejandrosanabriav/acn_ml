@@ -77,7 +77,8 @@ export default () => ({
   props: [
     'captcha_name',
     'url',
-    'currency'
+    'currency',
+    'country'
   ],
 
   data() {
@@ -86,7 +87,7 @@ export default () => ({
 
   ready() {
     configForm(this.$el);
-    console.log('donate component', );
+		this.contact.country = this.country;
   },
 
   computed: {

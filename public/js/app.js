@@ -13389,14 +13389,14 @@
 	  return {
 	    template: "#donate-landing-template",
 
-	    props: ['captcha_name', 'url', 'currency'],
+	    props: ['captcha_name', 'url', 'currency', 'country'],
 
 	    data: function data() {
 	      return _jquery2.default.extend(true, {}, componentData);
 	    },
 	    ready: function ready() {
 	      configForm(this.$el);
-	      console.log('donate component');
+	      this.contact.country = this.country;
 	    },
 
 
