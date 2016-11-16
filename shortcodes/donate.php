@@ -9,11 +9,21 @@
 
   <script type="text/template" id="change-amount-template">
     <ul class="change-amount" style="padding: 0 15px">
-      <li class="col-md-2"><a href="#" v-on:click="changeAmount(10, $event)">$10</a></li>
-      <li class="col-md-2"><a href="#" v-on:click="changeAmount(30, $event)">$30</a></li>
-      <li class="col-md-2"><a href="#" v-on:click="changeAmount(50, $event)">$50</a></li>
-      <li class="col-md-2"><a href="#" v-on:click="changeAmount(100, $event)">$100</a></li>
-      <li class="col-md-2"><a href="#" v-on:click="changeAmount('', $event)"><?php echo gett('Other') ?></a></li>
+      <li class="col-md-2">
+        <a href="#" v-on:click="changeAmount(10, $event)">$10</a>
+      </li>
+      <li class="col-md-2">
+        <a href="#" v-on:click="changeAmount(30, $event)">$30</a>
+      </li>
+      <li class="col-md-2">
+        <a href="#" v-on:click="changeAmount(50, $event)">$50</a>
+      </li>
+      <li class="col-md-2">
+        <a href="#" v-on:click="changeAmount(100, $event)">$100</a>
+      </li>
+      <li class="col-md-2">
+        <a href="#" v-on:click="changeAmount('', $event)"><?php echo gett('Other') ?></a>
+      </li>
     </ul>
   </script>
 
