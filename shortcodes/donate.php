@@ -7,7 +7,7 @@
     >
   </donate-landing>
 
-  <template id="change-amount-template">
+  <script type="text/template" id="change-amount-template">
     <ul class="change-amount" style="padding: 0 15px">
       <li class="col-md-2"><a href="#" v-on:click="changeAmount(10, $event)">$10</a></li>
       <li class="col-md-2"><a href="#" v-on:click="changeAmount(30, $event)">$30</a></li>
@@ -15,14 +15,11 @@
       <li class="col-md-2"><a href="#" v-on:click="changeAmount(100, $event)">$100</a></li>
       <li class="col-md-2"><a href="#" v-on:click="changeAmount('', $event)"><?php echo gett('Other') ?></a></li>
     </ul>
-  </template>
+  </script>
 
-  <template id="donate-landing-template">
-
+  <script type="text/template" id="donate-landing-template">
 
     <form method="post" class="donate_landing">
-
-
       <div class="donate_landing__viewport">
       <div class="donate_landing__section donate_landing__section-1">
         <change-amount></change-amount>
@@ -52,6 +49,7 @@
               v-bind:class="[donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type' ]"
             ><?php echo gett('Once') ?></a>
           </div>
+
         <div class="col-md-12">
           <button class="donate_landing__submit pull-left" v-on:click.prevent="nextSection">
             <?php echo gett('Donate') ?>
@@ -79,11 +77,34 @@
         <div class="row">
 
         <div class="form-group col-sm-6 donate_landing__cards">
-          <img v-bind:class="{'card-type--active': card.Visa}" class="card-type" src="<?php echo get_template_directory_uri() ?>/public/img/cards/Visa.png" alt="">
-          <img v-bind:class="{'card-type--active': card.MasterCard}" class="card-type" src="<?php echo get_template_directory_uri() ?>/public/img/cards/MasterCard.png" alt="">
-          <img v-bind:class="{'card-type--active': card.DinersClub}" class="card-type" src="<?php echo get_template_directory_uri() ?>/public/img/cards/DinersClub.png" alt="">
-          <img v-bind:class="{'card-type--active': card.AmericanExpress}" class="card-type" src="<?php echo get_template_directory_uri() ?>/public/img/cards/AmericanExpress.png" alt="">
-          <img v-bind:class="{'card-type--active': card.Discover}" class="card-type" src="<?php echo get_template_directory_uri() ?>/public/img/cards/Discover.png" alt="">
+          <img 
+            v-bind:class="{'card-type--active': card.Visa}" 
+            class="card-type" 
+            src="<?php echo get_template_directory_uri() ?>/public/img/cards/Visa.png" 
+          >
+
+          <img 
+            v-bind:class="{'card-type--active': card.MasterCard}" 
+            class="card-type" 
+            src="<?php echo get_template_directory_uri() ?>/public/img/cards/MasterCard.png" 
+          >
+
+          <img 
+            v-bind:class="{'card-type--active': card.DinersClub}" 
+            class="card-type" 
+            src="<?php echo get_template_directory_uri() ?>/public/img/cards/DinersClub.png" 
+          >
+          
+          <img 
+            v-bind:class="{'card-type--active': card.AmericanExpress}" 
+            class="card-type" 
+            src="<?php echo get_template_directory_uri() ?>/public/img/cards/AmericanExpress.png" 
+          >
+          <img 
+            v-bind:class="{'card-type--active': card.Discover}" 
+            class="card-type" 
+            src="<?php echo get_template_directory_uri() ?>/public/img/cards/Discover.png" 
+          >
         </div>
         <div class="form-group col-sm-6">
 
@@ -124,7 +145,7 @@
 
         <div class="col-md-12">
           <div class="donate_landing__alert-danger alert alert-danger" v-if="errors">
-            <span v-if="errors.amount"><?php echo gett('Amount') . ' ' . gett('required') ?>, </span>
+            
             <span v-if="errors.number"><?php echo gett('Credit Card Number') . ' ' . gett('incorrect') ?>, </span>
             <span v-if="errors.exp_month"><?php echo gett('Month') . ' ' . gett('incorrect') ?>, </span>
             <span v-if="errors.exp_year"><?php echo gett('Year') . ' ' . gett('incorrect') ?>, </span>
@@ -213,7 +234,7 @@
 
   </div>
 
-  </template>
+  </script>
 
   <script>
    var BS = {};

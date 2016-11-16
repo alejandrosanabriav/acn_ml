@@ -13525,11 +13525,18 @@
 
 	        this.contactValidations();
 
-	        var data = _extends({}, this.contact, {
-	          currency: this.currency,
-	          amount: this.amount,
-	          donation_type: this.donation_type,
-	          stripe_token: this.stripe.token
+	        var contact = this.contact,
+	            currency = this.currency,
+	            amount = this.amount,
+	            donation_type = this.donation_type,
+	            stripe_token = this.stripe_token;
+
+
+	        var data = _extends({}, contact, {
+	          currency: currency,
+	          amount: amount,
+	          donation_type: donation_type,
+	          stripe_token: stripe_token
 	        });
 
 	        this.toggleLoading();
@@ -13543,6 +13550,7 @@
 	          }
 	        }).then(function (res) {
 	          if (res.id) _this4.success = true;
+	          console.log('complete');
 	        });
 	      },
 	      changeType: function changeType(type, evt) {

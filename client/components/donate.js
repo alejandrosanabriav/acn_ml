@@ -224,11 +224,14 @@ export default () => ({
 
       this.contactValidations();
 
-      let data = {...this.contact,
-        currency: this.currency,
-        amount: this.amount,
-        donation_type: this.donation_type,
-        stripe_token: this.stripe.token,
+      const {contact, currency, amount, donation_type, stripe_token} = this;
+
+      let data = {
+        ...contact,
+        currency,
+        amount,
+        donation_type,
+        stripe_token,
       };
 
       this.toggleLoading();
@@ -243,6 +246,7 @@ export default () => ({
       })
       .then(res => {
         if(res.id) this.success = true;
+        console.log('complete');
       });
 
     },
