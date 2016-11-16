@@ -187,7 +187,7 @@
               name="email"
               class="form-control form-control--outline"
               placeholder="<?php echo getT('Email') ?>"
-              v-model="contact.['contact.email']"
+              v-model="contact['contact.email']"
             >
 
               <span v-if="errors.email"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
