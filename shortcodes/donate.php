@@ -193,7 +193,6 @@
           </div>
         </div>
 
-
         <div class="col-sm-12">
           <div class="form-group">
             <select class="form-control form-control--outline" name="country" v-model="contact.country">
