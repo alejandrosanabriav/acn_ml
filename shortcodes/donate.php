@@ -1,25 +1,16 @@
-
-  <donate-landing
-    donation_type="monthly"
-    url="<?php echo get_template_directory_uri() ?>"
-    captcha_name="recaptcha-monthly"
-    currency="usd"
-    >
-  </donate-landing>
-
   <script type="text/template" id="change-amount-template">
     <ul class="change-amount" style="padding: 0 15px">
       <li class="col-md-2">
-        <a href="#" v-on:click="changeAmount(10, $event)">$10</a>
+        <a href="#" v-on:click="changeAmount(10, $event)">$ 10</a>
       </li>
       <li class="col-md-2">
-        <a href="#" v-on:click="changeAmount(30, $event)">$30</a>
+        <a href="#" v-on:click="changeAmount(30, $event)">$ 30</a>
       </li>
       <li class="col-md-2">
-        <a href="#" v-on:click="changeAmount(50, $event)">$50</a>
+        <a href="#" v-on:click="changeAmount(50, $event)">$ 50</a>
       </li>
       <li class="col-md-2">
-        <a href="#" v-on:click="changeAmount(100, $event)">$100</a>
+        <a href="#" v-on:click="changeAmount(100, $event)">$ 100</a>
       </li>
       <li class="col-md-2">
         <a href="#" v-on:click="changeAmount('', $event)"><?php echo gett('Other') ?></a>
@@ -245,6 +236,14 @@
   </div>
 
   </script>
+
+    <donate-landing
+    donation_type="monthly"
+    url="<?php echo get_template_directory_uri() ?>"
+    captcha_name="recaptcha-monthly"
+    currency="usd"
+    >
+  </donate-landing>
 
   <script>
    var BS = {};
