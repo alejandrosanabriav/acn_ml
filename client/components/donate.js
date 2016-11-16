@@ -198,7 +198,7 @@ export default () => ({
 		},
 
 		removeErrors() {
-			this.errors = null;
+			this.errors = {};
 		},
 
 		toggleLoading() {
@@ -206,9 +206,8 @@ export default () => ({
 		},
 
 		cleanData() {
-			this.stripe = _.extend(this.stripe, componentData.stripe);
-			this.contact = _.extend(this.contact, componentData.contact);
-
+			this.stripe = {...this.stripe, ...componentData.stripe};
+			this.contact = {...this.contact, ...componentData.contact};
 		},
 
 		getToken(e) {
@@ -247,9 +246,7 @@ export default () => ({
 			
 			if(Object.keys(this.errors).length == 0) {
 				console.log('not errors', this.errors);
-			}
-
-			$.ajax({
+						$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					type: 'post',
 					data: {
@@ -264,6 +261,9 @@ export default () => ({
 					if (res.id) this.success = true;
 					console.log('complete');
 				});
+			}
+
+	
 
 		},
 

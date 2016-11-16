@@ -13501,14 +13501,14 @@
 					this.errors = _lodash2.default.extend((0, _validation2.default)(this.stripe).errors, errorAmount);
 				},
 				removeErrors: function removeErrors() {
-					this.errors = null;
+					this.errors = {};
 				},
 				toggleLoading: function toggleLoading() {
 					this.loading = !this.loading;
 				},
 				cleanData: function cleanData() {
-					this.stripe = _lodash2.default.extend(this.stripe, componentData.stripe);
-					this.contact = _lodash2.default.extend(this.contact, componentData.contact);
+					this.stripe = _extends({}, this.stripe, componentData.stripe);
+					this.contact = _extends({}, this.contact, componentData.contact);
 				},
 				getToken: function getToken(e) {
 					e.preventDefault();
@@ -13545,22 +13545,21 @@
 
 					if (Object.keys(this.errors).length == 0) {
 						console.log('not errors', this.errors);
+						_jquery2.default.ajax({
+							url: '/wp-admin/admin-ajax.php',
+							type: 'post',
+							data: {
+								action: 'stripe_charge',
+								data: data
+							},
+							beforeSend: function beforeSend() {
+								_this4.removeErrors();
+							}
+						}).then(function (res) {
+							if (res.id) _this4.success = true;
+							console.log('complete');
+						});
 					}
-
-					_jquery2.default.ajax({
-						url: '/wp-admin/admin-ajax.php',
-						type: 'post',
-						data: {
-							action: 'stripe_charge',
-							data: data
-						},
-						beforeSend: function beforeSend() {
-							_this4.removeErrors();
-						}
-					}).then(function (res) {
-						if (res.id) _this4.success = true;
-						console.log('complete');
-					});
 				},
 				changeType: function changeType(type, evt) {
 					evt.preventDefault();
