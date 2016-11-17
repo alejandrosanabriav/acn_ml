@@ -1,8 +1,7 @@
 'use strict';
 
 export default str => {
-	return (str + '')
-    .replace(/\\(.?)/g, function (s, n1) {
+	(str + '').replace(/\\(.?)/g, function (s, n1) {
       switch (n1) {
         case '\\':
           return '\\'
