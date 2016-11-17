@@ -4,7 +4,11 @@ export default () => ({
 	props: ['images'],
 
 	template:`
-		<ul> <li v-for="image in images"> <span style="display: block;background:url({{image}}); background-size: cover; height: 300px"></span> </li> </ul>
+		<ul> 
+			<li v-for="image in images"> 
+				<span style="display: block;background:url({{image}}); background-size: cover; height: 300px"></span> 
+			</li> 
+		</ul>
 	`,
 
 	ready() {

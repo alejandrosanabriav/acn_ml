@@ -45570,7 +45570,7 @@
 		return {
 			props: ['images'],
 
-			template: '\n\t\t<ul> <li v-for="image in images"> <span style="display: block;background:url({{image}}); background-size: cover; height: 300px"></span> </li> </ul>\n\t',
+			template: '\n\t\t<ul> \n\t\t\t<li v-for="image in images"> \n\t\t\t\t<span style="display: block;background:url({{image}}); background-size: cover; height: 300px"></span> \n\t\t\t</li> \n\t\t</ul>\n\t',
 
 			ready: function ready() {
 				this.images = JSON.parse(this.images);
