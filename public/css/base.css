@@ -14,7 +14,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1001; }
+  z-index: 1001;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.09); }
   #header img {
     float: left;
     margin: 40px 0 0 40px; }
@@ -153,11 +154,16 @@ button {
     opacity: 1; }
 
 .form-group {
-  margin-bottom: 15px !important; }
+  margin-bottom: 15px !important;
+  position: relative; }
+  .form-group--error {
+    border-color: #F2364E; }
   .form-group__error {
     background: #F2364E;
     color: #fff;
-    padding: 15px; }
+    padding: 15px;
+    width: 100%;
+    position: absolute; }
 
 .vc_col-has-fill > .vc_column-inner, .vc_row-has-fill + .vc_row-full-width + .vc_row > .vc_column_container > .vc_column-inner, .vc_row-has-fill + .vc_row > .vc_column_container > .vc_column-inner, .vc_row-has-fill + .vc_vc_row > .vc_row > .vc_vc_column > .vc_column_container > .vc_column-inner, .vc_row-has-fill + .vc_vc_row_inner > .vc_row > .vc_vc_column_inner > .vc_column_container > .vc_column-inner, .vc_row-has-fill > .vc_column_container > .vc_column-inner, .vc_row-has-fill > .vc_row > .vc_vc_column > .vc_column_container > .vc_column-inner, .vc_row-has-fill > .vc_vc_column_inner > .vc_column_container > .vc_column-inner {
   padding-top: 0; }

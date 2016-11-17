@@ -5,7 +5,7 @@ $base = __DIR__;
 $prefix = 'bs_';
 
 //register shortcodes
-if(function_exists('sc_factory')) {  
+if(function_exists('sc_factory')) {
 
   sc_factory($prefix . 'test', array(), $base . '/test.php');
 
@@ -46,22 +46,34 @@ if(function_exists('sc_factory')) {
     $base . '/form_donate.php'
   );
 
-  sc_factory($prefix . 'steps', array(
+  sc_factory($prefix . 'steps', array(), $base . '/steps.php' );
+  sc_factory($prefix . 'donate', array(), $base . '/donate.php' );
+  sc_factory($prefix . 'donate_land', array(), $base . '/donate_land.php' );
+  sc_factory($prefix . 'bs_slider_bg', array("images" => "", "slider_style" => ""),$base . '/donate_land.php');
 
-    ),
-    $base . '/steps.php'
-  );
+  function bs_slider_vc() {
+    vc_map(
+      array(
+        "name" =>  "BS slider bg",
+        "base" => "bs_slider_bg",
+        "category" =>  "BS",
+        "params" => array(
+          array(
+            "type" => "attach_images",
+            "param_name" => "images"
+          ),
 
-  sc_factory($prefix . 'donate', array(
+           array(
+            "type" => "textfield",
+            "heading" => "Slider style",
+            "param_name" => "slider_style",
+            "value" => ''
+          )
+        )
+      ) 
+    );
+  }
 
-    ),
-    $base . '/donate.php'
-  );
-
-  sc_factory($prefix . 'donate_land', array(
-
-    ),
-    $base . '/donate_land.php'
-  );
+  add_action( 'vc_before_init', 'bs_slider_vc' );
 
 }
