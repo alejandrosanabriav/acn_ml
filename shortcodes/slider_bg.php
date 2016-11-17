@@ -8,5 +8,5 @@
  $images = array_map('getImagesSrc', $imagesArr);
 ?>
 
-<bsslider-bg :images="<?php echo json_encode($images) ?>"></bsslider-bg>
+<bsslider-bg images="<?php echo json_encode($images) ?>"></bsslider-bg>
 <?php var_dump(json_encode($images)); ?>
