@@ -45577,7 +45577,7 @@
 
 			ready: function ready() {
 				var lis = this.$el.querySelectorAll('li');
-				this.$el.querySelector('ul').style.width = '${100 * lis.length}%';
+				this.$el.querySelector('ul').style.width = '${lis.length * 100 }%';
 				var w = 100 / lis.length;
 
 				each(lis, function (el) {
