@@ -9,7 +9,7 @@ export default () => ({
 		<div style="position:relative; overflow: hidden">
 			<ul> 
 				<li v-for="image in images" style="float:left;list-style: none"> 
-					<span style="display: block;background:url({{image}}); background-size: cover; height: 100vh"></span> 
+					<span style="display: block;background:url({{image}}); background-size: cover; background-position: center; height: 100vh"></span> 
 				</li> 
 			</ul>
 		</div>
