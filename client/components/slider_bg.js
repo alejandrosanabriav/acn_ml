@@ -6,8 +6,8 @@ export default () => ({
 	props: ['images'],
 
 	template:`
-		<div>
-			<ul style="overflow: hidden"> 
+		<div style="position:relative; overflow: hidden">
+			<ul> 
 				<li v-for="image in images" style="float:left"> 
 					<span style="display: block;background:url({{image}}); background-size: cover; height: 300px"></span> 
 				</li> 
@@ -16,8 +16,7 @@ export default () => ({
 	`,
 
 	ready() {
-		this.$el.style.width = '300%';
-		this.$el.children.style = '100%';
+		this.$el.children.style.width = '300%';
 		each(this.$el.querySelectorAll('li'), function(el) {
 			console.log(el);
 			el.style.width = '100%';
