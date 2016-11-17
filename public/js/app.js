@@ -45604,7 +45604,7 @@
 
 			methods: {
 				next: function next() {
-					if (this.slide <= this.lastSlide) {
+					if (this.slide < this.lastSlide) {
 						var next = this.slide * 100;
 						this.$el.querySelector('ul').style.left = '-' + next + '%';
 						this.slide = this.slide + 1;
