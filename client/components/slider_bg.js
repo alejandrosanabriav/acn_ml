@@ -1,6 +1,6 @@
 'use strict';
 
-const each = (arr, fn) => Array.protype.forEach.call(arr, fn);
+const each = (arr, fn) => Array.prototype.forEach.call(arr, fn);
 
 export default () => ({
 	props: ['images'],

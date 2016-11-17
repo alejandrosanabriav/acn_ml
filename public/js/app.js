@@ -45566,7 +45566,7 @@
 		value: true
 	});
 	var each = function each(arr, fn) {
-		return Array.protype.forEach.call(arr, fn);
+		return Array.prototype.forEach.call(arr, fn);
 	};
 
 	exports.default = function () {
