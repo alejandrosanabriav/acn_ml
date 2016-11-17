@@ -45573,7 +45573,7 @@
 		return {
 			props: ['images'],
 
-			template: '\n\t\t<ul> \n\t\t\t<li v-for="image in images"> \n\t\t\t\t<span style="display: block;background:url({{image}}); background-size: cover; height: 300px"></span> \n\t\t\t</li> \n\t\t</ul>\n\t',
+			template: '\n\t\t<div>\n\t\t\t<ul style="overflow: hidden"> \n\t\t\t\t<li v-for="image in images"> \n\t\t\t\t\t<span style="display: block;background:url({{image}}); background-size: cover; height: 300px"></span> \n\t\t\t\t</li> \n\t\t\t</ul>\n\t\t</div>\n\t',
 
 			ready: function ready() {
 				this.$el.style.width = '300%';
