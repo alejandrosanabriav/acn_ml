@@ -45576,9 +45576,11 @@
 			template: '\n\t\t<div style="position:relative; overflow: hidden">\n\t\t\t<ul> \n\t\t\t\t<li v-for="image in images" style="float:left;list-style: none"> \n\t\t\t\t\t<span style="display: block;background:url({{image}}); background-size: cover; background-position: center; height: 100vh"></span> \n\t\t\t\t</li> \n\t\t\t</ul>\n\t\t</div>\n\t',
 
 			ready: function ready() {
-				this.$el.querySelector('ul').style.width = '300%';
-				var w = 100 / 3;
-				each(this.$el.querySelectorAll('li'), function (el) {
+				var lis = this.$el.querySelectorAll('li');
+				this.$el.querySelector('ul').style.width = '${100 * lis.length}%';
+				var w = 100 / lis.length;
+
+				each(lis, function (el) {
 					el.style.width = w + '%';
 				});
 			}

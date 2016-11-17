@@ -16,11 +16,15 @@ export default () => ({
 	`,
 
 	ready() {
-		this.$el.querySelector('ul').style.width = '300%';
-		let w = 100 / 3;
-		each(this.$el.querySelectorAll('li'), function(el) {
+		let lis = this.$el.querySelectorAll('li');
+		this.$el.querySelector('ul').style.width = '${100 * lis.length}%';
+		let w = 100 / lis.length;
+		
+		each(lis, function(el) {
 			el.style.width = `${w}%`;
 		});
+
+
 	}
 })
 
