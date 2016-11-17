@@ -1,7 +1,7 @@
 <?php
  $imagesArr = explode(',', $at['imagess']);  
  
- function getImageSrc($imageId) {
+ function getImagesSrc($imageId) {
 	 return  wp_get_attachment_image_src($imageId, 'full')[0];
  }
 
