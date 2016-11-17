@@ -49,7 +49,7 @@ if(function_exists('sc_factory')) {
   sc_factory($prefix . 'steps', array(), $base . '/steps.php' );
   sc_factory($prefix . 'donate', array(), $base . '/donate.php' );
   sc_factory($prefix . 'donate_land', array(), $base . '/donate_land.php' );
-  sc_factory($prefix . 'bs_slider_bg', array("images" => "", "slider_style" => ""),$base . '/slider_bg.php');
+  sc_factory($prefix . 'slider_bg', array("images" => "", "slider_style" => ""),$base . '/slider_bg.php');
 
   function bs_slider_bg_vc() {
     vc_map(
