@@ -45581,7 +45581,7 @@
 				var ulWidth = lisCount * 100;
 				this.$el.querySelector('ul').style.width = ulWidth + '%';
 				var w = 100 / lisCount;
-				var h = this.$el.parent.offsetHeight;
+				var h = this.$el.parentNode.offsetHeight;
 
 				each(lis, function (el) {
 					el.style.width = w + '%';

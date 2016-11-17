@@ -21,7 +21,7 @@ export default () => ({
 		let ulWidth = lisCount * 100;
 		this.$el.querySelector('ul').style.width = `${ulWidth}%`;
 		let w = 100 / lisCount;
-		let h = this.$el.parent.offsetHeight;
+		let h = this.$el.parentNode.offsetHeight;
 
 		each(lis, function(el) {
 			el.style.width = `${w}%`;
