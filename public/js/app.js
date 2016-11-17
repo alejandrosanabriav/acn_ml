@@ -45558,19 +45558,13 @@
 
 /***/ },
 /* 196 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-
-	var _stripslashes = __webpack_require__(199);
-
-	var _stripslashes2 = _interopRequireDefault(_stripslashes);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = function () {
 		return {
@@ -45582,33 +45576,6 @@
 				console.log('slider-bg', this);
 			}
 		};
-	};
-
-/***/ },
-/* 197 */,
-/* 198 */,
-/* 199 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports.default = function (str) {
-	  return (str + '').replace(/\\(.?)/g, function (s, n1) {
-	    switch (n1) {
-	      case '\\':
-	        return '\\';
-	      case '0':
-	        return '\0';
-	      case '':
-	        return '';
-	      default:
-	        return n1;
-	    }
-	  });
 	};
 
 /***/ }
