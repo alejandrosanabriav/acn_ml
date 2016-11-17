@@ -10,5 +10,5 @@
  $images = array_map('getImagesSrc', $imagesArr);
 ?>
 
-<bsslider-bg :images="{{ <?php echo str_replace('\\/', '/', json_encode($images, true))?> }}"></bsslider-bg>
+<bsslider-bg :images="<?php echo str_replace('\\/', '/', json_encode($images, true))?>"></bsslider-bg>
 <?php echo str_replace('\\/', '/', json_encode($images, true)) ?>
