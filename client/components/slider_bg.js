@@ -17,8 +17,8 @@ export default () => ({
 
 	ready() {
 		this.$el.style.width = '300%';
-		console.log(this.$el.children);
-		each(this.$el.children, function(el) {
+		this.$el.children.style = '100%';
+		each(this.$el.querySelectorAll('li'), function(el) {
 			console.log(el);
 			el.style.width = '100%';
 		});
