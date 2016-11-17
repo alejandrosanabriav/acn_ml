@@ -7,13 +7,19 @@ export default () => ({
 
 	template:`
 		<div style="position:relative; overflow: hidden">
-			<ul style="padding: 0"> 
+			<ul style="position:relative; padding: 0"> 
 				<li v-for="image in images" style="float:left;list-style: none"> 
 					<span style="display: block;background:url({{image}}); background-size: cover; background-position: center;"></span> 
 				</li> 
 			</ul>
 		</div>
 	`,
+
+	data() {
+		return {
+			slide: 1
+		};
+	},
 
 	ready() {
 		let lis = this.$el.querySelectorAll('li');
@@ -26,5 +32,15 @@ export default () => ({
 			el.style.width = `${w}%`;
 			el.children[0].style.minHeight = this.height;
 		});
+	},
+
+	methods: {
+		next() {
+
+		},
+
+		prev() {
+
+		}
 	}
 });
