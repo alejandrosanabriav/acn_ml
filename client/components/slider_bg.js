@@ -9,7 +9,7 @@ export default () => ({
 		<div style="position:relative; overflow: hidden">
 			<ul style="position:relative; padding: 0"> 
 				<li v-for="image in images" style="float:left;list-style: none"> 
-					<span style="display: block;background:url({{image}}); background-size: cover; background-position: center;"></span> 
+					<span style="display: block; background:url({{image}}); background-size: cover; background-position: center;"></span> 
 				</li> 
 			</ul>
 		</div>
@@ -17,7 +17,8 @@ export default () => ({
 
 	data() {
 		return {
-			slide: 1
+			slide: 1,
+			lastSlide: 1
 		};
 	},
 
@@ -26,21 +27,32 @@ export default () => ({
 		let lisCount = lis.length;
 		let ulWidth = lisCount * 100;
 		let w = 100 / lisCount;
+		this.lastSlide = lisCount;
 		this.$el.querySelector('ul').style.width = `${ulWidth}%`;
 		
 		each(lis, el => {
 			el.style.width = `${w}%`;
 			el.children[0].style.minHeight = this.height;
 		});
+
+		setInterval(function() {
+			this.next();
+		}, 800);
 	},
 
 	methods: {
 		next() {
-
+			if(this.slide <= this.lastSlide) {
+				let next = this.slide * 100;
+				this.$el.querySelector('ul').style.left = `-${next}%`;
+				this.slide = this.slide + 1;
+			}
 		},
 
 		prev() {
-
+			let next = this.slide * 100;
+			this.$el.querySelector('ul').style.left = `-${next}%`;
+			this.slide = this.slide - 1;
 		}
 	}
 });
