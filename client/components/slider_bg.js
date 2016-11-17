@@ -19,12 +19,13 @@ export default () => ({
 		let lis = this.$el.querySelectorAll('li');
 		let lisCount = lis.length;
 		let ulWidth = lisCount * 100;
-
 		this.$el.querySelector('ul').style.width = `${ulWidth}%`;
 		let w = 100 / lisCount;
+		let h = this.$el.parent.offsetHeight;
 
 		each(lis, function(el) {
 			el.style.width = `${w}%`;
+			el.style.height = `${h}%`;
 		});
 
 
