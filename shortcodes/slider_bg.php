@@ -1,5 +1,6 @@
 <?php
- $imagesArr = explode(',', $at['images']);  
+ 
+ $imagesArr = explode(',', $at['images']);
  
  function getImagesSrc($imageId) {
 	 return  wp_get_attachment_image_src($imageId, 'full')[0];
@@ -11,4 +12,4 @@
 ?>
 
 <bs-slider-bs image="<?php echo json_encode($images) ?>"></bs-slider-bs>
-<?php var_dump($imagesArr); ?>
+<?php var_dump($at); ?>
