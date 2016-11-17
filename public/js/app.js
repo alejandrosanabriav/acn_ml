@@ -45614,9 +45614,11 @@
 					}
 				},
 				prev: function prev() {
-					var next = this.slide * 100;
-					this.$el.querySelector('ul').style.left = '-' + next + '%';
-					this.slide = this.slide - 1;
+					if (this.slide >= 1) {
+						var next = this.slide * 100;
+						this.$el.querySelector('ul').style.left = '-' + next + '%';
+						this.slide = this.slide - 1;
+					}
 				}
 			}
 		};

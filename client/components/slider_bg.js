@@ -53,9 +53,12 @@ export default () => ({
 		},
 
 		prev() {
-			let next = this.slide * 100;
-			this.$el.querySelector('ul').style.left = `-${next}%`;
-			this.slide = this.slide - 1;
+			if(this.slide >= 1) {
+				let next = this.slide * 100;
+				this.$el.querySelector('ul').style.left = `-${next}%`;
+				this.slide = this.slide - 1;
+			}
+			
 		}
 	}
 });
