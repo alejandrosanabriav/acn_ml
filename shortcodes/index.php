@@ -68,7 +68,15 @@ if(function_exists('sc_factory')) {
             "heading" => "Slider style",
             "param_name" => "slider_style",
             "value" => ''
-          )
+          ),
+
+          array(
+            "type" => "textfield",
+            "heading" => "Slider height",
+            "param_name" => "height",
+            "value" => '100px'
+          ),
+
         )
       ) 
     );
