@@ -19,15 +19,12 @@ export default () => ({
 		let lis = this.$el.querySelectorAll('li');
 		let lisCount = lis.length;
 		let ulWidth = lisCount * 100;
-		this.$el.querySelector('ul').style.width = `${ulWidth}%`;
 		let w = 100 / lisCount;
-		let h = this.$el.parentNode.offsetHeight;
+		this.$el.querySelector('ul').style.width = `${ulWidth}%`;
 		
 		each(lis, function(el) {
 			el.style.width = `${w}%`;
-
-			el.children[0].style.minHeight = `${this.height}px`;
+			el.children[0].style.minHeight = this.height;
 		});
 	}
 });
-

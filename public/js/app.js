@@ -45579,14 +45579,12 @@
 				var lis = this.$el.querySelectorAll('li');
 				var lisCount = lis.length;
 				var ulWidth = lisCount * 100;
-				this.$el.querySelector('ul').style.width = ulWidth + '%';
 				var w = 100 / lisCount;
-				var h = this.$el.parentNode.offsetHeight;
+				this.$el.querySelector('ul').style.width = ulWidth + '%';
 
 				each(lis, function (el) {
 					el.style.width = w + '%';
-
-					el.children[0].style.minHeight = this.height + 'px';
+					el.children[0].style.minHeight = this.height;
 				});
 			}
 		};
