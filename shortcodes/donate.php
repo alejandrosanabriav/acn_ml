@@ -73,7 +73,7 @@
           v-model="stripe.number"
           placeholder="<?php echo gett('Credit Card Number') ?>"
           >
-           <span v-if="errors.number"><?php echo gett('Credit Card Number') . ' ' . gett('incorrect') ?>, </span>
+           <span class="form-group__error" v-if="errors.number"><?php echo gett('Credit Card Number') . ' ' . gett('incorrect') ?>, </span>
         </div>
 
         <div class="row">
@@ -123,7 +123,7 @@
             v-model="stripe.exp_month"
           >
 
-          <span v-if="errors.exp_month"><?php echo gett('Month') . ' ' . gett('incorrect') ?></span> 
+          <span class="form-group__error" v-if="errors.exp_month"><?php echo gett('Month') . ' ' . gett('incorrect') ?></span> 
         </div>
 
         <div class="form-group col-xs-4" >
@@ -136,7 +136,7 @@
             v-model="stripe.exp_year"
           >
 
-           <span v-if="errors.exp_year"><?php echo gett('Year') . ' ' . gett('incorrect') ?></span>
+           <span class="form-group__error" v-if="errors.exp_year"><?php echo gett('Year') . ' ' . gett('incorrect') ?></span>
         </div>
 
         <div class="form-group col-xs-4">
@@ -148,7 +148,7 @@
           v-model="stripe.cvc"
           placeholder="<?php echo gett('CVC') ?>"
           >
-           <span v-if="errors.cvc"><?php echo gett('CVC') . ' ' . gett('incorrect') ?></span>
+           <span class="form-group__error" v-if="errors.cvc"><?php echo gett('CVC') . ' ' . gett('incorrect') ?></span>
         </div>
 
         <div class="col-md-12">
@@ -176,7 +176,7 @@
               placeholder="<?php echo getT('Name') ?>"
               v-model="contact.name"
               >
-               <span v-if="errors['contact.name']"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
+               <span class="form-group__error" v-if="errors['contact.name']"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
 
@@ -190,7 +190,7 @@
               v-model="contact['contact.email']"
             >
 
-              <span v-if="errors.email"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
+              <span class="form-group__error" v-if="errors.email"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
 
@@ -201,7 +201,7 @@
                   <option value="<?php echo $country; ?>"><?php echo $country; ?></option>
                 <?php endforeach; ?>
             </select>
-            <span v-if="errors['contact.country']"><?php echo gett('Country') . ' ' . gett('required') ?>, </span>
+            <span class="form-group__error" v-if="errors['contact.country']"><?php echo gett('Country') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
   

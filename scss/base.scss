@@ -211,5 +211,14 @@ button {
   }
 }
 
+.form-group {
+  margin-bottom: 15px !important;
+  &__error {
+    background: #F2364E;
+    color: #fff;
+    padding: 15px;
+  }
+}
+
 @import 'reset';
 @import 'donate';
