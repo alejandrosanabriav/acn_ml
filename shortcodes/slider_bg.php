@@ -6,7 +6,8 @@
  }
 
  $images = array_map('getImagesSrc', $imagesArr);
- print_r($images);
+
+var_dump($images);
  ?>
 
 <bs-slider-bs image="<?php echo json_encode($images) ?>"></bs-slider-bs>
