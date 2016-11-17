@@ -45564,17 +45564,18 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.default = sliderBg;
-	function sliderBg() {
+
+	exports.default = function () {
 		return {
 			props: ['images'],
-			template: '\n\t\t\t<ul>\n\t\t\t\t<li v-for="image in images">\n\t\t\t\t\t<span style="background:{{image}}; height: 300px"></span>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t',
+
+			template: '\n\t\t\t<ul>\n\t\t\t\t<li v-for="image in images">\n\t\t\t\t\t<span style="background:{{image}}; height: 300px"></span>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t',
 
 			ready: function ready() {
 				console.log('slider-bg', this.$el, this.images);
 			}
 		};
-	}
+	};
 
 /***/ }
 /******/ ]);
