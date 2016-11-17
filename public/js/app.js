@@ -45579,7 +45579,7 @@
 				this.$el.querySelector('ul').style.width = '300%';
 				var w = 100 / 3;
 				each(this.$el.querySelectorAll('li'), function (el) {
-					el.style.width = w;
+					el.style.width = w + '%';
 				});
 			}
 		};
