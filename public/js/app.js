@@ -45571,7 +45571,7 @@
 
 	exports.default = function () {
 		return {
-			props: ['images'],
+			props: ['images', 'height'],
 
 			template: '\n\t\t<div style="position:relative; overflow: hidden">\n\t\t\t<ul style="padding: 0"> \n\t\t\t\t<li v-for="image in images" style="float:left;list-style: none"> \n\t\t\t\t\t<span style="display: block;background:url({{image}}); background-size: cover; background-position: center;"></span> \n\t\t\t\t</li> \n\t\t\t</ul>\n\t\t</div>\n\t',
 
@@ -45585,8 +45585,8 @@
 
 				each(lis, function (el) {
 					el.style.width = w + '%';
-					console.log(el.children);
-					el.children[0].style.minHeight = '400px';
+
+					el.children[0].style.minHeight = this.height + 'px';
 				});
 			}
 		};

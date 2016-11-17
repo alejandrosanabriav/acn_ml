@@ -3,7 +3,7 @@
 const each = (arr, fn) => Array.prototype.forEach.call(arr, fn);
 
 export default () => ({
-	props: ['images'],
+	props: ['images', 'height'],
 
 	template:`
 		<div style="position:relative; overflow: hidden">
@@ -25,8 +25,8 @@ export default () => ({
 		
 		each(lis, function(el) {
 			el.style.width = `${w}%`;
-			console.log(el.children);
-			el.children[0].style.minHeight = '400px';
+
+			el.children[0].style.minHeight = `${this.height}px`;
 		});
 	}
 });
