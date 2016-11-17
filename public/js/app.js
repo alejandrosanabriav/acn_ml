@@ -45574,7 +45574,7 @@
 			template: '\n\t\t\t<ul>\n\t\t\t\t<li v-for="image in images">\n\t\t\t\t\t<span style="background:{{image}}; height: 300px"></span>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t',
 
 			ready: function ready() {
-				console.log('slider-bg', this.$el, images);
+				console.log('slider-bg', this.$el, this.images);
 			}
 		};
 	}

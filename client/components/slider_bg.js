@@ -12,7 +12,7 @@ export default function sliderBg() {
 		`,
 
 		ready() {
-			console.log('slider-bg', this.$el, images);
+			console.log('slider-bg', this.$el, this.images);
 		}
 		
 	};
