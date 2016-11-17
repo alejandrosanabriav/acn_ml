@@ -51,7 +51,7 @@ if(function_exists('sc_factory')) {
   sc_factory($prefix . 'donate_land', array(), $base . '/donate_land.php' );
   sc_factory($prefix . 'bs_slider_bg', array("images" => "", "slider_style" => ""),$base . '/donate_land.php');
 
-  function bs_slider_vc() {
+  function bs_slider_bg_vc() {
     vc_map(
       array(
         "name" =>  "BS slider bg",
@@ -74,6 +74,6 @@ if(function_exists('sc_factory')) {
     );
   }
 
-  add_action( 'vc_before_init', 'bs_slider_vc' );
+  add_action( 'vc_before_init', 'bs_slider_bg_vc' );
 
 }
