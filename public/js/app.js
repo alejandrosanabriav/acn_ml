@@ -45576,7 +45576,6 @@
 			template: '\n\t\t<ul> \n\t\t\t<li v-for="image in images"> \n\t\t\t\t<span style="display: block;background:url({{image}}); background-size: cover; height: 300px"></span> \n\t\t\t</li> \n\t\t</ul>\n\t',
 
 			ready: function ready() {
-				this.images = JSON.parse(this.images);
 				this.$el.style.width = '300%';
 				console.log(this.$el.children);
 				each(this.$el.children, function (el) {
