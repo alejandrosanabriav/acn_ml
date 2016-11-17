@@ -45580,7 +45580,7 @@
 				var lisCount = lis.length;
 				var ulWidth = lisCount * 100;
 
-				this.$el.querySelector('ul').style.width = '${ulWidth}%';
+				this.$el.querySelector('ul').style.width = ulWidth + '%';
 				var w = 100 / lisCount;
 
 				each(lis, function (el) {

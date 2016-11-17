@@ -20,7 +20,7 @@ export default () => ({
 		let lisCount = lis.length;
 		let ulWidth = lisCount * 100;
 
-		this.$el.querySelector('ul').style.width = '${ulWidth}%';
+		this.$el.querySelector('ul').style.width = `${ulWidth}%`;
 		let w = 100 / lisCount;
 
 		each(lis, function(el) {
