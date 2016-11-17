@@ -11,7 +11,7 @@ import sliderBg from './components/slider_bg';
 	Vue.component('change-amount', changeAmount());
 	Vue.component('donate-landing', donate());
 	Vue.component('donate-land', donateLand());
-	Vue.component('bs-slider-bg', sliderBg());
+	Vue.component('bsslider-bg', sliderBg());
 
 	new Vue({el: '#app-ml'});
 
