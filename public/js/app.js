@@ -45229,13 +45229,11 @@
 
 	function addStylesToNodes(parent) {
 	  var nodes = parent.querySelectorAll('.donate_landing__section');
-	  console.log('nodes', nodes);
 
 	  var count = 100 / nodes.length;
-	  console.log('count', count);
+
 	  if (nodes.length) {
 	    Array.prototype.slice.call(nodes).forEach(function (node) {
-	      console.log('node', node, count);
 	      node.style.width = count + '%';
 	      node.style.float = 'left';
 	    });
@@ -45479,7 +45477,6 @@
 	          response = JSON.parse(res);
 	        } catch (e) {
 	          this.removeErrors();
-	          console.log('donate response err: ', res);
 	        }
 
 	        this.toggleLoading();

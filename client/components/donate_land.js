@@ -8,13 +8,12 @@ import validateStripe from '../stripe/validation.js';
 
 function addStylesToNodes(parent) {
   let nodes = parent.querySelectorAll('.donate_landing__section');
-  console.log('nodes', nodes);
+
   
   let count = 100 / nodes.length;
-  console.log('count', count);
+
   if(nodes.length) {
     Array.prototype.slice.call(nodes).forEach(node => {
-      console.log('node', node, count);
       node.style.width = count + '%';
       node.style.float = 'left';
     });
@@ -278,7 +277,7 @@ export default () => ({
         response = JSON.parse(res);
       } catch (e) {
         this.removeErrors();
-        console.log('donate response err: ', res);
+
       }
 
       this.toggleLoading();
