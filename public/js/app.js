@@ -45574,7 +45574,7 @@
 
 			ready: function ready() {
 				this.images = JSON.parse(this.images);
-				console.log('slider-bg', this.images);
+				this.$el.style.width = '300%';
 			}
 		};
 	};
