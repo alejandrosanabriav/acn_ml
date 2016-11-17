@@ -3,7 +3,7 @@
 const each = (arr, fn) => Array.prototype.forEach.call(arr, fn);
 
 export default () => ({
-	props: ['images', 'height'],
+	props: ['images', 'height', 'interval'],
 
 	template:`
 		<div style="position:relative; overflow: hidden">
