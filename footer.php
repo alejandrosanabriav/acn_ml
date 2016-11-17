@@ -4,19 +4,25 @@
 <script src="https://cdn.jsdelivr.net/flexslider/2.6.3/jquery.flexslider.js"></script>
 
 <script type="text/javascript">
-function downloadJSAtOnload() {
+
+deferScript("<?php echo get_template_directory_uri() . '/public/js/app.js' ?>");
+
+function deferScript(src) {
+	function downloadJSAtOnload() {
 	var element = document.createElement("script");
-	element.src = "<?php echo get_template_directory_uri() . '/public/js/app.js' ?>";
+	element.src = src;
 	document.body.appendChild(element);
 }
 
-if (window.addEventListener)
-	window.addEventListener("load", downloadJSAtOnload, false);
-else if (window.attachEvent) {
-	window.attachEvent("onload", downloadJSAtOnload);
-} else {
-	window.onload = downloadJSAtOnload;
-} 
+	if (window.addEventListener)
+		window.addEventListener("load", downloadJSAtOnload, false);
+	else if (window.attachEvent) {
+		window.attachEvent("onload", downloadJSAtOnload);
+	} else {
+		window.onload = downloadJSAtOnload;
+	} 
+}
+
 </script>
 
 <!--wordpress scripts insertion-->
