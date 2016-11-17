@@ -16,6 +16,7 @@ export default () => ({
 	ready() {
 		this.images = JSON.parse(this.images);
 		this.$el.style.width = '300%';
+		console.log(this.$el.children);
 		each(this.$el.children, function(el) {
 			el.style.width = '100%';
 		});
