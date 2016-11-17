@@ -3,8 +3,8 @@
  
  function getImagesSrc($imageId) {
 	 $arr = [];
-
-	 return $arr[$imageId] = wp_get_attachment_image_src($imageId, 'full')[0];
+	 $arr[$imageId] = wp_get_attachment_image_src($imageId, 'full')[0];
+	 return $arr;
  }
 
  $images = array_map('getImagesSrc', $imagesArr);
