@@ -66,7 +66,7 @@
 
 	var _change_amount2 = _interopRequireDefault(_change_amount);
 
-	var _slider_bg = __webpack_require__(196);
+	var _slider_bg = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/slider_bg\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _slider_bg2 = _interopRequireDefault(_slider_bg);
 
@@ -45552,28 +45552,6 @@
 						this.$parent.amount = amount;
 					}
 				}
-			}
-		};
-	};
-
-/***/ },
-/* 196 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	exports.default = function () {
-		return {
-			props: ['images'],
-
-			template: '\n\t\t<ul> <li v-for="image in images"> <span style="background:{{image}}; height: 300px"></span> </li> </ul>\n\t',
-
-			ready: function ready() {
-				console.log('slider-bg', JSON.stringify(this.images));
 			}
 		};
 	};

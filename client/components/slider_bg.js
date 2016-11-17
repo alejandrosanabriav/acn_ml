@@ -1,4 +1,5 @@
 'use strict';
+import stripSlashes from '../stripslashes';
 
 export default () => ({
 	props: ['images'],
@@ -8,7 +9,7 @@ export default () => ({
 	`,
 
 	ready() {
-		console.log('slider-bg', JSON.stringify(this.images));
+		console.log('slider-bg', JSON.stringify(stripSlashes(this.images));
 	}
 })
 
