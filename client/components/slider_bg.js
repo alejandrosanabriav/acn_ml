@@ -17,9 +17,9 @@ export default () => ({
 
 	ready() {
 		this.$el.querySelector('ul').style.width = '300%';
-
+		let w = 100 / 3;
 		each(this.$el.querySelectorAll('li'), function(el) {
-			el.style.width = '100%';
+			el.style.width = w;
 		});
 	}
 })
