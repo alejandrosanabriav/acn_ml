@@ -8,7 +8,7 @@ export default () => ({
 	template:`
 		<div>
 			<ul style="overflow: hidden"> 
-				<li v-for="image in images"> 
+				<li v-for="image in images" style="float:left"> 
 					<span style="display: block;background:url({{image}}); background-size: cover; height: 300px"></span> 
 				</li> 
 			</ul>
