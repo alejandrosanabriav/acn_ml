@@ -1,5 +1,7 @@
 'use strict';
 
+const each = (arr, fn) => Array.protype.forEach.call(arr, fn);
+
 export default () => ({
 	props: ['images'],
 
@@ -14,6 +16,9 @@ export default () => ({
 	ready() {
 		this.images = JSON.parse(this.images);
 		this.$el.style.width = '300%';
+		each(this.$el.children, function(el) {
+			el.style.width = '100%';
+		});
 	}
 })
 

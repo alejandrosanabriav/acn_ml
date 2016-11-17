@@ -45565,6 +45565,9 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
+	var each = function each(arr, fn) {
+		return Array.protype.forEach.call(arr, fn);
+	};
 
 	exports.default = function () {
 		return {
@@ -45575,6 +45578,9 @@
 			ready: function ready() {
 				this.images = JSON.parse(this.images);
 				this.$el.style.width = '300%';
+				each(this.$el.children, function (el) {
+					el.style.width = '100%';
+				});
 			}
 		};
 	};
