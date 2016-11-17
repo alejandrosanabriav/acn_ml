@@ -77,6 +77,13 @@ if(function_exists('sc_factory')) {
             "value" => '100px'
           ),
 
+           array(
+            "type" => "textfield",
+            "heading" => "Slider interval",
+            "param_name" => "interval",
+            "value" => "3000"
+          )
+
         )
       ) 
     );
