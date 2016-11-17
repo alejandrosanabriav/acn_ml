@@ -45582,10 +45582,10 @@
 				this.$el.querySelector('ul').style.width = ulWidth + '%';
 				var w = 100 / lisCount;
 				var h = this.$el.parentNode.offsetHeight;
-				console.log(this.$el.parentNode);
+
 				each(lis, function (el) {
 					el.style.width = w + '%';
-					el.style.height = h + 'px';
+					el.style.height = '100%';
 				});
 			}
 		};
