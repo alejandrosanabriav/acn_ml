@@ -2,7 +2,9 @@
  $imagesArr = explode(',', $at['images']);
  
  function getImagesSrc($imageId) {
-	 return stripslashes(wp_get_attachment_image_src($imageId, 'full')[0]);
+	 $arr = [];
+
+	 return $arr[$imageId] = wp_get_attachment_image_src($imageId, 'full')[0];
  }
 
  $images = array_map('getImagesSrc', $imagesArr);
