@@ -7,7 +7,7 @@ export default () => ({
 
 	template:`
 		<div style="position:relative; overflow: hidden">
-			<ul> 
+			<ul style="padding: 0"> 
 				<li v-for="image in images" style="float:left;list-style: none"> 
 					<span style="display: block;background:url({{image}}); background-size: cover; background-position: center;"></span> 
 				</li> 
@@ -29,5 +29,5 @@ export default () => ({
 			el.children[0].style.minHeight = '400px';
 		});
 	}
-})
+});
 
