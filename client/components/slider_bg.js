@@ -25,6 +25,7 @@ export default () => ({
 		
 		each(lis, function(el) {
 			el.style.width = `${w}%`;
+			console.log(el.children);
 			el.children.style.minHeight = '400px';
 		});
 	}
