@@ -37,7 +37,7 @@ export default () => ({
 
 		setInterval(() => {
 			this.next();
-		}, 800);
+		}, 2000);
 	},
 
 	methods: {
