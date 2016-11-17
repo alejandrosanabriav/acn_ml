@@ -18,8 +18,9 @@ export default () => ({
 	ready() {
 		let lis = this.$el.querySelectorAll('li');
 		let lisCount = lis.length;
-		console.log(lisCount * 100 );
-		this.$el.querySelector('ul').style.width = '${lisCount * 100 }%';
+		let ulWidth = lisCount * 100;
+
+		this.$el.querySelector('ul').style.width = '${ulWidth}%';
 		let w = 100 / lisCount;
 
 		each(lis, function(el) {
