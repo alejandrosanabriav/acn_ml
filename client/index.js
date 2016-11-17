@@ -7,7 +7,7 @@ import changeAmount from './components/change_amount';
 import sliderBg from './components/slider_bg';
 
 (function() {
-	console.log(sliderBg);
+	console.log(sliderBg());
 	Vue.component('change-amount', changeAmount());
 	Vue.component('donate-landing', donate());
 	Vue.component('donate-land', donateLand());
