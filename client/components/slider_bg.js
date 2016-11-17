@@ -22,10 +22,10 @@ export default () => ({
 		this.$el.querySelector('ul').style.width = `${ulWidth}%`;
 		let w = 100 / lisCount;
 		let h = this.$el.parentNode.offsetHeight;
-
+		console.log( this.$el.parentNode);
 		each(lis, function(el) {
 			el.style.width = `${w}%`;
-			el.style.height = `${h}%`;
+			el.style.height = `${h}px`;
 		});
 
 
