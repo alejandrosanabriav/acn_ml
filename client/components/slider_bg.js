@@ -22,7 +22,7 @@ export default () => ({
 		let w = 100 / lisCount;
 		this.$el.querySelector('ul').style.width = `${ulWidth}%`;
 		
-		each(lis, function(el) {
+		each(lis, el => {
 			el.style.width = `${w}%`;
 			el.children[0].style.minHeight = this.height;
 		});
