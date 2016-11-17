@@ -45608,6 +45608,9 @@
 						var next = this.slide * 100;
 						this.$el.querySelector('ul').style.left = '-' + next + '%';
 						this.slide = this.slide + 1;
+					} else {
+						this.$el.querySelector('ul').style.left = '0';
+						this.slide = 1;
 					}
 				},
 				prev: function prev() {
