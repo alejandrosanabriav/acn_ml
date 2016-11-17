@@ -45573,6 +45573,7 @@
 			template: '\n\t\t<ul> <li v-for="image in images"> <span style="background:{{image}}; height: 300px"></span> </li> </ul>\n\t',
 
 			ready: function ready() {
+				this.images = JSON.parse(this.images);
 				console.log('slider-bg', JSON.parse(this.images));
 			}
 		};
