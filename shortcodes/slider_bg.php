@@ -9,4 +9,4 @@
 ?>
 
 <bsslider-bg images="<?php echo json_encode($images, true) ?>"></bsslider-bg>
-<?php echo(json_encode($images)); ?>
+<?php echo json_encode($images, true) ?>
