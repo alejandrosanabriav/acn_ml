@@ -1,5 +1,4 @@
 <?php
- 
  $imagesArr = explode(',', $at['images']);
  
  function getImagesSrc($imageId) {
@@ -7,8 +6,6 @@
  }
 
  $images = array_map('getImagesSrc', $imagesArr);
-
-
 ?>
 
 <bs-slider-bg images="<?php echo json_encode($images) ?>"></bs-slider-bg>
