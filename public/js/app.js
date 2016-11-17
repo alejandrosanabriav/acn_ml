@@ -45598,7 +45598,7 @@
 
 				setInterval(function () {
 					_this.next();
-				}, this.interval);
+				}, parseInt(this.interval));
 			},
 
 

@@ -37,7 +37,7 @@ export default () => ({
 
 		setInterval(() => {
 			this.next();
-		}, this.interval);
+		}, parseInt(this.interval));
 	},
 
 	methods: {
