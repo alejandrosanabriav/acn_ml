@@ -45573,7 +45573,7 @@
 		return {
 			props: ['images', 'height', 'interval'],
 
-			template: '\n\t\t<div style="position:relative; overflow: hidden">\n\t\t\t<ul style="position:relative; padding: 0;transition: all 300ms ease"> \n\t\t\t\t<li v-for="image in images" style="float:left;list-style: none"> \n\t\t\t\t\t<span style="display: block; background:url({{image}}); background-size: cover; background-position: center;"></span> \n\t\t\t\t</li> \n\t\t\t</ul>\n\t\t</div>\n\t',
+			template: '\n\t\t<div style="position:relative; overflow: hidden">\n\t\t\t<div class="navigation">\n\t\t\t\t<button v-on:click="next"><i class="ion-chevron-right"></i></button>\n\t\t\t\t<button v-on:click="prev"><i class="ion-chevron-left"></i></button>\n\t\t\t</div>\n\n\t\t\t<ul style="position:relative; padding: 0;transition: all 300ms ease"> \n\t\t\t\t<li v-for="image in images" style="float:left;list-style: none"> \n\t\t\t\t\t<span style="display: block; background:url({{image}}); background-size: cover; background-position: center;"></span> \n\t\t\t\t</li> \n\t\t\t</ul>\n\t\t</div>\n\t',
 
 			data: function data() {
 				return {

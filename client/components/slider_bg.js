@@ -7,6 +7,11 @@ export default () => ({
 
 	template:`
 		<div style="position:relative; overflow: hidden">
+			<div class="navigation">
+				<button v-on:click="next"><i class="ion-chevron-right"></i></button>
+				<button v-on:click="prev"><i class="ion-chevron-left"></i></button>
+			</div>
+
 			<ul style="position:relative; padding: 0;transition: all 300ms ease"> 
 				<li v-for="image in images" style="float:left;list-style: none"> 
 					<span style="display: block; background:url({{image}}); background-size: cover; background-position: center;"></span> 
