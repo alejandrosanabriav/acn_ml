@@ -45597,7 +45597,7 @@
 	});
 
 	exports.default = function (str) {
-	  (str + '').replace(/\\(.?)/g, function (s, n1) {
+	  return (str + '').replace(/\\(.?)/g, function (s, n1) {
 	    switch (n1) {
 	      case '\\':
 	        return '\\';

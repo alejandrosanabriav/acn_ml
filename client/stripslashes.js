@@ -1,6 +1,6 @@
 'use strict';
 
-export default str => {
+export default str => 
 	(str + '').replace(/\\(.?)/g, function (s, n1) {
       switch (n1) {
         case '\\':
@@ -12,5 +12,5 @@ export default str => {
         default:
           return n1
       }
-    })
-}
+	});
+
