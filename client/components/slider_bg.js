@@ -8,7 +8,7 @@ export default () => ({
 	`,
 
 	ready() {
-		console.log('slider-bg', this);
+		console.log('slider-bg', JSON.parse(this.images));
 	}
 })
 
