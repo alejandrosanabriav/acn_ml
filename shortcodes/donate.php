@@ -131,6 +131,7 @@
             type="text"
             v-on:keyup="[cleanNumber('stripe.exp_year'), maxLength('stripe.exp_year', 2)]"
             class="form-control form-control--outline"
+            :class="{form-group--error: errors.exp_year}"
             style="text-align: center;"
             placeholder="<?php echo gett('YY') ?>"
             v-model="stripe.exp_year"
@@ -144,6 +145,7 @@
           type="text"
           v-on:keyup="[cleanNumber('stripe.cvc'), maxLength('stripe.cvc', 4)]"
           class="form-control form-control--outline"
+          :class="{form-group--error: errors.cvc}"
           style="text-align: center;"
           v-model="stripe.cvc"
           placeholder="<?php echo gett('CVC') ?>"
@@ -190,7 +192,7 @@
               v-model="contact['contact.email']"
             >
 
-              <span class="form-group__error" v-if="errors.email"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
+              <span class="form-group__error" v-if="errors['contact.email']"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
           </div>
         </div>
 

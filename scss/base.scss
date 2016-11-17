@@ -213,10 +213,18 @@ button {
 
 .form-group {
   margin-bottom: 15px !important;
+  position: relative;
+  
+  &--error {
+    border-color: #F2364E;
+  }
+
   &__error {
     background: #F2364E;
     color: #fff;
     padding: 15px;
+    width: 100%;
+    position: absolute;
   }
 }
 
