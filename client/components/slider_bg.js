@@ -8,8 +8,8 @@ export default () => ({
 	template:`
 		<div style="position:relative; overflow: hidden">
 			<div class="navigation">
-				<button v-on:click.prevent="next" style="border: none; position: absolute; top:0;bottom:0;margin: auto; right: 20px; z-index: 1010"><i class="ion-chevron-right"></i></button>
-				<button v-on:click.prevent="prev" style="border: none; position: absolute; top:0;bottom:0;margin: auto; left: 20px; z-index: 1010"><i class="ion-chevron-left"></i></button>
+				<button v-on:click.prevent="nextBtn" style="border: none; position: absolute; top:0;bottom:0;margin: auto; right: 20px; z-index: 1010"><i class="ion-chevron-right"></i></button>
+				<button v-on:click.prevent="prevBtn" style="border: none; position: absolute; top:0;bottom:0;margin: auto; left: 20px; z-index: 1010"><i class="ion-chevron-left"></i></button>
 			</div>
 
 			<ul style="position:relative; padding: 0;transition: all 300ms ease"> 
@@ -23,7 +23,8 @@ export default () => ({
 	data() {
 		return {
 			slide: 1,
-			lastSlide: 1
+			lastSlide: 1,
+			autoplay: null
 		};
 	},
 
@@ -40,12 +41,22 @@ export default () => ({
 			el.children[0].style.minHeight = this.height;
 		});
 
-		setInterval(() => {
+		this.autoplay = setInterval(() => {
 			this.next();
 		}, parseInt(this.interval));
 	},
 
 	methods: {
+		nextBtn() {
+			clearInterval(this.autoplay);
+			this.next();
+		},
+
+		prevBtn() {
+			clearInterval(this.autoplay);
+			this.prev();
+		},
+
 		next() {
 			if(this.slide < this.lastSlide) {
 				let next = this.slide * 100;
