@@ -9,7 +9,7 @@ export default () => ({
 	`,
 
 	ready() {
-		console.log('slider-bg', stripeSlashes(this.images) );
+		console.log('slider-bg', this.images);
 	}
 })
 
