@@ -45597,7 +45597,7 @@
 				});
 
 				setInterval(function () {
-					this.next();
+					_this.next();
 				}, 800);
 			},
 

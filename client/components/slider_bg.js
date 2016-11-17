@@ -35,7 +35,7 @@ export default () => ({
 			el.children[0].style.minHeight = this.height;
 		});
 
-		setInterval(function() {
+		setInterval(() => {
 			this.next();
 		}, 800);
 	},
