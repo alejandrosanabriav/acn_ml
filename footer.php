@@ -6,7 +6,7 @@
 <script type="text/javascript">
 function downloadJSAtOnload() {
 	var element = document.createElement("script");
-	element.src = <?php echo get_template_directory_uri() . '/public/js/app.js' ?>;
+	element.src = "<?php echo get_template_directory_uri() . '/public/js/app.js' ?>";
 	document.body.appendChild(element);
 }
 
