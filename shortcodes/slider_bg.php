@@ -11,5 +11,5 @@
 
 ?>
 
-<bs-slider-bs image="<?php echo json_encode($images) ?>"></bs-slider-bs>
+<bs-slider-bg image="<?php echo json_encode($images) ?>"></bs-slider-bg>
 <?php var_dump($at); ?>

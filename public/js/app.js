@@ -76,7 +76,7 @@
 		Vue.component('change-amount', (0, _change_amount2.default)());
 		Vue.component('donate-landing', (0, _donate2.default)());
 		Vue.component('donate-land', (0, _donate_land2.default)());
-		Vue.component('donate-land', (0, _slider_bg2.default)());
+		Vue.component('bs-slider-bg', (0, _slider_bg2.default)());
 
 		new Vue({ el: '#app-ml' });
 
