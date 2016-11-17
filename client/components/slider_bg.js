@@ -11,8 +11,8 @@ export default () => ({
 			</ul>
 	`,
 
-		ready() {
-			console.log('slider-bg', this.$el, this.images);
-		}
+	ready() {
+		console.log('slider-bg', this.$el, this.images);
+	}
 })
 
