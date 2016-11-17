@@ -8,8 +8,8 @@ export default () => ({
 	template:`
 		<div style="position:relative; overflow: hidden">
 			<div class="navigation">
-				<button v-on:click="next" style="position: absolute; top:0;bottom:0;margin: auto; right: 20px; z-index: 1010"><i class="ion-chevron-right"></i></button>
-				<button v-on:click="prev" style="position: absolute; top:0;bottom:0;margin: auto; left: 20px; z-index: 1010"><i class="ion-chevron-left"></i></button>
+				<button v-on:click.prevent="next" style="border: none; position: absolute; top:0;bottom:0;margin: auto; right: 20px; z-index: 1010"><i class="ion-chevron-right"></i></button>
+				<button v-on:click.prevent="prev" style="border: none; position: absolute; top:0;bottom:0;margin: auto; left: 20px; z-index: 1010"><i class="ion-chevron-left"></i></button>
 			</div>
 
 			<ul style="position:relative; padding: 0;transition: all 300ms ease"> 
