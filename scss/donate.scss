@@ -52,6 +52,10 @@
     float: left;
     transition: all 300ms ease;
     margin-right: 5px;
+
+    &:first-child {
+      margin-right: 22px;
+    }
     
     &:hover {
       color: #fff;

@@ -216,6 +216,8 @@ button {
     float: left;
     transition: all 300ms ease;
     margin-right: 5px; }
+    .donate_landing__type:first-child {
+      margin-right: 22px; }
     .donate_landing__type:hover {
       color: #fff;
       opacity: 1; }

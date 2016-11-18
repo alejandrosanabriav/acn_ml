@@ -37,7 +37,7 @@
       </li>
     </ul>
   </script>
-
+  
   <script type="text/template" id="donate-landing-template">
 
     <form method="post" class="donate_landing">
