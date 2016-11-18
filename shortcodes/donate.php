@@ -168,7 +168,7 @@
             type="text"
             v-on:keyup="[cleanNumber('stripe.cvc'), maxLength('stripe.cvc', 4)]"
             class="form-control form-control--outline"
-            v-bind:class="{form-group--error: errors.cvc"
+            v-bind:class="{form-group--error: errors.cvc}"
             style="text-align: center;"
             v-model="stripe.cvc"
             placeholder="<?php echo gett('CVC') ?>"
