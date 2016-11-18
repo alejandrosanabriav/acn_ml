@@ -13541,7 +13541,7 @@
 					    donation_type = this.donation_type,
 					    token = this.stripe.token;
 
-					var data = _extends({}, contact, { currency: currency, amount: amount, donation_type: donation_type, token: token });
+					var data = _extends({}, contact, { currency: currency, amount: amount, donation_type: donation_type, stripe_token: token });
 
 					console.log('data', data);
 					e.preventDefault();
