@@ -13627,7 +13627,7 @@
 					var next = section * 100;
 
 					viewport.style.left = '-' + next + '%';
-					viewport.style.height = height;
+					viewport.style.height = height + 'px';
 
 					this.section = section + 1;
 				},

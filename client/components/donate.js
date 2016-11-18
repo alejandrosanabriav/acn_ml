@@ -329,9 +329,9 @@ export default () => ({
 			let height = nodeSection.offsetHeight;
 			let viewport = document.querySelector('.donate_landing__viewport');
 			let next = section * 100;
-
+			
 			viewport.style.left = `-${next}%`;
-			viewport.style.height = height;
+			viewport.style.height = `${height}px`;
 			
 			this.section = section + 1;
 
