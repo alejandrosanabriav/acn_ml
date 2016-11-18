@@ -280,6 +280,7 @@ a:hover {
     -ms-flex-pack: center;
     justify-content: center;
     font-size: 1.1875em;
+    font-weight: 500;
     transition: all 300ms ease; }
     .change-amount li a:hover {
       background: #fff;
