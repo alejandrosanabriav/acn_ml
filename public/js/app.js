@@ -13331,6 +13331,9 @@
 		var nodes = parent.querySelectorAll('.donate_landing__section');
 		var count = 100 / nodes.length;
 
+		var firstNode = parent.querySelector('.donate_landing__section-1');
+		console.log(firstNode.offsetHeight);
+
 		if (nodes.length) {
 			Array.prototype.slice.call(nodes).forEach(function (node) {
 				node.style.width = count + '%';

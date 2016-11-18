@@ -10,6 +10,9 @@ function addStylesToNodes(parent) {
 	let nodes = parent.querySelectorAll('.donate_landing__section');
 	let count = 100 / nodes.length;
 
+	let firstNode = parent.querySelector(`.donate_landing__section-1`);
+	console.log(firstNode.offsetHeight);
+	
 	if (nodes.length) {
 		Array.prototype.slice.call(nodes).forEach(node => {
 			node.style.width = count + '%';
