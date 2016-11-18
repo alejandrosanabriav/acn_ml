@@ -13332,7 +13332,7 @@
 		var count = 100 / nodes.length;
 
 		var firstNode = parent.querySelector('.donate_landing__section-1');
-		console.log(firstNode.offsetHeight);
+		parent.querySelector('.donate_landing__viewport').style.height = firstNode.offsetWidth + 'px';
 
 		if (nodes.length) {
 			Array.prototype.slice.call(nodes).forEach(function (node) {
