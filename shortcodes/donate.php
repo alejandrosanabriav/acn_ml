@@ -1,10 +1,10 @@
   <script type="text/template" id="change-amount-template">
     <ul class="change-amount" style="padding: 0 15px">
       <li class="col-md-2">
-        <a href="#" v-on:click="changeAmount(10, $event)">$ 10</a>
+        <a href="#" v-on:click="changeAmount(10, $event)">$ 10 {{ $parent.amount }}</a>
       </li>
       <li class="col-md-2">
-        {{ $parent.amount }}
+        
         <a href="#"  v-on:click="changeAmount(30, $event)">$ 30</a>
       </li>
       <li class="col-md-2">
