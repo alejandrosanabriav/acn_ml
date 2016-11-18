@@ -230,8 +230,8 @@ export default () => ({
 
 		onSubmit(e) {
 			const { contact, currency, amount, donation_type, stripe_token } = this;
-			console.log('amount', amount);
-			let data = { ...contact, currency, amount, donation_type, stripe_token}; 
+			let data = { ...contact, currency, amount, donation_type, stripe_token};
+			console.log('data', data); 
 			e.preventDefault();
 			this.contactValidations();
 			this.toggleLoading();
