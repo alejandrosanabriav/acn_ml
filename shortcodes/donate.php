@@ -209,7 +209,7 @@
               name="email"
               class="form-control form-control--outline"
               placeholder="<?php echo getT('Email') ?>"
-              v-model="contact['contact.email']"
+              v-model="contact.email"
             >
 
               <span class="form-group__error" v-if="errors['contact.email']"><?php echo gett('Email') . ' ' . gett('required') ?></span>
