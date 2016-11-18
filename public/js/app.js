@@ -13486,12 +13486,9 @@
 					}
 
 					if (response.error) {
-						console.log('stripe err', this.section);
 						this.errors = {
 							stripe: response.error.message
 						};
-
-						this.changeViewportHeight(this.section);
 					}
 				},
 				contactValidations: function contactValidations() {
@@ -13507,8 +13504,6 @@
 					});
 
 					this.errors = errors;
-
-					console.log('errors', this.errors);
 				},
 				showErrors: function showErrors() {
 					var errorAmount = this.isRequired('amount');
@@ -13532,6 +13527,7 @@
 						this.createToken();
 					} else {
 						this.showErrors();
+						this.changeViewportHeight(this.section);
 					}
 				},
 				onSubmit: function onSubmit(e) {

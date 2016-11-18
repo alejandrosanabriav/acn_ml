@@ -171,12 +171,11 @@ export default () => ({
 			}
 
 			if (response.error) {
-				console.log('stripe err', this.section);
 				this.errors = {
 					stripe: response.error.message
 				};
 
-				this.changeViewportHeight(this.section);
+			
 			}
 		},
 
@@ -196,7 +195,7 @@ export default () => ({
 
 			this.errors = errors;
 		
-			console.log('errors', this.errors);
+
 		},
 
 		showErrors() {
@@ -225,6 +224,7 @@ export default () => ({
 				this.createToken();
 			} else {
 				this.showErrors();
+				this.changeViewportHeight(this.section);
 			}
 		},
 
