@@ -291,6 +291,9 @@ a:hover {
     font-size: 1.35714em;
     font-weight: 500;
     transition: all 300ms ease; }
+    @media (max-width: 767px) {
+      .change-amount li a {
+        font-size: 1em; } }
     .change-amount li a:hover, .change-amount li a.active {
       text-decoration: none;
       background: #fff;
