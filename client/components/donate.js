@@ -229,15 +229,14 @@ export default () => ({
 		},
 
 		onSubmit(e) {
-			const { contact, currency, amount, donation_type } = this;
-			let data = { ...contact, currency, amount, donation_type};
-			
+			const { contact, currency, amount, donation_type, stripe: {token} } = this;
+			let data = { ...contact, currency, amount, donation_type, token};
+
 			console.log('data', data); 
 			e.preventDefault();
 			this.contactValidations();
 			this.toggleLoading();
 			
-			console.log(Object.keys(this.errors));
 
 			if(Object.keys(this.errors).length == 0) {
 				$.ajax({

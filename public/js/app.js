@@ -13538,16 +13538,15 @@
 					var contact = this.contact,
 					    currency = this.currency,
 					    amount = this.amount,
-					    donation_type = this.donation_type;
+					    donation_type = this.donation_type,
+					    token = this.stripe.token;
 
-					var data = _extends({}, contact, { currency: currency, amount: amount, donation_type: donation_type });
+					var data = _extends({}, contact, { currency: currency, amount: amount, donation_type: donation_type, token: token });
 
 					console.log('data', data);
 					e.preventDefault();
 					this.contactValidations();
 					this.toggleLoading();
-
-					console.log(Object.keys(this.errors));
 
 					if (Object.keys(this.errors).length == 0) {
 						_jquery2.default.ajax({
