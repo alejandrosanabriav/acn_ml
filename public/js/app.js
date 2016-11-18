@@ -13553,8 +13553,6 @@
 
 					this.toggleLoading();
 
-					console.log('submit');
-
 					if (Object.keys(this.errors).length == 0) {
 						_jquery2.default.ajax({
 							url: '/wp-admin/admin-ajax.php',
@@ -13571,6 +13569,7 @@
 							console.log('complete');
 						});
 					} else {
+						this.toggleLoading();
 						this.changeViewportHeight(3);
 					}
 				},

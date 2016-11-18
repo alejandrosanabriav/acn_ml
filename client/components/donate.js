@@ -251,7 +251,6 @@ export default () => ({
 
 			this.toggleLoading();
 			
-			console.log('submit');
 
 			if(Object.keys(this.errors).length == 0) {
 				$.ajax({
@@ -270,6 +269,7 @@ export default () => ({
 					console.log('complete');
 				});
 			} else {
+				this.toggleLoading();
 				this.changeViewportHeight( 3 );
 			}
 		},
