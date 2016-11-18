@@ -36,12 +36,16 @@ function stripe_create_customer($api_key, $customer) {
 
 function stripe_create_charge($api_key, $charge) {
   \Stripe\Stripe::setApiKey($api_key);
-
-  $charge = \Stripe\Charge::create(array(
+  try {
+    $charge = \Stripe\Charge::create(array(
     "amount" => $charge['amount'],
     "currency" => $charge['currency'],
     "source" => $charge['stripe_token']
-  ));
+    ));
+  } catch(Exception $e) {
+    return $e;
+  }
+
 
   return $charge;
 }
