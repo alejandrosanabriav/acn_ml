@@ -45544,6 +45544,9 @@
 			template: '#change-amount-template',
 
 			methods: {
+				isAmount: function isAmount(amount) {
+					this.$parent.amount == amount;
+				},
 				changeAmount: function changeAmount(amount, e) {
 					e.preventDefault();
 					if (amount == '') {
