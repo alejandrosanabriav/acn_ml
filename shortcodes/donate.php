@@ -237,9 +237,12 @@
     </div><!-- viewport -->
 
   </div> <!-- success -->
-  <div class="pro-bar">
-    <div class="pro-bar__status" v-bind:style="{width: progress}"></div>
+  <div class="row">
+    <div class="pro-bar">
+      <div class="pro-bar__status" v-bind:style="{width: progress}"></div>
+    </div>
   </div>
+
   </form>
 
   </div>
