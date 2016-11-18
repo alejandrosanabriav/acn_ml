@@ -57,6 +57,7 @@ function stripe_get_plan($api_key, $name) {
   
 }
 
+//fix currency with add prefix
 function stripe_create_plan($api_key, $plan) {
   \Stripe\Stripe::setApiKey("sk_test_vq5s51SGycQ6dvCqC3H7JcCl");
 
