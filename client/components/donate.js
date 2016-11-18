@@ -171,11 +171,13 @@ export default () => ({
 			}
 
 			if (response.error) {
+				console.log('stripe err', this.section);
 				this.errors = {
 					stripe: response.error.message
 				};
+
 				
-				console.log('stripe err', this.section);
+
 				this.changeViewportHeight(this.section);
 			}
 		},
