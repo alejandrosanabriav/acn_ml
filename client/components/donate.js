@@ -265,9 +265,6 @@ export default () => ({
 					console.log('complete');
 				});
 			}
-
-	
-
 		},
 
 		changeType(type, evt) {

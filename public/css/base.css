@@ -189,7 +189,8 @@ button {
     align-items: center;
     transition: all 300ms;
     position: relative;
-    left: 0; }
+    left: 0;
+    margin: 20px 0; }
   .donate_landing__cards {
     text-align: left;
     margin-left: 15px;

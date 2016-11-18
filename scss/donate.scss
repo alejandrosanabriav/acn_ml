@@ -16,6 +16,7 @@
     transition: all 300ms;
     position: relative;
     left: 0;
+    margin: 20px 0;
   }
 
   &__cards {
@@ -53,7 +54,7 @@
     float: left;
     transition: all 300ms ease;
     margin-right: 5px;
-    
+
     &:first-child {
       margin-right: 22px;
     }
