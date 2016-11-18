@@ -1,6 +1,7 @@
 {
     "require": {
         "rmccue/requests": "^1.7",
-        "stripe/stripe-php": "^4.1"
+        "stripe/stripe-php": "^4.1",
+        "infusionsoft/php-sdk": "^1.2"
     }
 }

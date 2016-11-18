@@ -182,6 +182,8 @@
             >
               <?php echo getT('NEXT') ?>
             </button>
+            
+             <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
 
             <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"> < <?php echo getT('Back') ?></button>
             </div>
