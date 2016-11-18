@@ -13628,7 +13628,7 @@
 					var next = section * 100;
 					viewport.style.left = '-' + next + '%';
 					viewport.style.height = height + 'px';
-					this.progress = 100 / 3 * section;
+					this.progress = 100 / 3 * section + '%';
 					this.section = section + 1;
 				},
 				backSection: function backSection() {
