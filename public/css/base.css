@@ -279,4 +279,8 @@ a:hover {
     align-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    font-size: 1.1875em; }
+    font-size: 1.1875em;
+    transition: all 300ms ease; }
+    .change-amount li a:hover {
+      background: #fff;
+      color: RGBA(60, 81, 95, 1); }
