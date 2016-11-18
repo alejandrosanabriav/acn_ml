@@ -5,10 +5,10 @@
       </li>
       <li class="col-md-2">
         
-        <a href="#"  v-on:click="changeAmount(30, $event)">$ 30</a>
+        <a href="#" v-bind:class="[ $parent.amount == 30 ? 'active' : ''  ]"  v-on:click="changeAmount(30, $event)">$ 30</a>
       </li>
       <li class="col-md-2">
-        <a href="#"  v-bind:class="{ 'active': isAmount(50) }" v-on:click="changeAmount(50, $event)">$ 50</a>
+        <a href="#"  v-on:click="changeAmount(50, $event)">$ 50</a>
       </li>
       <li class="col-md-2">
         <a href="#" v-on:click="changeAmount(100, $event)">$ 100</a>
