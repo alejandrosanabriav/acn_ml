@@ -182,7 +182,7 @@
             >
               <?php echo getT('NEXT') ?>
             </button>
-            
+
              <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
 
             <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"> < <?php echo getT('Back') ?></button>
@@ -230,10 +230,12 @@
         </div>
   
       <div class="col-md-12">
-        <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"><?php echo gett('Back') ?></button>
-        <button class="donate_landing__submit" v-on:click.prevent="onSubmit" :disabled="loading">
+        
+        <button class="donate_landing__submit pull-left" v-on:click.prevent="onSubmit" :disabled="loading">
           <?php echo gett('Donate') ?>
         </button>
+        <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
+        <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"><?php echo gett('Back') ?></button>
       </div>
     </div><!-- donate_landing__section-3 -->
     </div><!-- viewport -->
