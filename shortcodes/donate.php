@@ -126,12 +126,13 @@
           type="text"
           v-on:keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16)],showCard()"
           class="form-control form-control--outline"
-          v-on:class="{'form-group--error': errors.number}"
+          v-bind:class="{'form-group--error': errors.number}"
           id="exampleInputAmount"
           v-model="stripe.number"
           placeholder="<?php echo gett('Credit Card Number') ?>"
           >
-           <span class="form-group__error" v-if="errors.number"><?php echo gett('Credit Card Number') . ' ' . gett('incorrect') ?>, </span>
+
+           <span class="form-group__error" v-if="errors.number"><?php echo gett('Credit Card Number') . ' ' . gett('incorrect') ?></span>
         </div>
 
         <div class="form-group col-xs-4">
