@@ -87,9 +87,10 @@
     background: #fff;
     transition: all 300ms ease;
     font-weight: bold;
-    
+
     &:hover {
       background: transparent;
+      color: #fff;
     }
 
     &-get_token {
