@@ -13527,7 +13527,7 @@
 						this.createToken();
 					} else {
 						this.showErrors();
-						this.changeViewportHeight(this.section);
+						this.changeViewportHeight(2);
 					}
 				},
 				onSubmit: function onSubmit(e) {

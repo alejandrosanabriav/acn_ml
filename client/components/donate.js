@@ -224,7 +224,7 @@ export default () => ({
 				this.createToken();
 			} else {
 				this.showErrors();
-				this.changeViewportHeight(this.section);
+				this.changeViewportHeight(2);
 			}
 		},
 
