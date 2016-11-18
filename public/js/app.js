@@ -13490,6 +13490,7 @@
 							stripe: response.error.message
 						};
 
+						console.log('stripe err', this.section);
 						this.changeViewportHeight(this.section);
 					}
 				},
