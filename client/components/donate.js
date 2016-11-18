@@ -11,7 +11,8 @@ function addStylesToNodes(parent) {
 	let count = 100 / nodes.length;
 
 	let firstNode = parent.querySelector(`.donate_landing__section-1`);
-	parent.querySelector('.donate_landing__viewport').style.height = `${firstNode.offsetWidth}px`;
+
+	parent.querySelector('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
 
 	if (nodes.length) {
 		Array.prototype.slice.call(nodes).forEach(node => {
