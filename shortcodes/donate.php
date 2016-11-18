@@ -4,7 +4,7 @@
         <a href="#" v-on:click="changeAmount(10, $event)">$ 10</a>
       </li>
       <li class="col-md-2">
-        <a href="#" v-on:click="changeAmount(30, $event)">$ 30</a>
+        <a href="#" :class="{active: amount == 30}" v-on:click="changeAmount(30, $event)">$ 30</a>
       </li>
       <li class="col-md-2">
         <a href="#" v-on:click="changeAmount(50, $event)">$ 50</a>
