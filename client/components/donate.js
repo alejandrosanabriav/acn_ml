@@ -324,7 +324,7 @@ export default () => ({
 
 		changeViewportHeight(section = 1) {
 			let parent = this.$el;
-			let nodeSection = parent.querySelector(`.donate_landing__section-${section + 1}`);
+			let nodeSection = parent.querySelector(`.donate_landing__section-${section}`);
 			let height = nodeSection.offsetHeight;
 			let viewport = document.querySelector('.donate_landing__viewport');
 			viewport.style.height = `${height}px`;
@@ -337,7 +337,7 @@ export default () => ({
 			let viewport = parent.querySelector('.donate_landing__viewport');
 			let next = section * 100;
 			viewport.style.left = `-${next}%`;
-			this.changeViewportHeight(section);			
+			this.changeViewportHeight( section + 1 );			
 			this.progress = `${progress}%`;
 			this.section = section + 1;
 		},
@@ -350,7 +350,7 @@ export default () => ({
 			let width = form.offsetWidth;
 			let actual = width * (section - 1);
 			let prev = actual - width;
-			this.changeViewportHeight(section);
+			this.changeViewportHeight(section - 1);
 			viewport.style.left = `-${prev}px`;
 			this.section = section - 1;
 			let progress = 100 / 3 * (section - 1);

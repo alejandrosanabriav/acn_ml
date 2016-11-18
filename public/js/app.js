@@ -13621,7 +13621,7 @@
 					var section = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
 					var parent = this.$el;
-					var nodeSection = parent.querySelector('.donate_landing__section-' + (section + 1));
+					var nodeSection = parent.querySelector('.donate_landing__section-' + section);
 					var height = nodeSection.offsetHeight;
 					var viewport = document.querySelector('.donate_landing__viewport');
 					viewport.style.height = height + 'px';
@@ -13633,7 +13633,7 @@
 					var viewport = parent.querySelector('.donate_landing__viewport');
 					var next = section * 100;
 					viewport.style.left = '-' + next + '%';
-					this.changeViewportHeight(section);
+					this.changeViewportHeight(section + 1);
 					this.progress = progress + '%';
 					this.section = section + 1;
 				},
@@ -13645,7 +13645,7 @@
 					var width = form.offsetWidth;
 					var actual = width * (section - 1);
 					var prev = actual - width;
-					this.changeViewportHeight(section);
+					this.changeViewportHeight(section - 1);
 					viewport.style.left = '-' + prev + 'px';
 					this.section = section - 1;
 					var progress = 100 / 3 * (section - 1);
