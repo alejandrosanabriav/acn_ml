@@ -3,8 +3,8 @@
       <li class="col-md-2">
         <a 
           href="#" 
-          v-bind:class="[ $parent.amount == 30 ? 'active' : ''  ]"
-          v-on:click="changeAmount(10, $event)">$ 10 {{ $parent.amount }}</a>
+          v-bind:class="[ $parent.amount == 10 ? 'active' : ''  ]"
+          v-on:click="changeAmount(10, $event)">$ 10</a>
       </li>
       <li class="col-md-2">
         <a 
@@ -28,7 +28,7 @@
         >$ 100</a>
       </li>
       <li class="col-md-2">
-        <a 
+        <a
           href="#" 
           v-bind:class="[ $parent.amount == 1 ? 'active' : ''  ]" 
           v-on:click="changeAmount('', $event)">
