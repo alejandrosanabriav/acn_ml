@@ -176,8 +176,6 @@ export default () => ({
 					stripe: response.error.message
 				};
 
-				
-
 				this.changeViewportHeight(this.section);
 			}
 		},
