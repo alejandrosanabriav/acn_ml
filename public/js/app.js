@@ -13533,25 +13533,18 @@
 				onSubmit: function onSubmit(e) {
 					var _this4 = this;
 
-					e.preventDefault();
-
-					this.contactValidations();
-
 					var contact = this.contact,
 					    currency = this.currency,
 					    amount = this.amount,
 					    donation_type = this.donation_type,
 					    stripe_token = this.stripe_token;
 
-
-					var data = _extends({}, contact, {
-						currency: currency,
-						amount: amount,
-						donation_type: donation_type,
-						stripe_token: stripe_token
-					});
-
+					var data = _extends({}, contact, { currency: currency, amount: amount, donation_type: donation_type, stripe_token: stripe_token });
+					e.preventDefault();
+					this.contactValidations();
 					this.toggleLoading();
+
+					console.log(Object.keys(this.errors));
 
 					if (Object.keys(this.errors).length == 0) {
 						_jquery2.default.ajax({
@@ -13566,7 +13559,6 @@
 							}
 						}).then(function (res) {
 							if (res.id) _this4.success = true;
-							console.log('complete');
 						});
 					} else {
 						this.toggleLoading();

@@ -229,28 +229,13 @@ export default () => ({
 		},
 
 		onSubmit(e) {
+			const { contact, currency, amount, donation_type, stripe_token } = this;
+			let data = { ...contact, currency, amount, donation_type, stripe_token}; 
 			e.preventDefault();
-
 			this.contactValidations();
-
-			const {
-				contact,
-				currency,
-				amount,
-				donation_type,
-				stripe_token
-			} = this;
-
-			let data = {
-				...contact,
-				currency,
-				amount,
-				donation_type,
-				stripe_token,
-			};
-
 			this.toggleLoading();
 			
+			console.log(Object.keys(this.errors));
 
 			if(Object.keys(this.errors).length == 0) {
 				$.ajax({
@@ -266,7 +251,6 @@ export default () => ({
 				})
 				.then(res => {
 					if (res.id) this.success = true;
-					console.log('complete');
 				});
 			} else {
 				this.toggleLoading();
