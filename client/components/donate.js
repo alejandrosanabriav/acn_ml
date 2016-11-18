@@ -174,6 +174,8 @@ export default () => ({
 				this.errors = {
 					stripe: response.error.message
 				};
+				
+				this.changeViewportHeight(this.section);
 			}
 		},
 
@@ -249,8 +251,7 @@ export default () => ({
 			this.toggleLoading();
 			
 			if(Object.keys(this.errors).length == 0) {
-				console.log('not errors', this.errors.contact);
-						$.ajax({
+				$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					type: 'post',
 					data: {
@@ -320,34 +321,36 @@ export default () => ({
 			}
 		},
 
-		nextSection() {
+		changeViewportHeight(section = 1) {
 			let parent = this.$el;
-			let section = this.section;
 			let nodeSection = parent.querySelector(`.donate_landing__section-${section + 1}`);
 			let height = nodeSection.offsetHeight;
 			let viewport = document.querySelector('.donate_landing__viewport');
+			viewport.style.height = `${height}px`;
+		},
+
+		nextSection() {
+			let parent = this.$el;
+			let section = this.section;
+			let progress = 100 / 3 * (section + 1);
+			let viewport = parent.querySelector('.donate_landing__viewport');
 			let next = section * 100;
 			viewport.style.left = `-${next}%`;
-			viewport.style.height = `${height}px`;
-			let progress = 100 / 3 * (section + 1);
+			this.changeViewportHeight(section);			
 			this.progress = `${progress}%`;
 			this.section = section + 1;
-
 		},
 
 		backSection() {
 			let parent = this.$el;
 			let section = this.section;
-			let nodeSection = parent.querySelector(`.donate_landing__section-${section - 1}`);
-			let height = nodeSection.offsetHeight;
 			let form = parent;
-
 			let viewport = parent.querySelector('.donate_landing__viewport');
 			let width = form.offsetWidth;
 			let actual = width * (section - 1);
 			let prev = actual - width;
+			this.changeViewportHeight(section);
 			viewport.style.left = `-${prev}px`;
-			viewport.style.height = `${height}px`;
 			this.section = section - 1;
 			let progress = 100 / 3 * (section - 1);
 			this.progress = `${progress}%`;

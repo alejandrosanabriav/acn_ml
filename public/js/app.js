@@ -13489,6 +13489,8 @@
 						this.errors = {
 							stripe: response.error.message
 						};
+
+						this.changeViewportHeight(this.section);
 					}
 				},
 				contactValidations: function contactValidations() {
@@ -13555,7 +13557,6 @@
 					this.toggleLoading();
 
 					if (Object.keys(this.errors).length == 0) {
-						console.log('not errors', this.errors.contact);
 						_jquery2.default.ajax({
 							url: '/wp-admin/admin-ajax.php',
 							type: 'post',
@@ -13619,32 +13620,36 @@
 						this.errors = response.errors;
 					}
 				},
-				nextSection: function nextSection() {
+				changeViewportHeight: function changeViewportHeight() {
+					var section = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
 					var parent = this.$el;
-					var section = this.section;
 					var nodeSection = parent.querySelector('.donate_landing__section-' + (section + 1));
 					var height = nodeSection.offsetHeight;
 					var viewport = document.querySelector('.donate_landing__viewport');
+					viewport.style.height = height + 'px';
+				},
+				nextSection: function nextSection() {
+					var parent = this.$el;
+					var section = this.section;
+					var progress = 100 / 3 * (section + 1);
+					var viewport = parent.querySelector('.donate_landing__viewport');
 					var next = section * 100;
 					viewport.style.left = '-' + next + '%';
-					viewport.style.height = height + 'px';
-					var progress = 100 / 3 * (section + 1);
+					this.changeViewportHeight(section);
 					this.progress = progress + '%';
 					this.section = section + 1;
 				},
 				backSection: function backSection() {
 					var parent = this.$el;
 					var section = this.section;
-					var nodeSection = parent.querySelector('.donate_landing__section-' + (section - 1));
-					var height = nodeSection.offsetHeight;
 					var form = parent;
-
 					var viewport = parent.querySelector('.donate_landing__viewport');
 					var width = form.offsetWidth;
 					var actual = width * (section - 1);
 					var prev = actual - width;
+					this.changeViewportHeight(section);
 					viewport.style.left = '-' + prev + 'px';
-					viewport.style.height = height + 'px';
 					this.section = section - 1;
 					var progress = 100 / 3 * (section - 1);
 					this.progress = progress + '%';
