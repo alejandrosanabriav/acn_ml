@@ -84,21 +84,7 @@
       </div> <!-- donate_landing__section-1 -->
 
       <div class="stripe-info donate_landing__section donate_landing__section-2" >
-        <h6 style="text-transform: uppercase; text-align: left; margin-left:15px"> USD ${{amount}} • {{donation_type}}</h6>
-
-        <div class="form-group col-sm-12">
-          <input
-          type="text"
-          v-on:keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16)],showCard()"
-          class="form-control form-control--outline"
-          id="exampleInputAmount"
-          v-model="stripe.number"
-          placeholder="<?php echo gett('Credit Card Number') ?>"
-          >
-           <span class="form-group__error" v-if="errors.number"><?php echo gett('Credit Card Number') . ' ' . gett('incorrect') ?>, </span>
-        </div>
-
-        <div class="row">
+           <div class="row">
 
           <div class="form-group col-sm-6 donate_landing__cards">
             <img 
@@ -133,6 +119,18 @@
 
           <div class="form-group col-sm-6"></div>
         
+        </div>
+
+        <div class="form-group col-sm-12">
+          <input
+          type="text"
+          v-on:keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16)],showCard()"
+          class="form-control form-control--outline"
+          id="exampleInputAmount"
+          v-model="stripe.number"
+          placeholder="<?php echo gett('Credit Card Number') ?>"
+          >
+           <span class="form-group__error" v-if="errors.number"><?php echo gett('Credit Card Number') . ' ' . gett('incorrect') ?>, </span>
         </div>
 
         <div class="form-group col-xs-4">
@@ -190,7 +188,6 @@
 
 
     <div class="donate_landing__section donate_landing__section-3" >
-      <h6 style="text-transform: uppercase; text-align: left; margin-left:15px"> USD ${{amount}} • {{donation_type}}</h6>
         <div class="col-sm-12">
           <div class="form-group ">
             <input
