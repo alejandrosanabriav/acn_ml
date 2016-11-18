@@ -39,7 +39,7 @@ function stripe_create_charge($api_key, $charge) {
   try {
     $charge = \Stripe\Charge::create(array(
     "amount" => $charge['amount'],
-    "currency" => $charge['currency'],
+    "currency" => $charge['currency'] . '00',
     "source" => $charge['stripe_token']
     ));
   } catch(Exception $e) {
