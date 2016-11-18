@@ -60,18 +60,20 @@
           </div>
 
           <div class="col-md-5">
-            <a href="" 
+            <a 
+              href="#" 
               v-on:click="changeType('monthly', $event)"
               v-bind:class="[donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type' ]"
             ><?php echo gett('Monthly') ?></a>
             
-            <a href="" 
+            <a 
+              href="#" 
               v-on:click="changeType('once', $event)"
               v-bind:class="[donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type' ]"
             ><?php echo gett('Once') ?></a>
           </div>
 
-        <div class="col-md-12">
+        <div class="col-xs-12">
           <button class="donate_landing__submit pull-left" v-on:click.prevent="nextSection">
             <?php echo gett('Donate') ?>
           </button>
