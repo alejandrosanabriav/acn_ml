@@ -116,8 +116,6 @@
               src="<?php echo get_template_directory_uri() ?>/public/img/cards/Discover.png" 
             >
           </div>
-
-          <div class="form-group col-sm-6"></div>
         
         </div>
 
