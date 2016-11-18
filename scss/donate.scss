@@ -84,7 +84,13 @@
     border-radius: 8px;
     text-transform: uppercase;
     line-height: 0;
+    background: #fff;
+    transition: all 300ms ease;
     
+    &:hover {
+      background: transparent;
+    }
+
     &-get_token {
       font-size: 16px;
     }
@@ -150,7 +156,7 @@ a {
       &:hover, &.active {
         text-decoration: none;
         background: #fff;
-        color: RGBA(60, 81, 95, 1.00);
+        color: #3C515F;
       }
     }
   }
