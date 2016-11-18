@@ -305,4 +305,5 @@ a:hover {
   .pro-bar__status {
     width: 33%;
     height: 100%;
-    background: #fff; }
+    background: #fff;
+    transition: all 300ms ease-in-out; }

@@ -320,19 +320,17 @@ export default () => ({
 
 		nextSection() {
 			let parent = this.$el;
-			let nodes = parent.querySelectorAll('.donate_landing__section');
-
 			let section = this.section;
 			let nodeSection = parent.querySelector(`.donate_landing__section-${section + 1}`);
 			let height = nodeSection.offsetHeight;
-			let form = parent;
-
 			let viewport = document.querySelector('.donate_landing__viewport');
-			let width = form.offsetWidth;
 			let next = section * 100;
 
 			viewport.style.left = `-${next}%`;
+			viewport.style.height = height;
+			
 			this.section = section + 1;
+
 		},
 
 		backSection() {

@@ -13616,18 +13616,15 @@
 				},
 				nextSection: function nextSection() {
 					var parent = this.$el;
-					var nodes = parent.querySelectorAll('.donate_landing__section');
-
 					var section = this.section;
 					var nodeSection = parent.querySelector('.donate_landing__section-' + (section + 1));
 					var height = nodeSection.offsetHeight;
-					var form = parent;
-
 					var viewport = document.querySelector('.donate_landing__viewport');
-					var width = form.offsetWidth;
 					var next = section * 100;
 
 					viewport.style.left = '-' + next + '%';
+					viewport.style.height = height;
+
 					this.section = section + 1;
 				},
 				backSection: function backSection() {
