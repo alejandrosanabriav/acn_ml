@@ -294,3 +294,12 @@ a:hover {
       text-decoration: none;
       background: #fff;
       color: #3C515F; }
+
+.pro-bar {
+  height: 10px;
+  border-radius: 8px;
+  border: solid 3px #ffffff;
+  width: 100%;
+  background: transparent; }
+  .pro-bar__status {
+    background: #fff; }

@@ -107,7 +107,7 @@
               src="<?php echo get_template_directory_uri() ?>/public/img/cards/Visa.png" 
             >
 
-            <img 
+            <img
               v-bind:class="{'card-type--active': card.MasterCard}" 
               class="card-type" 
               src="<?php echo get_template_directory_uri() ?>/public/img/cards/MasterCard.png" 
@@ -164,13 +164,13 @@
 
         <div class="form-group col-xs-4">
           <input
-          type="text"
-          v-on:keyup="[cleanNumber('stripe.cvc'), maxLength('stripe.cvc', 4)]"
-          class="form-control form-control--outline"
-          :class="{form-group--error: errors.cvc}"
-          style="text-align: center;"
-          v-model="stripe.cvc"
-          placeholder="<?php echo gett('CVC') ?>"
+            type="text"
+            v-on:keyup="[cleanNumber('stripe.cvc'), maxLength('stripe.cvc', 4)]"
+            class="form-control form-control--outline"
+            :class="{form-group--error: errors.cvc}"
+            style="text-align: center;"
+            v-model="stripe.cvc"
+            placeholder="<?php echo gett('CVC') ?>"
           >
            <span class="form-group__error" v-if="errors.cvc"><?php echo gett('CVC') . ' ' . gett('incorrect') ?></span>
         </div>
@@ -238,7 +238,10 @@
     </div><!-- donate_landing__section-3 -->
     </div><!-- viewport -->
 
-      </div> <!-- success -->
+  </div> <!-- success -->
+  <div class="pro-bar">
+    <div class="pro-bar__status"></div>
+  </div>
   </form>
 
   </div>

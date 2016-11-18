@@ -163,3 +163,14 @@ a {
     }
   }
 }
+
+.pro-bar {
+  height: 10px;
+  border-radius: 8px;
+	border: solid 3px #ffffff;
+  width: 100%;
+  background: transparent;
+  &__status {
+    background: #fff;
+  }
+}
