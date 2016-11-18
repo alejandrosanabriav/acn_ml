@@ -237,7 +237,7 @@
     </div><!-- viewport -->
 
   </div> <!-- success -->
-  <div class="col-xs-12">
+  <div class="form-group col-xs-12">
     <div class="pro-bar">
       <div class="pro-bar__status" v-bind:style="{width: progress}"></div>
     </div>
