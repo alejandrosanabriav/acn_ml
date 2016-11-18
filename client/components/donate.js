@@ -349,6 +349,7 @@ export default () => ({
 			let actual = width * (section - 1);
 			let prev = actual - width;
 			viewport.style.left = `-${prev}px`;
+			viewport.style.height = `${height}px`;
 			this.section = section - 1;
 		}
 	}

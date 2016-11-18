@@ -13643,6 +13643,7 @@
 					var actual = width * (section - 1);
 					var prev = actual - width;
 					viewport.style.left = '-' + prev + 'px';
+					viewport.style.height = height + 'px';
 					this.section = section - 1;
 				}
 			}
