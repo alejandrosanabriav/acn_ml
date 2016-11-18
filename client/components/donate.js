@@ -229,7 +229,7 @@ export default () => ({
 		},
 
 		onSubmit(e) {
-			const { contact, currency, amount, donation_type, stripe_token } = this;
+			const { contact, currency, amount, donation_type } = this;
 			let data = { ...contact, currency, amount, donation_type, stripe_token};
 			console.log('data', data); 
 			e.preventDefault();

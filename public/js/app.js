@@ -13538,8 +13538,7 @@
 					var contact = this.contact,
 					    currency = this.currency,
 					    amount = this.amount,
-					    donation_type = this.donation_type,
-					    stripe_token = this.stripe_token;
+					    donation_type = this.donation_type;
 
 					var data = _extends({}, contact, { currency: currency, amount: amount, donation_type: donation_type, stripe_token: stripe_token });
 					console.log('data', data);
