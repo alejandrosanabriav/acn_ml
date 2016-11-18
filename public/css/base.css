@@ -196,8 +196,8 @@ button {
       width: 40px; }
   .donate_landing__info {
     margin-left: 25px;
-    font-size: 14px;
-    font-weight: light;
+    font-size: 1.07143em;
+    font-weight: 200;
     color: #fff;
     padding-top: 15px; }
   .donate_landing__back {
