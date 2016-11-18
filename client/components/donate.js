@@ -40,6 +40,7 @@ let componentData = {
 	errors: {},
 	success: false,
 	loading: false,
+	progress: '33.3%',
 	stripe: {
 		number: '',
 		exp_month: '',
@@ -326,10 +327,9 @@ export default () => ({
 			let height = nodeSection.offsetHeight;
 			let viewport = document.querySelector('.donate_landing__viewport');
 			let next = section * 100;
-			
 			viewport.style.left = `-${next}%`;
 			viewport.style.height = `${height}px`;
-			
+			this.progress = 100 / 3 * section;
 			this.section = section + 1;
 
 		},
@@ -348,6 +348,7 @@ export default () => ({
 			viewport.style.left = `-${prev}px`;
 			viewport.style.height = `${height}px`;
 			this.section = section - 1;
+			this.progress = 100 / 3 * section;
 		}
 	}
 });

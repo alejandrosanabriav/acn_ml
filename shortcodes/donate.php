@@ -238,7 +238,7 @@
 
   </div> <!-- success -->
   <div class="pro-bar">
-    <div class="pro-bar__status"></div>
+    <div class="pro-bar__status" v-bind:style="{width: progress}"></div>
   </div>
   </form>
 

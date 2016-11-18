@@ -13360,6 +13360,7 @@
 		errors: {},
 		success: false,
 		loading: false,
+		progress: '33.3%',
 		stripe: {
 			number: '',
 			exp_month: '',
@@ -13625,10 +13626,9 @@
 					var height = nodeSection.offsetHeight;
 					var viewport = document.querySelector('.donate_landing__viewport');
 					var next = section * 100;
-
 					viewport.style.left = '-' + next + '%';
 					viewport.style.height = height + 'px';
-
+					this.progress = 100 / 3 * section;
 					this.section = section + 1;
 				},
 				backSection: function backSection() {
@@ -13645,6 +13645,7 @@
 					viewport.style.left = '-' + prev + 'px';
 					viewport.style.height = height + 'px';
 					this.section = section - 1;
+					this.progress = 100 / 3 * section;
 				}
 			}
 		};
