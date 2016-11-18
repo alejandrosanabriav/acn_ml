@@ -302,7 +302,8 @@ a:hover {
   border: solid 3px #ffffff;
   width: 100%;
   background: transparent;
-  margin: 20px 0; }
+  margin: 20px 0;
+  padding: 0 15px; }
   .pro-bar__status {
     width: 33%;
     height: 100%;
