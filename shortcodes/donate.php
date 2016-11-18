@@ -45,7 +45,7 @@
       <div class="donate_landing__section donate_landing__section-1">
         <change-amount></change-amount>
 
-          <div class="form-group col-sm-5" style="float: left">
+          <div class="form-group col-md-5 col-sm-7" style="float: left">
             <div class="input-group col-sm-12" >
               <div class="input-group-addon">USD</div>
               <input
