@@ -126,6 +126,7 @@
           type="text"
           v-on:keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16)],showCard()"
           class="form-control form-control--outline"
+          v-on:class="{'form-group--error': errors.number}"
           id="exampleInputAmount"
           v-model="stripe.number"
           placeholder="<?php echo gett('Credit Card Number') ?>"
