@@ -13622,6 +13622,7 @@
 
 					var parent = this.$el;
 					var nodeSection = parent.querySelector('.donate_landing__section-' + section);
+					console.log(nodeSection);
 					var height = nodeSection.offsetHeight;
 					var viewport = document.querySelector('.donate_landing__viewport');
 					viewport.style.height = height + 'px';
