@@ -13500,7 +13500,9 @@
 
 					fields.forEach(function (key) {
 						var validation = _this3.isRequired(key);
-						errors = _extends({}, errors, validation);
+						if (validation) {
+							errors = _extends({}, errors, validation);
+						}
 					});
 
 					this.errors = errors;

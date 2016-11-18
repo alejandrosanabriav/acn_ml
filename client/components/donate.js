@@ -190,12 +190,12 @@ export default () => ({
 
 			fields.forEach((key) => {
 				let validation = this.isRequired(key);
-				errors = {...errors, ...validation};
+				if(validation) {
+					errors = {...errors, ...validation};
+				}
 			});
 
 			this.errors = errors;
-		
-
 		},
 
 		showErrors() {
