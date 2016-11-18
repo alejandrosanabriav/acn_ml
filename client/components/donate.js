@@ -267,6 +267,8 @@ export default () => ({
 					if (res.id) this.success = true;
 					console.log('complete');
 				});
+			} else {
+				this.changeViewportHeight( 3 );
 			}
 		},
 
@@ -325,7 +327,6 @@ export default () => ({
 		changeViewportHeight(section = 1) {
 			let parent = this.$el;
 			let nodeSection = parent.querySelector(`.donate_landing__section-${section}`);
-			console.log(nodeSection);
 			let height = nodeSection.offsetHeight;
 			let viewport = document.querySelector('.donate_landing__viewport');
 			viewport.style.height = `${height}px`;

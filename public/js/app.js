@@ -13568,6 +13568,8 @@
 							if (res.id) _this4.success = true;
 							console.log('complete');
 						});
+					} else {
+						this.changeViewportHeight(3);
 					}
 				},
 				changeType: function changeType(type, evt) {
@@ -13622,7 +13624,6 @@
 
 					var parent = this.$el;
 					var nodeSection = parent.querySelector('.donate_landing__section-' + section);
-					console.log(nodeSection);
 					var height = nodeSection.offsetHeight;
 					var viewport = document.querySelector('.donate_landing__viewport');
 					viewport.style.height = height + 'px';
