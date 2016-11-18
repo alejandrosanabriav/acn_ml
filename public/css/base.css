@@ -174,7 +174,8 @@ button {
 
 .donate_landing {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  margin: 20px 0; }
   .donate_landing h6 {
     color: #fff;
     font-size: 16px;
