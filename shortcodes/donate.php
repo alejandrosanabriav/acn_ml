@@ -179,10 +179,10 @@
               v-on:click.prevent="getToken" 
               :disabled="loading"
             >
-              <?php echo getT('PAYMENT INFO >') ?>
+              <?php echo getT('NEXT') ?>
             </button>
 
-            <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"><?php echo getT('Back') ?></button>
+            <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"> < <?php echo getT('Back') ?></button>
             </div>
       </div><!-- donate_landing__section-2 -->
 
