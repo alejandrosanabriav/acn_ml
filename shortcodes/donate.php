@@ -212,7 +212,7 @@
               v-model="contact['contact.email']"
             >
 
-              <span class="form-group__error" v-if="errors['contact.email']"><?php echo gett('Email') . ' ' . gett('required') ?>, </span>
+              <span class="form-group__error" v-if="errors['contact.email']"><?php echo gett('Email') . ' ' . gett('required') ?></span>
           </div>
         </div>
 
@@ -223,7 +223,7 @@
                   <option value="<?php echo $country; ?>"><?php echo $country; ?></option>
                 <?php endforeach; ?>
             </select>
-            <span class="form-group__error" v-if="errors['contact.country']"><?php echo gett('Country') . ' ' . gett('required') ?>, </span>
+            <span class="form-group__error" v-if="errors['contact.country']"><?php echo gett('Country') . ' ' . gett('required') ?></span>
           </div>
         </div>
   
