@@ -302,4 +302,6 @@ a:hover {
   width: 100%;
   background: transparent; }
   .pro-bar__status {
+    width: 33%;
+    height: 100%;
     background: #fff; }
