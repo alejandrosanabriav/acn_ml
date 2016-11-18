@@ -330,8 +330,7 @@ export default () => ({
 			viewport.style.left = `-${next}%`;
 			viewport.style.height = `${height}px`;
 			let progress = 100 / 3 * (section + 1);
-			console.log(progress);
-			this.progress = `${progress}%` ;
+			this.progress = `${progress}%`;
 			this.section = section + 1;
 
 		},
@@ -350,7 +349,8 @@ export default () => ({
 			viewport.style.left = `-${prev}px`;
 			viewport.style.height = `${height}px`;
 			this.section = section - 1;
-			this.progress = 100 / 3 * section;
+			let progress = 100 / 3 * (section - 1);
+			this.progress = `${progress}%`;
 		}
 	}
 });
