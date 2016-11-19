@@ -21,6 +21,7 @@ function bs_accounts_settings() {
   register_setting( 'bs_accounts_info_group', 'mailchimp_list_id' );
   register_setting( 'bs_accounts_info_group', 'stripe_key_private' );
   register_setting( 'bs_accounts_info_group', 'stripe_key_public' );
+  register_setting( 'bs_accounts_info_group', 'donate_redirect' );
 }
 
 function bs_accounts_options() {
@@ -81,6 +82,19 @@ function bs_accounts_options() {
         value="<?php echo get_option('stripe_key_public') ?>"
         >
     </p>
+
+    <p>
+    
+    </p>
+     <label for=""> <b>Donate thanks / redirect</b>  </label>
+       <br>
+      <input 
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
+        type="text"
+        name="donate_redirect"
+        placeholder="url"
+        value="<?php echo get_option('donate_redirect') ?>"
+        >
     <p>
       <?php submit_button(); ?>
     </p>
