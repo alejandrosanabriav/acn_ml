@@ -1,7 +1,7 @@
 <form action="" data-validate="true">
   <?php echo do_shortcode($content) ?>
   
-  <button style="height: 100px; border-radius: 8px; border: solid 4px #f1364e;"  style="<?php echo $at['btn_style'] ?>">
+  <button style="height: 100px; border-radius: 8px; border: solid 4px #f1364e; font-size: 70px; <?php echo $at['btn_style'] ?>">
 
     <svg width="70px" height="66px" viewBox="23 15 70 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(23.000000, 15.000000)">
