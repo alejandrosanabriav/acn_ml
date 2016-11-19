@@ -22,6 +22,7 @@ function bs_accounts_settings() {
   register_setting( 'bs_accounts_info_group', 'stripe_key_private' );
   register_setting( 'bs_accounts_info_group', 'stripe_key_public' );
   register_setting( 'bs_accounts_info_group', 'donate_redirect' );
+  register_setting( 'bs_accounts_info_group', 'subscribe_redirect' );
 }
 
 function bs_accounts_options() {
@@ -86,6 +87,7 @@ function bs_accounts_options() {
     <p>
     
     </p>
+    <p>
      <label for=""> <b>Donate thanks / redirect</b>  </label>
        <br>
       <input 
@@ -95,6 +97,19 @@ function bs_accounts_options() {
         placeholder="url"
         value="<?php echo get_option('donate_redirect') ?>"
         >
+      </p>
+
+      <p>
+     <label for=""> <b>Subscribe thanks / redirect</b>  </label>
+       <br>
+      <input
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
+        type="text"
+        name="subscribe_redirect"
+        placeholder="url"
+        value="<?php echo get_option('subscribe_redirect') ?>"
+        >
+      </p>
     <p>
       <?php submit_button(); ?>
     </p>
