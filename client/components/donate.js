@@ -207,7 +207,7 @@ export default () => ({
 		},
 
 		removeErrors() {
-			this.errors = {};
+			this.errors = {...componentData.errors};
 		},
 
 		toggleLoading() {
