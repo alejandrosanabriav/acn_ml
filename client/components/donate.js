@@ -55,7 +55,8 @@ export default () => ({
 		'validationMessages',
 		'backText',
 		'texts',
-		'link'
+		'link',
+		'cardSrc'
 	],
 
 	data() {
