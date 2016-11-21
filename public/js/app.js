@@ -13652,7 +13652,7 @@
 
 					console.log(this.errors);
 				},
-				cardExpiry: function cardExpiry() {
+				expiryValidation: function expiryValidation() {
 					var isValid = Stripe.card.validateExpiry(this.stripe.exp_month, this.stripe.exp_year);
 
 					if (isValid) {

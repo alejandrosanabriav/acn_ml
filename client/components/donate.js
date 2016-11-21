@@ -360,7 +360,7 @@ export default () => ({
 			console.log(this.errors);
 		},
 
-		cardExpiry() {
+		expiryValidation() {
 			let isValid = Stripe.card.validateExpiry(this.stripe.exp_month, this.stripe.exp_year);
 			
 			if(isValid) {
