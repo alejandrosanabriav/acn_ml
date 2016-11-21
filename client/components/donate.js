@@ -6,12 +6,12 @@ import validateStripe from '../stripe/validation.js';
 
 const componentData = {
 	donation_type: 'monthly',
-	success: false,
-	loading: false,
 	progress: '33.3%',
 	captcha: null,
 	amount: 30,
 	section: 1,
+	success: false,
+	loading: false,
 	countries: [],
 	errors: {},
 
@@ -26,8 +26,7 @@ const componentData = {
 	contact: {
 		name: null,
 		email: null,
-		country: null,
-		stripe_token: null
+		country: null
 	},
 
 	card: {
