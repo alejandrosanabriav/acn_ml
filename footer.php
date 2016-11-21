@@ -2,6 +2,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js"></script>
 <script src="https://js.stripe.com/v2/"></script>
 <script src="https://cdn.jsdelivr.net/flexslider/2.6.3/jquery.flexslider.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 
