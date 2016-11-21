@@ -35,14 +35,6 @@ const componentData = {
 		DinersClub: false,
 		AmericanExpress: false,
 		Discover: false
-	},
-
-	cardSrc: {
-		Visa: '',
-		MasterCard: '',
-		DinersClub: '',
-		AmericanExpress: '',
-		Discover: ''
 	}
 };
 
