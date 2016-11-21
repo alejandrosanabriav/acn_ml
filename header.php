@@ -30,6 +30,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   countries=<?php echo json_encode(getCountries()) ?>
 >
 
+<?php echo json_encode(getCountries()) ?>
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPMG5P"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
