@@ -13330,17 +13330,16 @@
 	function addStylesToNodes(parent) {
 		var nodes = parent.querySelectorAll('.donate_landing__section');
 		var count = 100 / nodes.length;
-
-		var firstNode = parent.querySelector('.donate_landing__section-1');
-		console.log('first node', firstNode.offsetHeight);
-		parent.querySelector('.donate_landing__viewport').style.height = firstNode.offsetHeight + 'px';
-
 		if (nodes.length) {
 			Array.prototype.slice.call(nodes).forEach(function (node) {
 				node.style.width = count + '%';
 				node.style.float = 'left';
 			});
 		}
+
+		var firstNode = parent.querySelector('.donate_landing__section-1');
+		console.log('first node', firstNode.offsetHeight);
+		parent.querySelector('.donate_landing__viewport').style.height = firstNode.offsetHeight + 'px';
 	}
 
 	function setViewportWidth(parent) {

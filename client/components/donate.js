@@ -9,17 +9,16 @@ import validateStripe from '../stripe/validation.js';
 function addStylesToNodes(parent) {
 	let nodes = parent.querySelectorAll('.donate_landing__section');
 	let count = 100 / nodes.length;
-
-	let firstNode = parent.querySelector(`.donate_landing__section-1`);
-	console.log('first node', firstNode.offsetHeight);
-	parent.querySelector('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
-
 	if (nodes.length) {
 		Array.prototype.slice.call(nodes).forEach(node => {
 			node.style.width = count + '%';
 			node.style.float = 'left';
 		});
 	}
+
+		let firstNode = parent.querySelector(`.donate_landing__section-1`);
+	console.log('first node', firstNode.offsetHeight);
+	parent.querySelector('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
 }
 
 function setViewportWidth(parent) {
