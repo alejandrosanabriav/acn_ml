@@ -26,11 +26,12 @@ body {
     float: left;
     margin: 20px 0 0 0; }
   #header .navbar-nav {
-    padding-top: 25px;
-    color: #1a2127;
-    transition: all 300ms ease; }
-    #header .navbar-nav:hover, #header .navbar-nav:focus {
-      color: #f1364e; }
+    padding-top: 25px; }
+    #header .navbar-nav a {
+      color: #1a2127;
+      transition: all 300ms ease; }
+      #header .navbar-nav a:hover, #header .navbar-nav a:focus {
+        color: #f1364e; }
 
 h1 {
   font-family: Rubik;
