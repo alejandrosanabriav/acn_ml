@@ -359,13 +359,12 @@ export default () => ({
 
 		validateContact(field = '') {
 			let val = this.$get(`contact.${field}`);
-			if(field == 'email') {
-				this.$set(`errors.${field}`, !validator.isEmail(val));
-			}
-			this.$set(`errors.${field}`, validator.isEmpty(val));
+			console.log('val', val);
+			// if(field == 'email') {
+			// 	this.$set(`errors.${field}`, !validator.isEmail(val));
+			// }
+			// this.$set(`errors.${field}`, validator.isEmpty(val));
 		}
-
-
 	},
 
 	template: `

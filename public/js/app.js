@@ -13654,10 +13654,11 @@
 					var field = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
 					var val = this.$get('contact.' + field);
-					if (field == 'email') {
-						this.$set('errors.' + field, !_validator2.default.isEmail(val));
-					}
-					this.$set('errors.' + field, _validator2.default.isEmpty(val));
+					console.log('val', val);
+					// if(field == 'email') {
+					// 	this.$set(`errors.${field}`, !validator.isEmail(val));
+					// }
+					// this.$set(`errors.${field}`, validator.isEmpty(val));
 				}
 			},
 
