@@ -13326,7 +13326,10 @@
 		success: false,
 		loading: false,
 		countries: [],
-		errors: {},
+		errors: {
+			stripe: {},
+			contact: {}
+		},
 
 		stripe: {
 			number: '',
