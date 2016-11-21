@@ -1,7 +1,7 @@
 <div id="sidr">
 
   <!-- Your content -->
-  <button class="close"><?php echo getT('Close') ?></button>
+  <button class="close"><i class="ion-close"></i> <?php echo getT('Close') ?></button>
 
   <ul>
     <?php
