@@ -44,7 +44,7 @@
         }
       }"
     :placeholders="{
-      amount: '<?php echo $at['placeholder_amount'] ?>'
+      amount: '<?php echo $at['placeholder_amount'] ?>',
       creditCard: '<?php echo $at['placeholder_credit_card'] ?>',
       month: '<?php echo $at['placeholder_month'] ?>',
       year: '<?php echo $at['placeholder_year'] ?>',
