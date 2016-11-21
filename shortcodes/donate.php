@@ -235,7 +235,7 @@
     url="<?php echo get_template_directory_uri() ?>"
     currency="usd"
     country="<?php echo getCountry() ?>"
-    back-text=<?php echo $at['back-text'] ?>
+    back-text=<?php echo $at['back_text'] ?>
     validation-messages=<?php echo json_encode(array(
       'card' => $at['validation_card'], 
       'expiry'=> $at['validation_expiry'], 
