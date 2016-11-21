@@ -25,12 +25,18 @@ body {
   #header img {
     float: left;
     margin: 20px 0 0 0; }
+  #header .navbar-toggle {
+    color: #1a2127; }
+    #header .navbar-toggle:hover, #header .navbar-toggle:focus {
+      background: transparent;
+      color: #f1364e; }
   #header .navbar-nav {
     padding-top: 25px; }
     #header .navbar-nav a {
       color: #1a2127;
       transition: all 300ms ease; }
       #header .navbar-nav a:hover, #header .navbar-nav a:focus {
+        background: transparent;
         color: #f1364e; }
 
 h1 {

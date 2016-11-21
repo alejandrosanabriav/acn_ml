@@ -45,6 +45,14 @@ body {
     margin: 20px 0 0 0;
   }
 
+  .navbar-toggle {
+     color: $color_dark;
+     &:hover, &:focus {
+        background: transparent;
+        color: $color_red;
+      }
+  }
+
   .navbar-nav {
     padding-top: 25px;
     a {
@@ -52,6 +60,7 @@ body {
       transition: all 300ms ease;
 
       &:hover, &:focus {
+        background: transparent;
         color: $color_red;
       }
     }
