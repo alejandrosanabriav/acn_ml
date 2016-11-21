@@ -38,6 +38,14 @@ const componentData = {
 		DinersClub: false,
 		AmericanExpress: false,
 		Discover: false
+	},
+
+	cardSrc: {
+		Visa: false,
+		MasterCard: false,
+		DinersClub: false,
+		AmericanExpress: false,
+		Discover: false
 	}
 };
 
@@ -67,7 +75,8 @@ export default () => ({
 		const $el = this.$el; 
 		this.addStylesToNodes($el);
 		this.setViewportWidth($el);
-		let firstNode = $el.querySelector(`.donate_landing__section-1`);
+
+		let firstNode = $el.querySelector('.donate_landing__section-1');
 		$el.querySelector('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
 		this.contact.country = this.country;
 	},
@@ -91,12 +100,11 @@ export default () => ({
 			let nodes = parent.querySelectorAll('.donate_landing__section');
 			let count = 100 / nodes.length;
 			if (nodes.length) {
-				Array.prototype.slice.call(nodes).forEach(node => {
+				[...nodes].forEach(node => {
 					node.style.width = count + '%';
 					node.style.float = 'left';
 				});
 			}
-
 		},
 
 		setViewportWidth(parent) {
@@ -413,30 +421,31 @@ export default () => ({
             <img 
               v-bind:class="{'card-type--active': card.Visa}" 
               class="card-type" 
-              src="<?php echo get_template_directory_uri() ?>/public/img/cards/Visa.png" 
+              :src="cardSrc.Visa" 
             >
 
             <img
               v-bind:class="{'card-type--active': card.MasterCard}" 
               class="card-type" 
-              src="<?php echo get_template_directory_uri() ?>/public/img/cards/MasterCard.png" 
+              :src="cardSrc.MasterCard" 
             >
 
             <img 
               v-bind:class="{'card-type--active': card.DinersClub}" 
               class="card-type" 
-              src="<?php echo get_template_directory_uri() ?>/public/img/cards/DinersClub.png" 
+              :src="cardSrc.DinersClub" 
             >
             
             <img 
               v-bind:class="{'card-type--active': card.AmericanExpress}" 
               class="card-type" 
-              src="<?php echo get_template_directory_uri() ?>/public/img/cards/AmericanExpress.png" 
+              :src="cardSrc.AmericanExpress" 
             >
+
             <img 
               v-bind:class="{'card-type--active': card.Discover}" 
               class="card-type" 
-              src="<?php echo get_template_directory_uri() ?>/public/img/cards/Discover.png" 
+              :src="cardSrc.Discover" 
             >
           </div>
         
@@ -445,7 +454,7 @@ export default () => ({
         <div class="form-group col-sm-12">
           <input
             type="text"
-            v-on:keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16)],showCard()"
+            v-on:keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16)], showCard()"
             class="form-control form-control--outline"
             v-bind:class="{'form-group--error': errors.number}"
             id="exampleInputAmount"

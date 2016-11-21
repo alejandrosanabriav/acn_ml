@@ -1,7 +1,7 @@
 'use strict';
 import input from './input';
 import form from './form';
-import donate from './components/donate/donate';
+import donate from './components/donate';
 import donateLand from './components/donate_land';
 import changeAmount from './components/change_amount';
 import sliderBg from './components/slider_bg';
