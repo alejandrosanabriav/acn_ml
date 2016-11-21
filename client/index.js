@@ -18,7 +18,7 @@ import sliderBg from './components/slider_bg';
 		props: ['countries'],
 		ready() {
 			try {
-				const {countries} = JSON.parse(this.countries);
+				const {countries} = JSON.parse(JSON.stringify(this.countries));
 				this.countries = countries;
 			} catch(exc) {
 				console.error(exc);

@@ -84,7 +84,7 @@
 			props: ['countries'],
 			ready: function ready() {
 				try {
-					var _JSON$parse = JSON.parse(this.countries),
+					var _JSON$parse = JSON.parse(JSON.stringify(this.countries)),
 					    countries = _JSON$parse.countries;
 
 					this.countries = countries;
