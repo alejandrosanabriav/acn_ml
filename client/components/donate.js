@@ -54,7 +54,8 @@ export default () => ({
 		'country',
 		'validationMessages',
 		'backText',
-		'texts'
+		'texts',
+		'link'
 	],
 
 	data() {

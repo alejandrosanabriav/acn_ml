@@ -13363,7 +13363,7 @@
 
 	exports.default = function () {
 		return {
-			props: ['captcha_name', 'url', 'currency', 'country', 'validationMessages', 'backText', 'texts'],
+			props: ['captcha_name', 'url', 'currency', 'country', 'validationMessages', 'backText', 'texts', 'link'],
 
 			data: function data() {
 				return _extends({}, componentData);
