@@ -203,7 +203,6 @@ function getCountries($json = false) {
   sort($countries);
 
   if($json) {
-    header('Content-type: application/json');
     return json_encode($countries);
   } else {
     return $countries;
