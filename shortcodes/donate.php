@@ -274,21 +274,15 @@
   <donate-landing
     donation_type="monthly"
     url="<?php echo get_template_directory_uri() ?>"
-    captcha_name="recaptcha-monthly"
     currency="usd"
     country="<?php echo getCountry() ?>"
+    validation-messages="<?php echo json_encode(array(
+      'card' => $at['validation_card'], 
+      'expiry'=> $at['validation_expiry'], 
+      'cvc' => $at['validation_cvc'], 
+      'name' => $at['validation_name'], 
+      'email' => $at['validation_email'], 
+      'country' => $at['validation_country']
+    )) ?>"
   >
   </donate-landing>
-
-  <script>
-   var BS = {};
-
-     BS['trans'] = {
-       'stripeErrors': {
-         'card': "<?php echo gett('card number incorrect') ?>",
-         'expiry': "<?php echo gett('expiry incorrect') ?>",
-         'cvc': "<?php echo gett('cvc incorrect') ?>",
-       }
-     };
-
-  </script>
