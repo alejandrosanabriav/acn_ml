@@ -255,6 +255,8 @@
     currency="usd"
     country="<?php echo getCountry() ?>"
     back-text=<?php echo $at['back_text'] ?>
+    monthly=<?php echo $at['monthly'] ?>
+    once=<?php echo $at['once'] ?>
     :link="{
       anchor: '<?php echo $at['link_anchor'] ?>',
       text: '<?php echo $at['link_text'] ?>'

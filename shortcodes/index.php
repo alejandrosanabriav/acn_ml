@@ -60,6 +60,8 @@ if(function_exists('sc_factory')) {
     "section_btn_3" => "",
     "link_text" => "",
     "link_anchor" => "",
+    "monthly" => "Monthly",
+    "once" => "Once",
     "back_text" => "Back",
     "validation_card" => "Incorrect card",
     "validation_month" => "Incorrect month",
@@ -114,7 +116,22 @@ if(function_exists('sc_factory')) {
       "heading" => "Link anchor",
       "param_name" => "link_anchor",
       "value" => ''
+    ),
+
+    array(
+      "type" => "textfield",
+      "heading" => "monthly",
+      "param_name" => "monthly",
+      "value" => 'Monthly'
+    ),
+
+    array(
+      "type" => "textfield",
+      "heading" => "once",
+      "param_name" => "once",
+      "value" => 'Once'
     )
+
   );
 
     foreach(['card', 'month', 'year', 'cvc', 'name', 'email', 'country'] as $field) {
