@@ -544,7 +544,7 @@ export default () => ({
               type="text"
               name="name"
               class="form-control form-control--outline"
-							v-bind:class="{form-group--error: errors['contact.name']}"
+							v-bind:class="{'form-group--error': errors['contact.name']}"
               placeholder="{{placeholders.name}}"
               v-model="contact.name"
               >
