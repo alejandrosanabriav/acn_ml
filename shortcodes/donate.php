@@ -237,12 +237,12 @@
     country="<?php echo getCountry() ?>"
     back-text=<?php echo $at['back_text'] ?>
     :validation-messages="{
-      card: <?php echo $at['validation_card'] ?>,
-      expiry: <?php echo $at['validation_expiry'] ?>, 
-      cvc: <?php echo $at['validation_cvc'] ?>, 
-      name: <?php echo $at['validation_name'] ?>, 
-      email: <?php echo $at['validation_email'] ?>, 
-      country: <?php echo $at['validation_country'] ?>
+      card: '<?php echo $at['validation_card'] ?>',
+      expiry:'<?php echo $at['validation_expiry'] ?>', 
+      cvc: '<?php echo $at['validation_cvc'] ?>', 
+      name: '<?php echo $at['validation_name'] ?>', 
+      email: '<?php echo $at['validation_email'] ?>', 
+      country: '<?php echo $at['validation_country'] ?>'
     }"
     :texts="{
         sectionOne: {
