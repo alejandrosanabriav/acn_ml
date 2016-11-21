@@ -7,7 +7,7 @@
     monthly=<?php echo $at['monthly'] ?>
     once=<?php echo $at['once'] ?>
     amount=<?php echo $at['amount'] ?>
-    :cardSrc="{
+    :card-src="{˛
       Visa: '<?php echo get_template_directory_uri() . '/public/img/cards/Visa.png' ?>',
       MasterCard: '<?php echo get_template_directory_uri() . '/public/img/cards/MasterCard.png' ?>',
       DinersClub: '<?php echo get_template_directory_uri() . '/public/img/cards/DinersClub.png' ?>',
