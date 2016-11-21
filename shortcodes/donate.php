@@ -20,23 +20,27 @@
                 v-model="amount"
                 v-el:amount-input
                 v-on:keyup="cleanNumber('amount')"
-                placeholder="<?php echo gett('Amount') ?>"
+                placeholder="{{amount}}"
               >
             </div>
           </div>
 
           <div class="col-md-5">
             <a 
-              href="#" 
+              href="#"
               v-on:click="changeType('monthly', $event)"
               v-bind:class="[donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type' ]"
-            ><?php echo gett('Monthly') ?></a>
+            >
+              {{monthly}}
+            </a>
             
-            <a 
+            <a
               href="#" 
               v-on:click="changeType('once', $event)"
               v-bind:class="[donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type' ]"
-            ><?php echo gett('Once') ?></a>
+            >
+            {{once}}
+          </a>
           </div>
 
         <div class="col-xs-12">
@@ -257,6 +261,7 @@
     back-text=<?php echo $at['back_text'] ?>
     monthly=<?php echo $at['monthly'] ?>
     once=<?php echo $at['once'] ?>
+    amount=<?php echo $at['amount'] ?>
     :link="{
       anchor: '<?php echo $at['link_anchor'] ?>',
       text: '<?php echo $at['link_text'] ?>'

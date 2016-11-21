@@ -62,6 +62,7 @@ if(function_exists('sc_factory')) {
     "link_anchor" => "",
     "monthly" => "Monthly",
     "once" => "Once",
+    "amount" => "Amount",
     "back_text" => "Back",
     "validation_card" => "Incorrect card",
     "validation_month" => "Incorrect month",
@@ -130,6 +131,13 @@ if(function_exists('sc_factory')) {
       "heading" => "once",
       "param_name" => "once",
       "value" => 'Once'
+    ),
+
+    array(
+      "type" => "textfield",
+      "heading" => "amount",
+      "param_name" => "amount",
+      "value" => 'Amount'
     )
 
   );
