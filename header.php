@@ -36,15 +36,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 ?>
 
-<div id="header">
-<div class="container">
-      <a href="<?php echo $home ?>">
+  <nav id="header" class="navbar navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle visible-sm visible-xs" >
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <?php
+      $home = '/';
+        if(function_exists('pll_home_url')) {
+          $home = pll_home_url();
+        }
+       ?>
+
+          <a href="<?php echo $home ?>">
       <?php if( !empty( get_option("logo_" . str_replace(' ', '_', getOfficeCountry())  )) ): ?>
         <img src='<?php echo get_option("logo_" . str_replace(' ', '_', getOfficeCountry())  ) ?>'  alt="acn logo" class="img-responsive" width="150"  />
       <?php else: ?>
          <img src="<?php echo get_template_directory_uri(); ?>/public/img/logo.png" alt="acn logo" width="150" >
       <?php endif; ?>
     </a>
+    </div>
 
-</div>
-</div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="visible-lg visible-md" >
+
+      <ul class="nav navbar-nav navbar-right">
+        <?php
+          $args = array(
+            'theme_location' => 'header',
+            'container' => false,
+            'echo' => false
+          );
+
+          $menu = wp_nav_menu( $args);
+          echo clean_menu($menu);
+         ?>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
