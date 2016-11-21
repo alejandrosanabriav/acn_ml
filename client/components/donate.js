@@ -365,7 +365,7 @@ export default () => ({
 				this.$set(`errors.${field}`, !validator.isEmail(val));
 			}
 
-			this.$set(`errors.${field}`, validator.isEmpty(val));
+			this.$set(`errors['contact.${field}']`, validator.isEmpty(val));
 		}
 	},
 

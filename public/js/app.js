@@ -13660,7 +13660,7 @@
 						this.$set('errors.' + field, !_validator2.default.isEmail(val));
 					}
 
-					this.$set('errors.' + field, _validator2.default.isEmpty(val));
+					this.$set('errors[\'contact.' + field + '\']', _validator2.default.isEmpty(val));
 				}
 			},
 
