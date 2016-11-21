@@ -238,5 +238,9 @@ button {
   }
 }
 
+.color-red {
+  color: $color_red
+}
+
 @import 'reset';
 @import 'donate';

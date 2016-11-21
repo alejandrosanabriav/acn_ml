@@ -56,15 +56,14 @@ if(function_exists('sc_factory')) {
 
     $sec_title = array(
       "type" => "textfield",
-      "heading" => "section title" . $section,
+      "heading" => "section title " . $section,
       "param_name" => "section_title_" . $section,
       "value" => ''
     );
 
-
     $sec_content = array(
       "type" => "textarea",
-      "heading" => "section content" . $section,
+      "heading" => "section content " . $section,
       "param_name" => "section_content_" . $section,
       "value" => ''
     );

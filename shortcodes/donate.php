@@ -43,7 +43,9 @@
     <form method="post" class="donate_landing">
       <div class="donate_landing__viewport">
       <div class="donate_landing__section donate_landing__section-1">
-      
+      <h3 class="color-red"></h3><?php echo $at['section_title_1'] ?>
+      <p><?php echo $at['section_content_1'] ?></p>
+
         <change-amount></change-amount>
 
           <div class="form-group col-md-7 col-sm-8" style="float: left">
@@ -85,6 +87,8 @@
       </div> <!-- donate_landing__section-1 -->
 
       <div class="stripe-info donate_landing__section donate_landing__section-2" >
+       <h3 class="color-red"></h3><?php echo $at['section_title_2'] ?>
+        <p><?php echo $at['section_content_2'] ?></p>
            <div class="row">
 
           <div class="form-group col-sm-12 donate_landing__cards">
@@ -192,6 +196,8 @@
 
 
     <div class="donate_landing__section donate_landing__section-3" >
+      <h3 class="color-red"></h3><?php echo $at['section_title_3'] ?>
+      <p><?php echo $at['section_content_3'] ?></p>
         <div class="col-sm-12">
           <div class="form-group ">
             <input
