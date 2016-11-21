@@ -236,9 +236,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <select class="form-control form-control--outline" name="country" v-model="contact.country">
-                <?php foreach(getCountries() as $country): ?>
-                  <option value="<?php echo $country; ?>"><?php echo $country; ?></option>
-                <?php endforeach; ?>
+                <option value="{{country}}" v-for="country in countries">{{country}}</option>
             </select>
             <span class="form-group__error" v-if="errors['contact.country']"><?php echo gett('Country') . ' ' . gett('required') ?></span>
           </div>

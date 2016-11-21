@@ -40,6 +40,7 @@ let componentData = {
 	created_at: moment().format(),
 	amount: 30,
 	section: 1,
+	countries: [],
 	errors: {},
 
 	stripe: {
@@ -85,7 +86,7 @@ export default () => ({
 		$.ajax({
 			url: '/wp-admin/admin-ajax.php',
 			data: {action: 'countries'}
-		}).then(res => console.log(res));
+		}).then(res => this.countries = res);
 	},
 
 	ready() {

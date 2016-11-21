@@ -13369,6 +13369,7 @@
 		created_at: (0, _moment2.default)().format(),
 		amount: 30,
 		section: 1,
+		countries: [],
 		errors: {},
 
 		stripe: {
@@ -13405,11 +13406,13 @@
 				return _extends({}, componentData);
 			},
 			init: function init() {
+				var _this = this;
+
 				_jquery2.default.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					data: { action: 'countries' }
 				}).then(function (res) {
-					return console.log(res);
+					return _this.countries = res;
 				});
 			},
 			ready: function ready() {
@@ -13436,13 +13439,13 @@
 
 			methods: {
 				showCard: function showCard() {
-					var _this = this;
+					var _this2 = this;
 
 					Object.keys(this.card).map(function (key) {
-						if (key === _this.cardType) {
-							return _this.card[key] = true;
+						if (key === _this2.cardType) {
+							return _this2.card[key] = true;
 						} else {
-							return _this.card[key] = false;
+							return _this2.card[key] = false;
 						}
 					});
 				},
@@ -13467,7 +13470,7 @@
 					return error;
 				},
 				createToken: function createToken() {
-					var _this2 = this;
+					var _this3 = this;
 
 					var stripeData = {
 						number: this.stripe.number,
@@ -13489,7 +13492,7 @@
 						url: '/wp-admin/admin-ajax.php',
 						data: data
 					}).done(function (res) {
-						return _this2.handleToken(res);
+						return _this3.handleToken(res);
 					});
 				},
 				handleToken: function handleToken(response) {
@@ -13507,14 +13510,14 @@
 					}
 				},
 				contactValidations: function contactValidations() {
-					var _this3 = this;
+					var _this4 = this;
 
 					var fields = ['contact.name', 'contact.email', 'contact.country'];
 
 					var errors = {};
 
 					fields.forEach(function (key) {
-						var validation = _this3.isRequired(key);
+						var validation = _this4.isRequired(key);
 						if (validation[key]) {
 							errors = _extends({}, errors, validation);
 						}
@@ -13548,7 +13551,7 @@
 					}
 				},
 				onSubmit: function onSubmit(e) {
-					var _this4 = this;
+					var _this5 = this;
 
 					var contact = this.contact,
 					    currency = this.currency,
@@ -13572,10 +13575,10 @@
 								data: data
 							},
 							beforeSend: function beforeSend() {
-								_this4.removeErrors();
+								_this5.removeErrors();
 							}
 						}).then(function (res) {
-							if (res.id) _this4.success = true;
+							if (res.id) _this5.success = true;
 						});
 					} else {
 						this.toggleLoading();
