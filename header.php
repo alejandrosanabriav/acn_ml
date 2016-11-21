@@ -24,7 +24,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 </head>
-<body id="app-ml">
+<body>
+<div 
+  id="app-ml" 
+  countries="<?php echo json_encode(getCountries()) ?>"
+>
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPMG5P"

@@ -79,7 +79,10 @@
 		Vue.component('donate-land', (0, _donate_land2.default)());
 		Vue.component('bsslider-bg', (0, _slider_bg2.default)());
 
-		new Vue({ el: '#app-ml' });
+		var vm = new Vue({
+			el: '#app-ml',
+			props: ['countries']
+		});
 
 		(0, _input2.default)();
 		(0, _form2.default)();

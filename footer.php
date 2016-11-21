@@ -66,5 +66,6 @@ function deferScript(src) {
 <!--wordpress scripts insertion-->
 <?php wp_footer() ?>
 
+</div><!-- #app-ml -->
 </body>
 </html>

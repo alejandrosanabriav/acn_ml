@@ -13,7 +13,10 @@ import sliderBg from './components/slider_bg';
 	Vue.component('donate-land', donateLand());
 	Vue.component('bsslider-bg', sliderBg());
 
-	new Vue({el: '#app-ml'});
+	const vm = new Vue({
+		el: '#app-ml',
+		props: ['countries']
+	});
 
 	input();
 	form();

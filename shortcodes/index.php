@@ -62,7 +62,7 @@ if(function_exists('sc_factory')) {
     "validation_cvc" => "",
     "validation_name" => "",
     "validation_email" => "",
-    "validation_country" => "",
+    "validation_country" => ""
     ), $base . '/donate.php' );
 
   function bs_donate_vc() {
