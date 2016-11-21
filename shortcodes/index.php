@@ -83,13 +83,14 @@ if(function_exists('sc_factory')) {
 
   array_push($bs_donate_sections,
     array(
-      "type" => "textarea",
+      "type" => "textfield",
       "heading" => "Link text",
       "param_name" => "link_text",
       "value" => ''
     ),
+    
     array(
-      "type" => "textarea",
+      "type" => "textfield",
       "heading" => "Link anchor",
       "param_name" => "link_anchor",
       "value" => ''
