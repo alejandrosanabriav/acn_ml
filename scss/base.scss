@@ -73,6 +73,11 @@ body {
 .sidr {
   background: #fff !important;
   box-shadow: none !important;
+  &-class-close {
+    color: $color_red;
+    height: 100px;
+    width: 100%;
+  }
 }
 
 h1 {

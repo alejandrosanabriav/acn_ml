@@ -42,6 +42,10 @@ body {
 .sidr {
   background: #fff !important;
   box-shadow: none !important; }
+  .sidr-class-close {
+    color: #f1364e;
+    height: 100px;
+    width: 100%; }
 
 h1 {
   font-family: Rubik;
