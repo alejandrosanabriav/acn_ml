@@ -474,7 +474,7 @@ export default () => ({
         <div class="form-group col-xs-4">
           <input
             type="text"
-            v-on:keyup="[expiryValidation('month'), cleanNumber('stripe.exp_month'), maxLength('stripe.exp_month', 2)]"
+            v-on:keyup="[cleanNumber('stripe.exp_month'), maxLength('stripe.exp_month', 2), expiryValidation('month')]"
             class="form-control form-control--outline"
             v-bind:class="{'form-group--error': errors.stripe.exp_month}"
             style="text-align: center;"
