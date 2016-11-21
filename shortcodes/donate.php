@@ -229,7 +229,7 @@
   </div>
 
   </script>
-
+  <?php echo $at['validation_card'] ?>
   <donate-landing
     donation_type="monthly"
     url="<?php echo get_template_directory_uri() ?>"
@@ -237,7 +237,7 @@
     country="<?php echo getCountry() ?>"
     back-text=<?php echo $at['back_text'] ?>
     :validation-messages="{
-      card: <?php echo $at['validation_card'] ?>, 
+      card: <?php echo $at['validation_card'] ?>,
       expiry: <?php echo $at['validation_expiry'] ?>, 
       cvc: <?php echo $at['validation_cvc'] ?>, 
       name: <?php echo $at['validation_name'] ?>, 
