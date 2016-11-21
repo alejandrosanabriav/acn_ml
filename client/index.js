@@ -13,16 +13,7 @@ import sliderBg from './components/slider_bg';
 	Vue.component('bsslider-bg', sliderBg());
 
 	const vm = new Vue({
-		el: '#app-ml',
-		props: ['countries'],
-		ready() {
-			try {
-				// const {countriesArr} = JSON.parse(JSON.parse(JSON.stringify(this.countries)));
-				console.log(JSON.parse(JSON.parse(JSON.stringify(this.countries))));
-			} catch(exc) {
-				console.error(exc);
-			}
-		}
+		el: '#app-ml'
 	});
 
 	input();

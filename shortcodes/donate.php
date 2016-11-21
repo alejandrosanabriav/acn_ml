@@ -215,7 +215,7 @@
               placeholder="<?php echo getT('Name') ?>"
               v-model="contact.name"
               >
-               <span class="form-group__error" v-if="errors['contact.name']"><?php echo gett('Name') . ' ' . gett('required') ?>, </span>
+               <span class="form-group__error" v-if="errors['contact.name']"><?php echo $at['validation_name'] ?></span>
           </div>
         </div>
 
@@ -229,7 +229,7 @@
               v-model="contact.email"
             >
 
-              <span class="form-group__error" v-if="errors['contact.email']"><?php echo gett('Email') . ' ' . gett('required') ?></span>
+              <span class="form-group__error" v-if="errors['contact.email']"><?php echo $at['validation_email'] ?></span>
           </div>
         </div>
 
@@ -238,7 +238,7 @@
             <select class="form-control form-control--outline" name="country" v-model="contact.country">
                 <option value="{{country}}" v-for="country in countries">{{country}}</option>
             </select>
-            <span class="form-group__error" v-if="errors['contact.country']"><?php echo gett('Country') . ' ' . gett('required') ?></span>
+            <span class="form-group__error" v-if="errors['contact.country']"><?php echo $at['validation_countries'] ?></span>
           </div>
         </div>
   
@@ -274,13 +274,13 @@
     url="<?php echo get_template_directory_uri() ?>"
     currency="usd"
     country="<?php echo getCountry() ?>"
-    validation-messages="<?php echo json_encode(array(
+    validation-messages=<?php echo json_encode(array(
       'card' => $at['validation_card'], 
       'expiry'=> $at['validation_expiry'], 
       'cvc' => $at['validation_cvc'], 
       'name' => $at['validation_name'], 
       'email' => $at['validation_email'], 
       'country' => $at['validation_country']
-    )) ?>"
+    )) ?>
   >
   </donate-landing>

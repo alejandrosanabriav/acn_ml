@@ -25,10 +25,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </head>
 <body>
-<div 
-  id="app-ml"
-  countries='{countriesArr: <?php echo getCountries(true) ?> }'
->
+<div id="app-ml">
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPMG5P"

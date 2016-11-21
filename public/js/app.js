@@ -79,16 +79,7 @@
 		Vue.component('bsslider-bg', (0, _slider_bg2.default)());
 
 		var vm = new Vue({
-			el: '#app-ml',
-			props: ['countries'],
-			ready: function ready() {
-				try {
-					// const {countriesArr} = JSON.parse(JSON.parse(JSON.stringify(this.countries)));
-					console.log(JSON.parse(JSON.parse(JSON.stringify(this.countries))));
-				} catch (exc) {
-					console.error(exc);
-				}
-			}
+			el: '#app-ml'
 		});
 
 		(0, _input2.default)();
