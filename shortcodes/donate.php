@@ -100,7 +100,9 @@
             placeholder="<?php echo gett('Credit Card Number') ?>"
           >
 
-           <span class="form-group__error" v-if="errors.number"><?php echo gett('Credit Card Number') . ' ' . gett('incorrect') ?></span>
+          <span class="form-group__error" v-if="errors.number">
+            {{validationMessages.card}}
+          </span>
         </div>
 
         <div class="form-group col-xs-4">
@@ -114,7 +116,9 @@
             v-model="stripe.exp_month"
           >
 
-          <span class="form-group__error" v-if="errors.exp_month"><?php echo gett('Month') . ' ' . gett('incorrect') ?></span> 
+          <span class="form-group__error" v-if="errors.exp_month">
+            {{validationMessages.month}}  
+          </span> 
         </div>
 
         <div class="form-group col-xs-4" >
@@ -128,7 +132,9 @@
             v-model="stripe.exp_year"
           >
 
-           <span class="form-group__error" v-if="errors.exp_year"><?php echo gett('Year') . ' ' . gett('incorrect') ?></span>
+           <span class="form-group__error" v-if="errors.exp_year">
+             {{validationMessages.year}}
+           </span>
         </div>
 
         <div class="form-group col-xs-4">
@@ -141,7 +147,9 @@
             v-model="stripe.cvc"
             placeholder="<?php echo gett('CVC') ?>"
           >
-           <span class="form-group__error" v-if="errors.cvc"><?php echo gett('CVC') . ' ' . gett('incorrect') ?></span>
+           <span class="form-group__error" v-if="errors.cvc">
+             {{validationMessages.cvc}}
+           </span>
         </div>
 
         <div class="col-md-12">
@@ -174,7 +182,9 @@
               placeholder="<?php echo getT('Name') ?>"
               v-model="contact.name"
               >
-               <span class="form-group__error" v-if="errors['contact.name']"><?php echo $at['validation_name'] ?></span>
+               <span class="form-group__error" v-if="errors['contact.name']">
+                 {{validationMessages.name}}
+              </span>
           </div>
         </div>
 
@@ -188,7 +198,9 @@
               v-model="contact.email"
             >
 
-            <span class="form-group__error" v-if="errors['contact.email']"><?php echo $at['validation_email'] ?></span>
+            <span class="form-group__error" v-if="errors['contact.email']">
+               {{validationMessages.email}}
+            </span>
           </div>
         </div>
 
@@ -197,7 +209,9 @@
             <select class="form-control form-control--outline" name="country" v-model="contact.country">
                 <option value="{{country}}" v-for="country in countries">{{country}}</option>
             </select>
-            <span class="form-group__error" v-if="errors['contact.country']"><?php echo $at['validation_countries'] ?></span>
+            <span class="form-group__error" v-if="errors['contact.country']">
+               {{validationMessages.country}}
+            </span>
           </div>
         </div>
   
@@ -220,7 +234,9 @@
   </div>
 
    <div class="form-group col-sm-12">
-      <a style="padding-top: 30px" href="<?php echo $at['link_anchor'] ?>"><h4 class="color-red"><?php echo $at['link_text'] ?></h4> <i class="ion-chevron-down color-red"></i></a>
+      <a style="padding-top: 30px" href="<?php echo $at['link_anchor'] ?>">
+        <h4 class="color-red"><?php echo $at['link_text'] ?></h4> <i class="ion-chevron-down color-red"></i>
+      </a>
     </div>
 
   </form>
@@ -237,7 +253,8 @@
     back-text=<?php echo $at['back_text'] ?>
     :validation-messages="{
       card: '<?php echo $at['validation_card'] ?>',
-      expiry:'<?php echo $at['validation_expiry'] ?>', 
+      month: '<?php echo $at['validation_month'] ?>', 
+      year: '<?php echo $at['validation_year'] ?>', 
       cvc: '<?php echo $at['validation_cvc'] ?>', 
       name: '<?php echo $at['validation_name'] ?>', 
       email: '<?php echo $at['validation_email'] ?>', 
