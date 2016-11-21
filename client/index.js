@@ -15,7 +15,10 @@ import sliderBg from './components/slider_bg';
 
 	const vm = new Vue({
 		el: '#app-ml',
-		props: ['countries']
+		props: ['countries'],
+		ready() {
+			console.log(this.countries);
+		}
 	});
 
 	input();

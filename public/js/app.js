@@ -81,7 +81,10 @@
 
 		var vm = new Vue({
 			el: '#app-ml',
-			props: ['countries']
+			props: ['countries'],
+			ready: function ready() {
+				console.log(this.countries);
+			}
 		});
 
 		(0, _input2.default)();
