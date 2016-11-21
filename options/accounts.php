@@ -85,21 +85,31 @@ function bs_accounts_options() {
     </p>
 
     <p>
-    
-    </p>
-    <p>
-     <label for=""> <b>Donate thanks / redirect</b>  </label>
+     <label for=""> <b>Donate once thanks / redirect</b>  </label>
        <br>
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
         name="donate_redirect"
         placeholder="url"
-        value="<?php echo get_option('donate_redirect') ?>"
+        value="<?php echo get_option('donate_once_redirect') ?>"
         >
-      </p>
+    </p>
 
-      <p>
+    <p>
+     <label for=""> <b>Donate monthly thanks / redirect</b>  </label>
+       <br>
+      <input 
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
+        type="text"
+        name="donate_redirect"
+        placeholder="url"
+        value="<?php echo get_option('donate_monthly_redirect') ?>"
+        >
+     </p>
+
+    <p>
+
      <label for=""> <b>Subscribe thanks / redirect</b>  </label>
        <br>
       <input

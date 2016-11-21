@@ -86,7 +86,7 @@
       <div class="stripe-info donate_landing__section donate_landing__section-2" >
            <div class="row">
 
-          <div class="form-group col-sm-6 donate_landing__cards">
+          <div class="form-group col-sm-12 donate_landing__cards">
             <img 
               v-bind:class="{'card-type--active': card.Visa}" 
               class="card-type" 
