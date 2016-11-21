@@ -93,14 +93,14 @@ if(function_exists('sc_factory')) {
       "value" => ''
     );
 
-    $sec_content = array(
+    $sec_btn = array(
       "type" => "textfield",
       "heading" => "section button " . $section,
       "param_name" => "section_btn_" . $section,
       "value" => ''
     );
 
-    array_push($bs_donate_sections, $sec_title, $sec_content);
+    array_push($bs_donate_sections, $sec_title, $sec_content, $sec_btn);
   }
 
 
