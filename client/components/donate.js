@@ -349,9 +349,9 @@ export default () => ({
 			let isValid = Stripe.card[type](this.$get(field)); 
 
 			if(isValid) {
-				this.errors = {...this.errors, ...[field]: !isValid};
+				this.$set(`errors.${field}`, !isValid);
 			} else {
-				this.errors = {...this.errors, ...[field]: !isValid};
+			this.$set(`errors.${field}`, !isValid);
 			}
 			console.log(this.errors);
 		}
