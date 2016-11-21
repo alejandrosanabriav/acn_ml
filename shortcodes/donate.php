@@ -236,7 +236,7 @@
     currency="usd"
     country="<?php echo getCountry() ?>"
     back-text=<?php echo $at['back_text'] ?>
-    validation-messages="{
+    :validation-messages="{
       card: <?php echo $at['validation_card'] ?>, 
       expiry: <?php echo $at['validation_expiry'] ?>, 
       cvc: <?php echo $at['validation_cvc'] ?>, 
@@ -244,7 +244,7 @@
       email: <?php echo $at['validation_email'] ?>, 
       country: <?php echo $at['validation_country'] ?>
     }"
-    texts="{
+    :texts="{
         section1: {
           title: <?php echo $at['section_title_1'] ?>,
           content: <?php echo $at['section_content_1'] ?>
