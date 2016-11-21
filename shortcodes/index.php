@@ -99,7 +99,7 @@ if(function_exists('sc_factory')) {
     )
   );
 
-    foreach(['card', 'expiry', 'cvc'] as $field) {
+    foreach(['card', 'expiry', 'cvc', 'name', 'email', 'country'] as $field) {
       $validation = array(
         "type" => "textfield",
         "heading" => "validation message for " . $field,
