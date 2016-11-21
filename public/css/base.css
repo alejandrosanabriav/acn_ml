@@ -39,6 +39,10 @@ body {
         background: transparent;
         color: #f1364e; }
 
+.sidr {
+  background: #fff;
+  box-shadow: none; }
+
 h1 {
   font-family: Rubik;
   font-size: 5em;
