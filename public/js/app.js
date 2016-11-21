@@ -87,6 +87,7 @@
 					var _JSON$parse = JSON.parse(JSON.stringify(this.countries)),
 					    countries = _JSON$parse.countries;
 
+					console.log(countries);
 					this.countries = countries;
 				} catch (exc) {
 					console.error(exc);
