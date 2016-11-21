@@ -13352,10 +13352,15 @@
 
 	var componentData = {
 		donation_type: 'monthly',
-		errors: {},
 		success: false,
 		loading: false,
 		progress: '33.3%',
+		captcha: null,
+		created_at: (0, _moment2.default)().format(),
+		amount: 30,
+		section: 1,
+		errors: {},
+
 		stripe: {
 			number: '',
 			exp_month: '',
@@ -13377,12 +13382,7 @@
 			DinersClub: false,
 			AmericanExpress: false,
 			Discover: false
-		},
-
-		captcha: null,
-		created_at: (0, _moment2.default)().format(),
-		amount: 30,
-		section: 1
+		}
 	};
 
 	exports.default = function () {
@@ -13506,7 +13506,7 @@
 				},
 				showErrors: function showErrors() {
 					var errorAmount = this.isRequired('amount');
-					this.errors = _lodash2.default.extend((0, _validation2.default)(this.stripe).errors, errorAmount);
+					this.errors = _extends({}, (0, _validation2.default)(this.stripe).errors, errorAmount);
 				},
 				removeErrors: function removeErrors() {
 					this.errors = {};
@@ -45166,9 +45166,7 @@
 	var _ = __webpack_require__(83);
 
 	var validateStripe = function validateStripe(data) {
-
 	  var errors = {};
-	  var stripeErrors = BS.trans.stripeErrors;
 
 	  if (!Stripe.card.validateCardNumber(data.number)) {
 	    errors = _.extend(errors, { number: true });

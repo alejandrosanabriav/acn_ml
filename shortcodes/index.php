@@ -62,6 +62,7 @@ if(function_exists('sc_factory')) {
   function bs_donate_vc() {
     $bs_donate_sections = array();
 
+    //sections content
   foreach([1,2,3] as $section) {
 
     $sec_title = array(
@@ -81,6 +82,7 @@ if(function_exists('sc_factory')) {
     array_push($bs_donate_sections, $sec_title, $sec_content);
   }
 
+
   array_push($bs_donate_sections,
     array(
       "type" => "textfield",
@@ -96,6 +98,17 @@ if(function_exists('sc_factory')) {
       "value" => ''
     )
   );
+
+    foreach(['card', 'expiry', 'cvc'] as $field) {
+    $validation = array(
+      "type" => "textarea",
+      "heading" => "validation message for " . $field,
+      "param_name" => "validation_" . $field,
+      "value" => 'incorrect ' . $field
+    );
+
+    array_push($bs_donate_sections, $validation);
+  }
 
     vc_map(
       array(

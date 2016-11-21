@@ -33,10 +33,15 @@ function configForm(parent) {
 
 let componentData = {
 	donation_type: 'monthly',
-	errors: {},
 	success: false,
 	loading: false,
 	progress: '33.3%',
+	captcha: null,
+	created_at: moment().format(),
+	amount: 30,
+	section: 1,
+	errors: {},
+
 	stripe: {
 		number: '',
 		exp_month: '',
@@ -58,12 +63,7 @@ let componentData = {
 		DinersClub: false,
 		AmericanExpress: false,
 		Discover: false
-	},
-
-	captcha: null,
-	created_at: moment().format(),
-	amount: 30,
-	section: 1
+	}
 };
 
 export default () => ({
@@ -198,7 +198,7 @@ export default () => ({
 
 		showErrors() {
 			let errorAmount = this.isRequired('amount');
-			this.errors = _.extend(validateStripe(this.stripe).errors, errorAmount);
+			this.errors = {...validateStripe(this.stripe).errors, ...errorAmount};
 		},
 
 		removeErrors() {
