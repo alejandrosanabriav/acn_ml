@@ -566,6 +566,7 @@ export default () => ({
         <div class="col-sm-12">
           <div class="form-group">
             <input
+							v-on:keyup="validateContact('email')"
               type="text"
               name="email"
               class="form-control form-control--outline"
