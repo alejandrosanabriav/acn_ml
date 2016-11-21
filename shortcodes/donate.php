@@ -86,11 +86,6 @@
 
           <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
         </div>
-
-        <div class="col-sm-12">
-           <a style="padding-top: 30px" href="<?php echo $at['link_anchor'] ?>"><h4 class="color-red"><?php echo $at['link_text'] ?></h4> <i class="ion-chevron-down color-red"></i></a>
-        </div>
-       
       </div> <!-- donate_landing__section-1 -->
 
       <div class="stripe-info donate_landing__section donate_landing__section-2" >
@@ -266,6 +261,9 @@
       <div class="pro-bar__status" v-bind:style="{width: progress}"></div>
     </div>
   </div>
+   <div class="form-group col-sm-12">
+      <a style="padding-top: 30px" href="<?php echo $at['link_anchor'] ?>"><h4 class="color-red"><?php echo $at['link_text'] ?></h4> <i class="ion-chevron-down color-red"></i></a>
+    </div>
 
   </form>
 
