@@ -27,7 +27,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
 <div 
   id="app-ml"
-  :countries=<?php echo getCountries(true) ?>
+  countries='{countries: <?php echo getCountries(true) ?> }'
 >
 
 <?php echo getCountries(true) ?>
