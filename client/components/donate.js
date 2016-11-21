@@ -491,7 +491,7 @@ export default () => ({
         <div class="form-group col-xs-4" >
           <input
             type="text"
-            v-on:keyup="[cleanNumber('stripe.exp_year'), maxLength('stripe.exp_year', 2)]"
+            v-on:keyup="[cardValidation({type: 'validateCVC', field: 'cvc'}), cleanNumber('stripe.exp_year'), maxLength('stripe.exp_year', 2)]"
             class="form-control form-control--outline"
             v-bind:class="{'form-group--error': errors.stripe.exp_year}"
             style="text-align: center;"
