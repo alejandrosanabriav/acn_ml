@@ -73,7 +73,8 @@ export default () => ({
 		'captcha_name',
 		'url',
 		'currency',
-		'country'
+		'country',
+		'validationMessages'
 	],
 
 	data() {

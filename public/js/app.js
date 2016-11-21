@@ -13389,7 +13389,7 @@
 		return {
 			template: '#donate-landing-template',
 
-			props: ['captcha_name', 'url', 'currency', 'country'],
+			props: ['captcha_name', 'url', 'currency', 'country', 'validationMessages'],
 
 			data: function data() {
 				return _extends({}, componentData);
