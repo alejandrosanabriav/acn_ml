@@ -1,5 +1,6 @@
 'use strict';
 import $ from 'jquery';
+import validator from 'validator';
 import gaEvents from '../ga_events';
 import gaEcommerce from '../ga_ecommerce';
 import validateStripe from '../stripe/validation.js';
@@ -356,6 +357,13 @@ export default () => ({
 			this.$set('errors.stripe.exp_year', !isValid);
 		},
 
+		validateContact(field = '') {
+			let val = this.$get(`contact.${field}`);
+			if(field == 'email') {
+				this.$set(`errors.${field}`, !validator.isEmail(val));
+			}
+			this.$set(`errors.${field}`, validator.isEmpty(val));
+		}
 
 
 	},
@@ -541,6 +549,7 @@ export default () => ({
         <div class="col-sm-12">
           <div class="form-group ">
             <input
+							v-on:keyup="validateContact('name')"
               type="text"
               name="name"
               class="form-control form-control--outline"
