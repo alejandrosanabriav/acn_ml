@@ -87,7 +87,7 @@
           <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
         </div>
         <div class="col-sm-12">
-           <a href="<?php echo $at['link_anchor'] ?>"><h4 class="color-red"><?php echo $at['link_text'] ?></h4> <i class="ion-chevron-down"></i></a>
+           <a href="<?php echo $at['link_anchor'] ?>"><h4 class="color-red"><?php echo $at['link_text'] ?></h4> <i class="ion-chevron-down color-red"></i></a>
         </div>
        
       </div> <!-- donate_landing__section-1 -->
