@@ -48,6 +48,42 @@ if(function_exists('sc_factory')) {
 
   sc_factory($prefix . 'steps', array(), $base . '/steps.php' );
   sc_factory($prefix . 'donate', array(), $base . '/donate.php' );
+
+  $bs_donate_sections = array();
+
+  foreach([1,2,3] as $section) {
+
+    $sec_title = array(
+      "type" => "textfield",
+      "heading" => "section title" . $section,
+      "param_name" => "section_title_" . $section,
+      "value" => ''
+    );
+
+
+    $sec_content = array(
+      "type" => "textarea",
+      "heading" => "section content" . $section,
+      "param_name" => "section_content_" . $section,
+      "value" => ''
+    );
+
+    array_push($bs_donate_sections, $sec_content, $sec_title);
+  }
+
+  function bs_donate_vc() {
+    vc_map(
+      array(
+        "name" =>  "BS donate",
+        "base" => "bs_donate",
+        "category" =>  "BS",
+        "params" => array($bs_donate_sections)
+      ) 
+    );
+  }
+
+  add_action( 'vc_before_init', 'bs_donate_vc' );
+
   sc_factory($prefix . 'donate_land', array(), $base . '/donate_land.php' );
   sc_factory($prefix . 'slider_bg', array("images" => "", "height" => "100px", "slider_style" => "", "interval" => "3000"),$base . '/slider_bg.php');
 

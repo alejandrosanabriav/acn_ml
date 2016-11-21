@@ -43,6 +43,7 @@
     <form method="post" class="donate_landing">
       <div class="donate_landing__viewport">
       <div class="donate_landing__section donate_landing__section-1">
+      
         <change-amount></change-amount>
 
           <div class="form-group col-md-7 col-sm-8" style="float: left">
