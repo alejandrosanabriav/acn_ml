@@ -1,5 +1,4 @@
 'use strict';
-import moment from 'moment';
 import $ from 'jquery';
 import gaEvents from '../ga_events';
 import gaEcommerce from '../ga_ecommerce';
@@ -11,7 +10,6 @@ const componentData = {
 	loading: false,
 	progress: '33.3%',
 	captcha: null,
-	created_at: moment().format(),
 	amount: 30,
 	section: 1,
 	countries: [],
@@ -50,7 +48,7 @@ const componentData = {
 };
 
 export default () => ({
-	props: [
+	props: [ 
 		'captcha_name',
 		'url',
 		'currency',
@@ -163,11 +161,11 @@ export default () => ({
 			};
 
 			$.ajax({
-					type: 'post',
-					url: '/wp-admin/admin-ajax.php',
-					data: data
-				})
-				.done(res => this.handleToken(res));
+				type: 'post',
+				url: '/wp-admin/admin-ajax.php',
+				data: data
+			})
+			.done(res => this.handleToken(res));
 
 		},
 
@@ -241,7 +239,6 @@ export default () => ({
 			const { contact, currency, amount, donation_type, stripe: {token} } = this;
 			let data = { ...contact, currency, amount, donation_type, stripe_token: token};
 
-			console.log('data', data); 
 			e.preventDefault();
 			this.contactValidations();
 			this.toggleLoading();
@@ -289,7 +286,7 @@ export default () => ({
 				if (gaEcommerce) gaEcommerce(response.stripe.id, null, this.amount);
 				if (fbq) fbq('track', 'Purchase', {
 					value: this.amount,
-					currency: 'EUR'
+					currency: this.currency
 				});
 			}
 		},
