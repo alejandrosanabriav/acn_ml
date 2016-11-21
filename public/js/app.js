@@ -58,11 +58,11 @@
 
 	var _donate2 = _interopRequireDefault(_donate);
 
-	var _change_amount = __webpack_require__(195);
+	var _change_amount = __webpack_require__(88);
 
 	var _change_amount2 = _interopRequireDefault(_change_amount);
 
-	var _slider_bg = __webpack_require__(196);
+	var _slider_bg = __webpack_require__(89);
 
 	var _slider_bg2 = _interopRequireDefault(_slider_bg);
 
@@ -13301,15 +13301,15 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _ga_events = __webpack_require__(190);
+	var _ga_events = __webpack_require__(83);
 
 	var _ga_events2 = _interopRequireDefault(_ga_events);
 
-	var _ga_ecommerce = __webpack_require__(191);
+	var _ga_ecommerce = __webpack_require__(84);
 
 	var _ga_ecommerce2 = _interopRequireDefault(_ga_ecommerce);
 
-	var _validation = __webpack_require__(192);
+	var _validation = __webpack_require__(85);
 
 	var _validation2 = _interopRequireDefault(_validation);
 
@@ -13503,7 +13503,7 @@
 					this.$set('errors.stripe', (0, _validation2.default)(this.stripe).errors);
 				},
 				removeErrors: function removeErrors() {
-					this.errors = {};
+					this.errors = _extends({}, componentData.errors);
 				},
 				toggleLoading: function toggleLoading() {
 					this.loading = !this.loading;
@@ -13657,129 +13657,7 @@
 	};
 
 /***/ },
-/* 83 */,
-/* 84 */
-/***/ function(module, exports) {
-
-	module.exports = function(module) {
-		if(!module.webpackPolyfill) {
-			module.deprecate = function() {};
-			module.paths = [];
-			// module.parent = undefined by default
-			module.children = [];
-			module.webpackPolyfill = 1;
-		}
-		return module;
-	}
-
-
-/***/ },
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */,
-/* 139 */,
-/* 140 */,
-/* 141 */,
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */,
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */
+/* 83 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -13828,7 +13706,7 @@
 	};
 
 /***/ },
-/* 191 */
+/* 84 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -13849,12 +13727,12 @@
 	};
 
 /***/ },
-/* 192 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _ = __webpack_require__(193);
+	var _ = __webpack_require__(86);
 
 	var validateStripe = function validateStripe(data) {
 	  var errors = {};
@@ -13881,7 +13759,7 @@
 	module.exports = validateStripe;
 
 /***/ },
-/* 193 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -30903,11 +30781,26 @@
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(84)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(87)(module)))
 
 /***/ },
-/* 194 */,
-/* 195 */
+/* 87 */
+/***/ function(module, exports) {
+
+	module.exports = function(module) {
+		if(!module.webpackPolyfill) {
+			module.deprecate = function() {};
+			module.paths = [];
+			// module.parent = undefined by default
+			module.children = [];
+			module.webpackPolyfill = 1;
+		}
+		return module;
+	}
+
+
+/***/ },
+/* 88 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30943,7 +30836,7 @@
 	};
 
 /***/ },
-/* 196 */
+/* 89 */
 /***/ function(module, exports) {
 
 	'use strict';
