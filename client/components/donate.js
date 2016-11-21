@@ -41,11 +41,11 @@ const componentData = {
 	},
 
 	cardSrc: {
-		Visa: false,
-		MasterCard: false,
-		DinersClub: false,
-		AmericanExpress: false,
-		Discover: false
+		Visa: '',
+		MasterCard: '',
+		DinersClub: '',
+		AmericanExpress: '',
+		Discover: ''
 	}
 };
 
