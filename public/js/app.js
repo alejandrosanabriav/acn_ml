@@ -85,10 +85,10 @@
 			ready: function ready() {
 				try {
 					var _JSON$parse = JSON.parse(JSON.stringify(this.countries)),
-					    countries = _JSON$parse.countries;
+					    countriesArr = _JSON$parse.countriesArr;
 
-					console.log(countries);
-					this.countries = countries;
+					console.log(countriesArr);
+					this.countries = countriesArr;
 				} catch (exc) {
 					console.error(exc);
 				}
