@@ -1,8 +1,26 @@
+<div id="sidr">
+
+  <!-- Your content -->
+  <button class="close"><?php echo getT('Close') ?></button>
+
+  <ul>
+    <?php
+      $args = array(
+        'theme_location' => 'header',
+        'container' => false,
+        'echo' => false
+      );
+      $menu = wp_nav_menu($args);
+      echo clean_menu($menu);
+     ?>
+  </ul>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js"></script>
 <script src="https://js.stripe.com/v2/"></script>
 <script src="https://cdn.jsdelivr.net/flexslider/2.6.3/jquery.flexslider.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sidr/2.2.1/jquery.sidr.min.js"></script>
 
 <script type="text/javascript">
 
