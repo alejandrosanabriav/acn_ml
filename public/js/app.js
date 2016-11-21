@@ -13649,6 +13649,7 @@
 					var type = action.type,
 					    field = action.field;
 
+					console.log('card validation');
 					console.log(Stripe.card[type], this.$get(field), Stripe.card[type](this.$get(field)));
 				}
 			},
