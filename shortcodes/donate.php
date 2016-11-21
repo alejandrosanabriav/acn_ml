@@ -5,8 +5,8 @@
 
       <div class="donate_landing__section donate_landing__section-1">
         <div class="donate_landing__section__title col-sm-12">
-          <h3 class="color-red"><?php echo $at['section_title_1'] ?></h3>
-          <p><?php echo $at['section_content_1'] ?></p>
+          <h3 class="color-red">{{texts.section1.title}}</h3>
+          <p>{{texts.section1.content}}</p>
         </div>
       
         <change-amount></change-amount>
@@ -189,7 +189,7 @@
               v-model="contact.email"
             >
 
-              <span class="form-group__error" v-if="errors['contact.email']"><?php echo $at['validation_email'] ?></span>
+            <span class="form-group__error" v-if="errors['contact.email']"><?php echo $at['validation_email'] ?></span>
           </div>
         </div>
 
@@ -236,13 +236,19 @@
     currency="usd"
     country="<?php echo getCountry() ?>"
     back-text=<?php echo $at['back_text'] ?>
-    validation-messages=<?php echo json_encode(array(
-      'card' => $at['validation_card'], 
-      'expiry'=> $at['validation_expiry'], 
-      'cvc' => $at['validation_cvc'], 
-      'name' => $at['validation_name'], 
-      'email' => $at['validation_email'], 
-      'country' => $at['validation_country']
-    )) ?>
+    validation-messages="{
+      card: $at['validation_card'], 
+      expiry: $at['validation_expiry'], 
+      cvc: $at['validation_cvc'], 
+      name: $at['validation_name'], 
+      email: $at['validation_email'], 
+      country: $at['validation_country']
+    }"
+    texts="{
+        section1: {
+          title: <?php echo $at['section_title_1'] ?>,
+          content: <?php echo $at['section_content_1'] ?>
+        }
+      }"
   >
   </donate-landing>
