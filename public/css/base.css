@@ -40,8 +40,8 @@ body {
         color: #f1364e; }
 
 .sidr {
-  background: #fff;
-  box-shadow: none; }
+  background: #fff !important;
+  box-shadow: none !important; }
 
 h1 {
   font-family: Rubik;
