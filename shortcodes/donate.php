@@ -6,7 +6,6 @@
     back-text=<?php echo $at['back_text'] ?>
     monthly=<?php echo $at['monthly'] ?>
     once=<?php echo $at['once'] ?>
-    amount=<?php echo $at['amount'] ?>
     :card-src="{
       Visa: '<?php echo get_template_directory_uri() . '/public/img/cards/Visa.png' ?>',
       MasterCard: '<?php echo get_template_directory_uri() . '/public/img/cards/MasterCard.png' ?>',
@@ -44,5 +43,15 @@
           btn: '<?php echo $at['section_btn_3'] ?>'
         }
       }"
+    :placeholders="{
+      amount: '<?php echo $at['amount'] ?>'
+      creditCard: '<?php echo $at['placeholder_credit_card'] ?>',
+      month: '<?php echo $at['placeholder_month'] ?>',
+      year: '<?php echo $at['placeholder_year'] ?>',
+      cvc: '<?php echo $at['placeholder_cvc'] ?>',
+      name: '<?php echo $at['placeholder_name'] ?>',
+      email: '<?php echo $at['placeholder_email'] ?>',
+      country: '<?php echo $at['placeholder_country'] ?>'
+    }"
   >
   </donate-landing>

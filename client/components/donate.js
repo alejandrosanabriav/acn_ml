@@ -353,6 +353,7 @@ export default () => ({
 			} else {
 				this.$set(`errors.${field}`, !isValid);
 			}
+
 			console.log(this.errors);
 		}
 
@@ -461,7 +462,7 @@ export default () => ({
             v-bind:class="{'form-group--error': errors.number}"
             id="exampleInputAmount"
             v-model="stripe.number"
-            placeholder="<?php echo gett('Credit Card Number') ?>"
+            placeholder="{{Credit Card Number}}"
           >
 
           <span class="form-group__error" v-if="errors.number">

@@ -64,6 +64,14 @@ if(function_exists('sc_factory')) {
     "once" => "Once",
     "amount" => "Amount",
     "back_text" => "Back",
+    "palceholder_amount" => "",
+    "palceholder_credit_card" => "",
+    "palceholder_month" => "",
+    "palceholder_year" => "",
+    "palceholder_cvc" => "",
+    "palceholder_name" => "",
+    "palceholder_email" => "",
+    "palceholder_country" => "",
     "validation_card" => "Incorrect card",
     "validation_month" => "Incorrect month",
     "validation_year" => "Incorrect year",
@@ -148,6 +156,17 @@ if(function_exists('sc_factory')) {
         "heading" => "validation message for " . $field,
         "param_name" => "validation_" . $field,
         "value" => 'incorrect ' . $field
+      );
+
+      array_push($bs_donate_sections, $validation);
+    }
+
+    foreach(['amount', 'credit_card', 'month', 'year', 'cvc', 'name', 'email', 'country'] as $field) {
+      $validation = array(
+        "type" => "textfield",
+        "heading" => "placeholder for " . $field,
+        "param_name" => "placeholder_" . $field,
+        "value" => ''
       );
 
       array_push($bs_donate_sections, $validation);
