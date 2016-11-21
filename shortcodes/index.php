@@ -56,7 +56,13 @@ if(function_exists('sc_factory')) {
     "section_title_3" => "",
     "section_content_3" => "",
     "link_text" => "",
-    "link_anchor" => ""
+    "link_anchor" => "",
+    "validation_card" => "",
+    "validation_expiry" => "",
+    "validation_cvc" => "",
+    "validation_name" => "",
+    "validation_email" => "",
+    "validation_country" => "",
     ), $base . '/donate.php' );
 
   function bs_donate_vc() {
