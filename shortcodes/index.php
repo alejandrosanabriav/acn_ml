@@ -100,15 +100,15 @@ if(function_exists('sc_factory')) {
   );
 
     foreach(['card', 'expiry', 'cvc'] as $field) {
-    $validation = array(
-      "type" => "textarea",
-      "heading" => "validation message for " . $field,
-      "param_name" => "validation_" . $field,
-      "value" => 'incorrect ' . $field
-    );
+      $validation = array(
+        "type" => "textfield",
+        "heading" => "validation message for " . $field,
+        "param_name" => "validation_" . $field,
+        "value" => 'incorrect ' . $field
+      );
 
-    array_push($bs_donate_sections, $validation);
-  }
+      array_push($bs_donate_sections, $validation);
+    }
 
     vc_map(
       array(
