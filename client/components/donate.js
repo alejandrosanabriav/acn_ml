@@ -200,8 +200,7 @@ export default () => ({
 		},
 
 		showErrors() {
-			let errorAmount = this.isRequired('amount');
-			this.errors = {...validateStripe(this.stripe).errors, ...errorAmount};
+			this.$set('errors.stripe', validateStripe(this.stripe).errors);
 		},
 
 		removeErrors() {

@@ -13497,8 +13497,7 @@
 					this.errors = errors;
 				},
 				showErrors: function showErrors() {
-					var errorAmount = this.isRequired('amount');
-					this.errors = _extends({}, (0, _validation2.default)(this.stripe).errors, errorAmount);
+					this.$set('errors.stripe', (0, _validation2.default)(this.stripe).errors);
 				},
 				removeErrors: function removeErrors() {
 					this.errors = {};
