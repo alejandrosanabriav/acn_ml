@@ -478,7 +478,7 @@ export default () => ({
             class="form-control form-control--outline"
             v-bind:class="{'form-group--error': errors.exp_month}"
             style="text-align: center;"
-            placeholder="<?php echo gett('MM') ?>"
+            placeholder="{{placeholders.month}}"
             v-model="stripe.exp_month"
           >
 
@@ -494,7 +494,7 @@ export default () => ({
             class="form-control form-control--outline"
             v-bind:class="{'form-group--error': errors.exp_year}"
             style="text-align: center;"
-            placeholder="<?php echo gett('YY') ?>"
+            placeholder="{{placeholders.year}}"
             v-model="stripe.exp_year"
           >
 
@@ -511,7 +511,7 @@ export default () => ({
             v-bind:class="{'form-group--error': errors.cvc}"
             style="text-align: center;"
             v-model="stripe.cvc"
-            placeholder="<?php echo gett('CVC') ?>"
+            placeholder="{{placeholders.cvc}}"
           >
            <span class="form-group__error" v-if="errors.cvc">
              {{validationMessages.cvc}}
@@ -545,7 +545,7 @@ export default () => ({
               type="text"
               name="name"
               class="form-control form-control--outline"
-              placeholder="<?php echo getT('Name') ?>"
+              placeholder="{{placeholders.name}}"
               v-model="contact.name"
               >
                <span class="form-group__error" v-if="errors['contact.name']">
@@ -560,7 +560,7 @@ export default () => ({
               type="text"
               name="email"
               class="form-control form-control--outline"
-              placeholder="<?php echo getT('Email') ?>"
+              placeholder="{{placeholders.email}}"
               v-model="contact.email"
             >
 
