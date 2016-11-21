@@ -5,6 +5,12 @@
  * Copyright 2016 BrandSpa
  */
 
+register_nav_menus(
+  array(
+    'header' => __('Header nav'),
+  )
+);
+
 include_once 'shortcodes/index.php';
 include_once 'shortcodes/slider.php';
 include_once 'options/index.php';
