@@ -260,6 +260,10 @@ button {
   
   &--error {
     border-color: #F2364E;
+    
+    &:focus {
+      border-color: #F2364E;
+    }
   }
 
   &__error {

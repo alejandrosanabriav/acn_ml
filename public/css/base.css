@@ -185,6 +185,8 @@ button {
   position: relative; }
   .form-group--error {
     border-color: #F2364E; }
+    .form-group--error:focus {
+      border-color: #F2364E; }
   .form-group__error {
     background: #F2364E;
     color: #fff;
