@@ -358,6 +358,16 @@ export default () => ({
 			}
 
 			console.log(this.errors);
+		},
+
+		cardExpiry() {
+			let isValid = Stripe.card.validateExpiry(this.stripe.exp_month, this.stripe.exp_year);
+			
+			if(isValid) {
+				this.$set(`errors.stripe.expiry`, !isValid);
+			} else {
+				this.$set(`errors.stripe.expiry`, !isValid);
+			}
 		}
 
 	},
@@ -475,15 +485,15 @@ export default () => ({
         <div class="form-group col-xs-4">
           <input
             type="text"
-            v-on:keyup="[cardValidation({type: 'validateExpiry'}), cleanNumber('stripe.exp_month'), maxLength('stripe.exp_month', 2)]"
+            v-on:keyup="[expiryValidation('month'), cleanNumber('stripe.exp_month'), maxLength('stripe.exp_month', 2)]"
             class="form-control form-control--outline"
-            v-bind:class="{'form-group--error': errors.stripe.exp_month}"
+            v-bind:class="{'form-group--error': errors.stripe.expiry}"
             style="text-align: center;"
             placeholder="{{placeholders.month}}"
             v-model="stripe.exp_month"
           >
 
-          <span class="form-group__error" v-if="errors.stripe.exp_month">
+          <span class="form-group__error" v-if="errors.stripe.expiry">
             {{validationMessages.month}}  
           </span> 
         </div>
@@ -491,15 +501,15 @@ export default () => ({
         <div class="form-group col-xs-4" >
           <input
             type="text"
-            v-on:keyup="[cleanNumber('stripe.exp_year'), maxLength('stripe.exp_year', 2)]"
+            v-on:keyup="[expiryValidation('year'), cleanNumber('stripe.exp_year'), maxLength('stripe.exp_year', 2)]"
             class="form-control form-control--outline"
-            v-bind:class="{'form-group--error': errors.stripe.exp_year}"
+            v-bind:class="{'form-group--error': errors.stripe.expiry}"
             style="text-align: center;"
             placeholder="{{placeholders.year}}"
             v-model="stripe.exp_year"
           >
 
-           <span class="form-group__error" v-if="errors.stripe.exp_year">
+           <span class="form-group__error" v-if="errors.stripe.expiry">
              {{validationMessages.year}}
            </span>
         </div>
