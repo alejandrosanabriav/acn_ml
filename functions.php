@@ -91,3 +91,9 @@ function getCountry() {
 
 add_filter('tiny_mce_before_init', 'my_mce4_options');
 
+function clean_menu($nav) {
+  $menu = preg_replace( array( '#^<div[^>]*>#', '#</div>$#' ), '', $nav );
+  return preg_replace( array( '#^<ul[^>]*>#', '#</ul>$#' ), '', $menu );
+}
+
+
