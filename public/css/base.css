@@ -188,6 +188,8 @@ button {
   margin: 20px 0; }
   .donate_landing__section__title {
     padding-bottom: 30px; }
+    .donate_landing__section__title p {
+      color: #fff; }
   .donate_landing h6 {
     color: #fff;
     font-size: 16px;
