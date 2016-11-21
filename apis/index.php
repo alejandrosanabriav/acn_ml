@@ -1,6 +1,7 @@
 <?php
 include_once 'mailchimp.php';
 include_once 'stripe.php';
+include_once str_replace('apis', '', __DIR__) . 'countries.php';
 
 add_action( 'wp_ajax_nopriv_mailchimp_subscribe', 'mailchimp_subscribe' );
 add_action( 'wp_ajax_mailchimp_subscribe', 'mailchimp_subscribe' );
@@ -45,3 +46,14 @@ function stripe_charge() {
   echo json_encode($res);
   die();
 }
+
+add_action( 'wp_ajax_nopriv_countries', 'get_countries' );
+add_action( 'wp_ajax_countries', 'get_countries' );
+
+function get_countries() {
+  $res = getCountries();
+  header('Content-type: application/json');
+  echo json_encode($res);
+  die();
+}
+
