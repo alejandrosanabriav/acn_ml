@@ -27,7 +27,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
 <div 
   id="app-ml" 
-  countries=<?php echo json_encode(getCountries()) ?>
+  countries=<?php echo json_encode(getCountries(true)) ?>
 >
 
 <?php echo json_encode(getCountries()) ?>
