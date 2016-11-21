@@ -17,7 +17,12 @@ import sliderBg from './components/slider_bg';
 		el: '#app-ml',
 		props: ['countries'],
 		ready() {
-			console.log(this.countries);
+			try {
+				const {countries} = JSON.parse(this.countries);
+				this.countries = countries;
+			} catch(exc) {
+				console.error(exc);
+			}
 		}
 	});
 

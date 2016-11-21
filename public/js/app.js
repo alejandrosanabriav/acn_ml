@@ -83,7 +83,14 @@
 			el: '#app-ml',
 			props: ['countries'],
 			ready: function ready() {
-				console.log(this.countries);
+				try {
+					var _JSON$parse = JSON.parse(this.countries),
+					    countries = _JSON$parse.countries;
+
+					this.countries = countries;
+				} catch (exc) {
+					console.error(exc);
+				}
 			}
 		});
 
