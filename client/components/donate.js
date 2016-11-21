@@ -48,7 +48,8 @@ export default () => ({
 		'backText',
 		'texts',
 		'link',
-		'cardSrc'
+		'cardSrc',
+		'placeholders'
 	],
 
 	data() {
@@ -380,7 +381,7 @@ export default () => ({
                 v-model="amount"
                 v-el:amount-input
                 v-on:keyup="cleanNumber('amount')"
-                placeholder="{{amount}}"
+                placeholder="{{placeholders.amount}}"
               >
             </div>
           </div>
@@ -462,7 +463,7 @@ export default () => ({
             v-bind:class="{'form-group--error': errors.number}"
             id="exampleInputAmount"
             v-model="stripe.number"
-            placeholder="{{Credit Card Number}}"
+            placeholder="{{placeholders.creditCard}}"
           >
 
           <span class="form-group__error" v-if="errors.number">
