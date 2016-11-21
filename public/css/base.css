@@ -227,7 +227,7 @@ button {
     margin-right: 5px; }
     .donate_landing__type:first-child {
       margin-right: 22px; }
-    .donate_landing__type:hover {
+    .donate_landing__type:hover, .donate_landing__type:focus {
       color: #fff;
       opacity: 1; }
     .donate_landing__type--active {
