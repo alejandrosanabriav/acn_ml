@@ -1,8 +1,4 @@
-  <script type="text/template" id="change-amount-template">
-    
-  </script>
-  
-  <script type="text/template" id="donate-landing-template">
+<script type="text/template" id="donate-landing-template">
 
     <form method="post" class="donate_landing">
       <div class="donate_landing__viewport">
@@ -158,7 +154,7 @@
 
              <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
 
-            <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"> < <?php echo getT('Back') ?></button>
+            <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"> < {{backText}}</button>
             </div>
       </div><!-- donate_landing__section-2 -->
 
@@ -212,7 +208,7 @@
           <?php echo gett('Donate') ?>
         </button>
         <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
-        <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"><?php echo gett('Back') ?></button>
+        <button v-on:click.prevent="backSection" class="donate_landing__back pull-right">{{backText}}</button>
       </div>
     </div><!-- donate_landing__section-3 -->
     </div><!-- viewport -->
@@ -223,6 +219,7 @@
       <div class="pro-bar__status" v-bind:style="{width: progress}"></div>
     </div>
   </div>
+
    <div class="form-group col-sm-12">
       <a style="padding-top: 30px" href="<?php echo $at['link_anchor'] ?>"><h4 class="color-red"><?php echo $at['link_text'] ?></h4> <i class="ion-chevron-down color-red"></i></a>
     </div>
@@ -238,6 +235,7 @@
     url="<?php echo get_template_directory_uri() ?>"
     currency="usd"
     country="<?php echo getCountry() ?>"
+    back-text=<?php echo $at['back-text'] ?>
     validation-messages=<?php echo json_encode(array(
       'card' => $at['validation_card'], 
       'expiry'=> $at['validation_expiry'], 

@@ -57,12 +57,13 @@ if(function_exists('sc_factory')) {
     "section_content_3" => "",
     "link_text" => "",
     "link_anchor" => "",
-    "validation_card" => "",
-    "validation_expiry" => "",
-    "validation_cvc" => "",
-    "validation_name" => "",
-    "validation_email" => "",
-    "validation_country" => ""
+    "back_text" => "Back",
+    "validation_card" => "Incorrect card",
+    "validation_expiry" => "Incorrect expiry",
+    "validation_cvc" => "Incorrect cvc",
+    "validation_name" => "Incorrect name",
+    "validation_email" => "Incorrect email",
+    "validation_country" => "Incorrect country"
     ), $base . '/donate.php' );
 
   function bs_donate_vc() {
