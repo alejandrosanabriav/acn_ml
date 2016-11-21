@@ -81,6 +81,13 @@ export default () => ({
 		return {...componentData};
 	},
 
+	init() {
+		$.ajax({
+			url: '/wp-admin/admin-ajax.php',
+			data: {action: 'countries'}
+		}).then(res => console.log(res));
+	},
+
 	ready() {
 		configForm(this.$el);
 			let firstNode = this.$el.querySelector(`.donate_landing__section-1`);

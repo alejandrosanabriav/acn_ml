@@ -13404,6 +13404,14 @@
 			data: function data() {
 				return _extends({}, componentData);
 			},
+			init: function init() {
+				_jquery2.default.ajax({
+					url: '/wp-admin/admin-ajax.php',
+					data: { action: 'countries' }
+				}).then(function (res) {
+					return console.log(res);
+				});
+			},
 			ready: function ready() {
 				configForm(this.$el);
 				var firstNode = this.$el.querySelector('.donate_landing__section-1');
