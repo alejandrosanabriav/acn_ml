@@ -5,8 +5,8 @@
 
       <div class="donate_landing__section donate_landing__section-1">
         <div class="donate_landing__section__title col-sm-12">
-          <h3 class="color-red">{{texts.section1.title}}</h3>
-          <p>{{texts.section1.content}}</p>
+          <h3 class="color-red">{{texts.sectionOne.title}}</h3>
+          <p>{{texts.sectionOne.content}}</p>
         </div>
       
         <change-amount></change-amount>
