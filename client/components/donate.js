@@ -362,6 +362,7 @@ export default () => ({
 			console.log('val', val);
 			
 			if(field == 'email') {
+				console.log(field, val);
 				this.$set(`errors.${field}`, !validator.isEmail(val));
 			}
 
