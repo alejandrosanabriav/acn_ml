@@ -461,7 +461,6 @@ export default () => ({
             v-on:keyup="[cardValidation({type: 'validateCardNumber', field: 'stripe.number'}), cleanNumber('stripe.number'), maxLength('stripe.number', 16), showCard()]"
             class="form-control form-control--outline"
             v-bind:class="{'form-group--error': errors.stripe.number}"
-            id="exampleInputAmount"
             v-model="stripe.number"
             placeholder="{{placeholders.creditCard}}"
           >
