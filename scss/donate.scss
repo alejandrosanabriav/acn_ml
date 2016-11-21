@@ -3,6 +3,12 @@
   overflow: hidden;
   margin: 20px 0;
 
+  &__section {
+    &__title {
+      padding-bottom: 30px;
+    }
+  }
+
   h6 {
     color: #fff;
     font-size: 16px;
