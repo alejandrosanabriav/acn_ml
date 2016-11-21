@@ -50,9 +50,10 @@
 
       <div class="stripe-info donate_landing__section donate_landing__section-2" >
         <div class="donate_landing__section__title col-sm-12">
-          <h3 class="color-red"><?php echo $at['section_title_2'] ?></h3>
-          <p ><?php echo $at['section_content_2'] ?></p>
+          <h3 class="color-red">{{texts.sectionTwo.title}}</h3>
+          <p>{{texts.sectionTwo.content}}</p>
         </div>
+
            <div class="row">
 
           <div class="form-group col-sm-12 donate_landing__cards">
@@ -90,13 +91,13 @@
 
         <div class="form-group col-sm-12">
           <input
-          type="text"
-          v-on:keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16)],showCard()"
-          class="form-control form-control--outline"
-          v-bind:class="{'form-group--error': errors.number}"
-          id="exampleInputAmount"
-          v-model="stripe.number"
-          placeholder="<?php echo gett('Credit Card Number') ?>"
+            type="text"
+            v-on:keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16)],showCard()"
+            class="form-control form-control--outline"
+            v-bind:class="{'form-group--error': errors.number}"
+            id="exampleInputAmount"
+            v-model="stripe.number"
+            placeholder="<?php echo gett('Credit Card Number') ?>"
           >
 
            <span class="form-group__error" v-if="errors.number"><?php echo gett('Credit Card Number') . ' ' . gett('incorrect') ?></span>
@@ -161,10 +162,8 @@
 
     <div class="donate_landing__section donate_landing__section-3" >
       <div class="donate_landing__section__title col-sm-12">
-        <h3 class="color-red">
-          <?php echo $at['section_title_3'] ?>
-        </h3>
-        <p><?php echo $at['section_content_3'] ?></p>
+        <h3 class="color-red">{{texts.sectionThree.title}}</h3>
+        <p>{{texts.sectionThree.content}}</p>
       </div>
         <div class="col-sm-12">
           <div class="form-group ">
@@ -229,7 +228,7 @@
   </div>
 
   </script>
-  <?php echo $at['validation_card'] ?>
+
   <donate-landing
     donation_type="monthly"
     url="<?php echo get_template_directory_uri() ?>"
@@ -248,6 +247,14 @@
         sectionOne: {
           title: '<?php echo $at['section_title_1'] ?>',
           content: '<?php echo $at['section_content_1'] ?>'
+        },
+        sectionTwo: {
+          title: '<?php echo $at['section_title_2'] ?>',
+          content: '<?php echo $at['section_content_2'] ?>'
+        },
+        sectionThree: {
+          title: '<?php echo $at['section_title_3'] ?>',
+          content: '<?php echo $at['section_content_3'] ?>'
         }
       }"
   >
