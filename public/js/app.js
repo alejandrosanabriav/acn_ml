@@ -73,7 +73,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	(function () {
-		console.log((0, _slider_bg2.default)());
 		Vue.component('change-amount', (0, _change_amount2.default)());
 		Vue.component('donate-landing', (0, _donate2.default)());
 		Vue.component('donate-land', (0, _donate_land2.default)());
@@ -87,8 +86,7 @@
 					var _JSON$parse = JSON.parse(JSON.stringify(this.countries)),
 					    countriesArr = _JSON$parse.countriesArr;
 
-					console.log(countriesArr);
-					this.countries = countriesArr;
+					console.log(JSON.parse(JSON.stringify(this.countries)));
 				} catch (exc) {
 					console.error(exc);
 				}
