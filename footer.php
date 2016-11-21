@@ -55,6 +55,12 @@ function deferScript(src) {
     }
   });
 
+	$(document).find('#sidr .sidr-class-close').on('click', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    $.sidr('close', 'sidr');
+  });
+	
 </script>
 
 <!--wordpress scripts insertion-->
