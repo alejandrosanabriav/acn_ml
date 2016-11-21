@@ -352,8 +352,10 @@ export default () => ({
 		},
 
 		cardValidation(action = {type: '', field: ''}) {
+			const {type, field} = action;
 			console.log(Stripe.card[type], this.$get(field), Stripe.card[type](this.$get(field)));
 		}
+
 	},
 
 	template: `

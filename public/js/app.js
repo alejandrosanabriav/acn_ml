@@ -13646,6 +13646,8 @@
 				},
 				cardValidation: function cardValidation() {
 					var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { type: '', field: '' };
+					var type = action.type,
+					    field = action.field;
 
 					console.log(Stripe.card[type], this.$get(field), Stripe.card[type](this.$get(field)));
 				}
