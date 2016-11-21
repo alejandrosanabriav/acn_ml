@@ -1,36 +1,11 @@
 'use strict';
-import _ from 'lodash';
 import moment from 'moment';
 import $ from 'jquery';
 import gaEvents from '../ga_events';
 import gaEcommerce from '../ga_ecommerce';
 import validateStripe from '../stripe/validation.js';
 
-function addStylesToNodes(parent) {
-	let nodes = parent.querySelectorAll('.donate_landing__section');
-	let count = 100 / nodes.length;
-	if (nodes.length) {
-		Array.prototype.slice.call(nodes).forEach(node => {
-			node.style.width = count + '%';
-			node.style.float = 'left';
-		});
-	}
-
-}
-
-function setViewportWidth(parent) {
-	let form = parent;
-	let viewport = form.querySelector('.donate_landing__viewport');
-	// viewport.style.width = `${num * width}px`;
-	viewport.style.width = `300%`;
-}
-
-function configForm(parent) {
-	addStylesToNodes(parent);
-	setViewportWidth(parent);
-}
-
-let componentData = {
+const componentData = {
 	donation_type: 'monthly',
 	success: false,
 	loading: false,
@@ -89,9 +64,11 @@ export default () => ({
 	},
 
 	ready() {
-		configForm(this.$el);
-			let firstNode = this.$el.querySelector(`.donate_landing__section-1`);
-			this.$el.querySelector('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
+		const $el = this.$el; 
+		this.addStylesToNodes($el);
+		this.setViewportWidth($el);
+		let firstNode = $el.querySelector(`.donate_landing__section-1`);
+		$el.querySelector('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
 		this.contact.country = this.country;
 	},
 
@@ -110,6 +87,24 @@ export default () => ({
 	},
 
 	methods: {
+		addStylesToNodes(parent) {
+			let nodes = parent.querySelectorAll('.donate_landing__section');
+			let count = 100 / nodes.length;
+			if (nodes.length) {
+				Array.prototype.slice.call(nodes).forEach(node => {
+					node.style.width = count + '%';
+					node.style.float = 'left';
+				});
+			}
+
+		},
+
+		setViewportWidth(parent) {
+			let form = parent;
+			let viewport = form.querySelector('.donate_landing__viewport');
+			viewport.style.width = '300%';
+		},
+
 		showCard() {
 			Object.keys(this.card).map(key => {
 				if (key === this.cardType) {
