@@ -483,7 +483,7 @@ export default () => ({
             v-model="stripe.exp_month"
           >
 
-          <span class="form-group__error" v-if="errors.exp_month">
+          <span class="form-group__error" v-if="errors.stripe.exp_month">
             {{validationMessages.month}}  
           </span> 
         </div>
