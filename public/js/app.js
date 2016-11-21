@@ -13391,7 +13391,7 @@
 		return {
 			template: '#donate-landing-template',
 
-			props: ['captcha_name', 'url', 'currency', 'country', 'validationMessages', 'backText'],
+			props: ['captcha_name', 'url', 'currency', 'country', 'validationMessages', 'backText', 'texts'],
 
 			data: function data() {
 				return _extends({}, componentData);
