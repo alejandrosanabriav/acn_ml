@@ -1,6 +1,28 @@
 'use strict';
 
 export default () => ({
+	props: ['other'],
+	
+	propsData: {
+		other: 'Other'
+	},
+
+	methods: {
+		isAmount(amount) {
+			this.$parent.amount == amount;
+		},
+
+		changeAmount(amount, e) {
+			e.preventDefault();
+			if(amount == '') {
+				this.$dispatch('focus-amount');
+			} else {
+				this.$parent.amount = amount;
+			}
+
+		}
+	},
+
 	template:`
 		<ul class="change-amount" style="padding: 0 15px">
       <li class="col-md-2">
@@ -40,26 +62,4 @@ export default () => ({
       </li>
     </ul>
 	`,
-  
-	props: ['other'],
-	
-	propsData: {
-		other: 'Other'
-	},
-
-	methods: {
-		isAmount(amount) {
-			this.$parent.amount == amount;
-		},
-
-		changeAmount(amount, e) {
-			e.preventDefault();
-			if(amount == '') {
-				this.$dispatch('focus-amount');
-			} else {
-				this.$parent.amount = amount;
-			}
-
-		}
-	}
 });
