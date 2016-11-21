@@ -234,8 +234,8 @@
   </div>
 
    <div class="form-group col-sm-12">
-      <a style="padding-top: 30px" href="<?php echo $at['link_anchor'] ?>">
-        <h4 class="color-red"><?php echo $at['link_text'] ?></h4> <i class="ion-chevron-down color-red"></i>
+      <a style="padding-top: 30px" v-bind:href="link.anchor">
+        <h4 class="color-red">{{link.text}}</h4> <i class="ion-chevron-down color-red"></i>
       </a>
     </div>
 
@@ -251,6 +251,10 @@
     currency="usd"
     country="<?php echo getCountry() ?>"
     back-text=<?php echo $at['back_text'] ?>
+    :link="{
+      anchor: '<?php echo $at['link_anchor'] ?>',
+      text: '<?php echo $at['link_text'] ?>'
+    }"
     :validation-messages="{
       card: '<?php echo $at['validation_card'] ?>',
       month: '<?php echo $at['validation_month'] ?>', 
