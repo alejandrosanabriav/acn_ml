@@ -359,9 +359,8 @@ export default () => ({
 
 		validateContact(field = '') {
 			let val = this.$get(`contact.${field}`);
-			console.log('val', val);
-			
-			if(field == 'email') {
+
+			if(field == 'email' && val) {
 				console.log(field, val);
 				this.$set(`errors.${field}`, !validator.isEmail(val));
 			}

@@ -13654,9 +13654,8 @@
 					var field = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
 					var val = this.$get('contact.' + field);
-					console.log('val', val);
 
-					if (field == 'email') {
+					if (field == 'email' && val) {
 						console.log(field, val);
 						this.$set('errors.' + field, !_validator2.default.isEmail(val));
 					}
