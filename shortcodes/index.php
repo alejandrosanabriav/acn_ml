@@ -54,7 +54,9 @@ if(function_exists('sc_factory')) {
     "section_title_2" => "",
     "section_content_2" => "",
     "section_title_3" => "",
-    "section_content_3" => ""
+    "section_content_3" => "",
+    "link_text" => "",
+    "link_anchor" => ""
     ), $base . '/donate.php' );
 
   function bs_donate_vc() {
@@ -76,8 +78,23 @@ if(function_exists('sc_factory')) {
       "value" => ''
     );
 
-    array_push($bs_donate_sections, $sec_content, $sec_title);
+    array_push($bs_donate_sections, $sec_title, $sec_content);
   }
+
+  array_push($bs_donate_sections,
+    array(
+      "type" => "textarea",
+      "heading" => "Link text",
+      "param_name" => "link_text",
+      "value" => ''
+    ),
+    array(
+      "type" => "textarea",
+      "heading" => "Link anchor",
+      "param_name" => "link_anchor",
+      "value" => ''
+    )
+  );
 
     vc_map(
       array(

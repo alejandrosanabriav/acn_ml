@@ -42,8 +42,9 @@
 
     <form method="post" class="donate_landing">
       <div class="donate_landing__viewport">
+
       <div class="donate_landing__section donate_landing__section-1">
-        <div class="donate_landing__section__title">
+        <div class="donate_landing__section__title col-sm-12">
           <h3 class="color-red"><?php echo $at['section_title_1'] ?></h3>
           <p><?php echo $at['section_content_1'] ?></p>
         </div>
@@ -85,11 +86,12 @@
 
           <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
         </div>
-
+        
+        <a href="<?php echo $at['link_anchor'] ?>"><?php echo $at['link_text'] ?></a>
       </div> <!-- donate_landing__section-1 -->
 
       <div class="stripe-info donate_landing__section donate_landing__section-2" >
-        <div class="donate_landing__section__title">
+        <div class="donate_landing__section__title col-sm-12">
           <h3 class="color-red"><?php echo $at['section_title_2'] ?></h3>
           <p ><?php echo $at['section_content_2'] ?></p>
         </div>
@@ -200,7 +202,7 @@
 
 
     <div class="donate_landing__section donate_landing__section-3" >
-      <div class="donate_landing__section__title">
+      <div class="donate_landing__section__title col-sm-12">
         <h3 class="color-red">
           <?php echo $at['section_title_3'] ?>
         </h3>
