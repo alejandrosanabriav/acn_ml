@@ -49,7 +49,8 @@ if(function_exists('sc_factory')) {
   sc_factory($prefix . 'steps', array(), $base . '/steps.php' );
   sc_factory($prefix . 'donate', array(), $base . '/donate.php' );
 
-  $bs_donate_sections = array();
+  function bs_donate_vc() {
+    $bs_donate_sections = array();
 
   foreach([1,2,3] as $section) {
 
@@ -71,7 +72,6 @@ if(function_exists('sc_factory')) {
     array_push($bs_donate_sections, $sec_content, $sec_title);
   }
 
-  function bs_donate_vc() {
     vc_map(
       array(
         "name" =>  "BS donate",
