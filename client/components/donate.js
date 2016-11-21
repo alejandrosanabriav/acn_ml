@@ -459,7 +459,7 @@ export default () => ({
         <div class="form-group col-sm-12">
           <input
             type="text"
-            v-on:keyup="[cardValidation({type: 'validateCardNumber', field: 'stripe.number'}), cleanNumber('stripe.number'), maxLength('stripe.number', 16), showCard()]"
+            v-on:keyup="[cleanNumber('stripe.number'), maxLength('stripe.number', 16), showCard(), cardValidation({type: 'validateCardNumber', field: 'stripe.number'})]"
             class="form-control form-control--outline"
             v-bind:class="{'form-group--error': errors.stripe.number}"
             v-model="stripe.number"
