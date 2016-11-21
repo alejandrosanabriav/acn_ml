@@ -245,7 +245,7 @@
       country: <?php echo $at['validation_country'] ?>
     }"
     :texts="{
-        section1: {
+        sectionOne: {
           title: <?php echo $at['section_title_1'] ?>,
           content: <?php echo $at['section_content_1'] ?>
         }
