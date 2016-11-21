@@ -573,7 +573,12 @@ export default () => ({
 
         <div class="col-sm-12">
           <div class="form-group">
-            <select class="form-control form-control--outline" name="country" v-model="contact.country">
+            <select 
+							class="form-control form-control--outline"
+							v-bind:class="{'form-group--error': errors['contact.country']}"
+							name="country" 
+							v-model="contact.country"
+						>
                 <option value="{{country}}" v-for="country in countries">{{country}}</option>
             </select>
             <span class="form-group__error" v-if="errors['contact.country']">
