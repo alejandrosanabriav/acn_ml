@@ -44,7 +44,7 @@
       <div class="donate_landing__viewport">
       <div class="donate_landing__section donate_landing__section-1">
         <div class="donate_landing__section__title">
-          <h3 class="color-red"></h3><?php echo $at['section_title_1'] ?>
+          <h3 class="color-red"><?php echo $at['section_title_1'] ?></h3>
           <p><?php echo $at['section_content_1'] ?></p>
         </div>
       
@@ -201,7 +201,9 @@
 
     <div class="donate_landing__section donate_landing__section-3" >
       <div class="donate_landing__section__title">
-        <h3 class="color-red"><?php echo $at['section_title_3'] ?></h3>
+        <h3 class="color-red">
+          <?php echo $at['section_title_3'] ?>
+        </h3>
         <p><?php echo $at['section_content_3'] ?></p>
       </div>
         <div class="col-sm-12">
