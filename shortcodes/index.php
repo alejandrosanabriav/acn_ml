@@ -162,14 +162,14 @@ if(function_exists('sc_factory')) {
     }
 
     foreach(['amount', 'credit_card', 'month', 'year', 'cvc', 'name', 'email', 'country'] as $field) {
-      $validation = array(
+      $placeholder = array(
         "type" => "textfield",
         "heading" => "placeholder for " . $field,
         "param_name" => "placeholder_" . $field,
         "value" => ''
       );
 
-      array_push($bs_donate_sections, $validation);
+      array_push($bs_donate_sections, $placeholder);
     }
 
     vc_map(
