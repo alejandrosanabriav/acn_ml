@@ -47,7 +47,15 @@ if(function_exists('sc_factory')) {
   );
 
   sc_factory($prefix . 'steps', array(), $base . '/steps.php' );
-  sc_factory($prefix . 'donate', array(), $base . '/donate.php' );
+
+  sc_factory($prefix . 'donate', array(
+    "section_title_1" => "",
+    "section_content_1" => "",
+    "section_title_2" => "",
+    "section_content_2" => "",
+    "section_title_3" => "",
+    "section_content_3" => ""
+    ), $base . '/donate.php' );
 
   function bs_donate_vc() {
     $bs_donate_sections = array();
