@@ -474,10 +474,10 @@ export default () => ({
             type="text"
             v-on:keyup="[cleanNumber('stripe.exp_month'), maxLength('stripe.exp_month', 2)]"
             class="form-control form-control--outline"
-            v-bind:class="{'form-group--error': errors.exp_month}"
+            v-bind:class="{'form-group--error': errors.stripe.exp_month}"
             style="text-align: center;"
             placeholder="{{placeholders.month}}"
-            v-model="stripe.exp_month"
+            v-model="errors.stripe.exp_month"
           >
 
           <span class="form-group__error" v-if="errors.exp_month">
@@ -490,13 +490,13 @@ export default () => ({
             type="text"
             v-on:keyup="[cleanNumber('stripe.exp_year'), maxLength('stripe.exp_year', 2)]"
             class="form-control form-control--outline"
-            v-bind:class="{'form-group--error': errors.exp_year}"
+            v-bind:class="{'form-group--error': errors.stripe.exp_year}"
             style="text-align: center;"
             placeholder="{{placeholders.year}}"
             v-model="stripe.exp_year"
           >
 
-           <span class="form-group__error" v-if="errors.exp_year">
+           <span class="form-group__error" v-if="errors.stripe.exp_year">
              {{validationMessages.year}}
            </span>
         </div>
