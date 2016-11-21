@@ -42,6 +42,19 @@ function deferScript(src) {
 	} 
 }
 
+  $('.navbar-toggle').sidr({
+    name: 'sidr',
+    source: '#sidr',
+    side: 'right',
+    displace: false,
+    onOpen() {
+      $('.navbar-toggle').addClass('navbar-toggle--active');
+    },
+    onClose() {
+      $('.navbar-toggle').removeClass('navbar-toggle--active');
+    }
+  });
+
 </script>
 
 <!--wordpress scripts insertion-->
