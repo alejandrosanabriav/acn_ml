@@ -13657,6 +13657,7 @@
 					} else {
 						this.errors = _extends({}, this.errors, _defineProperty({}, field, isValid));
 					}
+					console.log(this.errors);
 				}
 			},
 

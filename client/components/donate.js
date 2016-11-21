@@ -359,6 +359,7 @@ export default () => ({
 			} else {
 				this.errors = {...this.errors, [field]: isValid};
 			}
+			console.log(this.errors);
 		}
 
 	},
