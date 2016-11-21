@@ -477,7 +477,7 @@ export default () => ({
             v-bind:class="{'form-group--error': errors.stripe.exp_month}"
             style="text-align: center;"
             placeholder="{{placeholders.month}}"
-            v-model="errors.stripe.exp_month"
+            v-model="stripe.exp_month"
           >
 
           <span class="form-group__error" v-if="errors.exp_month">
