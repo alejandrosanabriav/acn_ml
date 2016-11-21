@@ -16,9 +16,6 @@ function addStylesToNodes(parent) {
 		});
 	}
 
-		let firstNode = parent.querySelector(`.donate_landing__section-1`);
-	console.log('first node', firstNode.offsetHeight);
-	parent.querySelector('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
 }
 
 function setViewportWidth(parent) {
@@ -85,6 +82,9 @@ export default () => ({
 
 	ready() {
 		configForm(this.$el);
+			let firstNode = this.$el.querySelector(`.donate_landing__section-1`);
+			console.log('first node', firstNode.offsetHeight);
+			parent.querySelector('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
 		this.contact.country = this.country;
 	},
 
