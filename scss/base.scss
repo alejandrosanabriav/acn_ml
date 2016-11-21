@@ -44,6 +44,16 @@ body {
     float: left;
     margin: 20px 0 0 0;
   }
+
+  .navbar-nav {
+    padding-top: 25px;
+    color: $color_dark;
+    transition: all 300ms ease;
+    
+    &:hover, &:focus {
+      color: $color_red;
+    }
+  }
 }
 
 h1 {
