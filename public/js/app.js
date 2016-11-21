@@ -13488,18 +13488,14 @@
 
 					var fields = ['contact.name', 'contact.email', 'contact.country'];
 
-					var errors = {};
-
 					fields.forEach(function (key) {
 						var validation = _this4.isRequired(key);
 						if (validation[key]) {
-							errors = _extends({}, errors, validation);
+							_this4.errors = _extends({}, _this4.errors, validation);
 						}
 					});
-
-					this.errors = errors;
 				},
-				showErrors: function showErrors() {
+				showStripeErrors: function showStripeErrors() {
 					this.$set('errors.stripe', (0, _validation2.default)(this.stripe).errors);
 				},
 				removeErrors: function removeErrors() {
@@ -13519,7 +13515,7 @@
 						this.removeErrors();
 						this.createToken();
 					} else {
-						this.showErrors();
+						this.showStripeErrors();
 						this.changeViewportHeight(2);
 					}
 				},

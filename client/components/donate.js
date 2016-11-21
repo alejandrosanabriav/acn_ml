@@ -190,19 +190,16 @@ export default () => ({
 				'contact.country'
 			];
 
-			let errors = {};
-
 			fields.forEach((key) => {
 				let validation = this.isRequired(key);
 				if(validation[key]) {
-					errors = {...errors, ...validation};
+					this.errors = {...this.errors, ...validation};
 				}
 			});
 
-			this.errors = errors;
 		},
 
-		showErrors() {
+		showStripeErrors() {
 			this.$set('errors.stripe', validateStripe(this.stripe).errors);
 		},
 
@@ -226,7 +223,7 @@ export default () => ({
 				this.removeErrors();
 				this.createToken();
 			} else {
-				this.showErrors();
+				this.showStripeErrors();
 				this.changeViewportHeight(2);
 			}
 		},
@@ -357,7 +354,9 @@ export default () => ({
 			let isValid = Stripe.card.validateExpiry(this.stripe.exp_month, this.stripe.exp_year);
 			this.$set('errors.stripe.exp_month', !isValid);
 			this.$set('errors.stripe.exp_year', !isValid);
-		}
+		},
+
+
 
 	},
 
