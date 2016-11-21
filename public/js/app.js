@@ -45547,27 +45547,33 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
 	exports.default = function () {
-		return {
-			template: '#change-amount-template',
+	  return {
+	    template: '\n\t\t<ul class="change-amount" style="padding: 0 15px">\n      <li class="col-md-2">\n        <a\n          href="#" \n          v-bind:class="[ $parent.amount == 10 ? \'active\' : \'\'  ]"\n          v-on:click="changeAmount(10, $event)">$ 10</a>\n      </li>\n      <li class="col-md-2">\n        <a\n          href="#"\n          v-bind:class="[ $parent.amount == 30 ? \'active\' : \'\'  ]"  \n          v-on:click="changeAmount(30, $event)"\n        >$ 30</a>\n      </li>\n      <li class="col-md-2">\n        <a \n          href="#" \n          v-bind:class="[ $parent.amount == 50 ? \'active\' : \'\'  ]" \n          v-on:click="changeAmount(50, $event)"\n        >$ 50</a>\n      </li>\n      <li class="col-md-2">\n        <a \n          href="#" \n          v-bind:class="[ $parent.amount == 100 ? \'active\' : \'\'  ]" \n          v-on:click="changeAmount(100, $event)"\n        >$ 100</a>\n      </li>\n      <li class="col-md-2">\n        <a\n          href="#" \n          v-bind:class="[ $parent.amount == 1 ? \'active\' : \'\'  ]" \n          v-on:click="changeAmount(\'\', $event)">\n\t\t\t\t\t{{other}}\n          </a>\n      </li>\n    </ul>\n\t',
 
-			methods: {
-				isAmount: function isAmount(amount) {
-					this.$parent.amount == amount;
-				},
-				changeAmount: function changeAmount(amount, e) {
-					e.preventDefault();
-					if (amount == '') {
-						this.$dispatch('focus-amount');
-					} else {
-						this.$parent.amount = amount;
-					}
-				}
-			}
-		};
+	    props: ['other'],
+
+	    propsData: {
+	      other: 'Other'
+	    },
+
+	    methods: {
+	      isAmount: function isAmount(amount) {
+	        this.$parent.amount == amount;
+	      },
+	      changeAmount: function changeAmount(amount, e) {
+	        e.preventDefault();
+	        if (amount == '') {
+	          this.$dispatch('focus-amount');
+	        } else {
+	          this.$parent.amount = amount;
+	        }
+	      }
+	    }
+	  };
 	};
 
 /***/ },
