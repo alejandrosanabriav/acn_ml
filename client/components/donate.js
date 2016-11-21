@@ -297,7 +297,6 @@ export default () => ({
 				response = JSON.parse(res);
 			} catch (e) {
 				this.removeErrors();
-				console.log('donate response err: ', res);
 			}
 
 			this.toggleLoading();
@@ -353,8 +352,13 @@ export default () => ({
 
 		cardValidation(action = {type: '', field: ''}) {
 			const {type, field} = action;
-			console.log('card validation');
-			console.log(Stripe.card[type], this.$get(field), Stripe.card[type](this.$get(field)));
+			let isValid = Stripe.card[type](this.$get(field)); 
+
+			if(isValid) {
+				this.errors = {...this.errors, [field]: !isValid};
+			} else {
+				this.errors = {...this.errors, [field]: isValid};
+			}
 		}
 
 	},

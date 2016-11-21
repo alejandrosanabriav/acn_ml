@@ -13315,6 +13315,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 	var componentData = {
@@ -13593,7 +13595,6 @@
 						response = JSON.parse(res);
 					} catch (e) {
 						this.removeErrors();
-						console.log('donate response err: ', res);
 					}
 
 					this.toggleLoading();
@@ -13649,8 +13650,13 @@
 					var type = action.type,
 					    field = action.field;
 
-					console.log('card validation');
-					console.log(Stripe.card[type], this.$get(field), Stripe.card[type](this.$get(field)));
+					var isValid = Stripe.card[type](this.$get(field));
+
+					if (isValid) {
+						this.errors = _extends({}, this.errors, _defineProperty({}, field, !isValid));
+					} else {
+						this.errors = _extends({}, this.errors, _defineProperty({}, field, isValid));
+					}
 				}
 			},
 
