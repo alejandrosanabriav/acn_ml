@@ -77,7 +77,7 @@ if(function_exists('sc_factory')) {
         "name" =>  "BS donate",
         "base" => "bs_donate",
         "category" =>  "BS",
-        "params" => array($bs_donate_sections)
+        "params" => $bs_donate_sections
       ) 
     );
   }
