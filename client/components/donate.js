@@ -75,7 +75,8 @@ export default () => ({
 		'url',
 		'currency',
 		'country',
-		'validationMessages'
+		'validationMessages',
+		'backText'
 	],
 
 	data() {
