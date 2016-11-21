@@ -41,7 +41,7 @@
 
         <div class="col-xs-12">
           <button class="donate_landing__submit pull-left" v-on:click.prevent="nextSection">
-            <?php echo gett('Donate') ?>
+            {{texts.sectionOne.btn}}
           </button>
 
           <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
@@ -158,7 +158,7 @@
               v-on:click.prevent="getToken" 
               :disabled="loading"
             >
-              <?php echo getT('NEXT') ?>
+            {{texts.sectionTwo.btn}}
             </button>
 
              <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
@@ -217,8 +217,12 @@
   
       <div class="col-md-12">
         
-        <button class="donate_landing__submit pull-left" v-on:click.prevent="onSubmit" :disabled="loading">
-          <?php echo gett('Donate') ?>
+        <button 
+          class="donate_landing__submit pull-left" 
+          v-on:click.prevent="onSubmit" 
+          :disabled="loading"
+        >
+          {{texts.sectionThree.btn}}
         </button>
         <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
         <button v-on:click.prevent="backSection" class="donate_landing__back pull-right">{{backText}}</button>
@@ -267,15 +271,18 @@
     :texts="{
         sectionOne: {
           title: '<?php echo $at['section_title_1'] ?>',
-          content: '<?php echo $at['section_content_1'] ?>'
+          content: '<?php echo $at['section_content_1'] ?>',
+          btn: '<?php echo $at['section_btn_1'] ?>'
         },
         sectionTwo: {
           title: '<?php echo $at['section_title_2'] ?>',
-          content: '<?php echo $at['section_content_2'] ?>'
+          content: '<?php echo $at['section_content_2'] ?>',
+          btn: '<?php echo $at['section_btn_2'] ?>'
         },
         sectionThree: {
           title: '<?php echo $at['section_title_3'] ?>',
-          content: '<?php echo $at['section_content_3'] ?>'
+          content: '<?php echo $at['section_content_3'] ?>',
+          btn: '<?php echo $at['section_btn_3'] ?>'
         }
       }"
   >

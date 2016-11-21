@@ -51,10 +51,13 @@ if(function_exists('sc_factory')) {
   sc_factory($prefix . 'donate', array(
     "section_title_1" => "",
     "section_content_1" => "",
+    "section_btn_1" => "",
     "section_title_2" => "",
     "section_content_2" => "",
+    "section_btn_2" => "",
     "section_title_3" => "",
     "section_content_3" => "",
+    "section_btn_3" => "",
     "link_text" => "",
     "link_anchor" => "",
     "back_text" => "Back",
@@ -84,6 +87,13 @@ if(function_exists('sc_factory')) {
       "type" => "textarea",
       "heading" => "section content " . $section,
       "param_name" => "section_content_" . $section,
+      "value" => ''
+    );
+
+    $sec_content = array(
+      "type" => "textfield",
+      "heading" => "section button " . $section,
+      "param_name" => "section_btn_" . $section,
       "value" => ''
     );
 
