@@ -357,7 +357,7 @@ export default () => ({
 			if(isValid) {
 				this.errors = {...this.errors, [field]: !isValid};
 			} else {
-				this.errors = {...this.errors, [field]: isValid};
+				this.errors = {...this.errors, [field]: !isValid};
 			}
 			console.log(this.errors);
 		}
