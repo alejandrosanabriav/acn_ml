@@ -40,7 +40,7 @@ export default () => {
 			<form >
 				<div class="input-container">
 					<input 
-						v-bind:keyup="validateField({type: 'isEmpty', field: 'name'})" 
+						v-bind:keyup="validateField({type: 'required', field: 'name'})" 
 						v-model="name"
 						type="text" 
 						class="form-control"
