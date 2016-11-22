@@ -87,7 +87,7 @@ p {
   font-weight: 300;
   margin: 0; }
 
-.input_container--select::after {
+.input_container__select::after {
   font-family: "Ionicons";
   content: "\f123"; }
 
