@@ -29347,24 +29347,6 @@
 					countries: []
 				};
 			},
-
-
-			methods: {
-				validateField: function validateField() {
-					var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { type: '', field: '' };
-					var type = action.type,
-					    field = action.field;
-
-					var val = this.$get(field);
-					var v = _Validator2.default.make(_defineProperty({}, field, val), _defineProperty({}, field, type));
-
-					if (v.fails()) {
-						var errors = v.getErrors();
-						console.log(errors);
-					}
-				}
-			},
-
 			init: function init() {
 				var _this = this;
 
@@ -29380,7 +29362,26 @@
 			},
 
 
-			template: '\n\t\t\t<form >\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-bind:keyup="validateField({type: \'required\', field: \'name\'})" \n\t\t\t\t\t\tv-model="name"\n\t\t\t\t\t\ttype="text" \n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tplaceholder="{{placeholders.name}}"\n\t\t\t\t\t>\n\t\t\t\t</div>\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-bind:keyup="validateField({type: \'email\', field: \'email\'})" \n\t\t\t\t\t\tv-model="email"\n\t\t\t\t\t\ttype="text" \n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tplaceholder="{{placeholders.email}}"\n\t\t\t\t\t>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container input_container__select">\n\t\t\t\t\t<select name="" class="form-control" v-model="country">\n\t\t\t\t\t\t<option value="{{country}}" v-for="country in countries">{{country}}</option>\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<button class="btn-pray"><img v-bind:src="prayLogo" alt="">{{texts.pray}}</button>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t'
+			methods: {
+				validateField: function validateField() {
+					var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { type: '', field: '' };
+					var type = action.type,
+					    field = action.field;
+
+					var val = this.$get(field);
+					var v = _Validator2.default.make(_defineProperty({}, field, val), _defineProperty({}, field, type));
+
+					if (v.fails()) {
+						var errors = v.getErrors();
+						console.log(errors);
+					}
+				},
+				onSubmit: function onSubmit() {
+					console.log(this);
+				}
+			},
+
+			template: '\n\t\t\t<form >\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-bind:keyup="validateField({type: \'required\', field: \'name\'})" \n\t\t\t\t\t\tv-model="name"\n\t\t\t\t\t\ttype="text" \n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tplaceholder="{{placeholders.name}}"\n\t\t\t\t\t>\n\t\t\t\t</div>\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-bind:keyup="validateField({type: \'email\', field: \'email\'})" \n\t\t\t\t\t\tv-model="email"\n\t\t\t\t\t\ttype="text" \n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tplaceholder="{{placeholders.email}}"\n\t\t\t\t\t>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container input_container__select">\n\t\t\t\t\t<select name="" class="form-control" v-model="country">\n\t\t\t\t\t\t<option value="{{country}}" v-for="country in countries">{{country}}</option>\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<button class="btn-pray" v-on:click.prevent="onSubmit"><img v-bind:src="prayLogo" alt="">{{texts.pray}}</button>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t'
 		};
 	};
 

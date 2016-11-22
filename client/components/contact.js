@@ -21,6 +21,17 @@ export default () => {
 			};
 		},
 
+		init() {
+			$.ajax({
+				url: '/wp-admin/admin-ajax.php',
+				data: {action: 'countries'}
+			}).then(res => this.countries = res);
+		},
+
+		ready() {
+			this.prayLogo = `${this.baseUri}/public/img/pray.svg`;
+		},
+
 		methods: {
 			validateField(action = {type: '', field: ''}) {
 				const {type, field} = action;
@@ -31,18 +42,11 @@ export default () => {
 					let errors = v.getErrors();
 					console.log(errors);
 				}
+			},
+
+			onSubmit() {
+				console.log(this);
 			}
-		},
-
-		init() {
-			$.ajax({
-				url: '/wp-admin/admin-ajax.php',
-				data: {action: 'countries'}
-			}).then(res => this.countries = res);
-		},
-
-		ready() {
-			this.prayLogo = `${this.baseUri}/public/img/pray.svg`;
 		},
 
 		template: `
@@ -73,7 +77,7 @@ export default () => {
 				</div>
 
 				<div class="input_container">
-					<button class="btn-pray"><img v-bind:src="prayLogo" alt="">{{texts.pray}}</button>
+					<button class="btn-pray" v-on:click.prevent="onSubmit"><img v-bind:src="prayLogo" alt="">{{texts.pray}}</button>
 				</div>
 			</form>
 		`
