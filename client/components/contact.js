@@ -25,13 +25,12 @@ export default () => {
 			validateField(action = {type: '', field: ''}) {
 				const {type, field} = action;
 				const val = this.$get(field);
-				console.log(val);
 				let v = Validator.make({[field]: val}, {[field]: type});
 
 				if (v.fails()) {
-        	let errors = v.getErrors();
-        	console.log(errors);
-    		}
+					let errors = v.getErrors();
+					console.log(errors);
+				}
 			}
 		},
 
@@ -40,6 +39,7 @@ export default () => {
 				url: '/wp-admin/admin-ajax.php',
 				data: {action: 'countries'}
 			}).then(res => this.countries = res);
+
 			this.prayLogo = `${this.baseUri}/public/img/pray.svg`;
 		},
 

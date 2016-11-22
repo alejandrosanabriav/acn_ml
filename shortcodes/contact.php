@@ -5,4 +5,3 @@
   baseUri="<?php echo get_template_directory_uri() ?>"
 >
 </contact>
-
