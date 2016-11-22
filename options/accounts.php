@@ -36,6 +36,29 @@ function bs_accounts_options() {
   <form method="post" action="options.php" style="position: relative; margin: 0 auto">
     <?php settings_fields( 'bs_accounts_info_group' ); ?>
     <?php do_settings_sections( 'bs_accounts_info_group' ); ?>
+    <p>
+      <label for=""><b>InfusionSoft key</b></label>
+      <br>
+      <input 
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
+        type="text"
+        name="infusionsoft_api"
+        placeholder="Api Key" 
+        value="<?php echo get_option('infusionsoft_key') ?>"
+      >
+    </p>
+
+     <p>
+      <label for=""><b>InfusionSoft subdomain</b></label>
+      <br>
+      <input 
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
+        type="text"
+        name="infusionsoft_api"
+        placeholder="Api Key" 
+        value="<?php echo get_option('infusionsoft_subdomain') ?>"
+      >
+    </p>
 
     <p>
        <label for=""> <b>Mailchimp key</b> </label>
