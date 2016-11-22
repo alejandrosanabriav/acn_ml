@@ -102,7 +102,7 @@ function infusion_contact() {
     'FirstName' => $name[0],
     'LastName' => $name[1],
     'Email' => $data['email'],
-    'CasaCountryText' => $data['country']
+    'Country' => $data['country']
   ));
 
   foreach($tags as $tag) {
