@@ -56,8 +56,8 @@ export default () => {
 						placeholder="{{placeholders.email}}"
 					>
 				</div>
-				
-				<div class="input_container">
+
+				<div class="input_container input_container__select">
 					<select name="" class="form-control" v-model="country">
 						<option value="{{country}}" v-for="country in countries">{{country}}</option>
 					</select>
