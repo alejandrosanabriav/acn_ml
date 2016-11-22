@@ -68,7 +68,7 @@ body {
   .navbar-nav {
     padding-top: 25px;
     a {
-      color: $color_dark;
+      color: $color_oxford !important;
       transition: all 300ms ease;
 
       &:hover, &:focus {

@@ -41,7 +41,7 @@ body {
   #header .navbar-nav {
     padding-top: 25px; }
     #header .navbar-nav a {
-      color: #1a2127;
+      color: #3c515f !important;
       transition: all 300ms ease; }
       #header .navbar-nav a:hover, #header .navbar-nav a:focus {
         background: transparent;
