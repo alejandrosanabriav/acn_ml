@@ -62,7 +62,13 @@ add_action( 'wp_ajax_nopriv_infusion_contact', 'infusion_contact' );
 add_action( 'wp_ajax_infusion_contact', 'infusion_contact' );
 
 function infusion_contact() {
-  $res = infusion_create_contact();
+  try {
+    $res = infusion_create_contact();
+  } catch(Exception $e) {
+    echo $e;
+    die();
+  }
+  
   header('Content-type: application/json');
   echo json_encode($res);
   die();
