@@ -29378,6 +29378,7 @@
 					var field = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
 					var value = this.$get(field);
+					console.log(this.rules[field]);
 					var result = _approvejs2.default.value(value, this.rules[field]);
 					var errors = result.errors;
 

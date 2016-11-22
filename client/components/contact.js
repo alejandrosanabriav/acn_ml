@@ -44,6 +44,7 @@ export default () => {
 		methods: {
 			validateField(field = '') {
 				const value = this.$get(field);
+				console.log(this.rules[field]);
 				let result = approve.value(value, this.rules[field]);
 				let {errors} = result;
 				this.errors =  {...this.errors, [field]: errors};
