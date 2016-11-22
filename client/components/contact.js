@@ -17,7 +17,8 @@ export default () => {
 				name: '',
 				email: '',
 				prayLogo: '',
-				countries: []
+				countries: [],
+				errors: {}
 			};
 		},
 
@@ -37,7 +38,12 @@ export default () => {
 				const {rules, field} = action;
 				const value = this.$get(field);
 				let result = approve.value(value, rules);
-				console.log(result);
+				let {errors} = result;
+				this.errors =  {...this.errors, [field]: errors};
+			},
+			
+			validateAll() {
+				
 			},
 
 			onSubmit() {
