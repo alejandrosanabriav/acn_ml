@@ -61,6 +61,18 @@ function bs_accounts_options() {
     </p>
 
     <p>
+      <label for=""><b>InfusionSoft tags</b></label>
+      <br>
+      <input 
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
+        type="text"
+        name="infusionsoft_tags"
+        placeholder="tag1,tag2,tag3" 
+        value="<?php echo get_option('infusionsoft_subdomain') ?>"
+      >
+    </p>
+
+    <p>
        <label for=""> <b>Mailchimp key</b> </label>
         <br>
         <input 
