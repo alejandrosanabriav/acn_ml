@@ -26,21 +26,26 @@
 
 deferScript("<?php echo get_template_directory_uri() . '/public/js/app.js' ?>");
 
+onLoad(cb) {
+  if (window.addEventListener)
+		window.addEventListener("load", cb, false);
+	else if (window.attachEvent) {
+		window.attachEvent("onload", cb);
+	} else {
+		window.onload = cb;
+	} 
+}
+
 function deferScript(src) {
 	function downloadJSAtOnload() {
     console.log($);
-	var element = document.createElement("script");
-	element.src = src;
-	document.body.appendChild(element);
-}
+    var element = document.createElement("script");
+    element.src = src;
+    document.body.appendChild(element);
+  }
 
-	if (window.addEventListener)
-		window.addEventListener("load", downloadJSAtOnload, false);
-	else if (window.attachEvent) {
-		window.attachEvent("onload", downloadJSAtOnload);
-	} else {
-		window.onload = downloadJSAtOnload;
-	} 
+  onLoad(downloadJSAtOnload);
+	
 }
 
   $('.navbar-toggle').sidr({
