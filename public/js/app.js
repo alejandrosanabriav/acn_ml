@@ -29377,7 +29377,11 @@
 					}
 				},
 				onSubmit: function onSubmit() {
-					console.log(this);
+					var name = this.name,
+					    email = this.email,
+					    country = this.country;
+
+					console.log({ name: name, email: email, country: country });
 				}
 			},
 

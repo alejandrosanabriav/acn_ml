@@ -45,7 +45,8 @@ export default () => {
 			},
 
 			onSubmit() {
-				console.log(this);
+				const {name, email, country} = this;
+				console.log({name, email, country});
 			}
 		},
 
