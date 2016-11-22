@@ -13656,8 +13656,7 @@
 					var val = this.$get('contact.' + field);
 
 					if (field == 'email' && val) {
-						console.log(_validator2.default.isEmail(val));
-						this.$set('errors.' + field, !_validator2.default.isEmail(val));
+						this.$set('errors[\'contact.' + field + '\']', !_validator2.default.isEmail(val));
 					}
 
 					this.$set('errors[\'contact.' + field + '\']', _validator2.default.isEmpty(val));
