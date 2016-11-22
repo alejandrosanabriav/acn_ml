@@ -29392,6 +29392,7 @@
 					fields.forEach(function (field) {
 						return _this2.validateField(field);
 					});
+					console.log(this.errors);
 				},
 				hasErrors: function hasErrors(field) {
 					return this.errors[field] ? this.errors[field].length > 0 : false;
@@ -29402,6 +29403,7 @@
 					    country = this.country;
 
 					this.validateAll();
+
 					var bounce = {
 						email_address: email,
 						status: "subscribed",

@@ -55,6 +55,7 @@ export default () => {
 			validateAll() {
 				let fields = ['name', 'email', 'country'];
 				fields.forEach(field => this.validateField(field));
+				console.log(this.errors);
 			},
 
 			hasErrors(field) {
@@ -64,6 +65,7 @@ export default () => {
 			onSubmit() {
 				const {name, email, country} = this;
 				this.validateAll();
+
 				let bounce = {
 					email_address: email,
 					status: "subscribed",
