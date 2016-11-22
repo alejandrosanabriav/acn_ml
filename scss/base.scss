@@ -85,6 +85,14 @@ body {
   box-shadow: none !important;
   font-family: 'Rubik', sans-serif !important;
 
+  ul {
+    li {
+      a {
+        color: $color_oxford;
+      }
+    }
+  }
+
   &-class-close {
     color: $color_red;
     height: 60px;
