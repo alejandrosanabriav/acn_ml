@@ -1,5 +1,4 @@
 'use strict';
-import Validator from 'Validator';
 import $ from 'jquery';
 import approve from 'approvejs';
 
