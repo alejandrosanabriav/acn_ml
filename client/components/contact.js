@@ -37,8 +37,12 @@ export default () => {
 				const {type, field} = action;
 				const value = this.$get(field);
 				var rules = {
-					required: true,
-					email: true
+					required: {
+						message: 'es requerido'
+					},
+					email: {
+						message: 'email incorrecto'
+					}
 				};
 
 				var result = approve.value(value, rules);
