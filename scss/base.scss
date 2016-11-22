@@ -40,6 +40,11 @@ body {
   z-index: 1001;
   box-shadow: 0px 0px 5px rgba(0,0,0,0.09);
 
+  @media #{$mobile} { 
+    height: 60px;
+    padding-left: 20px;
+  }
+
   img {
     float: left;
     margin: 20px 0 0 0;
@@ -295,6 +300,16 @@ button {
 
 .color-red {
   color: $color_red
+}
+
+.btn-pray {
+  padding: 5px 30px; 
+  min-height: 100px; 
+  border-radius: 8px; 
+  border: solid 4px #f1364e; 
+  font-size: 5em; 
+  font-weight: bold; 
+  color: #f1364e; 
 }
 
 @import 'reset';
