@@ -29428,6 +29428,7 @@
 						data = { action: 'mailchimp_subscribe', data: data };
 
 						_jquery2.default.ajax({
+							type: 'post',
 							url: '/wp-admin/admin-ajax.php',
 							data: data
 						}).then(function (res) {

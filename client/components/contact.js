@@ -81,6 +81,7 @@ export default () => {
 					data = {action: 'mailchimp_subscribe', data: data};
 
 					$.ajax({
+						type: 'post',
 						url: '/wp-admin/admin-ajax.php',
 						data: data
 					}).then(res => this.countries = res);
