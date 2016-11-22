@@ -20,6 +20,7 @@ body {
   
   @media #{$mobile} {
     font-size: 9px;
+    padding-top: 60px;
   }
 
   @media #{$tablet} {
