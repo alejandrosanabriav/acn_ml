@@ -29402,9 +29402,11 @@
 					    email = _$get.email,
 					    country = _$get.country,
 					    accept = _$get.accept;
-					// let isValid = this.$get('errors').filter(err => err.length > 0);
 
-					console.log(name, email, accept);
+					var isValid = [name, email, accept].filter(function (err) {
+						return err.length > 0;
+					});
+					console.log(isValid);
 				},
 				hasErrors: function hasErrors(field) {
 					return this.errors[field] ? this.errors[field].length > 0 : false;

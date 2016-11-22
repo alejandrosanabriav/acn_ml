@@ -60,9 +60,8 @@ export default () => {
 				let fields = ['name', 'email', 'country', 'accept'];
 				fields.forEach(field => this.validateField(field));
 				let {name, email, country, accept} = this.$get('errors');
-				// let isValid = this.$get('errors').filter(err => err.length > 0);
-				
-				console.log(name, email, accept);
+				let isValid = [name, email, accept].filter(err => err.length > 0);
+				console.log(isValid);				
 			},
 
 			hasErrors(field) {
