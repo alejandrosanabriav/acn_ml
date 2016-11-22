@@ -29363,7 +29363,7 @@
 			methods: {
 				validateField: function validateField() {
 					var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { rules: {}, field: '' };
-					var type = action.type,
+					var rules = action.rules,
 					    field = action.field;
 
 					var value = this.$get(field);
