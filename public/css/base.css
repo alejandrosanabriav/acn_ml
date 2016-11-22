@@ -55,7 +55,8 @@ body {
     color: #f1364e;
     height: 60px;
     width: 100%;
-    font-size: 20px; }
+    font-size: 20px;
+    text-align: right; }
 
 h1 {
   font-family: Rubik;
