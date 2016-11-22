@@ -51,7 +51,7 @@ body {
   background: #fff !important;
   box-shadow: none !important;
   font-family: 'Rubik', sans-serif; }
-  .sidr-class-close {
+  .sidr.close {
     color: #f1364e;
     height: 60px;
     width: 100%;
