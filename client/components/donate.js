@@ -535,11 +535,11 @@ export default () => ({
               type="text"
               name="name"
               class="form-control form-control--outline"
-							v-bind:class="{'form-group--error': errors['contact.name']}"
+							v-bind:class="{'form-group--error': errors.contact.name}"
               placeholder="{{placeholders.name}}"
               v-model="contact.name"
               >
-               <span class="form-group__error" v-if="errors['contact.name']">
+               <span class="form-group__error" v-if="errors.contact.name">
                  {{validationMessages.name}}
               </span>
           </div>
@@ -552,12 +552,12 @@ export default () => ({
               type="text"
               name="email"
               class="form-control form-control--outline"
-							v-bind:class="{'form-group--error': errors['contact.email']}"
+							v-bind:class="{'form-group--error': errors.contact.email}"
               placeholder="{{placeholders.email}}"
               v-model="contact.email"
             >
 
-            <span class="form-group__error" v-if="errors['contact.email']">
+            <span class="form-group__error" v-if="errors.contact.email">
                {{validationMessages.email}}
             </span>
           </div>
@@ -567,13 +567,13 @@ export default () => ({
           <div class="form-group">
             <select 
 							class="form-control form-control--outline"
-							v-bind:class="{'form-group--error': errors['contact.country']}"
+							v-bind:class="{'form-group--error': errors.contact.country}"
 							name="country" 
 							v-model="contact.country"
 						>
                 <option value="{{country}}" v-for="country in countries">{{country}}</option>
             </select>
-            <span class="form-group__error" v-if="errors['contact.country']">
+            <span class="form-group__error" v-if="errors.contact.country">
                {{validationMessages.country}}
             </span>
           </div>
