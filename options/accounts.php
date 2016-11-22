@@ -17,6 +17,9 @@ function bs_admin_accounts_options_menu() {
 }
 
 function bs_accounts_settings() {
+  register_setting( 'bs_accounts_info_group', 'infusionsoft_key' );
+  register_setting( 'bs_accounts_info_group', 'infusionsoft_subdomain' );
+  register_setting( 'bs_accounts_info_group', 'infusionsoft_tags' );
   register_setting( 'bs_accounts_info_group', 'mailchimp_api' );
   register_setting( 'bs_accounts_info_group', 'mailchimp_list_id' );
   register_setting( 'bs_accounts_info_group', 'stripe_key_private' );
