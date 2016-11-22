@@ -63,10 +63,10 @@ add_action( 'wp_ajax_infusion_contact', 'infusion_contact' );
 
 function infusion_contact() {
   $infusionsoft = new Infusionsoft('kh234', 'd871db40497cbbd7c9e25898749d128d');
-  $res = $infusionsoft->contact( 'add',array(
+  $res = $infusionsoft->contact( 'add', array(
     'FirstName' => 'Alejandro',
     'Email' => 'ale@brandspa.com',
-    'Country' => 'Colombia'
+    'City' => 'Colombia'
   ));
 
   echo $res;
