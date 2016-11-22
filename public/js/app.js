@@ -29378,10 +29378,12 @@
 					var field = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
 					var value = this.$get(field);
-					var result = _approvejs2.default.value(value, this.rules[field]);
-					var errors = result.errors;
+					if (this.rules[field]) {
+						var result = _approvejs2.default.value(value, this.rules[field]);
+						var errors = result.errors;
 
-					this.errors = _extends({}, this.errors, _defineProperty({}, field, errors));
+						this.errors = _extends({}, this.errors, _defineProperty({}, field, errors));
+					}
 				},
 				validateAll: function validateAll() {
 					var _this2 = this;
