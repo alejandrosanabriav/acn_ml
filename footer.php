@@ -29,16 +29,6 @@
 
 deferScript("<?php echo get_template_directory_uri() . '/public/js/app.js' ?>");
 
-function onLoad(cb) {
-  if (window.addEventListener)
-		window.addEventListener("load", cb, false);
-	else if (window.attachEvent) {
-		window.attachEvent("onload", cb);
-	} else {
-		window.onload = cb;
-	} 
-}
-
 function deferScript(src) {
 	function downloadJSAtOnload() {
     console.log($);
@@ -56,6 +46,7 @@ function deferScript(src) {
     source: '#sidr',
     side: 'right',
     displace: false,
+    renaming: false,
     onOpen() {
       $('.navbar-toggle').addClass('navbar-toggle--active');
     },

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/flexslider.min.css">
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">
-  
+
     <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -22,6 +22,17 @@
   })(window,document,'script','dataLayer','GTM-PPMG5P');</script>
   <!-- End Google Tag Manager -->
 
+  <script>
+    function onLoad(cb) {
+      if (window.addEventListener)
+        window.addEventListener("load", cb, false);
+      else if (window.attachEvent) {
+        window.attachEvent("onload", cb);
+      } else {
+        window.onload = cb;
+      } 
+    }
+  </script>
 </head>
 <body>
 <div id="app-ml">
