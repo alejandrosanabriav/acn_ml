@@ -83,9 +83,10 @@ body {
 .sidr {
   background: #fff !important;
   box-shadow: none !important;
+
   &-class-close {
     color: $color_red;
-    height: 100px;
+    height: 70px;
     width: 100%;
   }
 }
