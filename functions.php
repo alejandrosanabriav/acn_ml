@@ -102,7 +102,7 @@ function clean_menu($nav) {
   return preg_replace( array( '#^<ul[^>]*>#', '#</ul>$#' ), '', $menu );
 }
 
-function modify_jquery() {
-		wp_deregister_script('jquery');
-}
-add_action('init', 'modify_jquery');
+// function modify_jquery() {
+// 		wp_deregister_script('jquery');
+// }
+// add_action('init', 'modify_jquery');
