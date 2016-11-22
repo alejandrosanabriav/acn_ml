@@ -29339,7 +29339,7 @@
 	exports.default = function () {
 
 		return {
-			props: ['placeholders', 'texts', 'country', 'baseUri'],
+			props: ['placeholders', 'texts', 'country', 'baseUri', 'redirect'],
 
 			data: function data() {
 				return {
@@ -29432,7 +29432,7 @@
 							url: '/wp-admin/admin-ajax.php',
 							data: data
 						}).then(function (res) {
-							return _this3.countries = res;
+							return window.location = _this3.redirect;
 						});
 					}
 				}

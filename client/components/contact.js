@@ -9,7 +9,8 @@ export default () => {
 			'placeholders', 
 			'texts',
 			'country',
-			'baseUri'
+			'baseUri',
+			'redirect'
 		],
 
 		data() {
@@ -84,7 +85,7 @@ export default () => {
 						type: 'post',
 						url: '/wp-admin/admin-ajax.php',
 						data: data
-					}).then(res => this.countries = res);
+					}).then(res => window.location = this.redirect);
 				}
 		
 			}

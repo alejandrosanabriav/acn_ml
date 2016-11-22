@@ -3,5 +3,6 @@
   :placeholders="{name: 'Name', email: 'Email'}" 
   country="Colombia"
   base-uri=<?php echo get_template_directory_uri() ?>
+  redirect=<?php echo get_option('subscribe_redirect') ?>
 >
 </contact>
