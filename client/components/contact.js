@@ -38,7 +38,7 @@ export default () => {
 
 		template: `
 			<form >
-				<div class="input-container">
+				<div class="input_container">
 					<input 
 						v-bind:keyup="validateField({type: 'required', field: 'name'})" 
 						v-model="name"
@@ -47,7 +47,7 @@ export default () => {
 						placeholder="{{placeholders.name}}"
 					>
 				</div>
-				<div class="input-container">
+				<div class="input_container">
 					<input 
 						v-bind:keyup="validateField({type: 'email', field: 'email'})" 
 						v-model="email"
@@ -56,12 +56,12 @@ export default () => {
 						placeholder="{{placeholders.email}}"
 					>
 				</div>
-				<div class="input-container">
+				<div class="input_container">
 					<select name="" class="form-control" v-model="country">
 						<option value="{{country}}" v-for="country in countries">{{country}}</option>
 					</select>
 				</div>
-				<div class="input-container">
+				<div class="input_container">
 					<button class="btn-pray">{{texts.pray}}</button>
 				</div>
 			</form>
