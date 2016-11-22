@@ -65,7 +65,8 @@ function infusion_contact() {
   $infusionsoft = new Infusionsoft('kh234', 'd871db40497cbbd7c9e25898749d128d');
   $res = $infusionsoft->contact( 'add',array(
     'FirstName' => 'Alejandro',
-    'Email' => 'ale@brandspa.com'
+    'Email' => 'ale@brandspa.com',
+    'Country' => 'Colombia'
   ));
 
   echo $res;
