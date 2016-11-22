@@ -52,6 +52,15 @@ export default () => {
 
 			onSubmit() {
 				const {name, email, country} = this;
+				let bounce = {
+					"email_address": email,
+					"status": "subscribed",
+					"merge_fields": {"NAME": name, "COUNTRY": country},
+					"update_existing": true
+				};      
+
+				bounce = {action: 'mailchimp_subscribe', data: bounce};
+				console.log(bounce);
 			}
 		},
 
