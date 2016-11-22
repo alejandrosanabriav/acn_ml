@@ -29351,7 +29351,7 @@
 					    field = action.field;
 
 					var val = this.$get(field);
-
+					console.log(val);
 					var v = _Validator2.default.make(_defineProperty({}, field, val), _defineProperty({}, field, type));
 
 					if (v.fails()) {

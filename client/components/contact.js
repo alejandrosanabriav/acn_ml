@@ -22,7 +22,7 @@ export default () => {
 			validateField(action = {type: '', field: ''}) {
 				const {type, field} = action;
 				const val = this.$get(field);
-
+				console.log(val);
 				let v = Validator.make({[field]: val}, {[field]: type});
 
 				if (v.fails()) {
