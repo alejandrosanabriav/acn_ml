@@ -13435,18 +13435,6 @@
 					var val = this.$get(keypath);
 					this.$set(keypath, val.substring(0, length));
 				},
-				isRequired: function isRequired(keypath) {
-					var error = {};
-					var val = this.$get(keypath) ? this.$get(keypath) : '';
-
-					if (val === '') {
-						error[keypath] = true;
-					} else {
-						error[keypath] = false;
-					}
-
-					return error;
-				},
 				createToken: function createToken() {
 					var _this3 = this;
 
@@ -13493,7 +13481,6 @@
 					var val = this.$get('contact.' + field);
 
 					if (field == 'email' && val) {
-						console.log(val, !_validator2.default.isEmail(val));
 						this.$set('errors.contact.' + field, !_validator2.default.isEmail(val));
 					} else {
 						this.$set('errors.contact.' + field, _validator2.default.isEmpty(val));

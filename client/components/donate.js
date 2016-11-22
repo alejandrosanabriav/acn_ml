@@ -130,19 +130,6 @@ export default () => ({
 			this.$set(keypath, val.substring(0, length));
 		},
 
-		isRequired(keypath) {
-			let error = {};
-			let val = this.$get(keypath) ? this.$get(keypath) : '';
-
-			if (val === '') {
-				error[keypath] = true;
-			} else {
-				error[keypath] = false;
-			}
-
-			return error;
-		},
-
 		createToken() {
 			let stripeData = {
 				number: this.stripe.number,
@@ -189,7 +176,6 @@ export default () => ({
 			let val = this.$get(`contact.${field}`);
 
 			if(field == 'email' && val) {
-				console.log(val, !validator.isEmail(val));
 				this.$set(`errors.contact.${field}`, !validator.isEmail(val));
 			} else {
 				this.$set(`errors.contact.${field}`, validator.isEmpty(val));
