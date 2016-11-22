@@ -91,7 +91,7 @@ function bs_accounts_options() {
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
-        name="donate_redirect"
+        name="donate_once_redirect"
         placeholder="url"
         value="<?php echo get_option('donate_once_redirect') ?>"
         >
@@ -103,7 +103,7 @@ function bs_accounts_options() {
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
-        name="donate_redirect"
+        name="donate_monthly_redirect"
         placeholder="url"
         value="<?php echo get_option('donate_monthly_redirect') ?>"
         >
