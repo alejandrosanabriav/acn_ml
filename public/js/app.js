@@ -29411,20 +29411,28 @@
 					return this.errors[field] ? this.errors[field].length > 0 : false;
 				},
 				onSubmit: function onSubmit() {
+					var _this3 = this;
+
 					var name = this.name,
 					    email = this.email,
 					    country = this.country;
 
 					if (this.validateAll()) {
-						var bounce = {
+						var data = {
 							email_address: email,
 							status: "subscribed",
 							merge_fields: { "NAME": name, "COUNTRY": country },
 							update_existing: true
 						};
 
-						bounce = { action: 'mailchimp_subscribe', data: bounce };
-						console.log(bounce);
+						data = { action: 'mailchimp_subscribe', data: data };
+
+						_jquery2.default.ajax({
+							url: '/wp-admin/admin-ajax.php',
+							data: data
+						}).then(function (res) {
+							return _this3.countries = res;
+						});
 					}
 				}
 			},

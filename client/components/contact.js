@@ -71,15 +71,19 @@ export default () => {
 			onSubmit() {
 				const {name, email, country} = this;
 				if(this.validateAll()) {
-					let bounce = {
+					let data = {
 						email_address: email,
 						status: "subscribed",
 						merge_fields: {"NAME": name, "COUNTRY": country},
 						update_existing: true
 					};      
 
-					bounce = {action: 'mailchimp_subscribe', data: bounce};
-					console.log(bounce);
+					data = {action: 'mailchimp_subscribe', data: data};
+
+					$.ajax({
+						url: '/wp-admin/admin-ajax.php',
+						data: data
+					}).then(res => this.countries = res);
 				}
 		
 			}
