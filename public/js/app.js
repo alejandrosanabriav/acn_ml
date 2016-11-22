@@ -29418,14 +29418,14 @@
 					    country = this.country;
 
 					if (this.validateAll()) {
-						var data = {
-							email_address: email,
-							status: "subscribed",
-							merge_fields: { "NAME": name, "COUNTRY": country },
-							update_existing: true
-						};
+						// let data = {
+						// 	email_address: email,
+						// 	status: "subscribed",
+						// 	merge_fields: {"NAME": name, "COUNTRY": country},
+						// 	update_existing: true
+						// };      
 
-						data = { action: 'mailchimp_subscribe', data: data };
+						var data = { action: 'infusion_contact', data: { name: name, email: email, country: country } };
 
 						_jquery2.default.ajax({
 							type: 'post',

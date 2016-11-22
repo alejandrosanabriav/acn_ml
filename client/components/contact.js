@@ -72,14 +72,14 @@ export default () => {
 			onSubmit() {
 				const {name, email, country} = this;
 				if(this.validateAll()) {
-					let data = {
-						email_address: email,
-						status: "subscribed",
-						merge_fields: {"NAME": name, "COUNTRY": country},
-						update_existing: true
-					};      
+					// let data = {
+					// 	email_address: email,
+					// 	status: "subscribed",
+					// 	merge_fields: {"NAME": name, "COUNTRY": country},
+					// 	update_existing: true
+					// };      
 
-					data = {action: 'mailchimp_subscribe', data: data};
+					let data = {action: 'infusion_contact', data: {name, email, country}};
 
 					$.ajax({
 						type: 'post',
