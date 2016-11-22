@@ -16,4 +16,9 @@
   </button>
 </form>
 
-<contact :texts="{}" :placeholders="{}" country="Colombia"></contact>
+<contact 
+  :texts="{pray: 'PRAY'}" 
+  :placeholders="{name: 'Name', email: 'Email'}" 
+  country="Colombia"
+>
+</contact>
