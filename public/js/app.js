@@ -13549,7 +13549,7 @@
 						}).then(function (response) {
 							if (response.id) {
 								var subdata = '?customer_id=' + response.id + '&order_revenue=' + _this5.amount + '&order_id=' + response.id + '&landing_thanks=true&landing_revenue=' + _this5.amount;
-								window.location = '' + _this5.redirect['donation_type'] + subdata;
+								window.location = '' + _this5.redirect[_this5.donation_type] + subdata;
 							}
 						});
 					} else {

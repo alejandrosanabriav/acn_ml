@@ -240,7 +240,7 @@ export default () => ({
 				.then(response => {
 					if (response.id) {
 						let subdata = `?customer_id=${response.id}&order_revenue=${this.amount}&order_id=${response.id}&landing_thanks=true&landing_revenue=${this.amount}`;
-						window.location = `${this.redirect['donation_type']}${subdata}`;	
+						window.location = `${this.redirect[this.donation_type]}${subdata}`;	
 					}
 				});
 
