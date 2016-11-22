@@ -54,7 +54,8 @@ body {
   .sidr-class-close {
     color: #f1364e;
     height: 60px;
-    width: 100%; }
+    width: 100%;
+    font-size: 25px; }
 
 h1 {
   font-family: Rubik;
