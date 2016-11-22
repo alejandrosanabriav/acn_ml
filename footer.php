@@ -26,7 +26,7 @@
 
 deferScript("<?php echo get_template_directory_uri() . '/public/js/app.js' ?>");
 
-onLoad(cb) {
+function onLoad(cb) {
   if (window.addEventListener)
 		window.addEventListener("load", cb, false);
 	else if (window.attachEvent) {
