@@ -126,6 +126,14 @@ p {
   margin: 0;
 }
 
+select {
+  &.form-control {
+    &::after {
+      font-family:"Ionicons";
+      content: "\f123"
+    }
+  }
+}
 .input, .form-control {
   display: block;
   width: 100%;
