@@ -76,7 +76,7 @@ export default () => {
 					<input 
 						v-on:keyup="validateField({rules: {email: {message: 'Email incorrecto'}}, field: 'email'})" 
 						v-model="email"
-						type="text" 
+						type="text"
 						class="form-control"
 						v-bind:class="[hasErrors('email') ? 'form-group--error' : '']"
 						placeholder="{{placeholders.email}}"
