@@ -93,7 +93,7 @@ function infusion_contact() {
 
   $defaultTags = [800, 802];
   $tags = explode(',', get_option('infusionsoft_tags'));
-  $tags = array_push($tags, $defaultTags, $countryTag);
+  $tags = array_merge($tags, $defaultTags, $countryTag);
   $infusionsoft = new Infusionsoft($subdomain, $key);
   $name = explode(" ", $data['name']);
 
@@ -108,7 +108,7 @@ function infusion_contact() {
     $infusionsoft->contact('addToGroup', $res, $tag);
   }
 
-  echo $res;
+  echo $tags;
 
   die();
 }
