@@ -43,7 +43,7 @@ function bs_accounts_options() {
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
         name="infusionsoft_api"
-        placeholder="Api Key" 
+        placeholder="InfusionSoft key" 
         value="<?php echo get_option('infusionsoft_key') ?>"
       >
     </p>
@@ -55,7 +55,7 @@ function bs_accounts_options() {
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
         name="infusionsoft_api"
-        placeholder="Api Key" 
+        placeholder="InfusionSoft subdomain" 
         value="<?php echo get_option('infusionsoft_subdomain') ?>"
       >
     </p>
