@@ -6,6 +6,10 @@
     back-text=<?php echo $at['back_text'] ?>
     monthly=<?php echo $at['monthly'] ?>
     once=<?php echo $at['once'] ?>
+    :redirect="{
+      once: '<?php echo get_option('donate_once_redirect') ?>',
+      monthly: '<?php echo get_option('donate_monthly_redirect') ?>',
+    }"
     :card-src="{
       Visa: '<?php echo get_template_directory_uri() . '/public/img/cards/Visa.png' ?>',
       MasterCard: '<?php echo get_template_directory_uri() . '/public/img/cards/MasterCard.png' ?>',

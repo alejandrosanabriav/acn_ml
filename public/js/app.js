@@ -13360,7 +13360,7 @@
 
 	exports.default = function () {
 		return {
-			props: ['captcha_name', 'url', 'currency', 'country', 'validationMessages', 'backText', 'texts', 'link', 'cardSrc', 'placeholders'],
+			props: ['captcha_name', 'url', 'currency', 'country', 'validationMessages', 'backText', 'texts', 'link', 'cardSrc', 'placeholders', 'redirect'],
 
 			data: function data() {
 				return _extends({}, componentData);
@@ -13550,7 +13550,9 @@
 								_this5.removeErrors();
 							}
 						}).then(function (res) {
-							if (res.id) _this5.success = true;
+							if (res.id) {
+								window.location = _this5.redirect['donation_type'];
+							}
 						});
 					} else {
 						this.toggleLoading();

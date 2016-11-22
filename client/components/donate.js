@@ -53,7 +53,8 @@ export default () => ({
 		'texts',
 		'link',
 		'cardSrc',
-		'placeholders'
+		'placeholders',
+		'redirect'
 	],
 
 	data() {
@@ -251,8 +252,11 @@ export default () => ({
 					}
 				})
 				.then(res => {
-					if (res.id) this.success = true;
+					if (res.id) {
+						window.location = this.redirect['donation_type'];	
+					}
 				});
+
 			} else {
 				this.toggleLoading();
 				this.changeViewportHeight( 3 );
