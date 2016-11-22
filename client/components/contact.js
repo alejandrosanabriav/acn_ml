@@ -1,6 +1,7 @@
 'use strict';
 import Validator from 'Validator';
 import $ from 'jquery';
+import approve from 'approvejs';
 
 export default () => {
 	
@@ -35,13 +36,14 @@ export default () => {
 		methods: {
 			validateField(action = {type: '', field: ''}) {
 				const {type, field} = action;
-				const val = this.$get(field);
-				let v = Validator.make({[field]: val}, {[field]: type});
+				const value = this.$get(field);
+				var rules = {
+					required: true,
+					email: true
+				};
 
-				if (v.fails()) {
-					let errors = v.getErrors();
-					console.log(errors);
-				}
+				var result = approve.value(value, rules);
+				console.log(result);
 			},
 
 			onSubmit() {
