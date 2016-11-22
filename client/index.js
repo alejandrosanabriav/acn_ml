@@ -2,7 +2,7 @@
 import input from './input';
 import form from './form';
 import donate from './components/donate';
-
+import contact from './components/contact';
 import changeAmount from './components/change_amount';
 import sliderBg from './components/slider_bg';
 
@@ -10,6 +10,7 @@ import sliderBg from './components/slider_bg';
 	Vue.component('change-amount', changeAmount());
 	Vue.component('donate-landing', donate());
 	Vue.component('bsslider-bg', sliderBg());
+	Vue.component('contact', contact());
 
 	const vm = new Vue({
 		el: '#app-ml'
