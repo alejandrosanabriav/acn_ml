@@ -4,17 +4,23 @@ require $dir_base . 'vendor/autoload.php';
 
 function stripe_create_token($api_key, $card) {
     \Stripe\Stripe::setApiKey($api_key);
-  
-    $token = \Stripe\Token::create(array(
-      "card" => array(
-      "number" => $card['number'],
-      "exp_month" => $card['exp_month'],
-      "exp_year" => $card['exp_year'],
-      "cvc" => $card['cvc']
-    )
-    ));
+    try {
+      $token = \Stripe\Token::create(array(
+        "card" => array(
+        "number" => $card['number'],
+        "exp_month" => $card['exp_month'],
+        "exp_year" => $card['exp_year'],
+        "cvc" => $card['cvc']
+        )
+      ));
 
-    return $token;
+      return $token;
+    } catch(Exeception $e) {
+      return $e;
+    }
+    
+
+    
 }
 
 function stripe_create_customer($api_key, $customer) {
