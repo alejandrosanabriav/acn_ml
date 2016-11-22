@@ -45,7 +45,7 @@ function bs_accounts_options() {
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
-        name="infusionsoft_api"
+        name="infusionsoft_key"
         placeholder="Api Key" 
         value="<?php echo get_option('infusionsoft_key') ?>"
       >
@@ -57,7 +57,7 @@ function bs_accounts_options() {
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
-        name="infusionsoft_api"
+        name="infusionsoft_subdomain"
         placeholder="Subdomain" 
         value="<?php echo get_option('infusionsoft_subdomain') ?>"
       >
@@ -71,7 +71,7 @@ function bs_accounts_options() {
         type="text"
         name="infusionsoft_tags"
         placeholder="tag1,tag2,tag3" 
-        value="<?php echo get_option('infusionsoft_subdomain') ?>"
+        value="<?php echo get_option('infusionsoft_tags') ?>"
       >
     </p>
 
