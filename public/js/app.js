@@ -29375,6 +29375,7 @@
 					var result = _approvejs2.default.value(value, rules);
 					var errors = result.errors;
 
+					console.log(errors);
 					this.errors = _extends({}, this.errors, _defineProperty({}, field, errors));
 				},
 				validateAll: function validateAll() {},

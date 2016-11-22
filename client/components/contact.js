@@ -39,6 +39,7 @@ export default () => {
 				const value = this.$get(field);
 				let result = approve.value(value, rules);
 				let {errors} = result;
+				console.log(errors);
 				this.errors =  {...this.errors, [field]: errors};
 			},
 			
