@@ -225,8 +225,7 @@ export default () => ({
 			this.contactValidations();
 			this.toggleLoading();
 
-
-			if(this.errors.contacts.filter(field => field == true).length == 0) {
+			if(Object.keys(this.errors.contacts).filter(field => field == true).length == 0) {
 				$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					type: 'post',
@@ -241,7 +240,7 @@ export default () => ({
 				.then(response => {
 					if (response.id) {
 						let subdata = `?customer_id=${response.stripe.customer}&order_revenue=${this.amount}&order_id=${response.stripe.id}&landing_thanks=true&landing_revenue=${this.amount}`;
-						window.location = this.redirect['donation_type'];	
+						window.location = `${this.redirect['donation_type']}${subdata}`;	
 					}
 				});
 

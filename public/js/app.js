@@ -13533,7 +13533,7 @@
 					this.contactValidations();
 					this.toggleLoading();
 
-					if (this.errors.contacts.filter(function (field) {
+					if (Object.keys(this.errors.contacts).filter(function (field) {
 						return field == true;
 					}).length == 0) {
 						_jquery2.default.ajax({
@@ -13549,7 +13549,7 @@
 						}).then(function (response) {
 							if (response.id) {
 								var subdata = '?customer_id=' + response.stripe.customer + '&order_revenue=' + _this5.amount + '&order_id=' + response.stripe.id + '&landing_thanks=true&landing_revenue=' + _this5.amount;
-								window.location = _this5.redirect['donation_type'];
+								window.location = '' + _this5.redirect['donation_type'] + subdata;
 							}
 						});
 					} else {

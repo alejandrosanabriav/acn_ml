@@ -18,9 +18,7 @@ function stripe_create_token($api_key, $card) {
     } catch(Exeception $e) {
       return $e;
     }
-    
 
-    
 }
 
 function stripe_create_customer($api_key, $customer) {
