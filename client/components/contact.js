@@ -52,7 +52,7 @@ export default () => {
 			
 			validateAll() {
 				let fields = ['name', 'email', 'country'];
-				fields.forEach(field => this.validateField({rules: {}, field}));
+				fields.forEach(field => this.validateField(field));
 			},
 
 			hasErrors(field) {

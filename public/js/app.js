@@ -29389,7 +29389,7 @@
 
 					var fields = ['name', 'email', 'country'];
 					fields.forEach(function (field) {
-						return _this2.validateField({ rules: {}, field: field });
+						return _this2.validateField(field);
 					});
 				},
 				hasErrors: function hasErrors(field) {
