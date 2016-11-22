@@ -39,7 +39,9 @@ export default () => {
 				url: '/wp-admin/admin-ajax.php',
 				data: {action: 'countries'}
 			}).then(res => this.countries = res);
+		},
 
+		ready() {
 			this.prayLogo = `${this.baseUri}/public/img/pray.svg`;
 		},
 

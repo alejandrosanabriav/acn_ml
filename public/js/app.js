@@ -29374,7 +29374,8 @@
 				}).then(function (res) {
 					return _this.countries = res;
 				});
-
+			},
+			ready: function ready() {
 				this.prayLogo = this.baseUri + '/public/img/pray.svg';
 			},
 
