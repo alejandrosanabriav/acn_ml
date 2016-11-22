@@ -44,7 +44,7 @@ export default () => {
 		methods: {
 			validateField(field = '') {
 				const value = this.$get(field);
-				console.log(this.rules[field]);
+				console.log( this.rules[field] );
 				let result = approve.value(value, this.rules[field]);
 				let {errors} = result;
 				this.errors =  {...this.errors, [field]: errors};
@@ -92,7 +92,7 @@ export default () => {
 				</div>
 				<div class="form-group">
 					<input 
-						v-on:keyup="validateField('name')" 
+						v-on:keyup="validateField('email')" 
 						v-model="email"
 						type="text"
 						class="form-control"
