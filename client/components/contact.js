@@ -33,7 +33,7 @@ export default () => {
 		},
 
 		methods: {
-			validateField(action = {rules: '', field: ''}) {
+			validateField(action = {rules: {}, field: ''}) {
 				const {type, field} = action;
 				const value = this.$get(field);
 				let result = approve.value(value, rules);
