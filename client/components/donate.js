@@ -185,20 +185,21 @@ export default () => ({
 			}
 		},
 
+		validateContact(field = '') {
+			let val = this.$get(`contact.${field}`);
+
+			if(field == 'email' && val) {
+				console.log(val, !validator.isEmail(val));
+				this.$set(`errors.contact.${field}`, !validator.isEmail(val));
+			} else {
+				this.$set(`errors.contact.${field}`, validator.isEmpty(val));
+			}
+
+		},
+
 		contactValidations() {
-			let fields = [
-				'contact.name',
-				'contact.email',
-				'contact.country'
-			];
-
-			fields.forEach((key) => {
-				let validation = this.isRequired(key);
-				if(validation[key]) {
-					this.errors = {...this.errors, ...validation};
-				}
-			});
-
+			let fields = [ 'name', 'email', 'country' ];
+			fields.forEach((key) => this.validateContact(key));
 		},
 
 		showStripeErrors() {
@@ -361,17 +362,6 @@ export default () => ({
 			this.$set('errors.stripe.exp_year', !isValid);
 		},
 
-		validateContact(field = '') {
-			let val = this.$get(`contact.${field}`);
-
-			if(field == 'email' && val) {
-				console.log(val, !validator.isEmail(val));
-				this.$set(`errors['contact.${field}']`, !validator.isEmail(val));
-			} else {
-				this.$set(`errors['contact.${field}']`, validator.isEmpty(val));
-			}
-
-		}
 	},
 
 	template: `

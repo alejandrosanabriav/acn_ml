@@ -13487,16 +13487,24 @@
 						};
 					}
 				},
+				validateContact: function validateContact() {
+					var field = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+					var val = this.$get('contact.' + field);
+
+					if (field == 'email' && val) {
+						console.log(val, !_validator2.default.isEmail(val));
+						this.$set('errors.contact.' + field, !_validator2.default.isEmail(val));
+					} else {
+						this.$set('errors.contact.' + field, _validator2.default.isEmpty(val));
+					}
+				},
 				contactValidations: function contactValidations() {
 					var _this4 = this;
 
-					var fields = ['contact.name', 'contact.email', 'contact.country'];
-
+					var fields = ['name', 'email', 'country'];
 					fields.forEach(function (key) {
-						var validation = _this4.isRequired(key);
-						if (validation[key]) {
-							_this4.errors = _extends({}, _this4.errors, validation);
-						}
+						return _this4.validateContact(key);
 					});
 				},
 				showStripeErrors: function showStripeErrors() {
@@ -13651,18 +13659,6 @@
 					var isValid = Stripe.card.validateExpiry(this.stripe.exp_month, this.stripe.exp_year);
 					this.$set('errors.stripe.exp_month', !isValid);
 					this.$set('errors.stripe.exp_year', !isValid);
-				},
-				validateContact: function validateContact() {
-					var field = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-					var val = this.$get('contact.' + field);
-
-					if (field == 'email' && val) {
-						console.log(val, !_validator2.default.isEmail(val));
-						this.$set('errors[\'contact.' + field + '\']', !_validator2.default.isEmail(val));
-					} else {
-						this.$set('errors[\'contact.' + field + '\']', _validator2.default.isEmpty(val));
-					}
 				}
 			},
 
