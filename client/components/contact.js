@@ -61,6 +61,7 @@ export default () => {
 						v-model="name"
 						type="text" 
 						class="form-control"
+						v-bind:class="[errors.name.length > 0 ? 'form-group--error' : '']"
 						placeholder="{{placeholders.name}}"
 					>
 
