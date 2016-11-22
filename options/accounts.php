@@ -21,7 +21,8 @@ function bs_accounts_settings() {
   register_setting( 'bs_accounts_info_group', 'mailchimp_list_id' );
   register_setting( 'bs_accounts_info_group', 'stripe_key_private' );
   register_setting( 'bs_accounts_info_group', 'stripe_key_public' );
-  register_setting( 'bs_accounts_info_group', 'donate_redirect' );
+  register_setting( 'bs_accounts_info_group', 'donate_monthly_redirect' );
+  register_setting( 'bs_accounts_info_group', 'donate_once_redirect' );
   register_setting( 'bs_accounts_info_group', 'subscribe_redirect' );
 }
 
