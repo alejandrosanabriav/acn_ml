@@ -224,9 +224,9 @@ export default () => ({
 			e.preventDefault();
 			this.contactValidations();
 			this.toggleLoading();
-			
 
-			if(Object.keys(this.errors).length == 0) {
+
+			if(this.errors.contacts.filter(field => field == true).length == 0) {
 				$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					type: 'post',
@@ -238,8 +238,9 @@ export default () => ({
 						this.removeErrors();
 					}
 				})
-				.then(res => {
-					if (res.id) {
+				.then(response => {
+					if (response.id) {
+						let subdata = `?customer_id=${response.stripe.customer}&order_revenue=${this.amount}&order_id=${response.stripe.id}&landing_thanks=true&landing_revenue=${this.amount}`;
 						window.location = this.redirect['donation_type'];	
 					}
 				});
