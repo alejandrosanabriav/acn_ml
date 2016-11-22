@@ -29337,12 +29337,13 @@
 	exports.default = function () {
 
 		return {
-			props: ['placeholders', 'texts', 'country'],
+			props: ['placeholders', 'texts', 'country', 'baseUri'],
 
 			data: function data() {
 				return {
 					name: '',
 					email: '',
+					prayLogo: '',
 					countries: []
 				};
 			},
@@ -29374,10 +29375,11 @@
 				}).then(function (res) {
 					return _this.countries = res;
 				});
+				this.prayLogo = this.baseUri + '/public/img/pray.svg';
 			},
 
 
-			template: '\n\t\t\t<form >\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-bind:keyup="validateField({type: \'required\', field: \'name\'})" \n\t\t\t\t\t\tv-model="name"\n\t\t\t\t\t\ttype="text" \n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tplaceholder="{{placeholders.name}}"\n\t\t\t\t\t>\n\t\t\t\t</div>\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-bind:keyup="validateField({type: \'email\', field: \'email\'})" \n\t\t\t\t\t\tv-model="email"\n\t\t\t\t\t\ttype="text" \n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tplaceholder="{{placeholders.email}}"\n\t\t\t\t\t>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container input_container__select">\n\t\t\t\t\t<select name="" class="form-control" v-model="country">\n\t\t\t\t\t\t<option value="{{country}}" v-for="country in countries">{{country}}</option>\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<button class="btn-pray">{{texts.pray}}</button>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t'
+			template: '\n\t\t\t<form >\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-bind:keyup="validateField({type: \'required\', field: \'name\'})" \n\t\t\t\t\t\tv-model="name"\n\t\t\t\t\t\ttype="text" \n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tplaceholder="{{placeholders.name}}"\n\t\t\t\t\t>\n\t\t\t\t</div>\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-bind:keyup="validateField({type: \'email\', field: \'email\'})" \n\t\t\t\t\t\tv-model="email"\n\t\t\t\t\t\ttype="text" \n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tplaceholder="{{placeholders.email}}"\n\t\t\t\t\t>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container input_container__select">\n\t\t\t\t\t<select name="" class="form-control" v-model="country">\n\t\t\t\t\t\t<option value="{{country}}" v-for="country in countries">{{country}}</option>\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<button class="btn-pray"><img v-bind:src="prayLogo" alt="">{{texts.pray}}</button>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t'
 		};
 	};
 

@@ -8,13 +8,15 @@ export default () => {
 		props: [
 			'placeholders', 
 			'texts',
-			'country'
+			'country',
+			'baseUri'
 		],
 
 		data() {
 			return {
 				name: '',
 				email: '',
+				prayLogo: '',
 				countries: []
 			};
 		},
@@ -38,6 +40,7 @@ export default () => {
 				url: '/wp-admin/admin-ajax.php',
 				data: {action: 'countries'}
 			}).then(res => this.countries = res);
+			this.prayLogo = `${this.baseUri}/public/img/pray.svg`;
 		},
 
 		template: `
@@ -66,8 +69,9 @@ export default () => {
 						<option value="{{country}}" v-for="country in countries">{{country}}</option>
 					</select>
 				</div>
+
 				<div class="input_container">
-					<button class="btn-pray">{{texts.pray}}</button>
+					<button class="btn-pray"><img v-bind:src="prayLogo" alt="">{{texts.pray}}</button>
 				</div>
 			</form>
 		`
