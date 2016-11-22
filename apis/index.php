@@ -63,7 +63,10 @@ add_action( 'wp_ajax_infusion_contact', 'infusion_contact' );
 
 function infusion_contact() {
   $data = $_POST['data'];
-  $infusionsoft = new Infusionsoft('kh234', 'd871db40497cbbd7c9e25898749d128d');
+  $key = get_option('infusionsoft_key');
+  $subdomain = get_option('infusionsoft_subdomain');
+  $tags = explode(',', get_option('infusionsoft_tags'));
+  $infusionsoft = new Infusionsoft($subdomain, $key);
   $name = explode(" ", $data['name']);
 
   $res = $infusionsoft->contact( 'add', array(
@@ -73,8 +76,12 @@ function infusion_contact() {
     'City' => $data['country']
   ));
 
+  foreach($tags as $tag) {
+    $infusionsoft->contact('addToGroup', $res, $tag);
+  }
+
   echo $res;
-  
+
   die();
 }
 
