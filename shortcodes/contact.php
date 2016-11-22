@@ -15,3 +15,5 @@
     <?php echo $at['btn_title'] ?>
   </button>
 </form>
+
+<contact :texts="{}" :placeholders="{}" country="Colombia"></contact>
