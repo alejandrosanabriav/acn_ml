@@ -16,6 +16,7 @@ include_once 'shortcodes/slider.php';
 include_once 'options/index.php';
 include_once 'apis/index.php';
 include_once 'lib/index.php';
+include_once 'lib/infusionsoft.php';
 
 function enqueue_scripts()
 {
