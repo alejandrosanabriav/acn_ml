@@ -119,7 +119,7 @@ export default () => {
 					</select>
 				</div>
 
-				<div class="checkbox">
+				<div class="checkbox form-group">
 					<label class="checkbox__label">
 						<input type="checkbox" v-model="accept"> {{texts.checkbox}}
 					</label>
