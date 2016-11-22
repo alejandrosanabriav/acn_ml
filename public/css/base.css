@@ -52,7 +52,7 @@ body {
   box-shadow: none !important;
   font-family: 'Rubik', sans-serif !important; }
   .sidr ul li a {
-    color: #3c515f; }
+    color: #3c515f !important; }
   .sidr-class-close {
     color: #f1364e;
     height: 60px;
