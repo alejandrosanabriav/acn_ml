@@ -2,7 +2,7 @@
 $dir_base =  str_replace('apis', '', __DIR__);
 require $dir_base . 'vendor/autoload.php';
 
-function create_contact() {
+function infusion_create_contact() {
   $app = new iSDK();
   $contactData = array('FirstName' => 'John', 'LastName'  => 'Doe', 'Email' => 'JDoe@email.com');
 
