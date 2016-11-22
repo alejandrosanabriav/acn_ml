@@ -13532,7 +13532,7 @@
 					e.preventDefault();
 					this.contactValidations();
 					this.toggleLoading();
-
+					console.log(Object.keys(this.errors.contacts));
 					if (Object.keys(this.errors.contacts).filter(function (field) {
 						return field == true;
 					}).length == 0) {

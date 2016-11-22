@@ -224,7 +224,7 @@ export default () => ({
 			e.preventDefault();
 			this.contactValidations();
 			this.toggleLoading();
-
+			console.log(Object.keys(this.errors.contacts));
 			if(Object.keys(this.errors.contacts).filter(field => field == true).length == 0) {
 				$.ajax({
 					url: '/wp-admin/admin-ajax.php',
