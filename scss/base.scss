@@ -331,7 +331,7 @@ button {
   &__label {
     font-family: Rubik;
 	  font-size: (18 / 14) * 1em;
-    font-weight: 300;
+    font-weight: 300 !important;
     color: rgba(255, 255, 255, .3);
   }
 }
