@@ -39,12 +39,15 @@ export default () => {
 				const value = this.$get(field);
 				let result = approve.value(value, rules);
 				let {errors} = result;
-				console.log(errors);
 				this.errors =  {...this.errors, [field]: errors};
 			},
 			
 			validateAll() {
-				
+				let fields = ['name', 'email', 'country'];
+			},
+
+			hasErrors(field) {
+				return this.errors[field].length > 0;
 			},
 
 			onSubmit() {
@@ -61,11 +64,11 @@ export default () => {
 						v-model="name"
 						type="text" 
 						class="form-control"
-						v-bind:class="[errors.name.length > 0 ? 'form-group--error' : '']"
+						v-bind:class="[hasErrors('name') ? 'form-group--error' : '']"
 						placeholder="{{placeholders.name}}"
 					>
 
-					<span class="form-group__error" v-if="errors.name.length > 0">
+					<span class="form-group__error" v-if="hasErrors('name')">
 						{{errors.name}}
 					</span>
 				</div>
@@ -75,9 +78,10 @@ export default () => {
 						v-model="email"
 						type="text" 
 						class="form-control"
+						v-bind:class="[hasErrors('email') ? 'form-group--error' : '']"
 						placeholder="{{placeholders.email}}"
 					>
-					<span class="form-group__error" v-if="errors.email.length > 0">
+					<span class="form-group__error" v-if="hasErrors('email')">
 						{{errors.email}}
 					</span>
 				</div>
