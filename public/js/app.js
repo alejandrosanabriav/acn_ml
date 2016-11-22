@@ -29392,7 +29392,10 @@
 					fields.forEach(function (field) {
 						return _this2.validateField(field);
 					});
-					console.log(this.errors);
+					var isValid = this.errors.filter(function (err) {
+						return err.length > 0;
+					});
+					console.log(isValid);
 				},
 				hasErrors: function hasErrors(field) {
 					return this.errors[field] ? this.errors[field].length > 0 : false;
