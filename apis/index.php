@@ -62,7 +62,9 @@ add_action( 'wp_ajax_nopriv_infusion_contact', 'infusion_contact' );
 add_action( 'wp_ajax_infusion_contact', 'infusion_contact' );
 
 function infusion_contact() {
-  var_dump(new Infusionsoft('kh234', 'd871db40497cbbd7c9e25898749d128d'));
+  $infusionsoft = new Infusionsoft('kh234', 'd871db40497cbbd7c9e25898749d128d');
+  $res = $infusionsoft->contact( 'add',array('email' => 'ale@brandspa.com'));
+  echo $res;
   die();
 }
 
