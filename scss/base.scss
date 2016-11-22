@@ -57,8 +57,9 @@ body {
 
   .navbar-toggle {
      span {
-        background: $color_dark;
+        background: $color_red;
      }
+     
      &:hover, &:focus {
         background: transparent;
         color: $color_red;
