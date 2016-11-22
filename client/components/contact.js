@@ -55,7 +55,7 @@ export default () => {
 
 		template: `
 			<form >
-				<div class="input_container">
+				<div class="form-group">
 					<input 
 						v-on:keyup="validateField({rules: {required: {message: 'Nombre requerido'}}, field: 'name'})" 
 						v-model="name"
@@ -63,6 +63,10 @@ export default () => {
 						class="form-control"
 						placeholder="{{placeholders.name}}"
 					>
+
+					<span class="form-group__error" v-if="errors.name.length > 0">
+						{{errors.name}}
+					</span>
 				</div>
 				<div class="form-group">
 					<input 
@@ -72,9 +76,8 @@ export default () => {
 						class="form-control"
 						placeholder="{{placeholders.email}}"
 					>
-
-					<span class="form-group--error" v-if="errors.name.length > 0">
-						{{errors.name}}
+					<span class="form-group__error" v-if="errors.email.length > 0">
+						{{errors.email}}
 					</span>
 				</div>
 
