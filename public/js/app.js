@@ -29381,14 +29381,12 @@
 					var fields = ['name', 'email', 'country'];
 				},
 				hasErrors: function hasErrors(field) {
-					return this.errors[field].length > 0;
+					return this.errors[field] ? this.errors[field].length > 0 : false;
 				},
 				onSubmit: function onSubmit() {
 					var name = this.name,
 					    email = this.email,
 					    country = this.country;
-
-					console.log({ name: name, email: email, country: country });
 				}
 			},
 

@@ -47,12 +47,11 @@ export default () => {
 			},
 
 			hasErrors(field) {
-				return this.errors[field].length > 0;
+				return this.errors[field] ? this.errors[field].length > 0 : false;
 			},
 
 			onSubmit() {
 				const {name, email, country} = this;
-				console.log({name, email, country});
 			}
 		},
 
