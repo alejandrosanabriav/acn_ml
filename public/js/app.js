@@ -29392,7 +29392,7 @@
 				validateAll: function validateAll() {
 					var _this2 = this;
 
-					var fields = ['name', 'email', 'country', 'accept'];
+					var fields = ['name', 'email', 'accept'];
 					fields.forEach(function (field) {
 						return _this2.validateField(field);
 					});
@@ -29400,13 +29400,12 @@
 					var _$get = this.$get('errors'),
 					    name = _$get.name,
 					    email = _$get.email,
-					    country = _$get.country,
 					    accept = _$get.accept;
 
 					var isValid = [name, email, accept].filter(function (err) {
 						return err.length > 0;
 					});
-					console.log(isValid);
+					console.log(isValid.length == 0);
 				},
 				hasErrors: function hasErrors(field) {
 					return this.errors[field] ? this.errors[field].length > 0 : false;
