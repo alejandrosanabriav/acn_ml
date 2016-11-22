@@ -36,16 +36,7 @@ export default () => {
 			validateField(action = {rules: '', field: ''}) {
 				const {type, field} = action;
 				const value = this.$get(field);
-				var rules = {
-					required: {
-						message: 'es requerido'
-					},
-					email: {
-						message: 'email incorrecto'
-					}
-				};
-
-				var result = approve.value(value, rules);
+				let result = approve.value(value, rules);
 				console.log(result);
 			},
 

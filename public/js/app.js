@@ -29367,15 +29367,6 @@
 					    field = action.field;
 
 					var value = this.$get(field);
-					var rules = {
-						required: {
-							message: 'es requerido'
-						},
-						email: {
-							message: 'email incorrecto'
-						}
-					};
-
 					var result = _approvejs2.default.value(value, rules);
 					console.log(result);
 				},
