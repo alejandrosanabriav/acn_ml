@@ -16,6 +16,7 @@ export default () => {
 			return {
 				name: '',
 				email: '',
+				accept: false,
 				prayLogo: '',
 				countries: [],
 				errors: {},
@@ -117,7 +118,7 @@ export default () => {
 
 				<div class="checkbox">
 					<label class="checkbox__label">
-						<input type="checkbox"> {{texts.checkbox}}
+						<input type="checkbox" v-model="accept"> {{texts.checkbox}}
 					</label>
 				</div>
 
