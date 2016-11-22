@@ -1,5 +1,6 @@
 'use strict';
 import Validator from 'Validator';
+import $ from 'jquery';
 
 export default () => {
 	
@@ -33,7 +34,10 @@ export default () => {
 		},
 
 		init() {
-			console.log('hold you down');
+			$.ajax({
+				url: '/wp-admin/admin-ajax.php',
+				data: {action: 'countries'}
+			}).then(res => this.countries = res);
 		},
 
 		template: `

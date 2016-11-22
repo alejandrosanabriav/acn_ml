@@ -29326,6 +29326,10 @@
 
 	var _Validator2 = _interopRequireDefault(_Validator);
 
+	var _jquery = __webpack_require__(1);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -29362,7 +29366,14 @@
 			},
 
 			init: function init() {
-				console.log('hold you down');
+				var _this = this;
+
+				_jquery2.default.ajax({
+					url: '/wp-admin/admin-ajax.php',
+					data: { action: 'countries' }
+				}).then(function (res) {
+					return _this.countries = res;
+				});
 			},
 
 
