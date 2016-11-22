@@ -115,6 +115,12 @@ export default () => {
 					</select>
 				</div>
 
+				<div class="checkbox">
+					<label>
+						<input type="checkbox"> {{texts.checkbox}}
+					</label>
+				</div>
+
 				<div class="input_container">
 					<button class="btn-pray" v-on:click.prevent="onSubmit"><img v-bind:src="prayLogo" alt="">{{texts.pray}}</button>
 				</div>
