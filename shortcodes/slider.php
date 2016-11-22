@@ -34,7 +34,7 @@ function bs_slider_sc($atts, $content = null) {
 </div>
 <?php endif; ?>
 <script>
-  $(function() {
+function loadSlider() {
 
     $('#<?php echo $id?>').flexslider({
       animation: "slide",
@@ -45,7 +45,9 @@ function bs_slider_sc($atts, $content = null) {
       controlNav: <?php echo $at['control_nav'] ?>
     });
 
-  });
+}
+
+onLoad(loadSlider);
 </script>
 
 <?php
