@@ -61,7 +61,7 @@ export default () => {
 				fields.forEach(field => this.validateField(field));
 				let {name, email, accept} = this.$get('errors');
 				let isValid = [name, email, accept].filter(err => err.length > 0);
-				console.log(isValid.length == 0);
+				return isValid.length == 0;
 			},
 
 			hasErrors(field) {
@@ -70,17 +70,18 @@ export default () => {
 
 			onSubmit() {
 				const {name, email, country} = this;
-				this.validateAll();
+				if(this.validateAll()) {
+					let bounce = {
+						email_address: email,
+						status: "subscribed",
+						merge_fields: {"NAME": name, "COUNTRY": country},
+						update_existing: true
+					};      
 
-				let bounce = {
-					email_address: email,
-					status: "subscribed",
-					merge_fields: {"NAME": name, "COUNTRY": country},
-					update_existing: true
-				};      
-
-				bounce = {action: 'mailchimp_subscribe', data: bounce};
-				console.log(bounce);
+					bounce = {action: 'mailchimp_subscribe', data: bounce};
+					console.log(bounce);
+				}
+		
 			}
 		},
 
