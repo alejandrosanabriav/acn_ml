@@ -29396,10 +29396,8 @@
 					fields.forEach(function (field) {
 						return _this2.validateField(field);
 					});
-					var isValid = this.$get('errors').filter(function (err) {
-						return err.length > 0;
-					});
-					console.log(isValid);
+					// let isValid = this.$get('errors').filter(err => err.length > 0);
+					console.log(this.$get('errors'));
 				},
 				hasErrors: function hasErrors(field) {
 					return this.errors[field] ? this.errors[field].length > 0 : false;
