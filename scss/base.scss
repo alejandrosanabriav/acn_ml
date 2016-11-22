@@ -315,6 +315,11 @@ button {
   font-size: 5em; 
   font-weight: bold; 
   color: #f1364e; 
+  img {
+    display: block;
+    float: left;
+    padding-top: 7px;
+  }
 }
 
 @import 'reset';
