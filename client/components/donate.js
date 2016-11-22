@@ -363,9 +363,10 @@ export default () => ({
 			if(field == 'email' && val) {
 				console.log(val, !validator.isEmail(val));
 				this.$set(`errors['contact.${field}']`, !validator.isEmail(val));
+			} else {
+				this.$set(`errors['contact.${field}']`, validator.isEmpty(val));
 			}
 
-			this.$set(`errors['contact.${field}']`, validator.isEmpty(val));
 		}
 	},
 
