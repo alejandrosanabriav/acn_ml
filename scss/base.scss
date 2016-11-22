@@ -327,5 +327,13 @@ button {
   }
 }
 
+.checkbox {
+  &__label {
+    font-family: Rubik;
+	  font-size: (18 / 14) * 1em;
+    color: rgba(255, 255, 255, .3);
+  }
+}
+
 @import 'reset';
 @import 'donate';

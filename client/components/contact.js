@@ -116,7 +116,7 @@ export default () => {
 				</div>
 
 				<div class="checkbox">
-					<label>
+					<label class="checkbox__label">
 						<input type="checkbox"> {{texts.checkbox}}
 					</label>
 				</div>
