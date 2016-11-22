@@ -59,7 +59,7 @@ export default () => {
 			<form >
 				<div class="input_container">
 					<input 
-						v-bind:keyup="validateField({rules: {required: {message: 'Nombre requerido'}}, field: 'name'})" 
+						v-on:keyup="validateField({rules: {required: {message: 'Nombre requerido'}}, field: 'name'})" 
 						v-model="name"
 						type="text" 
 						class="form-control"
@@ -68,7 +68,7 @@ export default () => {
 				</div>
 				<div class="input_container">
 					<input 
-						v-bind:keyup="validateField({rules: {email: {message: 'Email incorrecto'}}, field: 'email'})" 
+						v-on:keyup="validateField({rules: {email: {message: 'Email incorrecto'}}, field: 'email'})" 
 						v-model="email"
 						type="text" 
 						class="form-control"
