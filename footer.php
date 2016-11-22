@@ -28,6 +28,7 @@ deferScript("<?php echo get_template_directory_uri() . '/public/js/app.js' ?>");
 
 function deferScript(src) {
 	function downloadJSAtOnload() {
+    console.log($);
 	var element = document.createElement("script");
 	element.src = src;
 	document.body.appendChild(element);
