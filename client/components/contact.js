@@ -72,6 +72,10 @@ export default () => {
 						class="form-control"
 						placeholder="{{placeholders.email}}"
 					>
+					
+					<span class="form-group--error" v-if="errors.name.length > 0">
+						{{errors.name}}
+					</span>
 				</div>
 
 				<div class="input_container input_container__select">
