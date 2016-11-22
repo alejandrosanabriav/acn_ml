@@ -13532,8 +13532,9 @@
 					e.preventDefault();
 					this.contactValidations();
 					this.toggleLoading();
-					console.log(Object.keys(this.errors.contacts));
-					if (Object.keys(this.errors.contacts).filter(function (field) {
+
+					console.log(Object.keys(this.errors.contact));
+					if (Object.keys(this.errors.contact).filter(function (field) {
 						return field == true;
 					}).length == 0) {
 						_jquery2.default.ajax({
