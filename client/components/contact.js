@@ -64,7 +64,7 @@ export default () => {
 						placeholder="{{placeholders.name}}"
 					>
 				</div>
-				<div class="input_container">
+				<div class="form-group">
 					<input 
 						v-on:keyup="validateField({rules: {email: {message: 'Email incorrecto'}}, field: 'email'})" 
 						v-model="email"
@@ -72,7 +72,7 @@ export default () => {
 						class="form-control"
 						placeholder="{{placeholders.email}}"
 					>
-					
+
 					<span class="form-group--error" v-if="errors.name.length > 0">
 						{{errors.name}}
 					</span>
