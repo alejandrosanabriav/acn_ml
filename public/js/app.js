@@ -29396,8 +29396,15 @@
 					fields.forEach(function (field) {
 						return _this2.validateField(field);
 					});
+
+					var _$get = this.$get('errors'),
+					    name = _$get.name,
+					    email = _$get.email,
+					    country = _$get.country,
+					    accept = _$get.accept;
 					// let isValid = this.$get('errors').filter(err => err.length > 0);
-					console.log(this.$get('errors'));
+
+					console.log(name, email, accept);
 				},
 				hasErrors: function hasErrors(field) {
 					return this.errors[field] ? this.errors[field].length > 0 : false;
