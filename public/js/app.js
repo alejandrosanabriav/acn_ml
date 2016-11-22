@@ -29347,7 +29347,15 @@
 					email: '',
 					prayLogo: '',
 					countries: [],
-					errors: {}
+					errors: {},
+					rules: {
+						name: {
+							required: { message: 'Nombre requerido' }
+						},
+						email: {
+							email: { message: 'Email incorrecto' }
+						}
+					}
 				};
 			},
 			init: function init() {
@@ -29367,18 +29375,21 @@
 
 			methods: {
 				validateField: function validateField() {
-					var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { rules: {}, field: '' };
-					var rules = action.rules,
-					    field = action.field;
+					var field = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
 					var value = this.$get(field);
-					var result = _approvejs2.default.value(value, rules);
+					var result = _approvejs2.default.value(value, this.rules[field]);
 					var errors = result.errors;
 
 					this.errors = _extends({}, this.errors, _defineProperty({}, field, errors));
 				},
 				validateAll: function validateAll() {
+					var _this2 = this;
+
 					var fields = ['name', 'email', 'country'];
+					fields.forEach(function (field) {
+						return _this2.validateField({ rules: {}, field: field });
+					});
 				},
 				hasErrors: function hasErrors(field) {
 					return this.errors[field] ? this.errors[field].length > 0 : false;
@@ -29388,11 +29399,12 @@
 					    email = this.email,
 					    country = this.country;
 
+					this.validateAll();
 					var bounce = {
-						"email_address": email,
-						"status": "subscribed",
-						"merge_fields": { "NAME": name, "COUNTRY": country },
-						"update_existing": true
+						email_address: email,
+						status: "subscribed",
+						merge_fields: { "NAME": name, "COUNTRY": country },
+						update_existing: true
 					};
 
 					bounce = { action: 'mailchimp_subscribe', data: bounce };
@@ -29400,7 +29412,7 @@
 				}
 			},
 
-			template: '\n\t\t\t<form >\n\t\t\t\t<div class="form-group">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-on:keyup="validateField({rules: {required: {message: \'Nombre requerido\'}}, field: \'name\'})" \n\t\t\t\t\t\tv-model="name"\n\t\t\t\t\t\ttype="text" \n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tv-bind:class="[hasErrors(\'name\') ? \'form-group--error\' : \'\']"\n\t\t\t\t\t\tplaceholder="{{placeholders.name}}"\n\t\t\t\t\t>\n\n\t\t\t\t\t<span class="form-group__error" v-if="hasErrors(\'name\')">\n\t\t\t\t\t\t{{errors.name}}\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t\t<div class="form-group">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-on:keyup="validateField({rules: {email: {message: \'Email incorrecto\'}}, field: \'email\'})" \n\t\t\t\t\t\tv-model="email"\n\t\t\t\t\t\ttype="text"\n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tv-bind:class="[hasErrors(\'email\') ? \'form-group--error\' : \'\']"\n\t\t\t\t\t\tplaceholder="{{placeholders.email}}"\n\t\t\t\t\t>\n\t\t\t\t\t<span class="form-group__error" v-if="hasErrors(\'email\')">\n\t\t\t\t\t\t{{errors.email}}\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container input_container__select">\n\t\t\t\t\t<select name="" class="form-control" v-model="country">\n\t\t\t\t\t\t<option value="{{country}}" v-for="country in countries">{{country}}</option>\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<button class="btn-pray" v-on:click.prevent="onSubmit"><img v-bind:src="prayLogo" alt="">{{texts.pray}}</button>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t'
+			template: '\n\t\t\t<form >\n\t\t\t\t<div class="form-group">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-on:keyup="validateField(\'name\')" \n\t\t\t\t\t\tv-model="name"\n\t\t\t\t\t\ttype="text" \n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tv-bind:class="[hasErrors(\'name\') ? \'form-group--error\' : \'\']"\n\t\t\t\t\t\tplaceholder="{{placeholders.name}}"\n\t\t\t\t\t>\n\n\t\t\t\t\t<span class="form-group__error" v-if="hasErrors(\'name\')">\n\t\t\t\t\t\t{{errors.name}}\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t\t<div class="form-group">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-on:keyup="validateField(\'name\')" \n\t\t\t\t\t\tv-model="email"\n\t\t\t\t\t\ttype="text"\n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tv-bind:class="[hasErrors(\'email\') ? \'form-group--error\' : \'\']"\n\t\t\t\t\t\tplaceholder="{{placeholders.email}}"\n\t\t\t\t\t>\n\t\t\t\t\t<span class="form-group__error" v-if="hasErrors(\'email\')">\n\t\t\t\t\t\t{{errors.email}}\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container input_container__select">\n\t\t\t\t\t<select name="" class="form-control" v-model="country">\n\t\t\t\t\t\t<option value="{{country}}" v-for="country in countries">{{country}}</option>\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<button class="btn-pray" v-on:click.prevent="onSubmit"><img v-bind:src="prayLogo" alt="">{{texts.pray}}</button>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t'
 		};
 	};
 

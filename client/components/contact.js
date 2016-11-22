@@ -18,7 +18,15 @@ export default () => {
 				email: '',
 				prayLogo: '',
 				countries: [],
-				errors: {}
+				errors: {},
+				rules: {
+					name: {
+						required: {message: 'Nombre requerido'}
+					},
+					email: {
+						email: {message: 'Email incorrecto'}
+					}
+				}
 			};
 		},
 
@@ -34,16 +42,16 @@ export default () => {
 		},
 
 		methods: {
-			validateField(action = {rules: {}, field: ''}) {
-				const {rules, field} = action;
+			validateField(field = '') {
 				const value = this.$get(field);
-				let result = approve.value(value, rules);
+				let result = approve.value(value, this.rules[field]);
 				let {errors} = result;
 				this.errors =  {...this.errors, [field]: errors};
 			},
 			
 			validateAll() {
 				let fields = ['name', 'email', 'country'];
+				fields.forEach(field => this.validateField({rules: {}, field}));
 			},
 
 			hasErrors(field) {
@@ -52,11 +60,12 @@ export default () => {
 
 			onSubmit() {
 				const {name, email, country} = this;
+				this.validateAll();
 				let bounce = {
-					"email_address": email,
-					"status": "subscribed",
-					"merge_fields": {"NAME": name, "COUNTRY": country},
-					"update_existing": true
+					email_address: email,
+					status: "subscribed",
+					merge_fields: {"NAME": name, "COUNTRY": country},
+					update_existing: true
 				};      
 
 				bounce = {action: 'mailchimp_subscribe', data: bounce};
@@ -68,7 +77,7 @@ export default () => {
 			<form >
 				<div class="form-group">
 					<input 
-						v-on:keyup="validateField({rules: {required: {message: 'Nombre requerido'}}, field: 'name'})" 
+						v-on:keyup="validateField('name')" 
 						v-model="name"
 						type="text" 
 						class="form-control"
@@ -82,7 +91,7 @@ export default () => {
 				</div>
 				<div class="form-group">
 					<input 
-						v-on:keyup="validateField({rules: {email: {message: 'Email incorrecto'}}, field: 'email'})" 
+						v-on:keyup="validateField('name')" 
 						v-model="email"
 						type="text"
 						class="form-control"
