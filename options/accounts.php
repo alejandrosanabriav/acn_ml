@@ -65,7 +65,6 @@ function bs_accounts_options() {
 			<input
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
         type="text"
-				class="uploader"
 				placeholder="url"
 				name="donate_link"
 				value="<?php echo esc_attr( get_option('donate_link') ); ?>"
