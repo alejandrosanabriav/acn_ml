@@ -30793,6 +30793,8 @@
 
 
 					if (this.validateAll()) {
+						ga('send', 'event', 'SUBSCRIPTION', 'SUBSCRIPTION', 'SUBSCRIPTION', 1);
+
 						var data = {};
 						if (this.type == 'mailchimp') {
 							var mc_data = {

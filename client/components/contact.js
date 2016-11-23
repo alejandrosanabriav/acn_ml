@@ -64,6 +64,8 @@ export default () => {
 				const {name, email, country} = this;
 
 				if(this.validateAll()) {
+					ga('send', 'event', 'SUBSCRIPTION', 'SUBSCRIPTION', 'SUBSCRIPTION', 1);
+					
 					let data = {};
 					if(this.type == 'mailchimp') {
 						let mc_data = {
