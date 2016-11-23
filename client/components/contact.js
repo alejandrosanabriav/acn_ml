@@ -72,7 +72,7 @@ export default () => {
 					
 					let infusion_data = {name, email, country};
 
-					let data = {action: 'infusion_contact', data: };
+					let data = {action: 'infusion_contact', data: infusion_data};
 
 					$.ajax({
 						type: 'post',
