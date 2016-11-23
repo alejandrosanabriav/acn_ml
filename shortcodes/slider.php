@@ -32,7 +32,7 @@ function bs_slider_sc($atts, $content = null) {
   ob_start();
 ?>
 
-<?php print_r($images); ?>
+<?php echo json_encode($images); ?>
 <?php if($imagesCount > 0): ?>
 <div class="flexslider" id="<?php echo $id?>" style="<?php echo $at['slider_style'] ?>">
   <ul class="slides">
