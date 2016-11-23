@@ -49,6 +49,10 @@ ansi-styles@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
 
+approvejs:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/approvejs/-/approvejs-2.0.0.tgz#3cb68e07ef9c11e58f4d99e00d9fa86dea4930a4"
+
 aproba@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.0.4.tgz#2713680775e7614c8ba186c065d4e2e52d1072c0"
@@ -3673,9 +3677,9 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
 
-Validator:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/Validator/-/Validator-1.0.3.tgz#ba177ed0772e88f38bb2c2856a1979490c7bf807"
+validator:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-6.1.0.tgz#39aab9a3a5724399a164bda4f5cf9261bb7d0e76"
 
 vendors@^1.0.0:
   version "1.0.1"
