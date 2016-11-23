@@ -88,6 +88,7 @@
 
 		$('.bs-donate').on('click', function (e) {
 			ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATIONS', 1);
+			console.log('click donate');
 		});
 	})();
 

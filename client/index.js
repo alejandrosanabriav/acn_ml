@@ -19,9 +19,10 @@ import sliderBg from './components/slider_bg';
 	input();
 	form();
 	donate();
-	
+
 	$('.bs-donate').on('click', e => {
 		ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATIONS', 1);
+		console.log('click donate');
 	});
   
 })();
