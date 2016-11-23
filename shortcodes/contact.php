@@ -18,7 +18,7 @@ function bs_contact_sc($atts, $content = null) {
 <contact
   :texts="{pray: '<?php echo $at['text_pray'] ?>', checkbox: '<?php echo $at['text_checkbox'] ?>'}" 
   :placeholders="{name: '<?php echo $at['placeholder_name'] ?>', email: '<?php echo $at['placeholder_email'] ?>'}"
-  :messages"{
+  :rules="{
     name: {
 			required: {message: '<?php echo $at['message_name'] ?>'}
 		},
