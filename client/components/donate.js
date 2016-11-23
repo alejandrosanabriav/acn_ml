@@ -230,8 +230,6 @@ export default () => ({
 			this.contactValidations();
 			this.toggleLoading();
 			
-			console.log(Object.keys(this.errors.contact), Object.keys(this.errors.contact).filter(field => this.errors.contact[field] == true));
-
 			if(Object.keys(this.errors.contact).filter(field => this.errors.contact[field] == true).length == 0) {
 				$.ajax({
 					url: '/wp-admin/admin-ajax.php',
@@ -246,9 +244,8 @@ export default () => ({
 				})
 				.then(response => {
 					if (response.id) {
-						console.log('ok');
-						// let subdata = `?customer_id=${response.id}&order_revenue=${this.amount}&order_id=${response.id}&landing_thanks=true&landing_revenue=${this.amount}`;
-						// window.location = `${this.redirect[this.donation_type]}${subdata}`;	
+						let subdata = `?customer_id=${response.id}&order_revenue=${this.amount}&order_id=${response.id}&landing_thanks=true&landing_revenue=${this.amount}`;
+						window.location = `${this.redirect[this.donation_type]}${subdata}`;	
 					}
 				});
 
