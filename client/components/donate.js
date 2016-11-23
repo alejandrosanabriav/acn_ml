@@ -72,7 +72,6 @@ export default () => ({
 		const $el = this.$el; 
 		this.addStylesToNodes($el);
 		this.setViewportWidth($el);
-		console.log('section', this.section);
 		let firstNode = $el.querySelector('.donate_landing__section-1');
 		$el.querySelector('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
 		this.contact.country = this.country;
@@ -553,7 +552,7 @@ export default () => ({
     </div>
   </div>
 
-   <div class="form-group col-sm-12">
+   <div class="form-group col-sm-12" v-if="section == 1">
       <a style="padding-top: 30px" v-bind:href="link.anchor">
         <h4 class="color-red">{{link.text}} {{section}}</h4> <i class="ion-chevron-down color-red"></i>
       </a>
