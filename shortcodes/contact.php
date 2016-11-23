@@ -32,16 +32,9 @@ function bs_contact_sc($atts, $content = null) {
   country="<?php echo getCountry() ?>"
   base-uri=<?php echo get_template_directory_uri() ?>
   redirect=<?php echo get_option('subscribe_redirect') ?>
+  type="<?php if(get_option('infusionsoft_key')): echo 'infusion'; elseif(get_option('mailchimp_api')): echo 'mailchimp'; endif; ?>"
 >
 </contact>
-
-<?php 
-if(get_option('infusionsoft_key')): 
-  echo 'infusion';
-elseif(get_option('mailchimp_api')): 
-  echo 'mailchimp'; 
-endif; 
-?>
 
 <?php
 
