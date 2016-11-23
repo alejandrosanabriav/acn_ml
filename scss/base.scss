@@ -12,6 +12,22 @@ $color_gray: #6b7c82;
 $color_gray_white:#f8f8f8;
 $color_dark: #1a2127;
 
+@mixin center_vertical() {
+  display: table; // ie9
+  display: flex;
+  flex-align: center;
+  flex-pack: center;
+  align-items: center;
+}
+
+@mixin center_horizontal {
+  display: table; // ie9
+  display: flex;
+  flex-align: baseline;
+  align-items: baseline;
+}
+
+
 body {
   font-family: 'Rubik', sans-serif;
   margin: 0;
