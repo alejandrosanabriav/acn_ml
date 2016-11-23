@@ -357,5 +357,42 @@ button {
   }
 }
 
+.bs_share {
+  position: fixed;
+  right: 0;
+  width: 38px;
+  top: 50%;
+  bottom: 0;
+  margin: auto;
+  z-index: 10015;
+ 
+
+  &__fb {
+    a {
+      width: 100%;
+      height: 38px;
+      background: #192127;
+      @include center-vertical;
+      justify-content: center;
+      text-align: center;
+    }
+    
+  }
+
+    &__tw {
+      a {
+        width: 100%;
+        height: 38px;
+        background: #fff;
+        @include center-vertical;
+        justify-content: center;
+        text-align: center;
+        path {
+          fill: #1A2127 !important;
+        }
+      }
+  }
+}
+
 @import 'reset';
 @import 'donate';
