@@ -62,6 +62,7 @@ export default () => ({
 	},
 
 	init() {
+		console.log('section', this.section);
 		$.ajax({
 			url: '/wp-admin/admin-ajax.php',
 			data: {action: 'countries'}
@@ -80,7 +81,7 @@ export default () => ({
 
 	computed: {
 		cardType() {
-			let type = Stripe.card.cardType(this.stripe.number).replace(" ", "");
+			let type = Stripe.card.cardType(this.stripe.number).replace(' ', '');
 			return type;
 		}
 	},
