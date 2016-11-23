@@ -68,8 +68,8 @@ export default () => {
 					if(this.type == 'mailchimp') {
 						let mc_data = {
 							email_address: email,
-							status: "subscribed",
-							merge_fields: {"NAME": name, "COUNTRY": country},
+							status: 'subscribed',
+							merge_fields: {'NAME': name, 'COUNTRY': country},
 							update_existing: true
 						};
 
@@ -83,7 +83,7 @@ export default () => {
 						type: 'post',
 						url: '/wp-admin/admin-ajax.php',
 						data: data
-					}).then(res => window.location = this.redirect);
+					}).then(res => console.log(res));  // window.location = this.redirect
 				}
 		
 			}
