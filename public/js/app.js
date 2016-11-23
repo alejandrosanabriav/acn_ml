@@ -87,6 +87,7 @@
 		(0, _donate2.default)();
 
 		$('.bs-donate').on('click', function (e) {
+			e.preventDefault();
 			ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATIONS', 1);
 
 			$.ajax({
