@@ -83,7 +83,7 @@ export default () => {
 						type: 'post',
 						url: '/wp-admin/admin-ajax.php',
 						data: data
-					}).then(res => console.log(res));  // window.location = this.redirect
+					}).then(res => window.location = this.redirect);
 				}
 		
 			}
