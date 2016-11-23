@@ -88,7 +88,13 @@
 
 		$('.bs-donate').on('click', function (e) {
 			ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATIONS', 1);
-			console.log('click donate');
+
+			$.ajax({
+				url: '/wp-admin/admin-ajax.php',
+				data: { action: 'donate_redirect' }
+			}).done(function (res) {
+				return console.log('url', res);
+			});
 		});
 
 		$('.bs-share').on('click', function (e) {

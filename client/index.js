@@ -22,7 +22,13 @@ import sliderBg from './components/slider_bg';
 
 	$('.bs-donate').on('click', e => {
 		ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATIONS', 1);
-		console.log('click donate');
+		
+		$.ajax({
+			url: '/wp-admin/admin-ajax.php',
+			data: {action: 'donate_redirect'}
+		})
+		.done(res => console.log('url', res));
+
 	});
   
 	$('.bs-share').on('click', e => ga('send', 'event', 'DONATION', 'SHARE_CLICK', 'SHARE_CLICK', 1));
