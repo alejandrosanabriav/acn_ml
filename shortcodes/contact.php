@@ -36,13 +36,6 @@ function bs_contact_sc($atts, $content = null) {
 </contact>
 
 <?php
-	if(function_exists('geoip_detect2_get_info_from_current_ip')) {
-    $geo = geoip_detect2_get_info_from_current_ip();
-    var_dump($geo->country);
-  }
-?>
-
-<?php
 
   return ob_get_clean();
 } //close bs_contact
