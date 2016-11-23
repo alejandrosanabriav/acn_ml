@@ -13540,6 +13540,10 @@
 					this.contactValidations();
 					this.toggleLoading();
 
+					console.log(Object.keys(this.errors.contact).filter(function (field) {
+						return field == true;
+					}));
+
 					if (Object.keys(this.errors.contact).filter(function (field) {
 						return field == true;
 					}).length == 0) {
@@ -13555,8 +13559,9 @@
 							}
 						}).then(function (response) {
 							if (response.id) {
-								var subdata = '?customer_id=' + response.id + '&order_revenue=' + _this5.amount + '&order_id=' + response.id + '&landing_thanks=true&landing_revenue=' + _this5.amount;
-								window.location = '' + _this5.redirect[_this5.donation_type] + subdata;
+								console.log('ok');
+								// let subdata = `?customer_id=${response.id}&order_revenue=${this.amount}&order_id=${response.id}&landing_thanks=true&landing_revenue=${this.amount}`;
+								// window.location = `${this.redirect[this.donation_type]}${subdata}`;	
 							}
 						});
 					} else {
