@@ -13672,6 +13672,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	ga('send', 'event', 'DONATION', 'DONATION_CLICK', '', 1);
 
 	exports.default = function () {
 

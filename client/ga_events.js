@@ -1,5 +1,5 @@
 'use strict';
-
+ga('send', 'event', 'DONATION', 'DONATION_CLICK', '', 1);
 export default () => {
 
   let sendEvent = (eventCategory, eventAction, eventLabel) => {
