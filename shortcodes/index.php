@@ -7,15 +7,6 @@ $prefix = 'bs_';
 //register shortcodes
 if(function_exists('sc_factory')) {
 
-  sc_factory($prefix . 'test', array(), $base . '/test.php');
-
-  sc_factory($prefix . 'contact', array(
-      'btn_title' => 'PRAY', 
-      'btn_style' => ''
-    ), 
-    $base . '/contact.php'
-  );
-
   sc_factory($prefix . 'input', array(
       'label' => '', 
       'placeholder' => '', 
