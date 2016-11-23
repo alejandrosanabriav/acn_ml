@@ -1,7 +1,7 @@
 <?php
 add_shortcode( 'bs_slider', 'bs_slider_sc' );
 
-function bs_contact($atts, $content = null) {
+function bs_contact_sc($atts, $content = null) {
   $at = shortcode_atts( array(
     'text_pray' => '',
     'text_checkbox' => '',
@@ -63,5 +63,5 @@ function bs_contact_vc() {
   );
 }
 
-
+add_shortcode('bs_contact', 'bs_contact_sc');
 add_action( 'vc_before_init', 'bs_contact_vc' );
