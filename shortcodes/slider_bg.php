@@ -8,5 +8,10 @@
  $images = array_map('getImagesSrc', $imagesArr);
 ?>
 
-<bsslider-bg interval="<?php echo $at['interval'] ?>" height="<?php echo $at['height'] ?>" :images=<?php echo json_encode($images, true) ?>></bsslider-bg>
+<bsslider-bg 
+	:images=<?php echo json_encode($images, true) ?>
+	interval="<?php echo $at['interval'] ?>" 
+	height="<?php echo $at['height'] ?>" 
+>
+</bsslider-bg>
 

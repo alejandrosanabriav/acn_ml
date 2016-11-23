@@ -15,11 +15,23 @@ function bs_slider_sc($atts, $content = null) {
   $imagesArr = explode(',', $at['images']);
   $linksArr = explode(',', $at['links']);
   $imagesCount = count($imagesArr);
-  $id = "slider-" . uniqid();
 
+  $images = [];
+
+  foreach($imagesArr as $i => $image ) {
+    array_push($images, ['image' => $image, 'url' => $linksArr[$i]]);
+  }
+
+
+  $id = "slider-" . uniqid();
+  array(
+    'image' => '',
+    'url' => ''
+  )
   ob_start();
 ?>
 
+<?php var_dump($images); ?>
 <?php if($imagesCount > 0): ?>
 <div class="flexslider" id="<?php echo $id?>" style="<?php echo $at['slider_style'] ?>">
   <ul class="slides">

@@ -77,9 +77,6 @@ onLoad(() => {
   });
 })
 </script>
-
-
-
 </div><!-- #app-ml -->
 </body>
 </html>
