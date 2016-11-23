@@ -1,5 +1,7 @@
-<div id="sidr">
 
+<bs-share></bs-share>
+
+<div id="sidr">
   <!-- Your content -->
   <button class="sidr-class-close"><i class="ion-close"></i></button>
 

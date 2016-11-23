@@ -6,7 +6,7 @@ export default () => {
 		methods: {
 			onClick(e) {
 				e.preventDefault();
-				ga('send', 'event', 'SUBSCRIPTION', 'SUBSCRIPTION', 'SUBSCRIPTION', 1);
+				ga('send', 'event', 'SHARE', 'SHARE', 'SHARE', 1);
 				console.log(e.currentTarget.getAttribute('href'));
 			},
 		},
