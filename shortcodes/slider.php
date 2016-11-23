@@ -27,7 +27,8 @@ function bs_slider_sc($atts, $content = null) {
   array(
     'image' => '',
     'url' => ''
-  )
+  );
+  
   ob_start();
 ?>
 
