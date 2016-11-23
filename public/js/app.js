@@ -58,7 +58,7 @@
 
 	var _donate2 = _interopRequireDefault(_donate);
 
-	var _contact = __webpack_require__(88);
+	var _contact = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/contact\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -13315,14 +13315,6 @@
 
 	var _validator2 = _interopRequireDefault(_validator);
 
-	var _ga_events = __webpack_require__(83);
-
-	var _ga_events2 = _interopRequireDefault(_ga_events);
-
-	var _ga_ecommerce = __webpack_require__(84);
-
-	var _ga_ecommerce2 = _interopRequireDefault(_ga_ecommerce);
-
 	var _validation = __webpack_require__(85);
 
 	var _validation2 = _interopRequireDefault(_validation);
@@ -13515,10 +13507,6 @@
 				toggleLoading: function toggleLoading() {
 					this.loading = !this.loading;
 				},
-				cleanData: function cleanData() {
-					this.stripe = _extends({}, this.stripe, componentData.stripe);
-					this.contact = _extends({}, this.contact, componentData.contact);
-				},
 				getToken: function getToken(e) {
 					e.preventDefault();
 
@@ -13627,77 +13615,8 @@
 	};
 
 /***/ },
-/* 83 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	ga('send', 'event', 'DONATION', 'DONATION_CLICK', '', 1);
-
-	exports.default = function () {
-
-	  var sendEvent = function sendEvent(eventCategory, eventAction, eventLabel) {
-	    return new Promise(function (resolve, reject) {
-
-	      ga('send', 'event', eventCategory, eventAction, eventLabel, {
-	        hitCallback: function hitCallback() {
-	          return resolve();
-	        }
-	      });
-	    });
-	  };
-
-	  var fns = {
-	    donateUnique: function donateUnique() {
-	      sendEvent('donate', 'unique', 'donate action').then(function () {
-	        return console.log('donateUnique');
-	      });
-	    },
-	    donateMonthly: function donateMonthly() {
-	      sendEvent('donate', 'monthly', 'donate action').then(function () {
-	        return console.log('donateMonthly');
-	      });
-	    },
-	    donateInClick: function donateInClick() {
-	      sendEvent('donate', 'insiteclick', 'donate intention').then(function () {
-	        return console.log('donateInClick');
-	      });
-	    },
-	    donateOutClick: function donateOutClick() {
-	      sendEvent('donate', 'outclick', 'donate intention').then(function () {
-	        return console.log('donateOutClick');
-	      });
-	    }
-	  };
-
-	  return fns;
-	};
-
-/***/ },
-/* 84 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function (id) {
-	  var affiliation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'ACN International';
-	  var revenue = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-
-
-	  ga('ecommerce:addTransaction', {
-	    'id': id, // Transaction ID. Required.
-	    'affiliation': affiliation, // Affiliation or store name.
-	    'revenue': revenue,
-	    'currency': 'EUR'
-	  });
-
-	  return ga('ecommerce:send');
-	};
-
-/***/ },
+/* 83 */,
+/* 84 */,
 /* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -30771,133 +30690,8 @@
 
 
 /***/ },
-/* 88 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _jquery = __webpack_require__(1);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _approvejs = __webpack_require__(89);
-
-	var _approvejs2 = _interopRequireDefault(_approvejs);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-	exports.default = function () {
-
-		return {
-			props: ['placeholders', 'texts', 'rules', 'country', 'baseUri', 'redirect'],
-
-			data: function data() {
-				return {
-					name: '',
-					email: '',
-					accept: false,
-					prayLogo: '',
-					countries: [],
-					errors: {}
-				};
-			},
-			init: function init() {
-				var _this = this;
-
-				_jquery2.default.ajax({
-					url: '/wp-admin/admin-ajax.php',
-					data: { action: 'countries' }
-				}).then(function (res) {
-					return _this.countries = res;
-				});
-			},
-			ready: function ready() {
-				this.prayLogo = this.baseUri + '/public/img/pray.svg';
-			},
-
-
-			methods: {
-				validateField: function validateField() {
-					var field = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-					var value = this.$get(field);
-					if (this.rules[field]) {
-						var result = _approvejs2.default.value(value, this.rules[field]);
-						var errors = result.errors;
-
-						this.errors = _extends({}, this.errors, _defineProperty({}, field, errors));
-					}
-				},
-				validateAll: function validateAll() {
-					var _this2 = this;
-
-					var fields = ['name', 'email', 'accept'];
-					fields.forEach(function (field) {
-						return _this2.validateField(field);
-					});
-
-					var _$get = this.$get('errors'),
-					    name = _$get.name,
-					    email = _$get.email,
-					    accept = _$get.accept;
-
-					var isValid = [name, email, accept].filter(function (err) {
-						return err.length > 0;
-					});
-					return isValid.length == 0;
-				},
-				hasErrors: function hasErrors(field) {
-					return this.errors[field] ? this.errors[field].length > 0 : false;
-				},
-				onSubmit: function onSubmit() {
-					var _this3 = this;
-
-					var name = this.name,
-					    email = this.email,
-					    country = this.country;
-
-					if (this.validateAll()) {
-						// let data = {
-						// 	email_address: email,
-						// 	status: "subscribed",
-						// 	merge_fields: {"NAME": name, "COUNTRY": country},
-						// 	update_existing: true
-						// };      
-
-						var data = { action: 'infusion_contact', data: { name: name, email: email, country: country } };
-
-						_jquery2.default.ajax({
-							type: 'post',
-							url: '/wp-admin/admin-ajax.php',
-							data: data
-						}).then(function (res) {
-							return window.location = _this3.redirect;
-						});
-					}
-				}
-			},
-
-			template: '\n\t\t\t<form >\n\t\t\t\t<div class="form-group">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-on:keyup="validateField(\'name\')" \n\t\t\t\t\t\tv-model="name"\n\t\t\t\t\t\ttype="text" \n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tv-bind:class="[hasErrors(\'name\') ? \'form-group--error\' : \'\']"\n\t\t\t\t\t\tplaceholder="{{placeholders.name}}"\n\t\t\t\t\t>\n\n\t\t\t\t\t<span class="form-group__error" v-if="hasErrors(\'name\')">\n\t\t\t\t\t\t{{errors.name}}\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t\t<div class="form-group">\n\t\t\t\t\t<input \n\t\t\t\t\t\tv-on:keyup="validateField(\'email\')" \n\t\t\t\t\t\tv-model="email"\n\t\t\t\t\t\ttype="text"\n\t\t\t\t\t\tclass="form-control"\n\t\t\t\t\t\tv-bind:class="[hasErrors(\'email\') ? \'form-group--error\' : \'\']"\n\t\t\t\t\t\tplaceholder="{{placeholders.email}}"\n\t\t\t\t\t>\n\t\t\t\t\t<span class="form-group__error" v-if="hasErrors(\'email\')">\n\t\t\t\t\t\t{{errors.email}}\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container input_container__select">\n\t\t\t\t\t<select name="" class="form-control" v-model="country">\n\t\t\t\t\t\t<option value="{{country}}" v-for="country in countries">{{country}}</option>\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="checkbox form-group">\n\t\t\t\t\t<label class="checkbox__label">\n\t\t\t\t\t\t<input type="checkbox" v-model="accept"> {{texts.checkbox}}\n\t\t\t\t\t</label>\n\t\t\t\t\t<span class="form-group__error" v-if="hasErrors(\'accept\')">\n\t\t\t\t\t\t{{errors.accept}}\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="input_container">\n\t\t\t\t\t<button class="btn-pray" v-on:click.prevent="onSubmit"><img v-bind:src="prayLogo" alt="">{{texts.pray}}</button>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t'
-		};
-	};
-
-/***/ },
-/* 89 */
-/***/ function(module, exports, __webpack_require__) {
-
-	!function(e,t){ true?module.exports=t():"function"==typeof define&&define.amd?define(t):e.approve=t()}(this,function(){"use strict";function e(){this.scheme="",this.valid=!1}function t(e){this.strength=e,this.points=0,this.isMinimum=!1,this.hasLower=!1,this.hasUpper=!1,this.hasNumber=!1,this.hasSpecial=!1,this.isBonus=!1,this.percent=0,this.valid=!1,this.errors=[]}var s={message:"{title} is not a valid credit card number",schemes:[{regex:/^(5610|560221|560222|560223|560224|560225)/,scheme:"Australian Bank Card"},{regex:/^(2014|2149)/,scheme:"Diner's Club"},{regex:/^36/,scheme:"Diner's Club International"},{regex:/^(30[0-5]|36|38|54|55|2014|2149)/,scheme:"Diner's Club / Carte Blanche"},{regex:/^35(2[89]|[3-8][0-9])/,scheme:"Japanese Credit Bureau"},{regex:/^(5018|5020|5038|6304|6759|676[1-3])/,scheme:"Maestro"},{regex:/^5[1-5]/,scheme:"Mastercard"},{regex:/^(6304|670[69]|6771)/,scheme:"Laser"},{regex:/^(6334|6767)/,scheme:"Solo (Paymentech)"},{regex:/^(6011|622|64|65)/,scheme:"Discover"},{regex:/^3[47]/,scheme:"American Express"},{regex:/^(4026|417500|4508|4844|491(3|7))/,scheme:"Visa Electron"},{regex:/^(4)/,scheme:"Visa"}],_getScheme:function(e){e=(""+e).replace(/\D/g,"");for(var t=this.schemes.length;t--;)if(this.schemes[t].regex.test(e))return this.schemes[t].scheme},validate:function(t){t=(""+t).replace(/\D/g,"");var s,r=new e,a=t.length,i=0,n=1;if(a<12)return!1;for(;a--;)s=t.charAt(a)*n,i+=s-9*(s>9),n^=3;return r.valid=i%10===0&&i>0,r.scheme=this._getScheme(t),r}},r={minimum:8,minimumBonus:10,strengths:{0:"Very Weak",1:"Weak",2:"Better",3:"Almost",4:"Acceptable",5:"Strong",6:"Very Strong"},message:"{title} did not pass the strength test.",expects:["min","bonus"],errors:{isMinimum:"{title} must be at least {min} characters",hasLower:"{title} must have at least 1 lower case character",hasUpper:"{title} must have at least 1 upper case character",hasNumber:"{title} must have at least 1 number",hasSpecial:"{title} must have at least 1 special character"},_getScore:function(e){var s=new t(this.strengths[0]);return e.length>this.minimumBonus?(s.points+=2,s.isBonus=!0,s.isMinimum=!0):e.length>this.minimum?(s.points++,s.isMinimum=!0):(s.points=1,s.isMinimum=!1),s.hasLower=e.match(/[a-z]/),s.isMinimum&&s.points++,s.hasUpper=e.match(/[A-Z]/),s.isMinimum&&s.points++,s.hasNumber=e.match(/\d+/),s.isMinimum&&s.points++,s.hasSpecial=e.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/),s.isMinimum&&s.points++,s.percent=Math.ceil(s.points/6*100),s},_getStrength:function(e){var t=this._getScore(e);return t.strength=this.strengths[t.points],t.isMinimum||t.errors.push(this.errors.isMinimum),t.hasLower||t.errors.push(this.errors.hasLower),t.hasUpper||t.errors.push(this.errors.hasUpper),t.hasSpecial||t.errors.push(this.errors.hasSpecial),t.hasNumber||t.errors.push(this.errors.hasNumber),t.points>4&&(t.valid=!0),t},validate:function(e,t){if(this.minimum=t.min||this.minimum,this.minimumBonus=t.bonus||this.minimumBonus,t.hasOwnProperty("config")&&t.config.hasOwnProperty("messages"))for(var s in t.config.messages)t.config.messages.hasOwnProperty(s)&&(this.errors[s]=t.config.messages[s]);return this._getStrength(e)}},a={required:{validate:function(e){return!!e},message:"{title} is required",expects:!1},email:{regex:/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i,validate:function(e){return this.regex.test(e)},message:"{title} must be a valid email address",expects:!1},url:{regex:/^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/i,validate:function(e){return this.regex.test(e)},message:"{title} must be a valid web address",expects:!1},alphaNumeric:{regex:/^[A-Za-z0-9]+$/i,validate:function(e){return this.regex.test(e)},message:"{title} may only contain [A-Za-z] and [0-9]",expects:!1},numeric:{regex:/^[0-9]+$/,validate:function(e){return this.regex.test(e)},message:"{title} may only contain [0-9]",expects:!1},alpha:{regex:/^[A-Za-z]+$/,validate:function(e){return this.regex.test(e)},message:"{title} may only contain [A-Za-z]",expects:!1},decimal:{regex:/^\s*(\+|-)?((\d+(\.\d+)?)|(\.\d+))\s*$/,validate:function(e){return this.regex.test(e)},message:"{title} must be a valid decimal",expects:!1},currency:{regex:/^\s*(\+|-)?((\d+(\.\d\d)?)|(\.\d\d))\s*$/,validate:function(e){return this.regex.test(e)},message:"{title} must be a valid currency value",expects:!1},ip:{regex:{ipv4:/^(?:(?:\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.){3}(?:\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])$/,ipv4Cidr:/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))$/,ipv6:/^((?=.*::)(?!.*::.+::)(::)?([\dA-F]{1,4}:(:|\b)|){5}|([\dA-F]{1,4}:){6})((([\dA-F]{1,4}((?!\3)::|:\b|$))|(?!\2\3)){2}|(((2[0-4]|1\d|[1-9])?\d|25[0-5])\.?\b){4})$/i,ipv6Cidr:/^s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3}))|:)))(%.+)?s*(\/([0-9]|[1-9][0-9]|1[0-1][0-9]|12[0-8]))?$/},validate:function(e){return this.regex.ipv4.test(e)||this.regex.ipv6.test(e)||this.regex.ipv4Cidr.test(e)||this.regex.ipv6Cidr.test(e)},message:"{title} must be a valid IP address",expects:!1},min:{validate:function(e,t){return"string"==typeof e&&e.length>=t.min},message:"{title} must be a minimum of {min} characters",expects:["min"]},max:{validate:function(e,t){return"string"==typeof e&&e.length<=t.max},message:"{title} must be a maximum of {max} characters",expects:["max"]},range:{validate:function(e,t){return"string"==typeof e?e.length>=t.min&&e.length<=t.max:"number"==typeof e&&(e>=t.min&&e<=t.max)},message:"{title} must be a minimum of {min} and a maximum of {max} characters",expects:["min","max"]},equal:{validate:function(e,t){return""+e==""+t.value},message:"{title} must be equal to {field}",expects:["value","field"]},format:{validate:function(e,t){if("[object RegExp]"===Object.prototype.toString.call(t.regex))return t.regex.test(e);throw"approve.value(): [format] - regex is not a valid regular expression."},message:"{title} did not pass the [{regex}] test",expects:["regex"]},time:{regex:/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9]):([0-5]?[0-9])$/,validate:function(e){return this.regex.test(e)},message:"{title} is not a valid time",expects:!1},date:{formats:{ymd:/^(?:\2)(?:[0-9]{2})?[0-9]{2}([\/-])(1[0-2]|0?[1-9])([\/-])(3[01]|[12][0-9]|0?[1-9])$/,dmy:/^(3[01]|[12][0-9]|0?[1-9])([\/-])(1[0-2]|0?[1-9])([\/-])(?:[0-9]{2})?[0-9]{2}$/},validate:function(e,t){return this.formats[t.format].test(e)},message:"{title} is not a valid date",expects:["format"]},truthy:{regex:/^(?:1|t(?:rue)?|y(?:es)?|ok(?:ay)?)$/i,validate:function(e){return this.regex.test(e)},message:"{title} is not valid",expects:!1},falsy:{regex:/^(?:1|t(?:rue)?|y(?:es)?|ok(?:ay)?)$/i,validate:function(e){return!this.regex.test(e)},message:"{title} is not valid",expects:!1},cc:s,strength:r},i=function(){this.approved=!0,this.errors=[],this.each=function(e){for(var t=e&&e.constructor&&e.call&&e.apply,s=this.errors.length;s--;)t&&e(this.errors[s])}},n={VERSION:"VERSION PROPERTY DEPRECATED",tests:a,_format:function(e,t){return t="object"==typeof t?t:Array.prototype.slice.call(arguments,1),e.replace(/\{\{|\}\}|\{(\w+)\}/g,function(e,s){return"{{"===e?"{":"}}"===e?"}":t[s]}).trim()},_start:function(e,t){var s=new i,r="";t.hasOwnProperty("title")&&(r=t.title);for(var a in t)if(t.hasOwnProperty(a)&&"title"!==a){var n=t[a];if(!this.tests.hasOwnProperty(a))throw"approve.value(): "+a+" test not defined.";var u={constraint:n,rule:a,title:r,test:this.tests[a],value:e};this._test(u,s)}return s},_test:function(e,t){var s=this._getArgs(e),r=e.test.validate(e.value,s);if("object"==typeof r){t.approved=!!r.valid&&t.approved,r.hasOwnProperty("errors")&&(t.errors=t.errors.concat(this._formatMessages(r.errors,e)));for(var a in r)r.hasOwnProperty(a)&&!t.hasOwnProperty(a)&&(t[a]=r[a])}else{if("boolean"!=typeof r)throw"approve.value(): "+e.rule+" returned an invalid value";t.approved=!!r&&t.approved}t.approved||t.errors.push(this._formatMessage(e))},_eachExpected:function(e,t){if(Array.isArray(e.test.expects))for(var s=e.test.expects.length,r=s;r--;)t(e.test.expects[r],s)},_getArgs:function(e){var t={};return this._eachExpected(e,function(s,r){if(e.constraint.hasOwnProperty(s))t[s]=e.constraint[s];else{if(!(r<=1&&/^[A-Za-z0-9]+$/i.test(e.constraint)))throw"approve.value(): "+e.rule+" expects the "+s+" parameter.";t[s]=e.constraint}}),e.constraint.hasOwnProperty("config")&&(t.config=e.constraint.config),t},_getFormat:function(e){var t={};return this._eachExpected(e,function(s){e.constraint.hasOwnProperty(s)&&(t[s]=e.constraint[s]),/^[A-Za-z0-9]+$/i.test(e.constraint)&&(t[s]=e.constraint)}),t.title=e.title,t},_formatMessages:function(e,t){for(var s=this._getFormat(t),r=e.length;r--;)e[r]=this._format(e[r],s);return e},_formatMessage:function(e){var t,s=this._getFormat(e);return e.constraint.hasOwnProperty("message")?(t=e.constraint.message,this._format(t,s)):(t=e.test.message,this._format(t,s))},value:function(e,t){if("object"!=typeof t)throw"approve.value(value, rules): rules is not a valid object.";return this._start(e,t)},addTest:function(e,t){if("object"!=typeof e)throw"approve.addTest(obj, name): obj is not a valid object.";try{this.tests.hasOwnProperty(t)||(this.tests[t]=e)}catch(s){throw"approve.addTest(): "+s.message}}};return n});
-	//# sourceMappingURL=approve.min.js.map
-
-
-/***/ },
+/* 88 */,
+/* 89 */,
 /* 90 */
 /***/ function(module, exports) {
 

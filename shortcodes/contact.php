@@ -35,6 +35,9 @@ function bs_contact_sc($atts, $content = null) {
 >
 </contact>
 
+<?php echo get_option('subscribe_key') ? 'yeah infusion' : 'neh' ?>
+<?php echo get_option('mailchimp_api') ? 'yeah mailchimp' : 'neh' ?>
+
 <?php
 
   return ob_get_clean();

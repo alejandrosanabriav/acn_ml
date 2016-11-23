@@ -1,8 +1,6 @@
 'use strict';
 import $ from 'jquery';
 import validator from 'validator';
-import gaEvents from '../ga_events';
-import gaEcommerce from '../ga_ecommerce';
 import validateStripe from '../stripe/validation.js';
 
 const componentData = {
@@ -203,11 +201,6 @@ export default () => ({
 
 		toggleLoading() {
 			this.loading = !this.loading;
-		},
-
-		cleanData() {
-			this.stripe = {...this.stripe, ...componentData.stripe};
-			this.contact = {...this.contact, ...componentData.contact};
 		},
 
 		getToken(e) {
