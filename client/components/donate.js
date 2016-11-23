@@ -260,52 +260,6 @@ export default () => ({
 			this.donation_type = type;
 		},
 
-		sendEccomerceData(response) {
-			if (this.donation_type == 'monthly') {
-				gaEvents.donateMonthly();
-				if (gaEcommerce) gaEcommerce(response.stripe.id, null, this.amount);
-				if (fbq) fbq('track', 'Purchase', {
-					value: this.amount,
-					currency: 'EUR'
-				});
-
-			}
-
-			if (this.donation_type == 'once') {
-				gaEvents.donateUnique();
-				if (gaEcommerce) gaEcommerce(response.stripe.id, null, this.amount);
-				if (fbq) fbq('track', 'Purchase', {
-					value: this.amount,
-					currency: this.currency
-				});
-			}
-		},
-
-		handleSubmitResponse(res) {
-			let response = {};
-
-			try {
-				response = JSON.parse(res);
-			} catch (e) {
-				this.removeErrors();
-			}
-
-			this.toggleLoading();
-
-			if (response.success) {
-				this.removeErrors();
-				this.success = true;
-				this.sendEccomerceData(response);
-
-				let subdata = `?customer_id=${response.stripe.customer}&order_revenue=${this.amount}&order_id=${response.stripe.id}&landing_thanks=true&landing_revenue=${this.amount}`;
-
-				window.location = '/landing-thanks/' + subdata;
-
-			} else if (response.errors) {
-				this.errors = response.errors;
-			}
-		},
-
 		changeViewportHeight(section = 1) {
 			let parent = this.$el;
 			let nodeSection = parent.querySelector(`.donate_landing__section-${section}`);

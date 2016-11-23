@@ -28,6 +28,7 @@ function bs_accounts_settings() {
   register_setting( 'bs_accounts_info_group', 'donate_once_redirect' );
   register_setting( 'bs_accounts_info_group', 'subscribe_redirect' );
   register_setting( 'bs_accounts_info_group', 'analytics_id' );
+  register_setting( 'bs_accounts_info_group', 'gta_id' );
 }
 
 function bs_accounts_options() {
@@ -170,6 +171,18 @@ function bs_accounts_options() {
         name="analytics_id"
         placeholder="ID"
         value="<?php echo get_option('analytics_id') ?>"
+        >
+      </p>
+
+      <p>
+        <label for=""> <b>Google Tag Manager ID</b>  </label>
+         <br>
+      <input
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
+        type="text"
+        name="gta_id"
+        placeholder="ID"
+        value="<?php echo get_option('gta_id') ?>"
         >
       </p>
     <p>

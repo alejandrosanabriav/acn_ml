@@ -13573,48 +13573,6 @@
 					evt.preventDefault();
 					this.donation_type = type;
 				},
-				sendEccomerceData: function sendEccomerceData(response) {
-					if (this.donation_type == 'monthly') {
-						_ga_events2.default.donateMonthly();
-						if (_ga_ecommerce2.default) (0, _ga_ecommerce2.default)(response.stripe.id, null, this.amount);
-						if (fbq) fbq('track', 'Purchase', {
-							value: this.amount,
-							currency: 'EUR'
-						});
-					}
-
-					if (this.donation_type == 'once') {
-						_ga_events2.default.donateUnique();
-						if (_ga_ecommerce2.default) (0, _ga_ecommerce2.default)(response.stripe.id, null, this.amount);
-						if (fbq) fbq('track', 'Purchase', {
-							value: this.amount,
-							currency: this.currency
-						});
-					}
-				},
-				handleSubmitResponse: function handleSubmitResponse(res) {
-					var response = {};
-
-					try {
-						response = JSON.parse(res);
-					} catch (e) {
-						this.removeErrors();
-					}
-
-					this.toggleLoading();
-
-					if (response.success) {
-						this.removeErrors();
-						this.success = true;
-						this.sendEccomerceData(response);
-
-						var subdata = '?customer_id=' + response.stripe.customer + '&order_revenue=' + this.amount + '&order_id=' + response.stripe.id + '&landing_thanks=true&landing_revenue=' + this.amount;
-
-						window.location = '/landing-thanks/' + subdata;
-					} else if (response.errors) {
-						this.errors = response.errors;
-					}
-				},
 				changeViewportHeight: function changeViewportHeight() {
 					var section = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
