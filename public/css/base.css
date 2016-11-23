@@ -239,6 +239,9 @@ button {
     display: block;
     float: left;
     padding-top: 7px; }
+    @media (min-width: 768px) and (max-width: 991px) {
+      .btn-pray img {
+        display: none; } }
 
 .checkbox__label {
   font-family: Rubik;

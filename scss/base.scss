@@ -328,16 +328,21 @@ button {
 
 .btn-pray {
   padding: 5px 30px; 
-  min-height: 100px; 
+  min-height: 100px;
   border-radius: 8px; 
   border: solid 4px #f1364e; 
   font-size: 5em; 
   font-weight: bold; 
-  color: #f1364e; 
+  color: #f1364e;
+
   img {
     display: block;
     float: left;
     padding-top: 7px;
+    
+    @media #{$tablet} {
+      display: none
+    }
   }
 }
 
