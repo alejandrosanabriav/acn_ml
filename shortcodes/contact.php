@@ -37,9 +37,9 @@ function bs_contact_sc($atts, $content = null) {
 
 <?php 
 if(get_option('infusionsoft_key')): 
-  echo 'yeah infusion';
+  echo 'infusion';
 elseif(get_option('mailchimp_api')): 
-  echo 'yeah mailchimp'; 
+  echo 'mailchimp'; 
 endif; 
 ?>
 
