@@ -26,7 +26,7 @@ function bs_slider_sc($atts, $content = null) {
   <ul class="slides">
       <?php foreach($imagesArr as $key => $imageId): ?>
         <li>
-          <a href="<?php echo $linksArr[$key] ?>" target="new">
+          <a href="<?php echo $linksArr[$key] ? $linksArr[$key] : '#' ?>" target="new">
             <img src=" <?php echo wp_get_attachment_image_src($imageId, 'full')[0] ?>" alt="">
           </a>
         </li>
