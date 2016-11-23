@@ -27,7 +27,7 @@ import sliderBg from './components/slider_bg';
 			url: '/wp-admin/admin-ajax.php',
 			data: {action: 'donate_redirect'}
 		})
-		.done(res => console.log('url', res));
+		.done(res => window.location = res);
 
 	});
   

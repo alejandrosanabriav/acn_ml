@@ -93,7 +93,7 @@
 				url: '/wp-admin/admin-ajax.php',
 				data: { action: 'donate_redirect' }
 			}).done(function (res) {
-				return console.log('url', res);
+				return window.location = res;
 			});
 		});
 
