@@ -160,8 +160,9 @@ function bs_accounts_options() {
         value="<?php echo get_option('subscribe_redirect') ?>"
         >
       </p>
-      <label for=""> <b>Google Analytics ID</b>  </label>
+      
       <p>
+        <label for=""> <b>Google Analytics ID</b>  </label>
          <br>
       <input
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
