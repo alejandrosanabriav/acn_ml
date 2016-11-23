@@ -16,23 +16,11 @@ function bs_slider_sc($atts, $content = null) {
   $linksArr = explode(',', $at['links']);
   $imagesCount = count($imagesArr);
 
-  $images = [];
-
-  foreach($imagesArr as $i => $image ) {
-    array_push($images, ['image' => wp_get_attachment_image_src($image, 'full')[0], 'url' => $linksArr[$i]]);
-  }
-
-
   $id = "slider-" . uniqid();
-  array(
-    'image' => '',
-    'url' => ''
-  );
 
   ob_start();
 ?>
 
-<?php echo json_encode($images); ?>
 <?php if($imagesCount > 0): ?>
 <div class="flexslider" id="<?php echo $id?>" style="<?php echo $at['slider_style'] ?>">
   <ul class="slides">
