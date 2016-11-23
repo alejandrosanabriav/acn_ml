@@ -13485,7 +13485,7 @@
 				validateContact: function validateContact() {
 					var field = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
-					var val = this.$get('contact.' + field);
+					var val = this.$get('contact.' + field) ? this.$get('contact.' + field) : '';
 
 					if (field == 'email' && val) {
 						this.errors = _extends({}, this.errors, _defineProperty({}, 'contact.' + field, !_validator2.default.isEmail(val)));
