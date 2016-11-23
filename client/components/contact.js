@@ -11,7 +11,8 @@ export default () => {
 			'rules',
 			'country',
 			'baseUri',
-			'redirect'
+			'redirect',
+			'type'
 		],
 
 		data() {

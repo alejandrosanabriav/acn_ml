@@ -30716,7 +30716,7 @@
 	exports.default = function () {
 
 		return {
-			props: ['placeholders', 'texts', 'rules', 'country', 'baseUri', 'redirect'],
+			props: ['placeholders', 'texts', 'rules', 'country', 'baseUri', 'redirect', 'type'],
 
 			data: function data() {
 				return {
