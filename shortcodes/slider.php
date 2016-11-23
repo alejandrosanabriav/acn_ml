@@ -19,7 +19,7 @@ function bs_slider_sc($atts, $content = null) {
   $images = [];
 
   foreach($imagesArr as $i => $image ) {
-    array_push($images, ['image' => $image, 'url' => $linksArr[$i]]);
+    array_push($images, ['image' => wp_get_attachment_image_src($image, 'full')[0], 'url' => $linksArr[$i]]);
   }
 
 
