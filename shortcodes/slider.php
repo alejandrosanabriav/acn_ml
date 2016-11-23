@@ -28,11 +28,11 @@ function bs_slider_sc($atts, $content = null) {
     'image' => '',
     'url' => ''
   );
-  
+
   ob_start();
 ?>
 
-<?php var_dump($images); ?>
+<?php print_r($images); ?>
 <?php if($imagesCount > 0): ?>
 <div class="flexslider" id="<?php echo $id?>" style="<?php echo $at['slider_style'] ?>">
   <ul class="slides">
