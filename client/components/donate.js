@@ -230,9 +230,9 @@ export default () => ({
 			this.contactValidations();
 			this.toggleLoading();
 			
-			console.log(Object.keys(this.errors.contact), Object.keys(this.errors.contact).filter(field => field == true));
+			console.log(Object.keys(this.errors.contact), Object.keys(this.errors.contact).filter(this.errors.contact[field] => field == true));
 
-			if(Object.keys(this.errors.contact).filter(field => field == true).length == 0) {
+			if(Object.keys(this.errors.contact).filter(field => this.errors.contact[field] == true).length == 0) {
 				$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					type: 'post',
