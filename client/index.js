@@ -25,4 +25,6 @@ import sliderBg from './components/slider_bg';
 		console.log('click donate');
 	});
   
+	$('.bs-share').on('click', e => ga('send', 'event', 'DONATION', 'SHARE_CLICK', 'SHARE_CLICK', 1););
+
 })();

@@ -90,6 +90,8 @@
 			ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATIONS', 1);
 			console.log('click donate');
 		});
+
+		$('.bs-share').on('click');
 	})();
 
 /***/ },

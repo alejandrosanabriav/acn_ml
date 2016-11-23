@@ -17,6 +17,8 @@ function bs_admin_accounts_options_menu() {
 }
 
 function bs_accounts_settings() {
+  register_setting( 'bs_accounts_info_group', 'logo' );
+  register_setting( 'bs_accounts_info_group', 'donate_link' );
   register_setting( 'bs_accounts_info_group', 'infusionsoft_key' );
   register_setting( 'bs_accounts_info_group', 'infusionsoft_subdomain' );
   register_setting( 'bs_accounts_info_group', 'infusionsoft_tags' );
@@ -35,12 +37,40 @@ function bs_accounts_options() {
 ?>
 <div style="padding: 15px; margin: 15px; background: #fff; box-shadow: 1px 1px 5px rgba(0,0,0, .1);">
 
+  
+
   <h1>Accounts keys</h1>
   <hr/>
   <p></p>
   <form method="post" action="options.php" style="position: relative; margin: 0 auto">
     <?php settings_fields( 'bs_accounts_info_group' ); ?>
     <?php do_settings_sections( 'bs_accounts_info_group' ); ?>
+
+    <p>
+    	<label>Logo url</label>			
+			<input
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
+        type="text"
+				class="uploader"
+				placeholder="logo"
+				name="logo"
+				value="<?php echo esc_attr( get_option('logo') ); ?>"
+			/>
+    </p>
+    
+    <p>
+    	<label>Donate link</label>			
+			<input
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
+        type="text"
+				class="uploader"
+				placeholder="url"
+				name="donate_link"
+				value="<?php echo esc_attr( get_option('donate_link') ); ?>"
+			/>
+    </p>
+    
+
     <p>
       <label for=""><b>InfusionSoft key</b></label>
       <br>
