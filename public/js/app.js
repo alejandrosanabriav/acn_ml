@@ -85,6 +85,10 @@
 		(0, _input2.default)();
 		(0, _form2.default)();
 		(0, _donate2.default)();
+
+		$('.bs-donate').on('click', function (e) {
+			ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATIONS', 1);
+		});
 	})();
 
 /***/ },
