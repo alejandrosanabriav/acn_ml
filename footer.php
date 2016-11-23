@@ -1,5 +1,5 @@
 
-<bs-share></bs-share>
+<bs-share url="<?php echo esc_url($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); ?>"></bs-share>
 
 <div id="sidr">
   <!-- Your content -->
