@@ -20,6 +20,27 @@ import sliderBg from './components/slider_bg';
 	form();
 	donate();
 
+	  $('.navbar-toggle').sidr({
+    name: 'sidr',
+    source: '#sidr',
+    side: 'right',
+    displace: false,
+    renaming: false,
+    onOpen() {
+      $('.navbar-toggle').addClass('navbar-toggle--active');
+    },
+    onClose() {
+      $('.navbar-toggle').removeClass('navbar-toggle--active');
+    }
+  });
+
+	$(document).find('#sidr .sidr-class-close').on('click', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    $.sidr('close', 'sidr');
+  });
+	
+
 	$('.bs-donate').on('click', e => {
 		ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATIONS', 1);
 		console.log('click donate');

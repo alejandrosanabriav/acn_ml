@@ -41,14 +41,8 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo get_option('gta_id') ?>"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<?php
-  $home = '/';
-  if(function_exists('pll_home_url')) {
-    $home = pll_home_url();
-  }
-?>
 
-  <nav id="header" class="navbar navbar-fixed-top">
+<nav id="header" class="navbar navbar-fixed-top">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
