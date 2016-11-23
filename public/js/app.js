@@ -13540,7 +13540,7 @@
 					this.contactValidations();
 					this.toggleLoading();
 
-					console.log(Object.keys(this.errors.contact).filter(function (field) {
+					console.log(Object.keys(this.errors.contact), Object.keys(this.errors.contact).filter(function (field) {
 						return field == true;
 					}));
 
