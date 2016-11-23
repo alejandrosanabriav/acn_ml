@@ -54,7 +54,9 @@ export default () => ({
 		'link',
 		'cardSrc',
 		'placeholders',
-		'redirect'
+		'redirect',
+		'monthly',
+		'once'
 	],
 
 	data() {
