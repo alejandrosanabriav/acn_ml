@@ -4,6 +4,14 @@ include_once 'stripe.php';
 include_once 'infusion.php';
 include_once str_replace('apis', '', __DIR__) . 'lib/countries.php';
 
+add_action( 'wp_ajax_nopriv_donate_redirect', 'donate_redirect' );
+add_action( 'wp_ajax_donate_redirect', 'donate_redirect' );
+
+function donate_redirect() {
+  echo get_option('donate_link');
+  die();
+}
+
 add_action( 'wp_ajax_nopriv_mailchimp_subscribe', 'mailchimp_subscribe' );
 add_action( 'wp_ajax_mailchimp_subscribe', 'mailchimp_subscribe' );
 
