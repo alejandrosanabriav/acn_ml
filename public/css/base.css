@@ -33,8 +33,9 @@ body {
     @media (max-width: 767px) {
       #header img {
         width: 70px; } }
-  #header .navbar-header {
-    width: 100%; }
+  @media (max-width: 767px), (min-width: 768px) and (max-width: 991px) {
+    #header .navbar-header {
+      width: 100%; } }
   #header .navbar-toggle span {
     background: #f1364e; }
   #header .navbar-toggle:hover, #header .navbar-toggle:focus {

@@ -57,7 +57,9 @@ body {
   }
   
   .navbar-header {
-    width: 100%;
+    @media #{$mobile}, #{$tablet} {
+      width: 100%;
+    }
   }
 
   .navbar-toggle {
@@ -339,7 +341,7 @@ button {
     display: block;
     float: left;
     padding-top: 7px;
-    
+
     @media #{$tablet} {
       display: none
     }
