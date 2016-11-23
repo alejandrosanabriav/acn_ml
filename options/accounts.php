@@ -8,7 +8,7 @@ function bs_admin_accounts_options_menu() {
     'manage_options', //allow it options
     'bs-accounts', //slug
     'bs_accounts_options',
-    get_template_directory_uri() . '/public/img/bs_options.png', //icon on menu
+    get_template_directory_uri() . '/public/img/bs.png', //icon on menu
     111 //position on menu
   );
 
