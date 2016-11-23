@@ -24,7 +24,19 @@
 <script src="https://cdn.jsdelivr.net/flexslider/2.6.3/jquery.flexslider.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sidr/2.2.1/jquery.sidr.min.js"></script>
-<script src='https://www.google-analytics.com/analytics.js'></script>
+ <!-- Google Analytics -->
+  <script src='https://www.google-analytics.com/analytics.js'></script>
+
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+
+  ga('create', '<?php echo get_option('analytics_id') ?>', 'auto');
+  ga('send', 'pageview');
+  ga('require', 'ecommerce');
+
+  </script>
+<!-- End Google Analytics -->
+
 <script type="text/javascript">
 
 deferScript("<?php echo get_template_directory_uri() . '/public/js/app.js' ?>");
@@ -61,6 +73,7 @@ function deferScript(src) {
     $.sidr('close', 'sidr');
   });
 	
+
 </script>
 
 

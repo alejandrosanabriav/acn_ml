@@ -27,6 +27,7 @@ function bs_accounts_settings() {
   register_setting( 'bs_accounts_info_group', 'donate_monthly_redirect' );
   register_setting( 'bs_accounts_info_group', 'donate_once_redirect' );
   register_setting( 'bs_accounts_info_group', 'subscribe_redirect' );
+  register_setting( 'bs_accounts_info_group', 'analytics_id' );
 }
 
 function bs_accounts_options() {
@@ -157,6 +158,16 @@ function bs_accounts_options() {
         name="subscribe_redirect"
         placeholder="url"
         value="<?php echo get_option('subscribe_redirect') ?>"
+        >
+      </p>
+      <p>
+         <br>
+      <input
+        style="background: rgba(255,255,255,.4); width: 60%; height: 35px"
+        type="text"
+        name="analytics_id"
+        placeholder="url"
+        value="<?php echo get_option('analytics_id') ?>"
         >
       </p>
     <p>
