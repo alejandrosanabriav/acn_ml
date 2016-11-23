@@ -304,7 +304,6 @@ export default () => ({
 
 	template: `
     <form method="post" class="donate_landing">
-		{{section}}
       <div class="donate_landing__viewport">
 
       <div class="donate_landing__section donate_landing__section-1">
@@ -556,7 +555,7 @@ export default () => ({
 
    <div class="form-group col-sm-12">
       <a style="padding-top: 30px" v-bind:href="link.anchor">
-        <h4 class="color-red">{{link.text}}</h4> <i class="ion-chevron-down color-red"></i>
+        <h4 class="color-red">{{link.text}} {{section}}</h4> <i class="ion-chevron-down color-red"></i>
       </a>
     </div>
 
