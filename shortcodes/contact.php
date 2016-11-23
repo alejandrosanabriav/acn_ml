@@ -20,13 +20,13 @@ function bs_contact_sc($atts, $content = null) {
   :placeholders="{name: '<?php echo $at['placeholder_name'] ?>', email: '<?php echo $at['placeholder_email'] ?>'}"
   :messages"{
     name: {
-			required: {message: 'Nombre requerido'}
+			required: {message: '<?php echo $at['message_name'] ?>'}
 		},
     email: {
-      email: {message: 'Email incorrecto'}
+      email: {message: '<?php echo $at['message_email'] ?>'}
     },
     accept: {
-      truthy: {message: 'debes aceptar'}
+      truthy: {message: '<?php echo $at['message_accept'] ?>'}
     }
   }"
   country="<?php echo getCountry() ?>"
