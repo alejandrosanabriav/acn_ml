@@ -30833,7 +30833,7 @@
 	exports.default = function () {
 
 		return {
-			props: ['placeholders', 'texts', 'country', 'baseUri', 'redirect'],
+			props: ['placeholders', 'texts', 'rules', 'country', 'baseUri', 'redirect'],
 
 			data: function data() {
 				return {
@@ -30842,18 +30842,7 @@
 					accept: false,
 					prayLogo: '',
 					countries: [],
-					errors: {},
-					rules: {
-						name: {
-							required: { message: 'Nombre requerido' }
-						},
-						email: {
-							email: { message: 'Email incorrecto' }
-						},
-						accept: {
-							truthy: { message: 'debes aceptar' }
-						}
-					}
+					errors: {}
 				};
 			},
 			init: function init() {

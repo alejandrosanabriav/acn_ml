@@ -8,6 +8,7 @@ export default () => {
 		props: [
 			'placeholders', 
 			'texts',
+			'rules',
 			'country',
 			'baseUri',
 			'redirect'
@@ -21,17 +22,6 @@ export default () => {
 				prayLogo: '',
 				countries: [],
 				errors: {},
-				rules: {
-					name: {
-						required: {message: 'Nombre requerido'}
-					},
-					email: {
-						email: {message: 'Email incorrecto'}
-					},
-					accept: {
-						truthy: {message: 'debes aceptar'}
-					}
-				}
 			};
 		},
 

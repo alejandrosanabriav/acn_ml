@@ -7,14 +7,28 @@ function bs_contact_sc($atts, $content = null) {
     'text_checkbox' => '',
     'placeholder_name' => '',
     'placeholder_email' => '',
+    'message_name' => '',
+    'message_email' => '',
+    'message_accept' => ''
   ), $atts );
 
   ob_start();
 ?>
 
-<contact 
+<contact
   :texts="{pray: '<?php echo $at['text_pray'] ?>', checkbox: '<?php echo $at['text_checkbox'] ?>'}" 
-  :placeholders="{name: '<?php echo $at['placeholder_name'] ?>', email: '<?php echo $at['placeholder_email'] ?>'}" 
+  :placeholders="{name: '<?php echo $at['placeholder_name'] ?>', email: '<?php echo $at['placeholder_email'] ?>'}"
+  :messages"{
+    name: {
+			required: {message: 'Nombre requerido'}
+		},
+    email: {
+      email: {message: 'Email incorrecto'}
+    },
+    accept: {
+      truthy: {message: 'debes aceptar'}
+    }
+  }"
   country="<?php echo getCountry() ?>"
   base-uri=<?php echo get_template_directory_uri() ?>
   redirect=<?php echo get_option('subscribe_redirect') ?>
@@ -41,7 +55,7 @@ function bs_contact_vc() {
     ],
     [
       "type" => "textfield",
-      "heading" => "Button Pray",
+      "heading" => "Button Text",
       "param_name" => "text_pray",
       "value" => ""
     ],
@@ -49,6 +63,24 @@ function bs_contact_vc() {
       "type" => "textfield",
       "heading" => "Checkbox Text",
       "param_name" => "text_checkbox",
+      "value" => ""
+    ],
+    [
+      "type" => "textfield",
+      "heading" => "Message error name",
+      "param_name" => "message_name",
+      "value" => ""
+    ],
+    [
+      "type" => "textfield",
+      "heading" => "Message error email",
+      "param_name" => "message_email",
+      "value" => ""
+    ],
+    [
+      "type" => "textfield",
+      "heading" => "Message error accept",
+      "param_name" => "message_accept",
       "value" => ""
     ],
   ];
