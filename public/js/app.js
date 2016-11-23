@@ -30785,16 +30785,20 @@
 
 
 					if (this.validateAll()) {
-						var mc_data = {
-							email_address: email,
-							status: "subscribed",
-							merge_fields: { "NAME": name, "COUNTRY": country },
-							update_existing: true
-						};
+						var data = {};
+						if (this.type == 'mailchimp') {
+							var mc_data = {
+								email_address: email,
+								status: "subscribed",
+								merge_fields: { "NAME": name, "COUNTRY": country },
+								update_existing: true
+							};
 
-						var infusion_data = { name: name, email: email, country: country };
-
-						var data = { action: 'infusion_contact', data: infusion_data };
+							data = { action: 'mailchimp_subscribe', data: mc_data };
+						} else {
+							var infusion_data = { name: name, email: email, country: country };
+							data = { action: 'infusion_contact', data: infusion_data };
+						}
 
 						_jquery2.default.ajax({
 							type: 'post',

@@ -64,16 +64,20 @@ export default () => {
 				const {name, email, country} = this;
 
 				if(this.validateAll()) {
-					let mc_data = {
-						email_address: email,
-						status: "subscribed",
-						merge_fields: {"NAME": name, "COUNTRY": country},
-						update_existing: true
-					};
-					
-					let infusion_data = {name, email, country};
+					let data = {};
+					if(this.type == 'mailchimp') {
+						let mc_data = {
+							email_address: email,
+							status: "subscribed",
+							merge_fields: {"NAME": name, "COUNTRY": country},
+							update_existing: true
+						};
 
-					let data = {action: 'infusion_contact', data: infusion_data};
+						data = {action: 'mailchimp_subscribe', data: mc_data};
+					} else {
+						let infusion_data = {name, email, country};
+						data = {action: 'infusion_contact', data: infusion_data};
+					}				
 
 					$.ajax({
 						type: 'post',
