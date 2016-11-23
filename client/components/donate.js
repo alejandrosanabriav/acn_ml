@@ -178,10 +178,12 @@ export default () => ({
 			let val = this.$get(`contact.${field}`) ? this.$get(`contact.${field}`) : '';
 
 			if(field == 'email' && val) {
-				this.errors = {...this.errors, [`contact.${field}`]: !validator.isEmail(val)};
+				this.$set(`errors.contact.${field}`, validator.isEmail(val));
+				// this.errors = {...this.errors, [`contact.${field}`]: !validator.isEmail(val)};
 			} else {
-				this.errors = {...this.errors, [`contact.${field}`]: !validator.isEmpty(val)};
-				// this.$set(`errors.contact.${field}`, validator.isEmpty(val));
+				this.$set(`errors.contact.${field}`, validator.isEmpty(val));
+				// this.errors = {...this.errors, [`contact.${field}`]: !validator.isEmpty(val)};
+				
 			}
 
 		},

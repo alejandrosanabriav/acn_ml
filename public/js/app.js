@@ -13324,8 +13324,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 	var componentData = {
@@ -13488,10 +13486,11 @@
 					var val = this.$get('contact.' + field) ? this.$get('contact.' + field) : '';
 
 					if (field == 'email' && val) {
-						this.errors = _extends({}, this.errors, _defineProperty({}, 'contact.' + field, !_validator2.default.isEmail(val)));
+						this.$set('errors.contact.' + field, _validator2.default.isEmail(val));
+						// this.errors = {...this.errors, [`contact.${field}`]: !validator.isEmail(val)};
 					} else {
-						this.errors = _extends({}, this.errors, _defineProperty({}, 'contact.' + field, !_validator2.default.isEmpty(val)));
-						// this.$set(`errors.contact.${field}`, validator.isEmpty(val));
+						this.$set('errors.contact.' + field, _validator2.default.isEmpty(val));
+						// this.errors = {...this.errors, [`contact.${field}`]: !validator.isEmpty(val)};
 					}
 				},
 				contactValidations: function contactValidations() {
