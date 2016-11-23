@@ -3,13 +3,13 @@ add_shortcode( 'bs_slider', 'bs_slider_sc' );
 
 function bs_contact_sc($atts, $content = null) {
   $at = shortcode_atts( array(
-    'text_pray' => '',
-    'text_checkbox' => '',
-    'placeholder_name' => '',
-    'placeholder_email' => '',
-    'message_name' => '',
-    'message_email' => '',
-    'message_accept' => ''
+    'text_pray' => 'PRAY',
+    'text_checkbox' => 'I accept to receive updates and information from ACN',
+    'placeholder_name' => 'Name',
+    'placeholder_email' => 'Email',
+    'message_name' => 'Name required',
+    'message_email' => 'Email incorrect',
+    'message_accept' => 'You must accept'
   ), $atts );
 
   ob_start();
