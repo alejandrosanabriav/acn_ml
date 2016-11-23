@@ -553,9 +553,9 @@ export default () => ({
     </div>
   </div>
 
-   <div class="form-group col-sm-12" v-show="section === 1">
+   <div class="form-group col-sm-12">
       <a style="padding-top: 30px" v-bind:href="link.anchor">
-        <h4 class="color-red">{{link.text}}</h4> <i class="ion-chevron-down color-red"></i>
+        <h4 class="color-red">{{link.text}}</h4> <i class="ion-chevron-down color-red"></i> {{section}}
       </a>
     </div>
 
