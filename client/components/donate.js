@@ -270,7 +270,7 @@ export default () => ({
 			return $.ajax({
 				url: '/wp-admin/admin-ajax.php',
 				type: 'post',
-				data: { action: 'stripe_charge', data: {...contact, tags} }
+				data: { action: 'infusion_contact', data: {...contact, tags} }
 			});
 
 		},

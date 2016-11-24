@@ -384,7 +384,7 @@
 					return $.ajax({
 						url: '/wp-admin/admin-ajax.php',
 						type: 'post',
-						data: { action: 'stripe_charge', data: _extends({}, contact, { tags: tags }) }
+						data: { action: 'infusion_contact', data: _extends({}, contact, { tags: tags }) }
 					});
 				},
 				changeType: function changeType(type, evt) {
