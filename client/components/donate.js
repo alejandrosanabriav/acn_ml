@@ -232,7 +232,7 @@ export default () => ({
 					if (response.id) {
 						return this.infusion(contact)
 						.then((customer) => {
-							return $.Deferred().resolve({...response, customer});
+							return $.Deferred().resolve({...response, customer: customer.id});
 						});
 					}
 				})

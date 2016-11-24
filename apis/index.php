@@ -119,7 +119,8 @@ function infusion_contact() {
   }
 
   header('Content-type: application/json');
-  return  json_encode($res);
+  
+  return json_encode(['id' => $res]);
 
   die();
 }
