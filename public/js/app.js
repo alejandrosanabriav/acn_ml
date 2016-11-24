@@ -347,7 +347,7 @@
 
 					if (this.isValid()) {
 
-						this.stripeCharge().then(function (response) {
+						this.stripeCharge(data).then(function (response) {
 							if (response.id) {
 								return _this5.infusion(contact);
 							}

@@ -230,7 +230,7 @@ export default () => ({
 			
 			if(this.isValid()) {
 				
-				this.stripeCharge()
+				this.stripeCharge(data)
 				.then(response => {
 					if (response.id) {
 						return this.infusion(contact);
@@ -272,7 +272,7 @@ export default () => ({
 				type: 'post',
 				data: { action: 'stripe_charge', data: {...contact, tags} }
 			});
-			
+
 		},
 
 		changeType(type, evt) {
