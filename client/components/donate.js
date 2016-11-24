@@ -272,6 +272,7 @@ export default () => ({
 				type: 'post',
 				data: { action: 'stripe_charge', data: {...contact, tags} }
 			});
+			
 		},
 
 		changeType(type, evt) {
