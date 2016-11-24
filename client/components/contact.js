@@ -1,5 +1,4 @@
 'use strict';
-import $ from 'jquery';
 import approve from 'approvejs';
 
 export default () => {
@@ -65,7 +64,7 @@ export default () => {
 
 				if(this.validateAll()) {
 					ga('send', 'event', 'SUBSCRIPTION', 'SUBSCRIPTION', 'SUBSCRIPTION', 1);
-					
+
 					let data = {};
 					if(this.type == 'mailchimp') {
 						let mc_data = {

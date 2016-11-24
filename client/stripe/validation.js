@@ -1,23 +1,21 @@
 'use strict';
-const _ = require('lodash');
-
 
 let validateStripe = (data) => {
 	let errors = {};
 
   if(!Stripe.card.validateCardNumber(data.number)) {
-		errors = _.extend(errors, {number: true});
+		errors = {...errors, number: true};
   }
 
 	if(!Stripe.card.validateExpiry(data.exp_month, data.exp_year)) {
-		errors = _.extend(errors, {exp_month: true}, {exp_year: true});
+		errors = {...errors, exp_month: true, exp_year: true};
   }
 
   if(!Stripe.card.validateCVC(data.cvc)) {
-    errors = _.extend(errors, {cvc: true});;
+    errors = {...errors, cvc: true};
   }
 
-  if(_.isEmpty(errors)) {
+  if(Object.keys(errors).length == 0) {
     return {success: true};
   } else {
     return {success: false, errors: errors};
