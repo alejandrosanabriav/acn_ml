@@ -348,13 +348,14 @@
 						this.stripeCharge(data).then(function (response) {
 							if (response.id) {
 								return _this5.infusion(contact).then(function (customer) {
+									console.log({ customer: customer });
 									return $.Deferred().resolve(_extends({}, response, { customer: customer.id }));
 								});
 							}
 						}).then(function (response) {
 							console.log(response);
 							var subdata = '?customer_id=' + response.customer + '&order_revenue=' + _this5.amount + '&order_id=' + response.id + '&landing_thanks=true&landing_revenue=' + _this5.amount;
-							window.location = '' + _this5.redirect[_this5.donation_type] + subdata;
+							// window.location = `${this.redirect[this.donation_type]}${subdata}`;	
 						});
 					} else {
 						this.toggleLoading();

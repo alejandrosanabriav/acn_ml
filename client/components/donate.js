@@ -232,6 +232,7 @@ export default () => ({
 					if (response.id) {
 						return this.infusion(contact)
 						.then((customer) => {
+							console.log({customer});
 							return $.Deferred().resolve({...response, customer: customer.id});
 						});
 					}
@@ -239,7 +240,7 @@ export default () => ({
 				.then(response => {
 					console.log(response);
 					let subdata = `?customer_id=${response.customer}&order_revenue=${this.amount}&order_id=${response.id}&landing_thanks=true&landing_revenue=${this.amount}`;
-					window.location = `${this.redirect[this.donation_type]}${subdata}`;	
+					// window.location = `${this.redirect[this.donation_type]}${subdata}`;	
 				});
 
 			} else {
