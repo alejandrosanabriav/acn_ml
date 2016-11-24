@@ -86,6 +86,10 @@
 		$('.bs-share').on('click', function (e) {
 			return ga('send', 'event', 'DONATION', 'SHARE_CLICK', 'SHARE_CLICK', 1);
 		});
+
+		$('.bs-back').on('click', function (e) {
+			return window.history.back();
+		});
 	})();
 
 /***/ },
