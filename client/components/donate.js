@@ -338,7 +338,7 @@ export default () => ({
           <p>{{texts.sectionOne.content}}</p>
         </div>
       
-        <change-amount></change-amount>
+        <change-amount other="Other"></change-amount>
 
           <div class="form-group col-md-7 col-sm-8" style="float: left">
             <div class="input-group col-sm-12" >
