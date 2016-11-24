@@ -101,7 +101,8 @@ function infusion_contact() {
 
   $defaultTags = [800, 802];
   $tags = get_option('infusionsoft_tags') ? explode(',', get_option('infusionsoft_tags')) : [];
-  $tags = array_merge($tags, $defaultTags, $countryTag);
+  $dataTags = $data['tags'] ? explode(',',  $data['tags']) : [];
+  $tags = array_merge($tags, $defaultTags, $countryTag, $dataTags);
 
   $infusionsoft = new Infusionsoft($subdomain, $key);
   $name = explode(" ", $data['name']);
@@ -110,7 +111,7 @@ function infusion_contact() {
     'FirstName' => $name[0],
     'LastName' => $name[1],
     'Email' => $data['email'],
-    'Country' => $data['country']
+    'Country' => $data['country'] || '' 
   ));
 
   foreach($tags as $tag) {

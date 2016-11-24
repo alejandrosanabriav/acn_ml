@@ -213,37 +213,65 @@ export default () => ({
 			}
 		},
 
+		isValid() {
+			let contactErrs = this.errors.contact;
+			let errs = Object.keys(contactErrs)
+			.filter(field => contactErrs[field] == true);
+			return errs.length == 0;
+		},
+		
 		onSubmit(e) {
+			e.preventDefault();
 			const { contact, currency, amount, donation_type, stripe: {token} } = this;
 			let data = { ...contact, currency, amount, donation_type, stripe_token: token};
 
-			e.preventDefault();
 			this.contactValidations();
 			this.toggleLoading();
 			
-			if(Object.keys(this.errors.contact).filter(field => this.errors.contact[field] == true).length == 0) {
-				$.ajax({
-					url: '/wp-admin/admin-ajax.php',
-					type: 'post',
-					data: {
-						action: 'stripe_charge',
-						data: data
-					},
-					beforeSend: () => {
-						this.removeErrors();
-					}
-				})
+			if(this.isValid()) {
+				
+				this.stripeCharge()
 				.then(response => {
 					if (response.id) {
-						let subdata = `?customer_id=${response.id}&order_revenue=${this.amount}&order_id=${response.id}&landing_thanks=true&landing_revenue=${this.amount}`;
-						window.location = `${this.redirect[this.donation_type]}${subdata}`;	
+						return this.infusion(contact);
 					}
+					console.log("donate isn't can be complete");
+				})
+				.then(() => {
+					let subdata = `?customer_id=${response.id}&order_revenue=${this.amount}&order_id=${response.id}&landing_thanks=true&landing_revenue=${this.amount}`;
+					window.location = `${this.redirect[this.donation_type]}${subdata}`;	
 				});
 
 			} else {
 				this.toggleLoading();
 				this.changeViewportHeight( 3 );
 			}
+		},
+
+		stripeCharge(data) {
+			return $.ajax({
+				url: '/wp-admin/admin-ajax.php',
+				type: 'post',
+				data: {
+					action: 'stripe_charge',
+					data: data
+				},
+				beforeSend: () => {
+					this.removeErrors();
+				}
+			});
+		},
+
+		infusion(contact) {
+			let tags = '';
+			if(this.type == 'monthly') tags = '870';
+			if(this.type == 'once') tags = '868';
+
+			return $.ajax({
+				url: '/wp-admin/admin-ajax.php',
+				type: 'post',
+				data: { action: 'stripe_charge', data: {...contact, tags} }
+			});
 		},
 
 		changeType(type, evt) {
