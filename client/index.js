@@ -19,6 +19,9 @@ import btnDonate from './lib/btn_donate';
 
 	$('.bs-share').on('click', e => ga('send', 'event', 'DONATION', 'SHARE_CLICK', 'SHARE_CLICK', 1));
 
-	$('.bs-back').on('click', e => window.history.back());
+	$('.bs-back').on('click', e => {
+		 e.preventDefault(); 
+		 window.history.back();
+	});
 
 })();

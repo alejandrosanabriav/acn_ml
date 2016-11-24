@@ -88,7 +88,8 @@
 		});
 
 		$('.bs-back').on('click', function (e) {
-			return window.history.back();
+			e.preventDefault();
+			window.history.back();
 		});
 	})();
 
