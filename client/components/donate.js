@@ -1,5 +1,4 @@
 'use strict';
-import $ from 'jquery';
 import validator from 'validator';
 import validateStripe from '../stripe/validation.js';
 

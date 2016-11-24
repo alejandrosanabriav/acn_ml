@@ -13098,10 +13098,6 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _jquery = __webpack_require__(1);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
 	var _validator = __webpack_require__(16);
 
 	var _validator2 = _interopRequireDefault(_validator);
@@ -13161,7 +13157,7 @@
 			init: function init() {
 				var _this = this;
 
-				_jquery2.default.ajax({
+				$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					data: { action: 'countries' }
 				}).then(function (res) {
@@ -13245,7 +13241,7 @@
 						data: stripeData
 					};
 
-					_jquery2.default.ajax({
+					$.ajax({
 						type: 'post',
 						url: '/wp-admin/admin-ajax.php',
 						data: data
@@ -13326,7 +13322,7 @@
 					if (Object.keys(this.errors.contact).filter(function (field) {
 						return _this5.errors.contact[field] == true;
 					}).length == 0) {
-						_jquery2.default.ajax({
+						$.ajax({
 							url: '/wp-admin/admin-ajax.php',
 							type: 'post',
 							data: {
