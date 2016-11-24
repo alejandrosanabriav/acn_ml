@@ -48,6 +48,7 @@
         }
       }"
     :placeholders="{
+      loading: '<?php echo $at['placeholder_loading'] ?>',
       amount: '<?php echo $at['placeholder_amount'] ?>',
       creditCard: '<?php echo $at['placeholder_credit_card'] ?>',
       month: '<?php echo $at['placeholder_month'] ?>',

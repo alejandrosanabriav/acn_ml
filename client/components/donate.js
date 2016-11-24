@@ -492,7 +492,7 @@ export default () => ({
               v-on:click.prevent="getToken" 
               :disabled="loading"
             >
-            	{{loading ? 'loading' : texts.sectionTwo.btn}}
+            	{{loading ? placeholders.loading : texts.sectionTwo.btn}}
             </button>
 
              <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
@@ -565,7 +565,7 @@ export default () => ({
           v-on:click.prevent="onSubmit" 
           :disabled="loading"
         >
-          {{loading ? 'loading' : texts.sectionThree.btn}}
+          {{loading ? placeholders.loading : texts.sectionThree.btn}}
         </button>
         <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
         <button v-on:click.prevent="backSection" class="donate_landing__back pull-right">{{backText}}</button>

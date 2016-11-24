@@ -55,6 +55,7 @@ if(function_exists('sc_factory')) {
     "once" => "Once",
     "amount" => "Amount",
     "back_text" => "Back",
+    "placeholder_loading" => "Loading",
     "placeholder_amount" => "Amount",
     "placeholder_credit_card" => "Credit Card Number",
     "placeholder_month" => "MM",
@@ -152,7 +153,7 @@ if(function_exists('sc_factory')) {
       array_push($bs_donate_sections, $validation);
     }
 
-    foreach(['amount', 'credit_card', 'month', 'year', 'cvc', 'name', 'email', 'country'] as $field) {
+    foreach(['loading', 'amount', 'credit_card', 'month', 'year', 'cvc', 'name', 'email', 'country'] as $field) {
       $placeholder = array(
         "type" => "textfield",
         "heading" => "placeholder for " . $field,
