@@ -170,6 +170,18 @@ export default () => ({
 			}
 		},
 
+		cardValidation(action = {type: '', field: ''}) {
+			const {type, field} = action;
+			let isValid = Stripe.card[type](this.$get(field)); 
+			this.$set(`errors.${field}`, !isValid);
+		},
+
+		expiryValidation() {
+			let isValid = Stripe.card.validateExpiry(this.stripe.exp_month, this.stripe.exp_year);
+			this.$set('errors.stripe.exp_month', !isValid);
+			this.$set('errors.stripe.exp_year', !isValid);
+		},
+
 		validateContact(field = '') {
 			let val = this.$get(`contact.${field}`) ? this.$get(`contact.${field}`) : '';
 
@@ -213,7 +225,8 @@ export default () => ({
 		isValid() {
 			let contactErrs = this.errors.contact;
 			let errs = Object.keys(contactErrs)
-			.filter(field => contactErrs[field] == true);
+				.filter(field => contactErrs[field] == true);
+
 			return errs.length == 0;
 		},
 		
@@ -237,8 +250,8 @@ export default () => ({
 					}
 				})
 				.then(response => {
-					let subdata = `?customer_id=${response.customer}&order_revenue=${this.amount}&order_id=${response.id}&landing_thanks=true&landing_revenue=${this.amount}`;
-					window.location = `${this.redirect[this.donation_type]}${subdata}`;
+					let url = `${this.redirect[this.donation_type]}?customer_id=${response.customer}&order_revenue=${this.amount}&order_id=${response.id}`;
+					window.location = url;
 				});
 
 			} else {
@@ -312,20 +325,7 @@ export default () => ({
 			this.section = section - 1;
 			let progress = 100 / 3 * (section - 1);
 			this.progress = `${progress}%`;
-		},
-
-		cardValidation(action = {type: '', field: ''}) {
-			const {type, field} = action;
-			let isValid = Stripe.card[type](this.$get(field)); 
-			this.$set(`errors.${field}`, !isValid);
-		},
-
-		expiryValidation() {
-			let isValid = Stripe.card.validateExpiry(this.stripe.exp_month, this.stripe.exp_year);
-			this.$set('errors.stripe.exp_month', !isValid);
-			this.$set('errors.stripe.exp_year', !isValid);
-		},
-
+		}
 	},
 
 	template: `

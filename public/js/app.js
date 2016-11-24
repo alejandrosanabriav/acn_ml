@@ -282,6 +282,19 @@
 						};
 					}
 				},
+				cardValidation: function cardValidation() {
+					var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { type: '', field: '' };
+					var type = action.type,
+					    field = action.field;
+
+					var isValid = Stripe.card[type](this.$get(field));
+					this.$set('errors.' + field, !isValid);
+				},
+				expiryValidation: function expiryValidation() {
+					var isValid = Stripe.card.validateExpiry(this.stripe.exp_month, this.stripe.exp_year);
+					this.$set('errors.stripe.exp_month', !isValid);
+					this.$set('errors.stripe.exp_year', !isValid);
+				},
 				validateContact: function validateContact() {
 					var field = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
@@ -326,6 +339,7 @@
 					var errs = Object.keys(contactErrs).filter(function (field) {
 						return contactErrs[field] == true;
 					});
+
 					return errs.length == 0;
 				},
 				onSubmit: function onSubmit(e) {
@@ -352,8 +366,8 @@
 								});
 							}
 						}).then(function (response) {
-							var subdata = '?customer_id=' + response.customer + '&order_revenue=' + _this5.amount + '&order_id=' + response.id + '&landing_thanks=true&landing_revenue=' + _this5.amount;
-							window.location = '' + _this5.redirect[_this5.donation_type] + subdata;
+							var url = _this5.redirect[_this5.donation_type] + '?customer_id=' + response.customer + '&order_revenue=' + _this5.amount + '&order_id=' + response.id;
+							window.location = url;
 						});
 					} else {
 						this.toggleLoading();
@@ -423,19 +437,6 @@
 					this.section = section - 1;
 					var progress = 100 / 3 * (section - 1);
 					this.progress = progress + '%';
-				},
-				cardValidation: function cardValidation() {
-					var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { type: '', field: '' };
-					var type = action.type,
-					    field = action.field;
-
-					var isValid = Stripe.card[type](this.$get(field));
-					this.$set('errors.' + field, !isValid);
-				},
-				expiryValidation: function expiryValidation() {
-					var isValid = Stripe.card.validateExpiry(this.stripe.exp_month, this.stripe.exp_year);
-					this.$set('errors.stripe.exp_month', !isValid);
-					this.$set('errors.stripe.exp_year', !isValid);
 				}
 			},
 
