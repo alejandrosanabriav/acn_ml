@@ -565,7 +565,7 @@ export default () => ({
           v-on:click.prevent="onSubmit" 
           :disabled="loading"
         >
-          {{texts.sectionThree.btn}}
+          {{loading ? 'loading' : texts.sectionThree.btn}}
         </button>
         <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
         <button v-on:click.prevent="backSection" class="donate_landing__back pull-right">{{backText}}</button>
