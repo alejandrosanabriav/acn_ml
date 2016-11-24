@@ -367,8 +367,7 @@
 							}
 						}).then(function (response) {
 							var url = _this5.redirect[_this5.donation_type] + '?customer_id=' + response.customer + '&order_revenue=' + _this5.amount + '&order_id=' + response.id;
-							console.log(url);
-							// window.location = url;
+							window.location = url;
 						});
 					} else {
 						this.toggleLoading();

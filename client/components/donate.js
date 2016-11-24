@@ -251,8 +251,7 @@ export default () => ({
 				})
 				.then(response => {
 					let url = `${this.redirect[this.donation_type]}?customer_id=${response.customer}&order_revenue=${this.amount}&order_id=${response.id}`;
-					console.log(url);
-					// window.location = url;
+					window.location = url;
 				});
 
 			} else {
