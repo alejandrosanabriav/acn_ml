@@ -1,11 +1,10 @@
 'use strict';
-import input from './input';
-import form from './form';
 import donate from './components/donate';
 import contact from './components/contact';
 import changeAmount from './components/change_amount';
 import sliderBg from './components/slider_bg';
 import share from './components/share';
+import btnDonate from './lib/btn_donate';
 
 (function() {
 	Vue.component('change-amount', changeAmount());
@@ -14,26 +13,10 @@ import share from './components/share';
 	Vue.component('contact', contact());
 	Vue.component('bs-share', share());
 
-	const vm = new Vue({
-		el: '#app-ml'
-	});
+	const vm = new Vue({ el: '#app-ml' });
+	
+	btnDonate();
 
-	input();
-	form();
-	donate();
-
-	$('.bs-donate').on('click', e => {
-		e.preventDefault();
-		ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATIONS', 1);
-		
-		$.ajax({
-			url: '/wp-admin/admin-ajax.php',
-			data: {action: 'donate_redirect'}
-		})
-		.done(res => window.location = res);
-
-	});
-  
 	$('.bs-share').on('click', e => ga('send', 'event', 'DONATION', 'SHARE_CLICK', 'SHARE_CLICK', 1));
 
 })();

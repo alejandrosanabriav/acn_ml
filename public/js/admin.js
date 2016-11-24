@@ -57,7 +57,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	(0, _jquery2.default)(function () {
-		console.log('admin');
 		(0, _uploader2.default)();
 	});
 
