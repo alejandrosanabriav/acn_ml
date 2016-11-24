@@ -3,10 +3,6 @@
 export default () => ({
 	props: ['other'],
 	
-	propsData: {
-		other: 'Other'
-	},
-
 	methods: {
 		isAmount(amount) {
 			this.$parent.amount == amount;

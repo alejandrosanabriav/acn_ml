@@ -3355,10 +3355,6 @@
 	  return {
 	    props: ['other'],
 
-	    propsData: {
-	      other: 'Other'
-	    },
-
 	    methods: {
 	      isAmount: function isAmount(amount) {
 	        this.$parent.amount == amount;
