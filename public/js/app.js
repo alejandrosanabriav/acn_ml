@@ -289,10 +289,8 @@
 
 					if (field == 'email') {
 						this.$set('errors.contact.' + field, !_validator2.default.isEmail(val));
-						// this.errors = {...this.errors, [`contact.${field}`]: !validator.isEmail(val)};
 					} else {
 						this.$set('errors.contact.' + field, _validator2.default.isEmpty(val));
-						// this.errors = {...this.errors, [`contact.${field}`]: !validator.isEmpty(val)};
 					}
 				},
 				contactValidations: function contactValidations() {
@@ -349,11 +347,13 @@
 
 						this.stripeCharge(data).then(function (response) {
 							if (response.id) {
-								return _this5.infusion(contact);
+								return _this5.infusion(contact).then(function (customer) {
+									return $.Deferred(_extends({}, response, { customer: customer }));
+								});
 							}
-							console.log("donate isn't can be complete");
-						}).then(function () {
-							var subdata = '?customer_id=' + response.id + '&order_revenue=' + _this5.amount + '&order_id=' + response.id + '&landing_thanks=true&landing_revenue=' + _this5.amount;
+						}).then(function (response) {
+							console.log(response);
+							var subdata = '?customer_id=' + response.customer + '&order_revenue=' + _this5.amount + '&order_id=' + response.id + '&landing_thanks=true&landing_revenue=' + _this5.amount;
 							window.location = '' + _this5.redirect[_this5.donation_type] + subdata;
 						});
 					} else {
@@ -378,8 +378,8 @@
 				},
 				infusion: function infusion(contact) {
 					var tags = '';
-					if (this.type == 'monthly') tags = '870';
-					if (this.type == 'once') tags = '868';
+					if (this.donation_type == 'monthly') tags = '870';
+					if (this.donation_type == 'once') tags = '868';
 
 					return $.ajax({
 						url: '/wp-admin/admin-ajax.php',

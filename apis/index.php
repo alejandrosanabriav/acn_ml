@@ -118,7 +118,8 @@ function infusion_contact() {
     $infusionsoft->contact('addToGroup', $res, $tag);
   }
 
-  echo $tags;
+  header('Content-type: application/json');
+  return  json_encode($res);
 
   die();
 }

@@ -175,11 +175,8 @@ export default () => ({
 
 			if(field == 'email') {
 				this.$set(`errors.contact.${field}`, !validator.isEmail(val));
-				// this.errors = {...this.errors, [`contact.${field}`]: !validator.isEmail(val)};
 			} else {
 				this.$set(`errors.contact.${field}`, validator.isEmpty(val));
-				// this.errors = {...this.errors, [`contact.${field}`]: !validator.isEmpty(val)};
-				
 			}
 
 		},
@@ -233,12 +230,15 @@ export default () => ({
 				this.stripeCharge(data)
 				.then(response => {
 					if (response.id) {
-						return this.infusion(contact);
+						return this.infusion(contact)
+						.then((customer) => {
+							return $.Deferred({...response, customer});
+						});
 					}
-					console.log("donate isn't can be complete");
 				})
-				.then(() => {
-					let subdata = `?customer_id=${response.id}&order_revenue=${this.amount}&order_id=${response.id}&landing_thanks=true&landing_revenue=${this.amount}`;
+				.then(response => {
+					console.log(response);
+					let subdata = `?customer_id=${response.customer}&order_revenue=${this.amount}&order_id=${response.id}&landing_thanks=true&landing_revenue=${this.amount}`;
 					window.location = `${this.redirect[this.donation_type]}${subdata}`;	
 				});
 
@@ -264,8 +264,8 @@ export default () => ({
 
 		infusion(contact) {
 			let tags = '';
-			if(this.type == 'monthly') tags = '870';
-			if(this.type == 'once') tags = '868';
+			if(this.donation_type == 'monthly') tags = '870';
+			if(this.donation_type == 'once') tags = '868';
 
 			return $.ajax({
 				url: '/wp-admin/admin-ajax.php',
