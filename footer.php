@@ -28,6 +28,7 @@
 <script src="https://cdn.jsdelivr.net/flexslider/2.6.3/jquery.flexslider.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sidr/2.2.1/jquery.sidr.min.js"></script>
+<script src="<?php echo get_template_directory_uri() . '/public/js/app.js' ?>"></script>
 <!-- End theme scripts -->
 
  <!-- Google Analytics -->
@@ -42,7 +43,7 @@
 
   </script>
 <!-- End Google Analytics -->
-
+<!--
 <script type="text/javascript">
 
 deferScript("<?php echo get_template_directory_uri() . '/public/js/app.js' ?>");
@@ -78,7 +79,7 @@ onLoad(() => {
     $.sidr('close', 'sidr');
   });
 })
-</script>
+</script>-->
 </div><!-- #app-ml -->
 </body>
 </html>
