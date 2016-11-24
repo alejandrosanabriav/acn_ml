@@ -251,7 +251,8 @@ export default () => ({
 				})
 				.then(response => {
 					let url = `${this.redirect[this.donation_type]}?customer_id=${response.customer}&order_revenue=${this.amount}&order_id=${response.id}`;
-					window.location = url;
+					console.log(url);
+					// window.location = url;
 				});
 
 			} else {
@@ -491,7 +492,7 @@ export default () => ({
               v-on:click.prevent="getToken" 
               :disabled="loading"
             >
-            {{texts.sectionTwo.btn}}
+            	{{loading ? 'loading' : texts.sectionTwo.btn}}
             </button>
 
              <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
