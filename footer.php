@@ -46,23 +46,9 @@
 
 
 
-<!--
-<script type="text/javascript">
-
-deferScript("<?php echo get_template_directory_uri() . '/public/js/app.js' ?>");
-
-function deferScript(src) {
-	function downloadJSAtOnload() {
-    var element = document.createElement("script");
-    element.src = src;
-    document.body.appendChild(element);
-  }
-
-  onLoad(downloadJSAtOnload);	
-}
-
-onLoad(() => {
-    $('.navbar-toggle').sidr({
+<script>
+onLoad(function() {
+ $('.navbar-toggle').sidr({
     name: 'sidr',
     source: '#sidr',
     side: 'right',
@@ -82,7 +68,8 @@ onLoad(() => {
     $.sidr('close', 'sidr');
   });
 })
-</script>-->
+
+</script>
 </div><!-- #app-ml -->
 </body>
 </html>

@@ -37,8 +37,6 @@ function bs_accounts_options() {
 ?>
 <div style="padding: 15px; margin: 15px; background: #fff; box-shadow: 1px 1px 5px rgba(0,0,0, .1);">
 
-  
-
   <h1>Accounts keys</h1>
   <hr/>
   <p></p>
