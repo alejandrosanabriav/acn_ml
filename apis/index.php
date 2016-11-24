@@ -120,7 +120,7 @@ function infusion_contact() {
 
   header('Content-type: application/json');
   
-  return json_encode(['id' => $res]);
+  echo json_encode(['id' => $res]);
 
   die();
 }
