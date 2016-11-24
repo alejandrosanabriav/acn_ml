@@ -348,7 +348,7 @@
 						this.stripeCharge(data).then(function (response) {
 							if (response.id) {
 								return _this5.infusion(contact).then(function (customer) {
-									return $.Deferred(_extends({}, response, { customer: customer }));
+									return $.Deferred().resolve(_extends({}, response, { customer: customer }));
 								});
 							}
 						}).then(function (response) {
