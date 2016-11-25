@@ -136,7 +136,7 @@ function infusion_contact() {
 
     header('Content-type: application/json');
     
-    echo json_encode(['id' => $optin]);
+    echo json_encode($optin);
   } catch(Exception $e) {
     echo json_encode(['error' => $e]);
   }
