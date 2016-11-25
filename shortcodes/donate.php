@@ -29,6 +29,7 @@
       name: '<?php echo $at['validation_name'] ?>', 
       email: '<?php echo $at['validation_email'] ?>', 
       country: '<?php echo $at['validation_country'] ?>'
+      declined: '<?php echo $at['validation_declined'] ?>'
     }"
     :texts="{
         sectionOne: {

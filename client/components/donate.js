@@ -6,7 +6,7 @@ import gaEcommerce from '../lib/ga_ecommerce';
 const componentData = {
 	donation_type: 'monthly',
 	progress: '33.3%',
-	captcha: null,
+	declined: false,
 	amount: 30,
 	section: 1,
 	success: false,
@@ -16,7 +16,6 @@ const componentData = {
 		stripe: {},
 		contact: {},
 	},
-
 	stripe: {
 		number: '',
 		exp_month: '',
@@ -502,6 +501,9 @@ export default () => ({
 
             <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"> < {{backText}}</button>
             </div>
+			<div class="alert alert-danger col-sm-12" v-if="declined">
+				{{validationMessages.declined}}
+			</div>
       </div><!-- donate_landing__section-2 -->
 
 
@@ -573,6 +575,9 @@ export default () => ({
         <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
         <button v-on:click.prevent="backSection" class="donate_landing__back pull-right">{{backText}}</button>
       </div>
+			<div class="alert alert-danger col-sm-12" v-if="declined">
+				{{validationMessages.declined}}
+			</div>
     </div><!-- donate_landing__section-3 -->
     </div><!-- viewport -->
 

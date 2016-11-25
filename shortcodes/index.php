@@ -152,6 +152,13 @@ if(function_exists('sc_factory')) {
 
       array_push($bs_donate_sections, $validation);
     }
+    
+    array_push($bs_donate_sections, array(
+        "type" => "textfield",
+        "heading" => "validation message for declined",
+        "param_name" => "validation_declined",
+        "value" => 'Your transaction was not accepted, try again'
+      ));
 
     foreach(['loading', 'amount', 'credit_card', 'month', 'year', 'cvc', 'name', 'email', 'country'] as $field) {
       $placeholder = array(
