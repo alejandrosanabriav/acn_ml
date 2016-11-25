@@ -18,7 +18,6 @@ function stripe_create_token($api_key, $card) {
     } catch(Exeception $e) {
       return $e;
     }
-
 }
 
 function stripe_create_customer($api_key, $customer) {
@@ -57,8 +56,13 @@ function stripe_create_charge($api_key, $charge) {
 
 function stripe_get_plan($api_key, $name) {
   \Stripe\Stripe::setApiKey($api_key);
-  $plan = \Stripe\Plan::retrieve($name);
-  return $plan;
+
+   try {
+    $plan = \Stripe\Plan::retrieve($name);
+    return $plan;
+   } catch(Exception $e) {
+     return '';
+   }
 }
 
 //fix currency with add prefix
