@@ -139,6 +139,13 @@ if(function_exists('sc_factory')) {
       "heading" => "amount",
       "param_name" => "amount",
       "value" => 'Amount'
+    ),
+
+    array(
+      "type" => "textfield",
+      "heading" => "back",
+      "param_name" => "back_text",
+      "value" => ""
     )
 
   );
