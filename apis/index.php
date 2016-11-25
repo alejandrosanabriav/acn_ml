@@ -120,21 +120,27 @@ function infusion_contact() {
 
   $infusionsoft = new Infusionsoft($subdomain, $key);
   $name = explode(" ", $data['name']);
+  try {
+    $res = $infusionsoft->contact( 'add', array(
+      'FirstName' => $name[0],
+      'LastName' => $name[1],
+      'Email' => $data['email'],
+      'Country' => $data['country'] || '' 
+    ));
 
-  $res = $infusionsoft->contact( 'add', array(
-    'FirstName' => $name[0],
-    'LastName' => $name[1],
-    'Email' => $data['email'],
-    'Country' => $data['country'] || '' 
-  ));
+    $infusionsoft->email('APIEmailService.optIn', $data['email'], 'Confirmed');
 
-  foreach($tags as $tag) {
-    $infusionsoft->contact('addToGroup', $res, $tag);
+    foreach($tags as $tag) {
+      $infusionsoft->contact('addToGroup', $res, $tag);
+    }
+
+    header('Content-type: application/json');
+    
+    echo json_encode(['id' => $res]);
+  } catch(Exception $e) {
+    echo json_encode(['error' => $e]);
   }
 
-  header('Content-type: application/json');
-  
-  echo json_encode(['id' => $res]);
 
   die();
 }
