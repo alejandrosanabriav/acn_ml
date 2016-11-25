@@ -125,6 +125,10 @@
 
 	var _validation2 = _interopRequireDefault(_validation);
 
+	var _ga_ecommerce = __webpack_require__(87);
+
+	var _ga_ecommerce2 = _interopRequireDefault(_ga_ecommerce);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -366,7 +370,11 @@
 								});
 							}
 						}).then(function (response) {
-							var url = _this5.redirect[_this5.donation_type] + '?customer_id=' + response.customer + '&order_revenue=' + _this5.amount + '&order_id=' + response.id;
+							var id = response.id,
+							    customer = response.customer;
+
+							(0, _ga_ecommerce2.default)(id, _this5.amount);
+							var url = _this5.redirect[_this5.donation_type] + '?customer_id=' + customer + '&order_revenue=' + _this5.amount + '&order_id=' + id;
 							window.location = url;
 						});
 					} else {
@@ -3522,6 +3530,31 @@
 				return window.location = res;
 			});
 		});
+	};
+
+/***/ },
+/* 86 */,
+/* 87 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function (id) {
+	  var revenue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+	  var affiliation = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'ACN ME';
+
+	  ga('ecommerce:addTransaction', {
+	    'id': id, // Transaction ID. Required.
+	    'affiliation': affiliation, // Affiliation or store name.
+	    'revenue': revenue,
+	    'currency': 'USD'
+	  });
+
+	  return ga('ecommerce:send');
 	};
 
 /***/ }

@@ -1,6 +1,7 @@
 'use strict';
 import validator from 'validator';
-import validateStripe from '../stripe/validation.js';
+import validateStripe from '../stripe/validation';
+import gaEcommerce from '../lib/ga_ecommerce';
 
 const componentData = {
 	donation_type: 'monthly',
@@ -250,7 +251,9 @@ export default () => ({
 					}
 				})
 				.then(response => {
-					let url = `${this.redirect[this.donation_type]}?customer_id=${response.customer}&order_revenue=${this.amount}&order_id=${response.id}`;
+					const {id, customer} = response;
+					gaEcommerce(id, this.amount);
+					let url = `${this.redirect[this.donation_type]}?customer_id=${customer}&order_revenue=${this.amount}&order_id=${id}`;
 					window.location = url;
 				});
 
