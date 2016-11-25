@@ -30,6 +30,7 @@ export default () => {
 				url: '/wp-admin/admin-ajax.php',
 				data: {action: 'countries'}
 			}).then(res => this.countries = res);
+			console.log('cache');
 		},
 
 		ready() {
