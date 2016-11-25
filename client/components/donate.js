@@ -161,11 +161,8 @@ export default () => ({
 				this.declined = false;
 				this.nextSection();
 			}
-
-			if (response.error) {
-				this.declined = true;
-				this.toggleLoading();
-			}
+			this.declined = true;
+	
 		},
 
 		cardValidation(action = {type: '', field: ''}) {

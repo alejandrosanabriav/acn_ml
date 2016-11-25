@@ -279,11 +279,7 @@
 						this.declined = false;
 						this.nextSection();
 					}
-
-					if (response.error) {
-						this.declined = true;
-						this.toggleLoading();
-					}
+					this.declined = true;
 				},
 				cardValidation: function cardValidation() {
 					var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { type: '', field: '' };
