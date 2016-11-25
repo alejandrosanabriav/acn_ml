@@ -378,7 +378,7 @@ export default () => ({
             {{texts.sectionOne.btn}}
           </button>
 
-          <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
+          <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type == 'monthly' ? monthly : once}}</span>
         </div>
       </div> <!-- donate_landing__section-1 -->
 
@@ -575,7 +575,6 @@ export default () => ({
         <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
         <button v-on:click.prevent="backSection" class="donate_landing__back pull-right">{{backText}}</button>
       </div>
-			
 			<div class="form-group col-sm-12">
 				<div class="alert alert-danger" v-if="declined">
 					{{validationMessages.declined}}
