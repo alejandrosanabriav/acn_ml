@@ -3303,13 +3303,13 @@
 			init: function init() {
 				var _this = this;
 
+				console.log('hi cache');
 				$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					data: { action: 'countries' }
 				}).then(function (res) {
 					return _this.countries = res;
 				});
-				console.log('cache');
 			},
 			ready: function ready() {
 				this.prayLogo = this.baseUri + '/public/img/pray.svg';
