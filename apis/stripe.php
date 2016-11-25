@@ -4,6 +4,7 @@ require $dir_base . 'vendor/autoload.php';
 
 function stripe_create_token($api_key, $card) {
     \Stripe\Stripe::setApiKey($api_key);
+
     try {
       $token = \Stripe\Token::create(array(
         "card" => array(
@@ -15,7 +16,7 @@ function stripe_create_token($api_key, $card) {
       ));
 
       return $token;
-    } catch(Exeception $e) {
+    } catch(Exception $e) {
       return $e;
     }
 }
