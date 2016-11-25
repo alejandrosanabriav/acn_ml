@@ -120,14 +120,15 @@ function infusion_contact() {
 
   $infusionsoft = new Infusionsoft($subdomain, $key);
   $name = explode(" ", $data['name']);
+
   try {
     $res = $infusionsoft->contact( 'add', array(
       'FirstName' => $name[0],
       'LastName' => $name[1],
       'Email' => $data['email'],
-      'Country' => $data['country'] || '' 
+      'Country' => $data['country']
     ));
-
+    
     $optin = $infusionsoft->APIEmail('optIn', $data['email'], 'SingleOptIn');
 
     foreach($tags as $tag) {
