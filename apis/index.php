@@ -36,6 +36,19 @@ function stripe_token() {
   die();
 }
 
+add_action( 'wp_ajax_nopriv_stripe_get_plan', 'stripe_get_plan' );
+add_action( 'wp_ajax_stripe_get_plan', 'stripe_get_plan' );
+
+function get_plan() {
+  $card = $_POST['data'];
+  $apiKey =  get_option('stripe_key_private');
+  $res = stripe_get_plan($apiKey, 'donate-2');
+  header('Content-type: application/json');
+  echo json_encode($res);
+  die();
+  
+}
+
 add_action( 'wp_ajax_nopriv_stripe_charge', 'stripe_charge' );
 add_action( 'wp_ajax_stripe_charge', 'stripe_charge' );
 
