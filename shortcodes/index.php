@@ -64,6 +64,7 @@ if(function_exists('sc_factory')) {
     "placeholder_name" => "Name",
     "placeholder_email" => "Email",
     "placeholder_country" => "Country",
+    "validation_declined" => "Your transaction was not accepted, try again",
     "validation_card" => "Incorrect card",
     "validation_month" => "Incorrect month",
     "validation_year" => "Incorrect year",
