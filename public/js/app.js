@@ -320,6 +320,7 @@
 				},
 				showStripeErrors: function showStripeErrors() {
 					this.$set('errors.stripe', (0, _validation2.default)(this.stripe).errors);
+					this.changeViewportHeight(2);
 				},
 				removeErrors: function removeErrors() {
 					this.errors = _extends({}, componentData.errors);
@@ -335,7 +336,6 @@
 						this.createToken();
 					} else {
 						this.showStripeErrors();
-						this.changeViewportHeight(2);
 					}
 				},
 				isValid: function isValid() {

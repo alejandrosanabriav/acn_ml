@@ -201,6 +201,7 @@ export default () => ({
 
 		showStripeErrors() {
 			this.$set('errors.stripe', validateStripe(this.stripe).errors);
+			this.changeViewportHeight(2);
 		},
 
 		removeErrors() {
@@ -219,7 +220,6 @@ export default () => ({
 				this.createToken();
 			} else {
 				this.showStripeErrors();
-				this.changeViewportHeight(2);
 			}
 		},
 
