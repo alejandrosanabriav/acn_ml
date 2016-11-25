@@ -36,8 +36,8 @@ function stripe_token() {
   die();
 }
 
-add_action( 'wp_ajax_nopriv_stripe_get_plan', 'stripe_get_plan' );
-add_action( 'wp_ajax_stripe_get_plan', 'stripe_get_plan' );
+add_action( 'wp_ajax_nopriv_stripe_get_plan', 'get_plan' );
+add_action( 'wp_ajax_stripe_get_plan', 'get_plan' );
 
 function get_plan() {
   $card = $_POST['data'];
