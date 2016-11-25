@@ -87,6 +87,7 @@ function infusion_contact() {
   $data = $_POST['data'];
   $key = get_option('infusionsoft_key');
   $subdomain = get_option('infusionsoft_subdomain');
+
   $countryTags = [
     'Australia' => '822',
     'Austria' => '824',
@@ -128,7 +129,7 @@ function infusion_contact() {
       'Email' => $data['email'],
       'Country' => $data['country']
     ));
-    
+
     $optin = $infusionsoft->APIEmail('optIn', $data['email'], 'SingleOptIn');
 
     foreach($tags as $tag) {
@@ -137,11 +138,11 @@ function infusion_contact() {
 
     header('Content-type: application/json');
     
-    echo json_encode($optin);
+    echo json_encode($tags);
+
   } catch(Exception $e) {
     echo json_encode(['error' => $e]);
   }
-
 
   die();
 }
