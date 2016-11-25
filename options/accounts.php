@@ -96,7 +96,7 @@ function bs_accounts_options() {
 
     <p>
       <label for=""><b>InfusionSoft tags</b></label>
-      <p>Insert your language tag below</p>
+      <p>You must Insert language site tag below</p>
       <ul>
         <li>874 =  ES</li>
         <li>876 = EN</li>
