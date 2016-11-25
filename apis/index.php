@@ -128,7 +128,7 @@ function infusion_contact() {
       'Country' => $data['country'] || '' 
     ));
 
-    $optin = $infusionsoft->email('APIEmailService.optIn', $data['email'], 'Confirmed');
+    $optin = $infusionsoft->email('optIn', $data['email'], 'Confirmed');
 
     foreach($tags as $tag) {
       $infusionsoft->contact('addToGroup', $res, $tag);
