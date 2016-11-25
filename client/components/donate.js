@@ -495,7 +495,7 @@ export default () => ({
             	{{loading ? placeholders.loading : texts.sectionTwo.btn}}
             </button>
 
-             <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
+             <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type == 'monthly' ? monthly : once}}</span>
 
             <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"> < {{backText}}</button>
             </div>
