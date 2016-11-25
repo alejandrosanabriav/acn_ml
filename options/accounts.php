@@ -96,6 +96,17 @@ function bs_accounts_options() {
 
     <p>
       <label for=""><b>InfusionSoft tags</b></label>
+      <p>Insert your language tag below</p>
+      <ul>
+        <li>ACNLANGES ( 874 )  :   ES</li>
+        <li>ACNLANGEN ( 876 )  :   EN</li>
+        <li>ACNLANGIT ( 878 )  :   IT</li>
+        <li>ACNLANGDE ( 880 )  :   DE</li>
+        <li>ACNLANGDU ( 882 )  :   DU</li>
+        <li>ACNLANGFR ( 884 )  :   FR</li>
+        <li>ACNLANGPT ( 886 )  :   PT</li>
+        <li>ACNLANGKO ( 888 )  :   KO</li>
+      </ul>
       <br>
       <input 
         style="background: rgba(255,255,255,.4); width: 60%; height: 35px"

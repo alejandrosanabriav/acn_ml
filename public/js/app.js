@@ -3523,7 +3523,7 @@
 	exports.default = function () {
 		$('.bs-donate').on('click', function (e) {
 			e.preventDefault();
-			ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATIONS', 1);
+			ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATION_CLICK', 1);
 
 			$.ajax({
 				url: '/wp-admin/admin-ajax.php',
