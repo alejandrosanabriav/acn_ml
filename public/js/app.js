@@ -372,9 +372,11 @@
 						}).then(function (response) {
 							var id = response.id,
 							    customer = response.customer;
+							var donation_type = _this5.donation_type,
+							    amount = _this5.amount;
 
-							(0, _ga_ecommerce2.default)(id, _this5.amount);
-							var url = _this5.redirect[_this5.donation_type] + '?customer_id=' + customer + '&order_revenue=' + _this5.amount + '&order_id=' + id;
+							(0, _ga_ecommerce2.default)(id, amount);
+							var url = _this5.redirect[donation_type] + '?customer_id=' + customer + '&order_revenue=' + amount + '&order_id=' + id;
 							window.location = url;
 						});
 					} else {

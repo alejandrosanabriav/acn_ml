@@ -252,8 +252,9 @@ export default () => ({
 				})
 				.then(response => {
 					const {id, customer} = response;
-					gaEcommerce(id, this.amount);
-					let url = `${this.redirect[this.donation_type]}?customer_id=${customer}&order_revenue=${this.amount}&order_id=${id}`;
+					const {donation_type, amount} = this;
+					gaEcommerce(id, amount);
+					let url = `${this.redirect[donation_type]}?customer_id=${customer}&order_revenue=${amount}&order_id=${id}`;
 					window.location = url;
 				});
 
