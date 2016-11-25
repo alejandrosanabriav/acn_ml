@@ -276,13 +276,13 @@
 
 					if (response.id) {
 						this.stripe.token = response.id;
+						this.declined = false;
 						this.nextSection();
 					}
 
 					if (response.error) {
-						this.errors = {
-							stripe: response.error.message
-						};
+						this.declined = true;
+						this.toggleLoading();
 					}
 				},
 				cardValidation: function cardValidation() {
@@ -367,6 +367,9 @@
 								return _this5.infusion(contact).then(function (customer) {
 									return $.Deferred().resolve(_extends({}, response, { customer: customer.id }));
 								});
+							} else {
+								_this5.declined = true;
+								_this5.toggleLoading();
 							}
 						}).then(function (response) {
 							var id = response.id,

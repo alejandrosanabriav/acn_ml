@@ -158,15 +158,13 @@ export default () => ({
 
 			if (response.id) {
 				this.stripe.token = response.id;
+				this.declined = false;
 				this.nextSection();
 			}
 
 			if (response.error) {
-				this.errors = {
-					stripe: response.error.message
-				};
-
-			
+				this.declined = true;
+				this.toggleLoading();
 			}
 		},
 
@@ -247,6 +245,9 @@ export default () => ({
 						.then((customer) => {
 							return $.Deferred().resolve({...response, customer: customer.id});
 						});
+					} else {
+						this.declined = true;
+						this.toggleLoading();
 					}
 				})
 				.then(response => {
