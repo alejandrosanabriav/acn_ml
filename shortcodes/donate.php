@@ -5,7 +5,7 @@
     country="<?php echo getCountry() ?>"
     back-text=<?php echo $at['back_text'] ?>
     monthly=<?php echo $at['monthly'] ?>
-    once=<?php echo $at['once'] ?>
+    once="<?php echo $at['once'] ?>"
     :redirect="{
       once: '<?php echo get_option('donate_once_redirect') ?>',
       monthly: '<?php echo get_option('donate_monthly_redirect') ?>',
