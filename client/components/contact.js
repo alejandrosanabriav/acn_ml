@@ -68,6 +68,7 @@ export default () => {
 					ga('send', 'event', 'SUBSCRIPTION', 'SUBSCRIPTION', 'SUBSCRIPTION', 1);
 
 					let data = {};
+
 					if(this.type == 'mailchimp') {
 						let mc_data = {
 							email_address: email,
@@ -78,7 +79,8 @@ export default () => {
 
 						data = {action: 'mailchimp_subscribe', data: mc_data};
 					} else {
-						let infusion_data = {name, email, country};
+						let infusion_data = {name, email, country, tags: '872'};
+
 						data = {action: 'infusion_contact', data: infusion_data};
 					}				
 

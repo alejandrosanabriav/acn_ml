@@ -3361,6 +3361,7 @@
 						ga('send', 'event', 'SUBSCRIPTION', 'SUBSCRIPTION', 'SUBSCRIPTION', 1);
 
 						var data = {};
+
 						if (this.type == 'mailchimp') {
 							var mc_data = {
 								email_address: email,
@@ -3371,7 +3372,8 @@
 
 							data = { action: 'mailchimp_subscribe', data: mc_data };
 						} else {
-							var infusion_data = { name: name, email: email, country: country };
+							var infusion_data = { name: name, email: email, country: country, tags: '872' };
+
 							data = { action: 'infusion_contact', data: infusion_data };
 						}
 

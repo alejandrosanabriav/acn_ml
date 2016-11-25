@@ -112,9 +112,9 @@ function infusion_contact() {
     'Switzerland' => '862'
   ];
 
-  $countryTag = array_key_exists($data['country'], $countryTags) ? [$countryTags[$data['country']]] : [820];
+  $countryTag = array_key_exists($data['country'], $countryTags) ? [$countryTags[$data['country']]] : [];
 
-  $defaultTags = [800, 802];
+  $defaultTags = [800, 802, 820];
   $tags = get_option('infusionsoft_tags') ? explode(',', get_option('infusionsoft_tags')) : [];
   $dataTags = $data['tags'] ? explode(',',  $data['tags']) : [];
   $tags = array_merge($tags, $defaultTags, $countryTag, $dataTags);
