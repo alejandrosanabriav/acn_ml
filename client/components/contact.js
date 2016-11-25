@@ -26,7 +26,6 @@ export default () => {
 		},
 
 		init() {
-			console.log('hi cache');
 			$.ajax({
 				url: '/wp-admin/admin-ajax.php',
 				data: {action: 'countries'}
@@ -87,7 +86,7 @@ export default () => {
 						type: 'post',
 						url: '/wp-admin/admin-ajax.php',
 						data: data
-					}).then(res => console.log('res', res)); //window.location = this.redirect
+					}).then(res => window.location = this.redirect);
 				}
 		
 			}
