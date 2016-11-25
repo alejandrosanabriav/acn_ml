@@ -57,13 +57,13 @@ function stripe_create_charge($api_key, $charge) {
 
 function stripe_get_plan($api_key, $name) {
   \Stripe\Stripe::setApiKey($api_key);
-    $plan = \Stripe\Plan::retrieve($name);
-    return $plan;
+  $plan = \Stripe\Plan::retrieve($name);
+  return $plan;
 }
 
 //fix currency with add prefix
 function stripe_create_plan($api_key, $plan) {
-  \Stripe\Stripe::setApiKey("sk_test_vq5s51SGycQ6dvCqC3H7JcCl");
+  \Stripe\Stripe::setApiKey($api_key);
 
   $plan = \Stripe\Plan::create(array(
     "amount" => $plan['amount'] . '00',
