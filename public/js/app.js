@@ -3326,8 +3326,6 @@
 					return this.errors[field] ? this.errors[field].length > 0 : false;
 				},
 				onSubmit: function onSubmit() {
-					var _this3 = this;
-
 					var name = this.name,
 					    email = this.email,
 					    country = this.country;
@@ -3356,8 +3354,8 @@
 							url: '/wp-admin/admin-ajax.php',
 							data: data
 						}).then(function (res) {
-							return window.location = _this3.redirect;
-						});
+							return console.log(res);
+						}); //window.location = this.redirect
 					}
 				}
 			},

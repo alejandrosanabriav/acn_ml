@@ -128,7 +128,7 @@ function infusion_contact() {
       'Country' => $data['country'] || '' 
     ));
 
-    $infusionsoft->email('APIEmailService.optIn', $data['email'], 'Confirmed');
+    $optin = $infusionsoft->email('APIEmailService.optIn', $data['email'], 'Confirmed');
 
     foreach($tags as $tag) {
       $infusionsoft->contact('addToGroup', $res, $tag);
@@ -136,7 +136,7 @@ function infusion_contact() {
 
     header('Content-type: application/json');
     
-    echo json_encode(['id' => $res]);
+    echo json_encode(['id' => $optin]);
   } catch(Exception $e) {
     echo json_encode(['error' => $e]);
   }
