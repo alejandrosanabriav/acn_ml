@@ -98,14 +98,14 @@ function bs_accounts_options() {
       <label for=""><b>InfusionSoft tags</b></label>
       <p>Insert your language tag below</p>
       <ul>
-        <li>ACNLANGES ( 874 )  :   ES</li>
-        <li>ACNLANGEN ( 876 )  :   EN</li>
-        <li>ACNLANGIT ( 878 )  :   IT</li>
-        <li>ACNLANGDE ( 880 )  :   DE</li>
-        <li>ACNLANGDU ( 882 )  :   DU</li>
-        <li>ACNLANGFR ( 884 )  :   FR</li>
-        <li>ACNLANGPT ( 886 )  :   PT</li>
-        <li>ACNLANGKO ( 888 )  :   KO</li>
+        <li>874 =  ES</li>
+        <li>876 = EN</li>
+        <li>878 = IT</li>
+        <li>880 = DE</li>
+        <li>882 = DU</li>
+        <li>884 = FR</li>
+        <li>886 = PT</li>
+        <li>888 =  KO</li>
       </ul>
       <br>
       <input 
