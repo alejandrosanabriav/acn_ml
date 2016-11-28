@@ -6,8 +6,9 @@ function infusion_create_contact() {
     
 }
 
-function infusion_get_countries_tags() {
-	return [
+
+function infusion_get_countries_tags($country = '') {
+	$countries = [
     'Australia' => '822',
     'Austria' => '824',
     'Belgium' => '826',
@@ -30,4 +31,18 @@ function infusion_get_countries_tags() {
     'Spain' => '860',
     'Switzerland' => '862'
   ];
+
+	return array_key_exists($country, $countryTags) ? [$countryTags[$country]] : [];
+}
+
+function infusion_get_tags($defaultTags = [], $countryTag = [], $optionsTags = [], $dataTags = []) {
+	
+}
+
+function get_arr($str_to_explode = '', $default = '') {
+	if(!empty($str_to_explode)) {
+		return explode(',', $str_to_explode);
+	} else {
+		return [$default];
+	}
 }

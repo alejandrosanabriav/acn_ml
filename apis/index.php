@@ -88,12 +88,11 @@ function infusion_contact() {
   $key = get_option('infusionsoft_key');
   $subdomain = get_option('infusionsoft_subdomain');
   $defaultTags = [800, 802, 820];
-  $countryTags = infusion_get_countries_tags();
-  $countryTag = array_key_exists($data['country'], $countryTags) ? [$countryTags[$data['country']]] : [];
-  $tags = get_option('infusionsoft_tags') ? explode(',', get_option('infusionsoft_tags')) : [];
-  $dataTags = $data['tags'] ? explode(',',  $data['tags']) : [876];
+  $countryTag = infusion_get_country_tag($data['country']);
+  $tags = get_arr(get_option('infusionsoft_tags'));
+  $dataTags = get_arr($data['tags'], 876);
   $tags = array_merge($tags, $defaultTags, $countryTag, $dataTags);
-
+  
   $infusionsoft = new Infusionsoft($subdomain, $key);
   $name = explode(" ", $data['name']);
 
