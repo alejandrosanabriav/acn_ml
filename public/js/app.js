@@ -3386,8 +3386,8 @@
 								return _this3.loading = true;
 							}
 						}).then(function (res) {
-							return console.log(res);
-						}); //window.location = this.redirect
+							return window.location = _this3.redirect;
+						});
 					}
 				}
 			},
