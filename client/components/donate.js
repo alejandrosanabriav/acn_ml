@@ -486,7 +486,7 @@ export default () => ({
            </span>
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-12 form-group">
             <button 
               class="donate_landing__submit donate_landing__submit-get_token pull-left" 
               v-on:click.prevent="getToken" 
