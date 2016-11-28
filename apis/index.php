@@ -87,36 +87,11 @@ function infusion_contact() {
   $data = $_POST['data'];
   $key = get_option('infusionsoft_key');
   $subdomain = get_option('infusionsoft_subdomain');
-
-  $countryTags = [
-    'Australia' => '822',
-    'Austria' => '824',
-    'Belgium' => '826',
-    'Brazil' => '828',
-    'Canada' => '830',
-    'Chile' => '832',
-    'Colombia' => '834',
-    'France' => '836',
-    'Germany' => '838',
-    'Ireland' => '840',
-    'Italy' => '842',
-    'Malta' => '844',
-    'Mexico' => '846',
-    'Netherlands' => '848',
-    'Philippines' => '850',
-    'Poland' => '852',
-    'Portugal' => '854',
-    'Slovakia' => '856',
-    'Republic of Korea' => '858',
-    'Spain' => '860',
-    'Switzerland' => '862'
-  ];
-
-  $countryTag = array_key_exists($data['country'], $countryTags) ? [$countryTags[$data['country']]] : [];
-
   $defaultTags = [800, 802, 820];
+  $countryTags = infusion_get_countries_tags();
+  $countryTag = array_key_exists($data['country'], $countryTags) ? [$countryTags[$data['country']]] : [];
   $tags = get_option('infusionsoft_tags') ? explode(',', get_option('infusionsoft_tags')) : [];
-  $dataTags = $data['tags'] ? explode(',',  $data['tags']) : [];
+  $dataTags = $data['tags'] ? explode(',',  $data['tags']) : [876];
   $tags = array_merge($tags, $defaultTags, $countryTag, $dataTags);
 
   $infusionsoft = new Infusionsoft($subdomain, $key);
