@@ -1,11 +1,11 @@
 <?php
  $imagesArr = explode(',', $at['images']);
  
- function getImagesSrc($imageId) {
+ function getImageSrc($imageId) {
 	 return wp_get_attachment_url($imageId);
  }
  
- $images = array_map('getImagesSrc', $imagesArr);
+ $images = array_map('getImageSrc', $imagesArr);
 ?>
 
 <bsslider-bg 
