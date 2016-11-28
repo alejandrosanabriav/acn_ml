@@ -160,9 +160,9 @@ export default () => ({
 				this.stripe.token = response.id;
 				this.declined = false;
 				this.nextSection();
+			} else {
+				this.declined = true;
 			}
-			this.declined = true;
-	
 		},
 
 		cardValidation(action = {type: '', field: ''}) {

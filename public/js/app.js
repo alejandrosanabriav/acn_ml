@@ -278,8 +278,9 @@
 						this.stripe.token = response.id;
 						this.declined = false;
 						this.nextSection();
+					} else {
+						this.declined = true;
 					}
-					this.declined = true;
 				},
 				cardValidation: function cardValidation() {
 					var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { type: '', field: '' };
