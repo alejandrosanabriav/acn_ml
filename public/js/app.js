@@ -84,7 +84,7 @@
 		(0, _btn_donate2.default)();
 
 		$('.bs-share').on('click', function (e) {
-			return ga('send', 'event', 'DONATION', 'SHARE_CLICK', 'SHARE_CLICK', 1);
+			return ga('send', 'event', 'DONATION', 'SHARE_CLICK', 'SHARE_CLICK', 0);
 		});
 
 		$('.bs-back').on('click', function (e) {
@@ -3550,7 +3550,7 @@
 	exports.default = function () {
 		$('.bs-donate').on('click', function (e) {
 			e.preventDefault();
-			ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATION_CLICK', 1);
+			ga('send', 'event', 'DONATION', 'DONATION_CLICK', 'DONATION_CLICK', 0);
 
 			$.ajax({
 				url: '/wp-admin/admin-ajax.php',
