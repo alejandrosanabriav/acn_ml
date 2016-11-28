@@ -13,6 +13,7 @@ register_nav_menus(
 
 include_once 'shortcodes/index.php';
 include_once 'shortcodes/slider.php';
+include_once 'shortcodes/donate.php';
 include_once 'shortcodes/contact.php';
 include_once 'options/index.php';
 include_once 'apis/index.php';

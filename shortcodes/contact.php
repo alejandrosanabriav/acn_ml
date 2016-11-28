@@ -1,5 +1,4 @@
 <?php
-add_shortcode( 'bs_slider', 'bs_slider_sc' );
 
 function bs_contact_sc($atts, $content = null) {
   $at = shortcode_atts( array(
@@ -40,6 +39,7 @@ function bs_contact_sc($atts, $content = null) {
 
   return ob_get_clean();
 } //close bs_contact
+
 function bs_contact_vc() {
   $params = [
     [

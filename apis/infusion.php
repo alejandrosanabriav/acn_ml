@@ -35,10 +35,6 @@ function infusion_get_countries_tags($country = '') {
 	return array_key_exists($country, $countryTags) ? [$countryTags[$country]] : [];
 }
 
-function infusion_get_tags($defaultTags = [], $countryTag = [], $optionsTags = [], $dataTags = []) {
-	
-}
-
 function get_arr($str_to_explode = '', $default = '') {
 	if(!empty($str_to_explode)) {
 		return explode(',', $str_to_explode);
