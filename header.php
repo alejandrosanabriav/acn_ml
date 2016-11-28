@@ -1,3 +1,7 @@
+<?php /** @package WordPress @subpackage acn_ml **/
+  header("Access-Control-Allow-Origin: *"); 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
