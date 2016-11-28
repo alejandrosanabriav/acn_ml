@@ -22,6 +22,7 @@ export default () => {
 				prayLogo: '',
 				countries: [],
 				errors: {},
+				loading: false
 			};
 		},
 
@@ -87,7 +88,8 @@ export default () => {
 					$.ajax({
 						type: 'post',
 						url: '/wp-admin/admin-ajax.php',
-						data: data
+						data: data,
+						beforeSend: () => this.loading = true,
 					}).then(res => window.location = this.redirect);
 				}
 		
@@ -140,7 +142,13 @@ export default () => {
 				</div>
 
 				<div class="input_container">
-					<button class="btn-pray" v-on:click.prevent="onSubmit"><img v-bind:src="prayLogo" alt="">{{texts.pray}}</button>
+					<button 
+						class="btn-pray" 
+						v-on:click.prevent="onSubmit" 
+						disabled="{{this.loading}}"
+					>
+						<img v-bind:src="prayLogo" alt=""> {{texts.pray}}
+					</button>
 				</div>
 			</form>
 		`

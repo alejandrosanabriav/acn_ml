@@ -118,3 +118,4 @@ add_action('init', 'modify_jquery');
 function getImageSrc($imageId) {
 	return wp_get_attachment_url($imageId);
 }
+

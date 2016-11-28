@@ -6,39 +6,6 @@ $prefix = 'bs_';
 
 //register shortcodes
 if(function_exists('sc_factory')) {
-
-  sc_factory($prefix . 'input', array(
-      'label' => '', 
-      'placeholder' => '', 
-      'id' => '', 
-      'validate' => '', 
-      'messages' => ''
-    ), 
-    $base . '/input.php'
-  );
-
-  sc_factory($prefix . 'select_country', array(
-      'label' => '', 
-      'placeholder' => '', 
-      'id' => '', 
-      'validate' => '', 
-      'messages' => ''
-    ), 
-    $base . '/select_country.php'
-  );
-
-  sc_factory($prefix . 'form_donate', array(
-      'label' => '', 
-      'placeholder' => '', 
-      'id' => '', 
-      'validate' => '', 
-      'messages' => ''
-    ),
-    $base . '/form_donate.php'
-  );
-
-  sc_factory($prefix . 'steps', array(), $base . '/steps.php' );
-
   sc_factory($prefix . 'donate', array(
     "section_title_1" => "",
     "section_content_1" => "",
@@ -72,7 +39,9 @@ if(function_exists('sc_factory')) {
     "validation_name" => "Incorrect name",
     "validation_email" => "Incorrect email",
     "validation_country" => "Incorrect country"
-    ), $base . '/donate.php' );
+    ), 
+    $base . '/donate.php' 
+  );
 
   function bs_donate_vc() {
     $bs_donate_sections = array();
@@ -191,7 +160,6 @@ if(function_exists('sc_factory')) {
 
   add_action( 'vc_before_init', 'bs_donate_vc' );
 
-  sc_factory($prefix . 'donate_land', array(), $base . '/donate_land.php' );
   sc_factory($prefix . 'slider_bg', array("images" => "", "height" => "100px", "slider_style" => "", "interval" => "3000"),$base . '/slider_bg.php');
 
   function bs_slider_bg_vc() {
