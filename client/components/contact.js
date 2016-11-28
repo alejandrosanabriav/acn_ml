@@ -90,7 +90,7 @@ export default () => {
 						url: '/wp-admin/admin-ajax.php',
 						data: data,
 						beforeSend: () => this.loading = true,
-					}).then(res => window.location = this.redirect);
+					}).then(res => console.log(res)); //window.location = this.redirect
 				}
 		
 			}
