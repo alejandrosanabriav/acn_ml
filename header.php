@@ -1,4 +1,4 @@
-<?php /** @package WordPress @subpackage acn_ml **/
+<?php
   header("Access-Control-Allow-Origin: *"); 
 ?>
 
@@ -18,11 +18,10 @@
   <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/public/css/base.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/flexslider.min.css">
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">
-
-   
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">   
 
   <script>
+  console.log('is cache alive?');
     function onLoad(cb) {
       if (window.addEventListener)
         window.addEventListener("load", cb, false);
