@@ -4633,13 +4633,15 @@
 					}
 				},
 				getStyle: function getStyle(image) {
-					console.log(image);
-					return {
+
+					var style = {
 						display: 'block',
 						background: 'url(' + image + ')',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center'
 					};
+					console.log(style);
+					return style;
 				}
 			},
 

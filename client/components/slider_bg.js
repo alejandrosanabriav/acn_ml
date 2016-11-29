@@ -58,13 +58,15 @@ export default () => ({
 		},
 
 		getStyle(image) {
-			console.log(image);
-			return {
+			
+			let style = {
 				display: 'block', 
 				background: `url(${image})`, 
 				backgroundSize: 'cover', 
 				backgroundPosition: 'center'
 			};
+			console.log(style);
+			return style; 
 		}
 	},
 
