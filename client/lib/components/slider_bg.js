@@ -40,10 +40,10 @@ export default () => ({
 		next() {
 			if(this.slide < this.lastSlide) {
 				let next = this.slide * 100;
-				this.$el.querySelector('ul').style.left = `-${next}%`;
+				$(this.$el).find('ul').css({left: `-${next}%`});
 				this.slide = this.slide + 1;
 			} else {
-				this.$el.querySelector('ul').style.left = '0';
+				$(this.$el).find('ul').css({left: 0});
 				this.slide = 1;
 			}
 		},
@@ -67,7 +67,8 @@ export default () => ({
 
 			<ul style="position:relative; padding: 0;transition: all 300ms ease"> 
 				<li v-for="image in images" style="float:left;list-style: none">
-					<span v-bind:style="{display: 'block', background: 'url({{image}})', backgroundSize: 'cover', backgroundPosition: 'center'}"></span> 
+					<span 
+						v-bind:style="{display: 'block', background: 'url({{image}})', backgroundSize: 'cover', backgroundPosition: 'center'}"></span> 
 				</li>
 			</ul>
 		</div>
