@@ -7,7 +7,7 @@ import sliderBg from './components/slider_bg';
 import share from './components/share';
 import btnDonate from './lib/btn_donate';
 
-(function() {
+$(function() {
 	console.log('cache is:', new Date());
 	
 	Vue.component('change-amount', changeAmount());

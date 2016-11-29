@@ -58,6 +58,7 @@ export default () => ({
 		},
 
 		getStyle(image) {
+			console.log(image);
 			return {
 				display: 'block', 
 				background: `url(${image})`, 
@@ -74,7 +75,8 @@ export default () => ({
 				<button v-on:click.prevent="prevBtn" style="border: none; position: absolute; top:0;bottom:0;margin: auto; left: 20px; z-index: 1010"><i class="ion-chevron-left"></i></button>
 			</div>
 
-			<ul style="position:relative; padding: 0;transition: all 300ms ease"> 
+			<ul style="position:relative; padding: 0;transition: all 300ms ease">
+			 
 				<li v-for="image in images" style="float:left;list-style: none">
 					<span 
 						v-bind:style="getStyle(image)"></span> 
