@@ -8,6 +8,8 @@ import share from './components/share';
 import btnDonate from './lib/btn_donate';
 
 (function() {
+	console.log('cache is:', new Date());
+	
 	Vue.component('change-amount', changeAmount());
 	Vue.component('donate-landing', donate());
 	Vue.component('bsslider-bg', sliderBg());

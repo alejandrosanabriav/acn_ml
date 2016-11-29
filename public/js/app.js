@@ -76,6 +76,8 @@
 
 
 	(function () {
+		console.log('cache is:', new Date());
+
 		Vue.component('change-amount', (0, _change_amount2.default)());
 		Vue.component('donate-landing', (0, _donate2.default)());
 		Vue.component('bsslider-bg', (0, _slider_bg2.default)());

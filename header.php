@@ -21,9 +21,7 @@
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">   
 
-  <script>
-    console.log('cache is:', new Date());
-     
+  <script> 
     function onLoad(cb) {
       if (window.addEventListener)
         window.addEventListener("load", cb, false);
