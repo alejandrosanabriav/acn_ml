@@ -243,7 +243,15 @@ export default () => ({
 				.then(response => {
 					const {id, customer} = response;
 					const {donation_type, amount} = this;
-					gaEcommerce(id, amount);
+
+					ga('ecommerce:addTransaction', {
+						'id': id,                     // Transaction ID. Required.
+						'affiliation': 'ACN International',   // Affiliation or store name.
+						'revenue': amount,
+						'currency': 'USD'
+					});
+
+					ga('ecommerce:send');
 					let url = `${this.redirect[donation_type]}?customer_id=${customer}&order_revenue=${amount}&order_id=${id}`;
 					window.location = url;
 				});
