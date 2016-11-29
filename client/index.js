@@ -1,4 +1,5 @@
 'use strict';
+require('array.from');
 import donate from './components/donate';
 import contact from './components/contact';
 import changeAmount from './components/change_amount';
