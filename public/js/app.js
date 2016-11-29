@@ -75,7 +75,7 @@
 	__webpack_require__(14);
 
 
-	$(function () {
+	(function () {
 		console.log('cache is:', new Date());
 
 		Vue.component('change-amount', (0, _change_amount2.default)());
