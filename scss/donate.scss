@@ -4,6 +4,8 @@
   margin: 20px 0;
 
   &__section {
+    width: (100 / 3) * 1%;
+    
     &__title {
       padding-bottom: 30px;
       p {
@@ -26,6 +28,7 @@
     position: relative;
     left: 0;
     margin: 20px 0 20px 0;
+    width: 300%;
   }
 
   &__cards {
