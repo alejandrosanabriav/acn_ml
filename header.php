@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">   
 
   <script>
-    console.log('you know me');
+    console.log('cache is:', new Date());
      
     function onLoad(cb) {
       if (window.addEventListener)
