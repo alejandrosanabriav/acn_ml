@@ -21,7 +21,8 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">   
 
   <script>
-  console.log('is cache alive?');
+    console.log('is cache alive?');
+     
     function onLoad(cb) {
       if (window.addEventListener)
         window.addEventListener("load", cb, false);
@@ -44,6 +45,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 </script>
 <!-- End Visual Website Optimizer Asynchronous Code -->
 </head>
+
 <body>
  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -58,8 +60,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <div id="app-ml">
-
-
 
 <nav id="header" class="navbar navbar-fixed-top">
   <div class="container">
