@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=0">
   
   <title><?php echo wp_title(); ?></title>
-  <meta property="og:title" content="<?php get_the_title(); ?>" />
+  <meta property="og:title" content="<?php echo get_the_title(); ?>" />
   <meta property="og:image" content="http://acninternational.org/wp-content/uploads/sites/4/2016/11/slider1.jpg" />
   <meta property="og:url" content="<?php echo the_permalink() ?>" />
   <?php wp_head(); ?>
