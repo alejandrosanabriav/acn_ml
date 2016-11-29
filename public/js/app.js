@@ -3266,6 +3266,8 @@
 	  return ga('ecommerce:send');
 	};
 
+	;
+
 /***/ },
 /* 81 */
 /***/ function(module, exports, __webpack_require__) {
