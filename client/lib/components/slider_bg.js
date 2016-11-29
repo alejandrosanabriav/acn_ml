@@ -13,17 +13,13 @@ export default () => ({
 	},
 
 	ready() {
-		let lis = this.$el.querySelectorAll('li');
+	
 		let lisCount = lis.length;
 		let ulWidth = lisCount * 100;
 		let w = 100 / lisCount;
 		this.lastSlide = lisCount;
-		this.$el.querySelector('ul').style.width = `${ulWidth}%`;
-		
-		each(lis, el => {
-			el.style.width = `${w}%`;
-			el.children[0].style.minHeight = this.height;
-		});
+		$(this.$el).find('li').css({width: `${w}%`, height: this.height});
+		$(this.$el).find('ul').css({width: `${ulWidth}%`});
 
 		this.autoplay = setInterval(() => {
 			this.next();
@@ -61,6 +57,7 @@ export default () => ({
 			
 		}
 	},
+
 	template:`
 		<div style="position:relative; overflow: hidden">
 			<div class="navigation">
