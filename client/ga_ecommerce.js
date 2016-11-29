@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (id, affiliation = 'ACN International', revenue = 0) => {
+module.exports = function(id, affiliation = 'ACN International', revenue = 0) {
 
   ga('ecommerce:addTransaction', {
     'id': id,                     // Transaction ID. Required.
