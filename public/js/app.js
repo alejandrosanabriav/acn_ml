@@ -73,24 +73,53 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	(function () {
-		Vue.component('change-amount', (0, _change_amount2.default)());
-		Vue.component('donate-landing', (0, _donate2.default)());
-		Vue.component('bsslider-bg', (0, _slider_bg2.default)());
-		Vue.component('contact', (0, _contact2.default)());
-		Vue.component('bs-share', (0, _share2.default)());
+	  Vue.component('change-amount', (0, _change_amount2.default)());
+	  Vue.component('donate-landing', (0, _donate2.default)());
+	  Vue.component('bsslider-bg', (0, _slider_bg2.default)());
+	  Vue.component('contact', (0, _contact2.default)());
+	  Vue.component('bs-share', (0, _share2.default)());
 
-		var vm = new Vue({ el: '#app-ml' });
+	  var vm = new Vue({ el: '#app-ml' });
 
-		(0, _btn_donate2.default)();
+	  (0, _btn_donate2.default)();
 
-		$('.bs-share').on('click', function (e) {
-			return ga('send', 'event', 'DONATION', 'SHARE_CLICK', 'SHARE_CLICK', 0);
-		});
+	  $('.bs-share').on('click', function (e) {
+	    return ga('send', 'event', 'DONATION', 'SHARE_CLICK', 'SHARE_CLICK', 0);
+	  });
 
-		$('.bs-back').on('click', function (e) {
-			e.preventDefault();
-			window.history.back();
-		});
+	  $('.bs-back').on('click', function (e) {
+	    e.preventDefault();
+	    window.history.back();
+	  });
+
+	  if (!document.querySelectorAll) {
+	    document.querySelectorAll = function (selectors) {
+	      var style = document.createElement('style'),
+	          elements = [],
+	          element;
+	      document.documentElement.firstChild.appendChild(style);
+	      document._qsa = [];
+
+	      style.styleSheet.cssText = selectors + '{x-qsa:expression(document._qsa && document._qsa.push(this))}';
+	      window.scrollBy(0, 0);
+	      style.parentNode.removeChild(style);
+
+	      while (document._qsa.length) {
+	        element = document._qsa.shift();
+	        element.style.removeAttribute('x-qsa');
+	        elements.push(element);
+	      }
+	      document._qsa = null;
+	      return elements;
+	    };
+	  }
+
+	  if (!document.querySelector) {
+	    document.querySelector = function (selectors) {
+	      var elements = document.querySelectorAll(selectors);
+	      return elements.length ? elements[0] : null;
+	    };
+	  }
 	})();
 
 /***/ },
