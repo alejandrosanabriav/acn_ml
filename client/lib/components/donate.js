@@ -71,8 +71,8 @@ export default () => ({
 		const $el = this.$el; 
 		this.addStylesToNodes($el);
 		this.setViewportWidth($el);
-		let firstNode = $el.querySelector('.donate_landing__section-1');
-		$el.querySelector('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
+		let firstNode = $($el).find('.donate_landing__section-1');
+		$($el).find('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
 		this.contact.country = this.country;
 	},
 
@@ -92,20 +92,13 @@ export default () => ({
 
 	methods: {
 		addStylesToNodes(parent) {
-			let nodes = parent.querySelectorAll('.donate_landing__section');
+			let nodes = $(parent).find('.donate_landing__section');
 			let count = 100 / nodes.length;
-			if (nodes.length) {
-				[...nodes].forEach(node => {
-					node.style.width = count + '%';
-					node.style.float = 'left';
-				});
-			}
+			nodes.css({width: `${count}%`, float: 'left'});
 		},
 
 		setViewportWidth(parent) {
-			let form = parent;
-			let viewport = form.querySelector('.donate_landing__viewport');
-			viewport.style.width = '300%';
+			$(parent).find('.donate_landing__viewport').css('width', '300%');
 		},
 
 		showCard() {
