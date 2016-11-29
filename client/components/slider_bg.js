@@ -19,6 +19,7 @@ export default () => ({
 		let w = 100 / lisCount;
 		this.lastSlide = lisCount;
 		$(this.$el).find('li').css({width: `${w}%`, height: this.height});
+		$(this.$el).find('li span').css({height: this.height});
 		$(this.$el).find('ul').css({width: `${ulWidth}%`});
 
 		this.autoplay = setInterval(() => {
