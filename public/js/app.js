@@ -4593,7 +4593,7 @@
 			ready: function ready() {
 				var _this = this;
 
-				var lisCount = lis.length;
+				var lisCount = $(this.$el).find('li').length;
 				var ulWidth = lisCount * 100;
 				var w = 100 / lisCount;
 				this.lastSlide = lisCount;

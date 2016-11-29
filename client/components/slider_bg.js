@@ -14,7 +14,7 @@ export default () => ({
 
 	ready() {
 	
-		let lisCount = lis.length;
+		let lisCount = $(this.$el).find('li').length;
 		let ulWidth = lisCount * 100;
 		let w = 100 / lisCount;
 		this.lastSlide = lisCount;
