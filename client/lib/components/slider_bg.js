@@ -69,9 +69,9 @@ export default () => ({
 			</div>
 
 			<ul style="position:relative; padding: 0;transition: all 300ms ease"> 
-				<li v-for="image in images" style="float:left;list-style: none"> 
-					<span style="display: block; background:url({{image}}); background-size: cover; background-position: center;"></span> 
-				</li> 
+				<li v-for="image in images" style="float:left;list-style: none">
+					<span v-bind:style="{display: 'block', background: url(image), backgroundSize: 'cover', backgroundPosition: 'center'}"></span> 
+				</li>
 			</ul>
 		</div>
 	`,
