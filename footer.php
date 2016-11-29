@@ -84,10 +84,10 @@ onLoad(function() {
     side: 'right',
     displace: false,
     renaming: false,
-    onOpen() {
+    onOpen: function() {
       $('.navbar-toggle').addClass('navbar-toggle--active');
     },
-    onClose() {
+    onClose: function() {
       $('.navbar-toggle').removeClass('navbar-toggle--active');
     }
   });
