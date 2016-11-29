@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">   
 
   <script>
-    console.log('is cache alive?');
+    console.log('you know me');
      
     function onLoad(cb) {
       if (window.addEventListener)
