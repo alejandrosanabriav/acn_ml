@@ -66,7 +66,7 @@ export default () => {
 				const {name, email, country} = this;
 
 				if(this.validateAll()) {
-					ga('send', 'event', 'SUBSCRIPTION', 'SUBSCRIPTION', 'SUBSCRIPTION', 1);
+					ga('send', 'event', 'SUBSCRIPTION', 'SUBSCRIPTION', 'SUBSCRIPTION', 0);
 
 					let data = {};
 
@@ -89,7 +89,6 @@ export default () => {
 						type: 'post',
 						url: '/wp-admin/admin-ajax.php',
 						data: data,
-						beforeSend: () => this.loading = true,
 					}).then(res => window.location = this.redirect);
 				}
 		
