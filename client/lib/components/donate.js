@@ -1,7 +1,6 @@
 'use strict';
 import validator from 'validator';
 import validateStripe from '../stripe/validation';
-import gaEcommerce from '../lib/ga_ecommerce';
 
 const componentData = {
 	donation_type: 'monthly',
