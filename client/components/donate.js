@@ -71,7 +71,7 @@ export default () => ({
 		this.addStylesToNodes($el);
 		this.setViewportWidth($el);
 		let firstNode = $($el).find('.donate_landing__section-1');
-		$($el).find('.donate_landing__viewport').style.height = `${firstNode.offsetHeight}px`;
+		$($el).find('.donate_landing__viewport').css({height: `${firstNode.offsetHeight}px`});
 		this.contact.country = this.country;
 	},
 
