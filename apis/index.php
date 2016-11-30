@@ -113,7 +113,7 @@ function infusion_contact() {
 
   $countryTag = array_key_exists($data['country'], $countryTags) ? [$countryTags[$data['country']]] : [];
 
-  $defaultTags = [800, 802, 820];
+  $defaultTags = [800, 802];
   $tags = get_option('infusionsoft_tags') ? explode(',', get_option('infusionsoft_tags')) : [];
   $dataTags = $data['tags'] ? explode(',',  $data['tags']) : [];
   $tags = array_merge($tags, $defaultTags, $countryTag, $dataTags);

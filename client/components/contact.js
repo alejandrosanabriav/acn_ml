@@ -2,7 +2,7 @@
 import approve from 'approvejs';
 
 export default () => {
-	
+
 	return {
 		props: [
 			'placeholders', 

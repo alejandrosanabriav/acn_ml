@@ -1,0 +1,20 @@
+version: '2'
+services:
+  wp:
+      build: .
+      links:
+       - mysql
+      environment:
+        - WORDPRESS_DB_PASSWORD=you_know_me
+      ports:
+        - "80:80"
+      volumes:
+        - .:/var/www/html/wp-content/themes/acn_ml
+  mysql:
+      image: mysql:latest
+      environment:
+       - MYSQL_ROOT_PASSWORD=you_know_me
+      ports:
+       - "3307:3306"
+      volumes:
+       - ./mysql:/var/lib/mysql
