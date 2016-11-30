@@ -15,7 +15,8 @@ body {
       font-size: 11px; } }
 
 select {
-  background: #3c515f; }
+  background: #3c515f;
+  color: #6b7c82; }
 
 #header {
   height: 100px;
