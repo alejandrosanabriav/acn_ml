@@ -107,7 +107,7 @@ function get_plan_name($amount) {
 function stripe_once($api_key, $data) {
   $customer = stripe_create_customer($api_key, $data);
   $data['customer'] = $customer->id;
-  return stripe_create_charge($apiKey, $data);
+  return stripe_create_charge($api_key, $data);
 }
 
 function stripe_monthly($api_key, $data) {
