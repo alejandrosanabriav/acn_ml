@@ -354,7 +354,7 @@
 						this.stripeCharge(data).then(function (response) {
 							if (response.id) {
 								return _this5.infusion(contact).then(function (customer) {
-									return $.Deferred().resolve(_extends({}, response, { customer: customer.id }));
+									return $.Deferred().resolve(response);
 								});
 							} else {
 								_this5.declined = true;
