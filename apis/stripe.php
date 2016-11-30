@@ -103,7 +103,6 @@ function get_plan_name($amount) {
   return 'donation-' . $amount;
 }
 
-
 function stripe_once($api_key, $data) {
   $customer = stripe_create_customer($api_key, $data);
   $data['customer'] = $customer->id;

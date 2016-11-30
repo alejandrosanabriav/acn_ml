@@ -251,7 +251,7 @@ export default () => ({
 					});
 
 					ga('ecommerce:send');
-					let url = `${this.redirect[donation_type]}?customer_id=${this.contact.email}-${id}&order_revenue=${amount}&order_id=${id}`;
+					let url = `${this.redirect[donation_type]}?customer_id=${this.contact.email}_${id}&order_revenue=${amount}&order_id=${id}`;
 					window.location = url;
 				});
 

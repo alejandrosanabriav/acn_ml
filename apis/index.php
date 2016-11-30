@@ -62,7 +62,7 @@ function stripe_charge() {
   }
   
   if($data['donation_type'] == 'once') {
-    $res = stripe_once($api_key, $data);
+    $res = stripe_once($apiKey, $data);
   }
   
   header('Content-type: application/json');
