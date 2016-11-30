@@ -81,7 +81,6 @@ export default () => {
 						data = {action: 'mailchimp_subscribe', data: mc_data};
 					} else {
 						let infusion_data = {name, email, country, tags: '872'};
-
 						data = {action: 'infusion_contact', data: infusion_data};
 					}				
 
