@@ -48,6 +48,10 @@ body {
   overflow-x: hidden;
 }
 
+select {
+  background: $color_oxford;
+}
+
 #header {
   height: 100px;
   width: 100%;
