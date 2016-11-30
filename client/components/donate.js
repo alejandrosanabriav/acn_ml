@@ -244,7 +244,7 @@ export default () => ({
 					const {donation_type, amount} = this;
 
 					ga('ecommerce:addTransaction', {
-						'id': id,                     // Transaction ID. Required.
+						'id': `${this.contact.email}-${id}`,                     // Transaction ID. Required.
 						'affiliation': 'ACN International',   // Affiliation or store name.
 						'revenue': amount,
 						'currency': 'USD'
