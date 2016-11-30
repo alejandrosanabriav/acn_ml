@@ -45,7 +45,8 @@ function stripe_create_charge($api_key, $charge) {
     $charge = \Stripe\Charge::create(array(
       "amount" => $charge['amount'] . '00',
       "currency" => $charge['currency'],
-      "source" => $charge['stripe_token']
+      "source" => $charge['stripe_token'],
+      "description" => 'charge for '. $charge['email']
     ));
   } catch(Exception $e) {
     return $e;
@@ -81,6 +82,7 @@ function stripe_create_plan($api_key, $plan) {
   return $plan;
 }
 
+
 function stripe_create_subscription($api_key, $charge) {
   \Stripe\Stripe::setApiKey($api_key);
   try {
@@ -99,6 +101,13 @@ function stripe_create_subscription($api_key, $charge) {
 
 function get_plan_name($amount) {
   return 'donation-' . $amount;
+}
+
+
+function stripe_once($api_key, $data) {
+  $customer = stripe_create_customer($api_key, $data);
+  $data['customer'] = $customer->id;
+  return stripe_create_charge($apiKey, $data);
 }
 
 function stripe_monthly($api_key, $data) {
