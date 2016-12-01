@@ -10,8 +10,6 @@
 - type: destination
 - destination: regular expression | /thanks-for-praying-with-us/
 
-
-
 ## DONATION_CLICK
 - type: Event
 - event condition

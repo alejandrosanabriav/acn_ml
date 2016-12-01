@@ -90,9 +90,9 @@ function gett($str) {
 
 function getCountry() {
 
-	if(function_exists('geoip_detect2_get_info_from_current_ip')) {
-    $geo = geoip_detect2_get_info_from_current_ip();
-    return $geo->country->names['en'];
+	if(function_exists('user_location')) {
+    $geo = user_location();
+    return $geo->names['en'];
   }
 
   return '';
