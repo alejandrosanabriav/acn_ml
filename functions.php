@@ -91,7 +91,7 @@ function gett($str) {
 function getCountry() {
 
 	if(function_exists('user_location')) {
-    $geo = user_location();
+    $geo = get_user_location();
     return $geo->names['en'];
   }
 
