@@ -149,7 +149,7 @@ export default () => {
 					<button 
 						class="btn-pray" 
 						v-on:click.prevent="onSubmit" 
-						disabled="{{this.loading}}"
+						disabled="{{loading}}"
 					>
 						<img v-bind:src="prayLogo" alt=""> {{texts.pray}}
 					</button>
