@@ -160,3 +160,15 @@ function location() {
   echo json_encode($res);
   die();
 }
+
+
+add_action( 'wp_ajax_nopriv_user_location', 'user_location' );
+add_action( 'wp_ajax_user_location', 'user_location' );
+
+function user_location() {
+  $data = $_POST['data'];
+  $res = get_user_location($data['ip']);
+  header('Content-type: application/json');  
+  echo json_encode($res);
+  die();
+}
