@@ -225,6 +225,11 @@ function bs_accounts_options() {
         value="<?php echo get_option('gta_id') ?>"
         >
       </p>
+      <p>
+        <label for="">It's necessary update this database once each month</label>
+        <br>
+        <button class="button update-geoip">Update Geoip Database</button>
+      </p>
     <p>
       <?php submit_button(); ?>
     </p>
