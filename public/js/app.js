@@ -3287,13 +3287,13 @@
 					data: { action: 'countries' }
 				}).then(function (res) {
 					return _this.countries = res;
-				});
-
-				$.ajax({
-					url: '/wp-admin/admin-ajax.php',
-					data: { action: 'user_location' }
-				}).then(function (res) {
-					return _this.country = res.names.en;
+				}).then(function () {
+					$.ajax({
+						url: '/wp-admin/admin-ajax.php',
+						data: { action: 'user_location' }
+					}).then(function (res) {
+						return _this.country = res.names.en;
+					});
 				});
 			},
 			ready: function ready() {

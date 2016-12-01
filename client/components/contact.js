@@ -30,13 +30,14 @@ export default () => {
 			$.ajax({
 				url: '/wp-admin/admin-ajax.php',
 				data: {action: 'countries'}
-			}).then(res => this.countries = res);
-
-			$.ajax({
-				url: '/wp-admin/admin-ajax.php',
-				data: {action: 'user_location'}
-			}).then(res => this.country = res.names.en);
-			
+			})
+			.then(res => this.countries = res)
+			.then(() => {
+				$.ajax({
+					url: '/wp-admin/admin-ajax.php',
+					data: {action: 'user_location'}
+				}).then(res => this.country = res.names.en);
+			});
 		},
 
 		ready() {
