@@ -66,7 +66,7 @@
 				url: '/wp-admin/admin-ajax.php',
 				data: { action: 'geoip_update', data: { update: true } }
 			}).then(function (res) {
-				return console.log(res);
+				if (res) (0, _jquery2.default)('.update-geoip-message').append('GeoIP updated');
 			});
 		});
 	});

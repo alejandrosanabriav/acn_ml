@@ -12,7 +12,9 @@ $(function() {
 			url: '/wp-admin/admin-ajax.php',
 			data: {action: 'geoip_update', data: {update: true}}
 		})
-		.then(res => if(res) $('.update-geoip-message').append('GeoIP updated'));
+		.then(res => {
+			if(res) $('.update-geoip-message').append('GeoIP updated');
+		});
 	}); 
 });
 
