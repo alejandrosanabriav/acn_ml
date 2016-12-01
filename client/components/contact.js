@@ -8,7 +8,6 @@ export default () => {
 			'placeholders', 
 			'texts',
 			'rules',
-			'country',
 			'baseUri',
 			'redirect',
 			'type'
@@ -20,6 +19,7 @@ export default () => {
 				email: '',
 				accept: false,
 				prayLogo: '',
+				country: '',
 				countries: [],
 				errors: {},
 				loading: false
@@ -31,6 +31,11 @@ export default () => {
 				url: '/wp-admin/admin-ajax.php',
 				data: {action: 'countries'}
 			}).then(res => this.countries = res);
+
+			$.ajax({
+				url: '/wp-admin/admin-ajax.php',
+				data: {action: 'user_location'}
+			}).then(res => this.country = res.names.en);
 			
 		},
 

@@ -3265,7 +3265,7 @@
 	exports.default = function () {
 
 		return {
-			props: ['placeholders', 'texts', 'rules', 'country', 'baseUri', 'redirect', 'type'],
+			props: ['placeholders', 'texts', 'rules', 'baseUri', 'redirect', 'type'],
 
 			data: function data() {
 				return {
@@ -3273,6 +3273,7 @@
 					email: '',
 					accept: false,
 					prayLogo: '',
+					country: '',
 					countries: [],
 					errors: {},
 					loading: false
@@ -3286,6 +3287,13 @@
 					data: { action: 'countries' }
 				}).then(function (res) {
 					return _this.countries = res;
+				});
+
+				$.ajax({
+					url: '/wp-admin/admin-ajax.php',
+					data: { action: 'user_location' }
+				}).then(function (res) {
+					return _this.country = res.names.en;
 				});
 			},
 			ready: function ready() {
