@@ -1,7 +1,8 @@
 <?php
 
 function geoip_db() {
-	//download db
+	try {
+			//download db
 	$dir_base =  str_replace('lib', '', __DIR__);
 	$url  = 'http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz';
 	$path =  $dir_base.'/GeoLite2-Country.mmdb.gz';
@@ -33,5 +34,10 @@ function geoip_db() {
 	// Files are done, close files
 	fclose($out_file);
 	gzclose($file);
+
+	return true;
+	} catch(Exception $e) {
+		return $e;
+	}
 
 }

@@ -58,8 +58,17 @@
 
 	(0, _jquery2.default)(function () {
 		(0, _uploader2.default)();
+		(0, _jquery2.default)('.update-geoip').on('click', function (e) {
+			e.preventDefault();
 
-		console.log('homeless');
+			_jquery2.default.ajax({
+				type: 'post',
+				url: '/wp-admin/admin-ajax.php',
+				data: { action: 'geoip_update', data: { update: true } }
+			}).then(function (res) {
+				return console.log(res);
+			});
+		});
 	});
 
 /***/ },

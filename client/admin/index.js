@@ -4,8 +4,15 @@ import uploader from './uploader';
 
 $(function() {
 	uploader();
+	$('.update-geoip').on('click', function(e){
+		e.preventDefault();
 
-	  console.log('homeless');
-
+		$.ajax({
+			type: 'post',
+			url: '/wp-admin/admin-ajax.php',
+			data: {action: 'geoip_update', data: {update: true}}
+		})
+		.then(res => console.log(res));
+	}); 
 });
 

@@ -4,6 +4,7 @@ include_once 'stripe.php';
 include_once 'infusion.php';
 include_once 'location.php';
 include_once str_replace('apis', '', __DIR__) . '/lib/countries.php';
+include_once str_replace('apis', '', __DIR__) . '/lib/get_geoip.php';
 
 add_action( 'wp_ajax_nopriv_donate_redirect', 'donate_redirect' );
 add_action( 'wp_ajax_donate_redirect', 'donate_redirect' );
@@ -166,6 +167,16 @@ add_action( 'wp_ajax_user_location', 'user_location' );
 
 function user_location() {
   $res = get_user_location();
+  header('Content-type: application/json');  
+  echo json_encode($res);
+  die();
+}
+
+add_action( 'wp_ajax_nopriv_user_geoip_update', 'user_geoip_update' );
+add_action( 'wp_ajax_user_geoip_update', 'user_geoip_update' );
+
+function geoip_update() {
+  $res = geoip_db();
   header('Content-type: application/json');  
   echo json_encode($res);
   die();
