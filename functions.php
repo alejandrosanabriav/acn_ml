@@ -120,3 +120,17 @@ function getImageSrc($imageId) {
 	return wp_get_attachment_url($imageId);
 }
 
+
+if(!file_exists('GeoLite2-Country.mmdb.gz')) {
+	$url  = 'http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz';
+	$path =  __DIR__.'/GeoLite2-Country.mmdb.gz';
+
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+	$data = curl_exec($ch);
+
+	curl_close($ch);
+
+	file_put_contents($path, $data);
+}

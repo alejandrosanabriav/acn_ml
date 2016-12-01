@@ -2,6 +2,7 @@
     "require": {
         "rmccue/requests": "^1.7",
         "stripe/stripe-php": "^4.1",
-        "infusionsoft/php-sdk": "^1.2"
+        "infusionsoft/php-sdk": "^1.2",
+        "geoip2/geoip2": "~2.0"
     }
 }
