@@ -58,6 +58,8 @@
 
 	(0, _jquery2.default)(function () {
 		(0, _uploader2.default)();
+
+		console.log('homeless');
 	});
 
 /***/ },

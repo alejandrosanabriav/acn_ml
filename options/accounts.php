@@ -239,11 +239,5 @@ function bs_accounts_options() {
   </form>
 </div>
 
-<script>
-  $(document).on('ready', function() {
-    console.log('homeless');
-  });
-</script>
-
 <?php
 }
