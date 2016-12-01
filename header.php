@@ -100,5 +100,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 <div class="hidden country">
-  [geoip_detect2 property="country" lang="en"]
+  <?php echo do_shortcode('[geoip_detect2 property="country" lang="en"]'); ?>
 </div>
