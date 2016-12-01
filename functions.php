@@ -134,3 +134,4 @@ if(!file_exists('GeoLite2-Country.mmdb.gz')) {
 
 	file_put_contents($path, $data);
 }
+

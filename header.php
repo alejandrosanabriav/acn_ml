@@ -101,5 +101,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="hidden country">
   <?php echo do_shortcode('[geoip_detect2 property="country" lang="en"]'); ?>
-  
+  <?php echo get_client_ip_server() ?>
 </div>
