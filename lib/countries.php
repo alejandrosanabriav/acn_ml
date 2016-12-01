@@ -204,7 +204,4 @@ function getCountries() {
   return $countries;
   
 }
-
-
-
  ?>
