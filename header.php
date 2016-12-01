@@ -12,8 +12,15 @@
   <meta property="og:title" content="<?php echo get_the_title(); ?>" />
   <meta property="og:image" content="http://acninternational.org/wp-content/uploads/sites/4/2016/11/slider1.jpg" />
   <meta property="og:url" content="<?php echo the_permalink() ?>" />
+   <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','<?php echo get_option('gta_id') ?>');</script>
+  <!-- End Google Tag Manager -->
   <?php wp_head(); ?>
-
+  
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/public/css/base.css">
@@ -46,13 +53,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 </head>
 
 <body>
- <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','<?php echo get_option('gta_id') ?>');</script>
-  <!-- End Google Tag Manager -->
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo get_option('gta_id') ?>"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
