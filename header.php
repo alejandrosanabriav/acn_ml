@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">   
 
   <script> 
+
     function onLoad(cb) {
       if (window.addEventListener)
         window.addEventListener("load", cb, false);
@@ -98,3 +99,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class="hidden country">
+  [geoip_detect2 property="country" lang="en"]
+</div>
