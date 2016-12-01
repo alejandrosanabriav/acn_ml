@@ -71,16 +71,6 @@ function stripe_charge() {
   die();
 }
 
-add_action( 'wp_ajax_nopriv_countries', 'get_countries' );
-add_action( 'wp_ajax_countries', 'get_countries' );
-
-function get_countries() {
-  $res = getCountries();
-  header('Content-type: application/json');
-  echo json_encode($res);
-  die();
-}
-
 add_action( 'wp_ajax_nopriv_infusion_contact', 'infusion_contact' );
 add_action( 'wp_ajax_infusion_contact', 'infusion_contact' );
 

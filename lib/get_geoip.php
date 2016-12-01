@@ -1,25 +1,21 @@
 <?php
 
 function geoip_db() {
+	//download db
 	$dir_base =  str_replace('lib', '', __DIR__);
+	$url  = 'http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz';
+	$path =  $dir_base.'/GeoLite2-Country.mmdb.gz';
 
-	if(!file_exists($dir_base.'GeoLite2-Country.mmdb.gz')) {
-		
-		$url  = 'http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz';
-		$path =  $dir_base.'/GeoLite2-Country.mmdb.gz';
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$data = curl_exec($ch);
 
-		$data = curl_exec($ch);
+	curl_close($ch);
 
-		curl_close($ch);
+	file_put_contents($path, $data);
 
-		file_put_contents($path, $data);
-
-	$file_name = $path;
-
-	// Raising this value may increase performance
+	//unzip db
 	$buffer_size = 4096; // read 4kb at a time
 	$out_file_name = str_replace('.gz', '', $file_name); 
 
@@ -37,5 +33,5 @@ function geoip_db() {
 	// Files are done, close files
 	fclose($out_file);
 	gzclose($file);
-	}
+
 }
