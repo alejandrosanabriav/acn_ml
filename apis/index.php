@@ -172,8 +172,8 @@ function user_location() {
   die();
 }
 
-add_action( 'wp_ajax_nopriv_user_geoip_update', 'user_geoip_update' );
-add_action( 'wp_ajax_user_geoip_update', 'user_geoip_update' );
+add_action( 'wp_ajax_nopriv_user_geoip_update', 'geoip_update' );
+add_action( 'wp_ajax_geoip_update', 'geoip_update' );
 
 function geoip_update() {
   $res = geoip_db();
