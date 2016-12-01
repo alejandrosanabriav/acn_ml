@@ -226,7 +226,9 @@ function bs_accounts_options() {
         >
       </p>
       <p>
-        <label for="">It's necessary update this database once each month</label>
+        <label for="">
+          <b>It's necessary update this database once each month</b>
+        </label>
         <br>
         <button class="button update-geoip">Update Geoip Database</button>
       </p>
@@ -236,6 +238,12 @@ function bs_accounts_options() {
     	
   </form>
 </div>
+
+<script>
+  $(function() {
+    console.log('hi options');
+  });
+</script>
 
 <?php
 }
