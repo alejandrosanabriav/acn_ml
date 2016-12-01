@@ -1,6 +1,6 @@
 <?php
 
-function getCountries($json = false) {
+function getCountries() {
   $countries = array(
     "Afghanistan",
     "Albania",
@@ -201,13 +201,7 @@ function getCountries($json = false) {
   );
 
   sort($countries);
-
-  if($json) {
-    return json_encode($countries);
-  } else {
-    return $countries;
-  }
-
+  return $countries;
   
 }
 

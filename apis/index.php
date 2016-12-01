@@ -3,7 +3,7 @@ include_once 'mailchimp.php';
 include_once 'stripe.php';
 include_once 'infusion.php';
 include_once 'location.php';
-include_once str_replace('apis', '', __DIR__) . 'lib/countries.php';
+include_once str_replace('apis', '', __DIR__) . '/lib/countries.php';
 
 add_action( 'wp_ajax_nopriv_donate_redirect', 'donate_redirect' );
 add_action( 'wp_ajax_donate_redirect', 'donate_redirect' );
@@ -136,6 +136,16 @@ function infusion_contact() {
     echo json_encode(['error' => $e]);
   }
 
+  die();
+}
+
+add_action( 'wp_ajax_nopriv_countries', 'countries' );
+add_action( 'wp_ajax_countries', 'countries' );
+
+function countries() {
+  $res = getCountries();
+  header('Content-type: application/json');  
+  echo json_encode($res);
   die();
 }
 
