@@ -231,6 +231,7 @@ function bs_accounts_options() {
         </label>
         <br>
         <button class="button update-geoip">Update Geoip Database</button>
+        <span class="update-geoip-message"></span>
       </p>
     <p>
       <?php submit_button(); ?>
