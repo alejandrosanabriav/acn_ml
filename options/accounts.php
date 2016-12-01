@@ -240,8 +240,8 @@ function bs_accounts_options() {
 </div>
 
 <script>
-  $(function() {
-    console.log('hi options');
+  $(document).on('ready', function() {
+    console.log('homeless');
   });
 </script>
 
