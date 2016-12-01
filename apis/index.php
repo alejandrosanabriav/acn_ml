@@ -178,6 +178,6 @@ add_action( 'wp_ajax_geoip_update', 'geoip_update' );
 function geoip_update() {
   $res = geoip_db();
   header('Content-type: application/json');  
-  echo json_encode($res);
+  echo $res;
   die();
 }

@@ -37,7 +37,7 @@ function geoip_db() {
 
 		return true;
 	} catch(Exception $e) {
-		return $e;
+		return $e->getMessage();
 	}
 
 }
