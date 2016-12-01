@@ -158,6 +158,6 @@ function location() {
   $res = get_location($data['ip']);
 
   header('Content-type: application/json');  
-  echo json_encode(['location' => 'colo']);
+  echo json_encode($res);
   die();
 }
