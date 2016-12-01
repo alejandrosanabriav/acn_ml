@@ -2,6 +2,7 @@
 include_once 'mailchimp.php';
 include_once 'stripe.php';
 include_once 'infusion.php';
+include_once 'location.php';
 include_once str_replace('apis', '', __DIR__) . 'lib/countries.php';
 
 add_action( 'wp_ajax_nopriv_donate_redirect', 'donate_redirect' );
@@ -149,3 +150,14 @@ function infusion_contact() {
 }
 
 
+add_action( 'wp_ajax_nopriv_location', 'location' );
+add_action( 'wp_ajax_location', 'location' );
+
+function location() {
+  $data = $_POST['data'];
+  $res = get_location($data['ip']);
+
+  header('Content-type: application/json');  
+  echo json_encode($res);
+  die();
+}
