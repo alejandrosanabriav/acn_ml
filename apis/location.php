@@ -10,7 +10,7 @@ function get_location($ip) {
 		return $reader->country($ip);
 
 	} catch(Exception $e) {
-		return $dir_base .'/GeoLite2-Country.mmdb';
+		return $dir_base . 'GeoLite2-Country.mmdb';
 	}
 }
 
