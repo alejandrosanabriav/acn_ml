@@ -8,7 +8,7 @@ function get_location($ip) {
 		$reader = new Reader($dir_base .'GeoLite2-Country.mmdb');
 		return $reader->country($ip);
 	} catch(Exception $e) {
-		return $e;
+		return ['ERR' => 'MMM'];
 	}
 }
 
