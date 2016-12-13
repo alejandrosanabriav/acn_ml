@@ -124,6 +124,5 @@ function stripe_monthly($api_key, $data) {
   $charge = array();
   $charge['customer'] = $customer->id;
   $charge['plan'] = $plan->id;
-  return $customer;
-  // return stripe_create_subscription($api_key, $charge);
+  return stripe_create_subscription($api_key, $charge);
 }
