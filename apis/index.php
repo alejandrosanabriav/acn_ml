@@ -78,7 +78,10 @@ function stripe_plan() {
   $data = $_POST['data'];
   $api_key =  get_option('stripe_key_private');
 
-  return stripe_update_plan($api_key, $data);
+  $res = stripe_update_plan($api_key, $data);
+  header('Content-type: application/json');
+  echo json_encode($res);
+  die();
 }
 
 add_action( 'wp_ajax_nopriv_infusion_contact', 'infusion_contact' );
