@@ -120,4 +120,10 @@ function getImageSrc($imageId) {
 	return wp_get_attachment_url($imageId);
 }
 
+function change_frontend_editor_iframe_url($url) {
+    return str_replace("http:", "", $url);
+}
+
+add_filter('vc_frontend_editor_iframe_url', 'change_frontend_editor_iframe_url');
+
 
