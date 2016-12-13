@@ -71,6 +71,15 @@ function stripe_charge() {
   echo json_encode($res);
   die();
 }
+add_action( 'wp_ajax_nopriv_stripe_update_plan', 'stripe_plan' );
+add_action( 'wp_ajax_stripe_update_plan', 'stripe_plan' );
+
+function stripe_plan() {
+  $data = $_POST['data'];
+  $apiKey =  get_option('stripe_key_private');
+
+  return stripe_update_plan($api_key, $plan);
+}
 
 add_action( 'wp_ajax_nopriv_infusion_contact', 'infusion_contact' );
 add_action( 'wp_ajax_infusion_contact', 'infusion_contact' );

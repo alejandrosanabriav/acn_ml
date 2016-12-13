@@ -82,6 +82,21 @@ function stripe_create_plan($api_key, $plan) {
   return $plan;
 }
 
+function stripe_update_plan($api_key, $plan) {
+    \Stripe\Stripe::setApiKey($api_key);
+
+    try {
+      $p = \Stripe\Plan::retrieve($plan);
+      $p->currency = "usd";
+      $p->save();
+
+      return $plan;
+    } catch(Exception $e) {
+      return $e;
+    }
+  
+}
+
 function stripe_create_subscription($api_key, $charge) {
   \Stripe\Stripe::setApiKey($api_key);
 
