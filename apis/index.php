@@ -76,9 +76,9 @@ add_action( 'wp_ajax_stripe_update_plan', 'stripe_plan' );
 
 function stripe_plan() {
   $data = $_POST['data'];
-  $apiKey =  get_option('stripe_key_private');
+  $api_key =  get_option('stripe_key_private');
 
-  return stripe_update_plan($api_key, $plan);
+  return stripe_update_plan($api_key, $data);
 }
 
 add_action( 'wp_ajax_nopriv_infusion_contact', 'infusion_contact' );
