@@ -27,7 +27,7 @@ function bs_slider_sc($atts, $content = null) {
       <?php foreach($imagesArr as $key => $imageId): ?>
         <li>
           <a href="<?php echo $linksArr[$key] ? $linksArr[$key] : '#' ?>" target="new">
-            <img src=" <?php echo wp_get_attachment_image_src($imageId, 'full')[0] ?>" alt="">
+            <img src=" <?php echo str_replace('http:', '', wp_get_attachment_image_src($imageId, 'full')[0]); ?>" alt="">
           </a>
         </li>
       <?php endforeach; ?>

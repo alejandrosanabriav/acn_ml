@@ -10,7 +10,7 @@
   
   <title><?php echo wp_title(); ?></title>
   <meta property="og:title" content="<?php echo get_the_title(); ?>" />
-  <meta property="og:image" content="http://acninternational.org/wp-content/uploads/sites/4/2016/11/slider1.jpg" />
+  <meta property="og:image" content="//acninternational.org/wp-content/uploads/sites/4/2016/11/slider1.jpg" />
   <meta property="og:url" content="<?php echo the_permalink() ?>" />
    <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/public/css/base.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/flexslider.min.css">
-  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">   
 
   <script> 
