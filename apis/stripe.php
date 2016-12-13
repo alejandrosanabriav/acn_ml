@@ -32,6 +32,7 @@ function stripe_create_customer($api_key, $customer) {
     ));
       
     return $customer;
+
   } catch(Exception $e) {
     return $e->getMessage();
   }
@@ -118,11 +119,11 @@ function stripe_monthly($api_key, $data) {
   } else {
     $plan = stripe_create_plan($api_key, $data);
   }
-
+  
   $customer = stripe_create_customer($api_key, $data);
   $charge = array();
   $charge['customer'] = $customer->id;
   $charge['plan'] = $plan->id;
-
+  return $customer;
   return stripe_create_subscription($api_key, $charge);
 }
