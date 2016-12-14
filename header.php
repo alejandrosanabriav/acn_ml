@@ -75,7 +75,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <a href="#">
         <?php if( !empty( get_option("logo") ) ): ?>
-          <img src='<?php echo get_option("logo") ?>'  alt="acn logo" class="img-responsive" width="150"  />
+          <img src='<?php echo str_replace('http:', '', get_option("logo")) ?>'  alt="acn logo" class="img-responsive" width="150"  />
         <?php endif; ?>
      </a>
     </div>
