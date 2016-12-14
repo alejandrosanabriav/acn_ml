@@ -127,3 +127,7 @@ function change_frontend_editor_iframe_url($url) {
 add_filter('vc_frontend_editor_iframe_url', 'change_frontend_editor_iframe_url');
 
 
+function disable_srcset( $sources ) {
+	return false;
+}
+add_filter( 'wp_calculate_image_srcset', 'disable_srcset' );
