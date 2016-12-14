@@ -3297,7 +3297,7 @@
 				});
 			},
 			ready: function ready() {
-				this.prayLogo = this.baseUri + '/public/img/pray.svg';
+				this.prayLogo = this.baseUri.replace('http:', '') + '/public/img/pray.svg';
 			},
 
 
