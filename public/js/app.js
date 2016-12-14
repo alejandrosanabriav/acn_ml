@@ -3491,7 +3491,7 @@
 						backgroundSize: 'cover',
 						backgroundPosition: 'center'
 					};
-					console.log(style);
+
 					return style;
 				}
 			},
