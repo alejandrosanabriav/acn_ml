@@ -75,7 +75,7 @@ function stripe_create_plan($api_key, $plan) {
     "amount" => $plan['amount'] . '00',
     "interval" => "month",
     "name" => $plan['plan_name'],
-    "currency" => $plan['currency'],
+    "currency" => 'usd',
     "id" => $plan['plan_name'])
   );
 
@@ -115,7 +115,7 @@ function stripe_create_subscription($api_key, $charge) {
 }
 
 function get_plan_name($amount) {
-  return 'donation-' . $amount;
+  return 'donation-' . $amount .'-usd';
 }
 
 function stripe_once($api_key, $data) {
