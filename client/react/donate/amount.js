@@ -37,6 +37,11 @@ const amount = React.createClass({
 		this.setState({donation_type});
 	},
 
+	componentDidMount() {
+		let a = document.getElementById('bs-donate-react');
+		console.log(a.getAttributeNode('data'));
+	},
+
 	render() {
 		const {texts} = this.props;
 		return (

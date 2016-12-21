@@ -9181,6 +9181,10 @@
 			if (e) e.preventDefault();
 			this.setState({ donation_type: donation_type });
 		},
+		componentDidMount: function componentDidMount() {
+			var a = document.getElementById('bs-donate-react');
+			console.log(a.getAttributeNode('data'));
+		},
 		render: function render() {
 			var texts = this.props.texts;
 
