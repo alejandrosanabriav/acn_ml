@@ -39,7 +39,7 @@ const amount = React.createClass({
 
 	componentDidMount() {
 		let a = document.getElementById('bs-donate-react');
-		console.log(a.getAttributeNode('data-props'));
+		console.log(a.getAttribute('data-props'));
 	},
 
 	render() {

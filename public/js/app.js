@@ -9183,7 +9183,7 @@
 		},
 		componentDidMount: function componentDidMount() {
 			var a = document.getElementById('bs-donate-react');
-			console.log(a.getAttributeNode('data-props'));
+			console.log(a.getAttribute('data-props'));
 		},
 		render: function render() {
 			var texts = this.props.texts;
