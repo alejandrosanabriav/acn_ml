@@ -498,7 +498,7 @@ export default () => ({
           </div>
         </div>
   
-      <div class="col-md-12">
+      <div class="col-md-12 form-group">
         
         <button 
           class="donate_landing__submit pull-left" 
@@ -509,6 +509,7 @@ export default () => ({
         </button>
         <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
       </div>
+
 			<div class="form-group col-sm-12">
 				<div class="alert alert-danger" v-if="declined">
 					{{validationMessages.declined}}
