@@ -288,7 +288,6 @@ export default () => ({
 		},
 	},
 
-
 	template: `
     <form method="post" class="donate_landing">
       <div class="donate_landing__viewport">
@@ -439,14 +438,6 @@ export default () => ({
              {{validationMessages.cvc}}
            </span>
         </div>
-
-    
-
-			<div class="form-group col-sm-12">
-				<div class="alert alert-danger" v-if="declined">
-					{{validationMessages.declined}}
-				</div>
-			</div>
       </div><!-- donate_landing__section-2 -->
 
 
