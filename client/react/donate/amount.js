@@ -9,7 +9,8 @@ const amount = React.createClass({
 	
 	getInitialState() {
 		return {
-			amount: 30
+			amount: 30,
+			donation_type: 'monthly'
 		}
 	},
 
@@ -27,6 +28,11 @@ const amount = React.createClass({
 		this.setState({amount});
 	},
 
+	changeType(donation_type, e) {
+		if(e) e.preventDefault();
+		this.setState({donation_type});
+	},
+
 	render() {
 		return (
 			<div>
@@ -38,6 +44,8 @@ const amount = React.createClass({
 					<li> <a href="#" onClick={this.changeAmount.bind(null, 5)}>{this.props.other}</a> </li>
 				</ul>
 				<input ref="amountInput" type="text" onChange={this.handleAmount} value={this.state.amount} />
+				<a href="#" onClick={this.changeType.bind(null, 'monthly')}>Monthly</a>
+				<a href="#" onClick={this.changeType.bind(null, 'once')}>Once</a>
 			</div>
 		)
 	}

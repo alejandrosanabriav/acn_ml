@@ -9157,7 +9157,8 @@
 		},
 		getInitialState: function getInitialState() {
 			return {
-				amount: 30
+				amount: 30,
+				donation_type: 'monthly'
 			};
 		},
 		changeAmount: function changeAmount(amount, e) {
@@ -9171,6 +9172,10 @@
 			var el = e.currentTarget;
 			var amount = el.value;
 			this.setState({ amount: amount });
+		},
+		changeType: function changeType(donation_type, e) {
+			if (e) e.preventDefault();
+			this.setState({ donation_type: donation_type });
 		},
 		render: function render() {
 			return _react2.default.createElement(
@@ -9235,7 +9240,17 @@
 						' '
 					)
 				),
-				_react2.default.createElement('input', { ref: 'amountInput', type: 'text', onChange: this.handleAmount, value: this.state.amount })
+				_react2.default.createElement('input', { ref: 'amountInput', type: 'text', onChange: this.handleAmount, value: this.state.amount }),
+				_react2.default.createElement(
+					'a',
+					{ href: '#', onClick: this.changeType.bind(null, 'monthly') },
+					'Monthly'
+				),
+				_react2.default.createElement(
+					'a',
+					{ href: '#', onClick: this.changeType.bind(null, 'once') },
+					'Once'
+				)
 			);
 		}
 	});
