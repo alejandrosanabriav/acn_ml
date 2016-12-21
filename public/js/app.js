@@ -4996,8 +4996,12 @@
 					this.donation_type = type;
 				},
 				handleSubmit: function handleSubmit(e) {
+					var _this6 = this;
+
 					e.preventDefault();
-					this.getToken().then(this.onSubmit).fail(function (err) {
+					this.getToken().then(function () {
+						return _this6.onSubmit();
+					}).fail(function (err) {
 						return console.log('err validation');
 					});
 				}
