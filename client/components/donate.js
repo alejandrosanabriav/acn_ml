@@ -227,7 +227,7 @@ export default () => ({
 		},
 		
 		onSubmit(e) {
-			e.preventDefault();
+			if(e) e.preventDefault();
 			const { contact, currency, amount, donation_type, stripe: {token} } = this;
 			let data = { ...contact, currency, amount, donation_type, stripe_token: token};
 
@@ -338,7 +338,8 @@ export default () => ({
 		}
 	},
 
-	handleSubmit() {
+	handleSubmit(e) {
+		e.preventDefault();
 		if(this.vertical !== 'true') {
 			this.onSubmit();
 		} else {
