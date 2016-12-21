@@ -69,7 +69,7 @@ export default () => ({
 
 	ready() {
 		const $el = this.$el; 
-		if(!this.vertical) {
+		if(this.vertical == 'false') {
 			this.addStylesToNodes($el);
 			this.setViewportWidth($el);
 		}
