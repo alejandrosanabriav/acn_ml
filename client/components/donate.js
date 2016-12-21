@@ -76,6 +76,7 @@ export default () => ({
 			$('.donate_landing__viewport').css({'display': 'block'});
 			$('.next-section-group').remove();
 			$('.pro-bar').remove();
+			$('.donate_landing__back').remove();
 		}
 
 		let firstNode = $($el).find('.donate_landing__section-1');
