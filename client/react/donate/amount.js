@@ -47,7 +47,7 @@ const amount = React.createClass({
 	},
 
 	render() {
-		const {texts} = this.props;
+		const {texts} = this.state;
 		return (
 			<div>
 				<ul>

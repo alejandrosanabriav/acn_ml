@@ -9193,7 +9193,7 @@
 			}
 		},
 		render: function render() {
-			var texts = this.props.texts;
+			var texts = this.state.texts;
 
 			return _react2.default.createElement(
 				'div',
