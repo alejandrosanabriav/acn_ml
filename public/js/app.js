@@ -4909,8 +4909,6 @@
 					if ((0, _validation2.default)(this.stripe).success) {
 						this.removeErrors();
 						this.createToken();
-					} else {
-						this.showStripeErrors();
 					}
 				},
 				isValid: function isValid() {

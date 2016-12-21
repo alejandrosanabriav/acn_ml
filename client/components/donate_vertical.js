@@ -201,8 +201,6 @@ export default () => ({
 			if (validateStripe(this.stripe).success) {
 				this.removeErrors();
 				this.createToken();
-			} else {
-				this.showStripeErrors();
 			}
 		},
 
