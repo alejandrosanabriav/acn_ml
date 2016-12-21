@@ -144,7 +144,7 @@ export default () => ({
 				this.declined = true;
 			}
 		},
-
+ 
 		cardValidation(action = {type: '', field: ''}) {
 			const {type, field} = action;
 			let isValid = Stripe.card[type](this.$get(field)); 
@@ -234,6 +234,7 @@ export default () => ({
 			} else {
 				this.declined = true;
 				this.toggleLoading();
+				return $.Deferred().reject(response);
 			}
 		},
 

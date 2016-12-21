@@ -4948,6 +4948,7 @@
 					} else {
 						this.declined = true;
 						this.toggleLoading();
+						return $.Deferred().reject(response);
 					}
 				},
 				handleCharge: function handleCharge(response) {
