@@ -9248,7 +9248,7 @@
 				),
 				_react2.default.createElement(
 					'a',
-					{ href: '#', onClick: this.changeType.bind(null, 'once') },
+					{ href: '#', onClick: this.changeType.bind(null, 'once'), style: this.state.donation_type == 'once' ? { color: 'red' } : {} },
 					'Once'
 				)
 			);
