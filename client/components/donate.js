@@ -69,16 +69,8 @@ export default () => ({
 
 	ready() {
 		const $el = this.$el; 
-		if(this.vertical == 'false') {
-			this.addStylesToNodes($el);
-			this.setViewportWidth($el);
-		} else {
-			$('.donate_landing__viewport').css({'display': 'block'});
-			$('.next-section-group').remove();
-			$('.pro-bar').remove();
-			$('.donate_landing__back').remove();
-		}
-
+		this.addStylesToNodes($el);
+		this.setViewportWidth($el);
 		let firstNode = $($el).find('.donate_landing__section-1');
 		$($el).find('.donate_landing__viewport').css({height: `${firstNode.offsetHeight}px`});
 		this.contact.country = this.country;
