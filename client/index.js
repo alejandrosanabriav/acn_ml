@@ -7,6 +7,7 @@ import changeAmount from './components/change_amount';
 import sliderBg from './components/slider_bg';
 import share from './components/share';
 import btnDonate from './lib/btn_donate';
+import React from 'react';
 import {render} from 'react-dom';
 import DonateReact from './react/donate';
 

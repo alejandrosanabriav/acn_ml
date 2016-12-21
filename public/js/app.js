@@ -74,6 +74,10 @@
 
 	var _btn_donate2 = _interopRequireDefault(_btn_donate);
 
+	var _react = __webpack_require__(115);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _reactDom = __webpack_require__(147);
 
 	var _donate3 = __webpack_require__(114);
@@ -97,7 +101,7 @@
 
 		var vm = new Vue({ el: '#app-ml' });
 
-		(0, _reactDom.render)(React.createElement(_donate4.default, null), document.getElementById('bs-donate-react'));
+		(0, _reactDom.render)(_react2.default.createElement(_donate4.default, null), document.getElementById('bs-donate-react'));
 
 		(0, _btn_donate2.default)();
 
