@@ -9152,7 +9152,11 @@
 		displayName: 'amount',
 		getDefaultProps: function getDefaultProps() {
 			return {
-				other: 'Other'
+				texts: {
+					other: 'Other',
+					monthly: 'Monthly',
+					once: 'Once'
+				}
 			};
 		},
 		getInitialState: function getInitialState() {
@@ -9178,6 +9182,8 @@
 			this.setState({ donation_type: donation_type });
 		},
 		render: function render() {
+			var texts = this.props.texts;
+
 			return _react2.default.createElement(
 				'div',
 				null,
@@ -9187,55 +9193,46 @@
 					_react2.default.createElement(
 						'li',
 						null,
-						' ',
 						_react2.default.createElement(
 							'a',
 							{ href: '#', onClick: this.changeAmount.bind(null, 10) },
 							'10'
-						),
-						' '
+						)
 					),
 					_react2.default.createElement(
 						'li',
 						null,
-						' ',
 						_react2.default.createElement(
 							'a',
 							{ href: '#', onClick: this.changeAmount.bind(null, 30) },
 							'30'
-						),
-						' '
+						)
 					),
 					_react2.default.createElement(
 						'li',
 						null,
-						' ',
 						_react2.default.createElement(
 							'a',
 							{ href: '#', onClick: this.changeAmount.bind(null, 50) },
 							'50'
-						),
-						' '
+						)
 					),
 					_react2.default.createElement(
 						'li',
 						null,
-						' ',
 						_react2.default.createElement(
 							'a',
 							{ href: '#', onClick: this.changeAmount.bind(null, 100) },
 							'100'
-						),
-						' '
+						)
 					),
 					_react2.default.createElement(
 						'li',
 						null,
-						' ',
 						_react2.default.createElement(
 							'a',
 							{ href: '#', onClick: this.changeAmount.bind(null, 5) },
-							this.props.other
+							texts.other
 						),
 						' '
 					)
@@ -9247,7 +9244,7 @@
 						onClick: this.changeType.bind(null, 'monthly'),
 						style: this.state.donation_type == 'monthly' ? { color: 'red' } : {}
 					},
-					'Monthly'
+					texts.monthly
 				),
 				_react2.default.createElement(
 					'a',
@@ -9255,7 +9252,7 @@
 						onClick: this.changeType.bind(null, 'once'),
 						style: this.state.donation_type == 'once' ? { color: 'red' } : {}
 					},
-					'Once'
+					texts.once
 				)
 			);
 		}

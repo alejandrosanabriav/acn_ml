@@ -3,7 +3,11 @@ import React from 'react';
 const amount = React.createClass({
 	getDefaultProps() {
 		return {
-			other: 'Other'
+			texts: {
+				other: 'Other',
+				monthly: 'Monthly',
+				once: 'Once'
+			}
 		}
 	},
 	
@@ -34,14 +38,24 @@ const amount = React.createClass({
 	},
 
 	render() {
+		const {texts} = this.props;
 		return (
 			<div>
 				<ul>
-					<li> <a href="#" onClick={this.changeAmount.bind(null, 10)}>10</a> </li>
-					<li> <a href="#" onClick={this.changeAmount.bind(null, 30)}>30</a> </li>
-					<li> <a href="#" onClick={this.changeAmount.bind(null, 50)}>50</a> </li>
-					<li> <a href="#" onClick={this.changeAmount.bind(null, 100)}>100</a> </li>
-					<li> <a href="#" onClick={this.changeAmount.bind(null, 5)}>{this.props.other}</a> </li>
+					<li> 
+						<a href="#" onClick={this.changeAmount.bind(null, 10)}>10</a> 
+					</li>
+					<li> 
+						<a href="#" onClick={this.changeAmount.bind(null, 30)}>30</a> 
+					</li>
+					<li> 
+						<a href="#" onClick={this.changeAmount.bind(null, 50)}>50</a> 
+					</li>
+					<li> 
+						<a href="#" onClick={this.changeAmount.bind(null, 100)}>100</a> 
+					</li>
+					<li> 
+						<a href="#" onClick={this.changeAmount.bind(null, 5)}>{texts.other}</a> </li>
 				</ul>
 
 				<input ref="amountInput" type="text" onChange={this.handleAmount} value={this.state.amount} />
@@ -50,13 +64,13 @@ const amount = React.createClass({
 					onClick={this.changeType.bind(null, 'monthly')} 
 					style={this.state.donation_type == 'monthly' ? {color: 'red'} : {}}
 				>
-					Monthly
+					{texts.monthly}
 				</a>
 				<a href="#" 
 					onClick={this.changeType.bind(null, 'once')} 
 					style={this.state.donation_type == 'once' ? {color: 'red'} : {}}
 				>
-					Once
+					{texts.once}
 				</a>
 			</div>
 		)
