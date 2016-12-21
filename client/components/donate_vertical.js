@@ -149,7 +149,6 @@ export default () => ({
 			if (response.id) {
 				this.stripe.token = response.id;
 				this.declined = false;
-				this.nextSection();
 			} else {
 				this.declined = true;
 			}
