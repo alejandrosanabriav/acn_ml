@@ -336,7 +336,7 @@ export default () => ({
 		}
 	},
 
-	template: '
+	template: `
     <form method="post" class="donate_landing">
       <div class="donate_landing__viewport">
 			
