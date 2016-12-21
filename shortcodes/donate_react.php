@@ -9,7 +9,15 @@ function bs_donate_react_sc($atts, $content = null) {
 	ob_start();
 ?>
 
-<div id="bs-donate-react" data-props='{"other": "<?php echo $at['other'] ?>"}'></div>
+<div 
+	id="bs-donate-react" 
+	data-props='{
+		"other": "<?php echo $at['other'] ?>"
+		"monthly": "<?php echo $at['monthly'] ?>"
+		"once": "<?php echo $at['once'] ?>"
+	}'
+>
+</div>
 
 <?php
 return ob_get_clean();
