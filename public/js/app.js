@@ -4783,6 +4783,7 @@
 			ready: function ready() {
 				$(this.$el).find('.donate_landing__viewport').css({ 'display': 'block' });
 				$(this.$el).find('.donate_landing__section__title').css({ 'padding-bottom': '0' });
+				$(this.$el).find('.change-amount li a').css({ 'font-size': '1em' });
 				this.contact.country = this.country;
 			},
 
