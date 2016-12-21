@@ -19,7 +19,10 @@ const amount = React.createClass({
 	},
 
 	handleAmount(e) {
-		this.setState({amount: e.currentTarget.value});
+		let el = e.currentTarget;
+		let amount = el.value;
+		if(amount == 5) el.focus();
+		this.setState({amount});
 	},
 
 	render() {
@@ -30,7 +33,7 @@ const amount = React.createClass({
 					<li> <a href="#" onClick={this.changeAmount.bind(null, 30)}>30</a> </li>
 					<li> <a href="#" onClick={this.changeAmount.bind(null, 50)}>50</a> </li>
 					<li> <a href="#" onClick={this.changeAmount.bind(null, 100)}>100</a> </li>
-					<li> <a href="#" onClick={this.changeAmount.bind(null, null)}>{this.props.other}</a> </li>
+					<li> <a href="#" onClick={this.changeAmount.bind(null, 5)}>{this.props.other}</a> </li>
 				</ul>
 				<input type="text" onChange={this.handleAmount} value={this.state.amount} />
 			</div>

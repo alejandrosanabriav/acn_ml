@@ -9165,7 +9165,10 @@
 			this.setState({ amount: amount });
 		},
 		handleAmount: function handleAmount(e) {
-			this.setState({ amount: e.currentTarget.value });
+			var el = e.currentTarget;
+			var amount = el.value;
+			if (amount == 5) el.focus();
+			this.setState({ amount: amount });
 		},
 		render: function render() {
 			return _react2.default.createElement(
@@ -9224,7 +9227,7 @@
 						' ',
 						_react2.default.createElement(
 							'a',
-							{ href: '#', onClick: this.changeAmount.bind(null, null) },
+							{ href: '#', onClick: this.changeAmount.bind(null, 5) },
 							this.props.other
 						),
 						' '
