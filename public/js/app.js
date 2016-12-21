@@ -9183,8 +9183,9 @@
 			var a = document.getElementById('bs-donate-react');
 			var props = a.getAttribute('data-props');
 			var texts = this.state.texts;
+			console.log(props);
 			try {
-				props = JSON.parse(JSON.stringify(props));
+				props = JSON.parse(props);
 				texts = _extends({}, texts, props);
 				console.log(texts);
 				this.setState({ texts: texts });
