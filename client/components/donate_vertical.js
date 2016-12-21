@@ -284,7 +284,7 @@ export default () => ({
 			e.preventDefault();
 			this.getToken()
 			.then(this.onSubmit)
-			.catch(err => console.log('err validation'));
+			.fail(err => console.log('err validation'));
 		},
 	},
 
