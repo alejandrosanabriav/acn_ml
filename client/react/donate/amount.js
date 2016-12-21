@@ -43,8 +43,10 @@ const amount = React.createClass({
 					<li> <a href="#" onClick={this.changeAmount.bind(null, 100)}>100</a> </li>
 					<li> <a href="#" onClick={this.changeAmount.bind(null, 5)}>{this.props.other}</a> </li>
 				</ul>
+
 				<input ref="amountInput" type="text" onChange={this.handleAmount} value={this.state.amount} />
-				<a href="#" onClick={this.changeType.bind(null, 'monthly')}>Monthly</a>
+
+				<a href="#" onClick={this.changeType.bind(null, 'monthly')} style={this.state.donation_type == 'monthly' ? {color: 'red'} : {}}>Monthly</a>
 				<a href="#" onClick={this.changeType.bind(null, 'once')}>Once</a>
 			</div>
 		)
