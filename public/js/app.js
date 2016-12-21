@@ -9167,6 +9167,7 @@
 		handleAmount: function handleAmount(e) {
 			var el = e.currentTarget;
 			var amount = el.value;
+			console.log(el, amount);
 			if (amount == 5) el.focus();
 			this.setState({ amount: amount });
 		},

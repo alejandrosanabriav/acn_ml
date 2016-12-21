@@ -21,6 +21,7 @@ const amount = React.createClass({
 	handleAmount(e) {
 		let el = e.currentTarget;
 		let amount = el.value;
+		console.log(el, amount);
 		if(amount == 5) el.focus();
 		this.setState({amount});
 	},
