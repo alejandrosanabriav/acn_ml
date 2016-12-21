@@ -208,7 +208,7 @@ export default () => ({
 		},
 
 		getToken(e) {
-			e.preventDefault();
+			if(e) e.preventDefault();
 
 			if (validateStripe(this.stripe).success) {
 				this.removeErrors();
@@ -240,7 +240,7 @@ export default () => ({
 				.then(response => {
 					if (response.id) {
 						return this.infusion(contact)
-						.then((customer) => {
+						.then(() => {
 							return $.Deferred().resolve(response);
 						});
 					} else {
@@ -336,6 +336,20 @@ export default () => ({
 			let progress = 100 / 3 * (section - 1);
 			this.progress = `${progress}%`;
 		}
+	},
+
+	handleSubmit() {
+		if(this.vertical !== 'true') {
+			this.onSubmit();
+		} else {
+			this.allSubmit();
+		}
+			
+	},
+
+	allSubmit() {
+		this.getToken();
+		this.onSubmit();
 	},
 
 	template: `
@@ -577,7 +591,7 @@ export default () => ({
         
         <button 
           class="donate_landing__submit pull-left" 
-          v-on:click.prevent="onSubmit" 
+          v-on:click.prevent="handleSubmit" 
           :disabled="loading"
         >
           {{loading ? placeholders.loading : texts.sectionThree.btn}}
