@@ -4838,7 +4838,7 @@
 						data: stripeData
 					};
 
-					$.ajax({
+					return $.ajax({
 						type: 'post',
 						url: '/wp-admin/admin-ajax.php',
 						data: data
@@ -4852,8 +4852,10 @@
 					if (response.id) {
 						this.stripe.token = response.id;
 						this.declined = false;
+						return $.Deferred.resolve();
 					} else {
 						this.declined = true;
+						return $.Deferred.reject();
 					}
 				},
 				cardValidation: function cardValidation() {
@@ -4902,8 +4904,7 @@
 
 					if ((0, _validation2.default)(this.stripe).success) {
 						this.removeErrors();
-						this.createToken();
-						return $.Deferred().resolve();
+						return this.createToken();
 					} else {
 						this.showStripeErrors();
 						return $.Deferred().reject();
@@ -4926,6 +4927,7 @@
 
 					var data = _extends({}, contact, { currency: currency, amount: amount, donation_type: donation_type, stripe_token: token });
 					console.log(this.$get('stripe.token'));
+
 					this.contactValidations();
 					this.toggleLoading();
 

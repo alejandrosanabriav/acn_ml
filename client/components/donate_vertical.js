@@ -124,7 +124,7 @@ export default () => ({
 				data: stripeData
 			};
 
-			$.ajax({
+			return $.ajax({
 				type: 'post',
 				url: '/wp-admin/admin-ajax.php',
 				data: data
@@ -139,8 +139,10 @@ export default () => ({
 			if (response.id) {
 				this.stripe.token = response.id;
 				this.declined = false;
+				return $.Deferred.resolve();
 			} else {
 				this.declined = true;
+				return $.Deferred.reject();
 			}
 		},
  
@@ -189,8 +191,7 @@ export default () => ({
 
 			if (validateStripe(this.stripe).success) {
 				this.removeErrors();
-				this.createToken();
-				return $.Deferred().resolve();
+				return this.createToken();
 			} else {
 				this.showStripeErrors();
 				return $.Deferred().reject();
@@ -209,6 +210,7 @@ export default () => ({
 			const { contact, currency, amount, donation_type, stripe: {token} } = this;
 			let data = { ...contact, currency, amount, donation_type, stripe_token: token};
 			console.log(this.$get('stripe.token'));
+
 			this.contactValidations();
 			this.toggleLoading();
 			
