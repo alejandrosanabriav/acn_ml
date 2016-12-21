@@ -351,13 +351,7 @@ export default () => ({
           </a>
           </div>
 
-        <div class="col-xs-12 next-section-group">
-          <button class="donate_landing__submit pull-left" v-on:click.prevent="nextSection">
-            {{texts.sectionOne.btn}}
-          </button>
 
-          <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type == 'monthly' ? monthly : once}}</span>
-        </div>
       </div> <!-- donate_landing__section-1 -->
 
       <div class="stripe-info donate_landing__section donate_landing__section-2" >
@@ -464,19 +458,7 @@ export default () => ({
            </span>
         </div>
 
-        <div class="col-md-12 form-group next-section-group">
-            <button 
-              class="donate_landing__submit donate_landing__submit-get_token pull-left" 
-              v-on:click.prevent="getToken" 
-              :disabled="loading"
-            >
-            	{{loading ? placeholders.loading : texts.sectionTwo.btn}}
-            </button>
-
-             <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type == 'monthly' ? monthly : once}}</span>
-
-            <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"> < {{backText}}</button>
-            </div>
+    
 
 			<div class="form-group col-sm-12">
 				<div class="alert alert-danger" v-if="declined">
@@ -552,7 +534,6 @@ export default () => ({
           {{loading ? placeholders.loading : texts.sectionThree.btn}}
         </button>
         <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>
-        <button v-on:click.prevent="backSection" class="donate_landing__back pull-right">{{backText}}</button>
       </div>
 			<div class="form-group col-sm-12">
 				<div class="alert alert-danger" v-if="declined">
@@ -563,11 +544,6 @@ export default () => ({
     </div><!-- viewport -->
 
   </div> <!-- success -->
-  <div class="form-group col-xs-12">
-    <div class="pro-bar">
-      <div class="pro-bar__status" v-bind:style="{width: progress}"></div>
-    </div>
-  </div>
 
    <div class="form-group col-sm-12" v-if="section == 1">
       <a style="padding-top: 30px" v-bind:href="link.anchor">
