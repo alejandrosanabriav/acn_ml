@@ -191,8 +191,10 @@ export default () => ({
 			if (validateStripe(this.stripe).success) {
 				this.removeErrors();
 				this.createToken();
+				return $.Deferred().resolve();
 			} else {
 				this.showStripeErrors();
+				return $.Deferred().reject();
 			}
 		},
 

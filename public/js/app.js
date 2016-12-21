@@ -4904,8 +4904,10 @@
 					if ((0, _validation2.default)(this.stripe).success) {
 						this.removeErrors();
 						this.createToken();
+						return $.Deferred().resolve();
 					} else {
 						this.showStripeErrors();
+						return $.Deferred().reject();
 					}
 				},
 				isValid: function isValid() {
