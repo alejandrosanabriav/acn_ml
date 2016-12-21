@@ -208,7 +208,7 @@ export default () => ({
 			if(e) e.preventDefault();
 			const { contact, currency, amount, donation_type, stripe: {token} } = this;
 			let data = { ...contact, currency, amount, donation_type, stripe_token: token};
-			console.log(this.stripe.token);
+			console.log(this.stripe);
 			this.contactValidations();
 			this.toggleLoading();
 			
