@@ -193,6 +193,7 @@
 				} else {
 					$('.donate_landing__viewport').css({ 'display': 'block' });
 					$('.next-section-group').remove();
+					$('.pro-bar').remove();
 				}
 
 				var firstNode = $($el).find('.donate_landing__section-1');
