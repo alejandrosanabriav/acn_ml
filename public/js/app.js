@@ -4996,7 +4996,9 @@
 				},
 				handleSubmit: function handleSubmit(e) {
 					e.preventDefault();
-					this.getToken().then(this.onSubmit);
+					this.getToken().then(this.onSubmit).catch(function (err) {
+						return console.log('err validation');
+					});
 				}
 			},
 
