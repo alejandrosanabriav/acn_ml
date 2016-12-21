@@ -28,10 +28,13 @@
     "approvejs": "^2.0.0",
     "array.from": "^1.0.3",
     "axios": "^0.15.2",
+    "babel-preset-react": "^6.16.0",
     "jquery": "^3.1.1",
     "lodash": "^4.16.6",
     "moment": "^2.15.2",
     "promise": "^7.1.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
     "stripe": "^4.12.0",
     "validator": "^6.1.0",
     "vue": "^1"

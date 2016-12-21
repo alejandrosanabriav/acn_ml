@@ -7,6 +7,8 @@ import changeAmount from './components/change_amount';
 import sliderBg from './components/slider_bg';
 import share from './components/share';
 import btnDonate from './lib/btn_donate';
+import {render} from 'react-dom';
+import DonateReact from './react/donate';
 
 (function() {
 	console.log('cache is:', new Date());
@@ -19,6 +21,8 @@ import btnDonate from './lib/btn_donate';
 	Vue.component('bs-share', share());
 
 	const vm = new Vue({ el: '#app-ml' });
+
+	render(<DonateReact />,  document.getElementById('bs-donate-react'));
 	
 	btnDonate();
 
