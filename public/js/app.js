@@ -9184,7 +9184,7 @@
 			var props = a.getAttribute('data-props');
 			try {
 				props = JSON.parse(props);
-				this.setState({ texts: _extends({}, this.state.text, { texts: props }) });
+				this.setState({ texts: _extends({}, this.state.texts, props) });
 			} catch (err) {
 				console.log(err);
 			}
