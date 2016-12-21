@@ -4965,7 +4965,6 @@
 						});
 					} else {
 						this.toggleLoading();
-						this.changeViewportHeight(3);
 					}
 				},
 				stripeCharge: function stripeCharge(data) {

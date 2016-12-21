@@ -252,7 +252,6 @@ export default () => ({
 
 			} else {
 				this.toggleLoading();
-				this.changeViewportHeight( 3 );
 			}
 		},
 
