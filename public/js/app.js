@@ -4922,7 +4922,7 @@
 				onSubmit: function onSubmit(e) {
 					var _this5 = this;
 
-					e.preventDefault();
+					if (e) e.preventDefault();
 					var contact = this.contact,
 					    currency = this.currency,
 					    amount = this.amount,
