@@ -5061,7 +5061,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _amount = __webpack_require__(146);
+	var _amount = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./amount\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _amount2 = _interopRequireDefault(_amount);
 
@@ -9133,138 +9133,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(117)))
 
 /***/ },
-/* 146 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(115);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var amount = _react2.default.createClass({
-		displayName: 'amount',
-		getDefaultProps: function getDefaultProps() {
-			return {
-				texts: {
-					other: 'Other',
-					monthly: 'Monthly',
-					once: 'Once'
-				}
-			};
-		},
-		getInitialState: function getInitialState() {
-			return {
-				amount: 30,
-				donation_type: 'monthly'
-			};
-		},
-		changeAmount: function changeAmount(amount, e) {
-			if (e) e.preventDefault();
-			var el = this.refs.amountInput;
-			console.log(this.refs.amountInput, amount);
-			if (amount == 5) el.focus();
-			this.setState({ amount: amount });
-		},
-		handleAmount: function handleAmount(e) {
-			var el = e.currentTarget;
-			var amount = el.value;
-			this.setState({ amount: amount });
-		},
-		changeType: function changeType(donation_type, e) {
-			if (e) e.preventDefault();
-			this.setState({ donation_type: donation_type });
-		},
-		componentDidMount: function componentDidMount() {
-			var a = document.getElementById('bs-donate-react');
-			console.log(a.getAttribute('data-props'));
-		},
-		render: function render() {
-			var texts = this.props.texts;
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(
-					'ul',
-					null,
-					_react2.default.createElement(
-						'li',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: '#', onClick: this.changeAmount.bind(null, 10) },
-							'10'
-						)
-					),
-					_react2.default.createElement(
-						'li',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: '#', onClick: this.changeAmount.bind(null, 30) },
-							'30'
-						)
-					),
-					_react2.default.createElement(
-						'li',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: '#', onClick: this.changeAmount.bind(null, 50) },
-							'50'
-						)
-					),
-					_react2.default.createElement(
-						'li',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: '#', onClick: this.changeAmount.bind(null, 100) },
-							'100'
-						)
-					),
-					_react2.default.createElement(
-						'li',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: '#', onClick: this.changeAmount.bind(null, 5) },
-							texts.other
-						),
-						' '
-					)
-				),
-				_react2.default.createElement('input', { ref: 'amountInput', type: 'text', onChange: this.handleAmount, value: this.state.amount }),
-				_react2.default.createElement(
-					'a',
-					{ href: '#',
-						onClick: this.changeType.bind(null, 'monthly'),
-						style: this.state.donation_type == 'monthly' ? { color: 'red' } : {}
-					},
-					texts.monthly
-				),
-				_react2.default.createElement(
-					'a',
-					{ href: '#',
-						onClick: this.changeType.bind(null, 'once'),
-						style: this.state.donation_type == 'once' ? { color: 'red' } : {}
-					},
-					texts.once
-				)
-			);
-		}
-	});
-
-	exports.default = amount;
-
-/***/ },
+/* 146 */,
 /* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
