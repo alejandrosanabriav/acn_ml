@@ -52,7 +52,8 @@ export default () => ({
 		'placeholders',
 		'redirect',
 		'monthly',
-		'once'
+		'once',
+		'vertical'
 	],
 
 	data() {
@@ -68,8 +69,11 @@ export default () => ({
 
 	ready() {
 		const $el = this.$el; 
-		this.addStylesToNodes($el);
-		this.setViewportWidth($el);
+		if(!this.props.vertical) {
+			this.addStylesToNodes($el);
+			this.setViewportWidth($el);
+		}
+
 		let firstNode = $($el).find('.donate_landing__section-1');
 		$($el).find('.donate_landing__viewport').css({height: `${firstNode.offsetHeight}px`});
 		this.contact.country = this.country;
@@ -332,7 +336,7 @@ export default () => ({
 	template: `
     <form method="post" class="donate_landing">
       <div class="donate_landing__viewport">
-
+			
       <div class="donate_landing__section donate_landing__section-1">
         <div class="donate_landing__section__title col-sm-12">
           <h3 class="color-red">{{texts.sectionOne.title}}</h3>
