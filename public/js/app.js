@@ -9243,12 +9243,18 @@
 				_react2.default.createElement('input', { ref: 'amountInput', type: 'text', onChange: this.handleAmount, value: this.state.amount }),
 				_react2.default.createElement(
 					'a',
-					{ href: '#', onClick: this.changeType.bind(null, 'monthly'), style: this.state.donation_type == 'monthly' ? { color: 'red' } : {} },
+					{ href: '#',
+						onClick: this.changeType.bind(null, 'monthly'),
+						style: this.state.donation_type == 'monthly' ? { color: 'red' } : {}
+					},
 					'Monthly'
 				),
 				_react2.default.createElement(
 					'a',
-					{ href: '#', onClick: this.changeType.bind(null, 'once'), style: this.state.donation_type == 'once' ? { color: 'red' } : {} },
+					{ href: '#',
+						onClick: this.changeType.bind(null, 'once'),
+						style: this.state.donation_type == 'once' ? { color: 'red' } : {}
+					},
 					'Once'
 				)
 			);
