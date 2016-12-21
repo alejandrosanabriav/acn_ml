@@ -39,7 +39,7 @@ function bs_donate_vertical_sc($atts, $content = null) {
   ob_start();
 ?>
 
-<donate-landing
+<donate-vertical
     donation_type="monthly"
     url="<?php echo get_template_directory_uri() ?>"
     currency="usd"
@@ -101,7 +101,7 @@ function bs_donate_vertical_sc($atts, $content = null) {
       country: '<?php echo $at['placeholder_country'] ?>'
     }"
   >
-  </donate-landing>
+  </donate-vertical>
 <?php
   return ob_get_clean();
 } //close bs_donate_vertical_sc
