@@ -40,7 +40,7 @@ const amount = React.createClass({
 			props = JSON.parse(JSON.stringify(props));
 			texts = {...texts,  ...props};
 			console.log(texts);
-			this.setState({texts});Ø
+			this.setState({texts});
 		} catch(err) {
 			console.log(err);
 		}

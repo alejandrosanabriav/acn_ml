@@ -9187,7 +9187,7 @@
 				props = JSON.parse(JSON.stringify(props));
 				texts = _extends({}, texts, props);
 				console.log(texts);
-				this.setState({ texts: texts });Ø;
+				this.setState({ texts: texts });
 			} catch (err) {
 				console.log(err);
 			}
