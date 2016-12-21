@@ -9162,13 +9162,14 @@
 		},
 		changeAmount: function changeAmount(amount, e) {
 			if (e) e.preventDefault();
+			var el = e.currentTarget;
+			console.log(el, amount);
+			if (amount == 5) el.focus();
 			this.setState({ amount: amount });
 		},
 		handleAmount: function handleAmount(e) {
 			var el = e.currentTarget;
 			var amount = el.value;
-			console.log(el, amount);
-			if (amount == 5) el.focus();
 			this.setState({ amount: amount });
 		},
 		render: function render() {

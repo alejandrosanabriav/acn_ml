@@ -15,14 +15,15 @@ const amount = React.createClass({
 
 	changeAmount(amount,e) {
 		if(e) e.preventDefault();
+		let el = e.currentTarget;
+		console.log(el, amount);
+		if(amount == 5) el.focus();
 		this.setState({amount});
 	},
 
 	handleAmount(e) {
 		let el = e.currentTarget;
 		let amount = el.value;
-		console.log(el, amount);
-		if(amount == 5) el.focus();
 		this.setState({amount});
 	},
 
