@@ -592,7 +592,7 @@ export default () => ({
         
         <button 
           class="donate_landing__submit pull-left" 
-          v-on:click.prevent="handleSubmit" 
+          v-on:click.prevent="handleSubmit"
           :disabled="loading"
         >
           {{loading ? placeholders.loading : texts.sectionThree.btn}}
