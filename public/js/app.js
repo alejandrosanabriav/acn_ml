@@ -4919,7 +4919,7 @@
 					return errs.length == 0;
 				},
 				onSubmit: function onSubmit(e) {
-					e.preventDefault();
+					if (e) e.preventDefault();
 					var contact = this.contact,
 					    currency = this.currency,
 					    amount = this.amount,
