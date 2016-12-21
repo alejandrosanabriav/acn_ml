@@ -1,6 +1,7 @@
 'use strict';
 require('array.from');
 import donate from './components/donate';
+import donateVertical from './components/donate_vertical';
 import contact from './components/contact';
 import changeAmount from './components/change_amount';
 import sliderBg from './components/slider_bg';
@@ -12,6 +13,7 @@ import btnDonate from './lib/btn_donate';
 	
 	Vue.component('change-amount', changeAmount());
 	Vue.component('donate-landing', donate());
+	Vue.component('donate-vertical', donateVertical());
 	Vue.component('bsslider-bg', sliderBg());
 	Vue.component('contact', contact());
 	Vue.component('bs-share', share());

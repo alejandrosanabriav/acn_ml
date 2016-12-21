@@ -1,8 +1,7 @@
 <?php
 
-function bs_donate_sc($atts, $content = null) {
+function bs_donate_vertical_sc($atts, $content = null) {
   $at = shortcode_atts( array(
-    "vertical" => false,
     "section_title_1" => "",
     "section_content_1" => "",
     "section_btn_1" => "DONATE",
@@ -105,9 +104,9 @@ function bs_donate_sc($atts, $content = null) {
   </donate-landing>
 <?php
   return ob_get_clean();
-} //close bs_donate_sc
+} //close bs_donate_vertical_sc
 
-function bs_donate_vc() {
+function bs_donate_vertical_vc() {
   $bs_donate_sections = [];
   
 
@@ -234,23 +233,16 @@ function bs_donate_vc() {
       array_push($bs_donate_sections, $placeholder);
     }
 
-    array_push($bs_donate_sections, array(
-       "type" => "checkbox",
-        "heading" => "vertical",
-        "param_name" => "vertical",
-        "value" => false
-    ));
-
   vc_map(
     array(
-      "name" =>  "BS donate",
-      "base" => "bs_donate",
+      "name" =>  "BS donate vertical",
+      "base" => "bs_donate_vertical",
       "category" =>  "BS",
       "params" => $bs_donate_sections
     ) 
   );
 }
 
-add_shortcode('bs_donate', 'bs_donate_sc');
-add_action( 'vc_before_init', 'bs_donate_vc' );
+add_shortcode('bs_donate_vertical', 'bs_donate_vertical_sc');
+add_action( 'vc_before_init', 'bs_donate_vertical_vc' );
 

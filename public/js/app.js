@@ -50,6 +50,10 @@
 
 	var _donate2 = _interopRequireDefault(_donate);
 
+	var _donate_vertical = __webpack_require__(111);
+
+	var _donate_vertical2 = _interopRequireDefault(_donate_vertical);
+
 	var _contact = __webpack_require__(80);
 
 	var _contact2 = _interopRequireDefault(_contact);
@@ -80,6 +84,7 @@
 
 		Vue.component('change-amount', (0, _change_amount2.default)());
 		Vue.component('donate-landing', (0, _donate2.default)());
+		Vue.component('donate-vertical', (0, _donate_vertical2.default)());
 		Vue.component('bsslider-bg', (0, _slider_bg2.default)());
 		Vue.component('contact', (0, _contact2.default)());
 		Vue.component('bs-share', (0, _share2.default)());
@@ -4695,6 +4700,328 @@
 		return polyfill;
 	};
 
+
+/***/ },
+/* 111 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _validator = __webpack_require__(14);
+
+	var _validator2 = _interopRequireDefault(_validator);
+
+	var _validation = __webpack_require__(79);
+
+	var _validation2 = _interopRequireDefault(_validation);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var componentData = {
+		donation_type: 'monthly',
+		progress: '33.3%',
+		declined: false,
+		amount: 30,
+		section: 1,
+		success: false,
+		loading: false,
+		countries: [],
+		errors: {
+			stripe: {},
+			contact: {}
+		},
+		stripe: {
+			number: '',
+			exp_month: '',
+			exp_year: '',
+			cvc: '',
+			token: ''
+		},
+
+		contact: {
+			name: null,
+			email: null,
+			country: null
+		},
+
+		card: {
+			Visa: false,
+			MasterCard: false,
+			DinersClub: false,
+			AmericanExpress: false,
+			Discover: false
+		}
+	};
+
+	exports.default = function () {
+		return {
+			props: ['captcha_name', 'url', 'currency', 'country', 'validationMessages', 'backText', 'texts', 'link', 'cardSrc', 'placeholders', 'redirect', 'monthly', 'once', 'vertical'],
+
+			data: function data() {
+				return _extends({}, componentData);
+			},
+			init: function init() {
+				var _this = this;
+
+				$.ajax({
+					url: '/wp-admin/admin-ajax.php',
+					data: { action: 'countries' }
+				}).then(function (res) {
+					return _this.countries = res;
+				});
+			},
+			ready: function ready() {
+				var $el = this.$el;
+				this.addStylesToNodes($el);
+				this.setViewportWidth($el);
+				var firstNode = $($el).find('.donate_landing__section-1');
+				$($el).find('.donate_landing__viewport').css({ height: firstNode.offsetHeight + 'px' });
+				this.contact.country = this.country;
+			},
+
+
+			computed: {
+				cardType: function cardType() {
+					var type = Stripe.card.cardType(this.stripe.number).replace(' ', '');
+					return type;
+				}
+			},
+
+			events: {
+				'focus-amount': function focusAmount() {
+					this.amount = 1;
+					this.$els.amountInput.focus();
+				}
+			},
+
+			methods: {
+				addStylesToNodes: function addStylesToNodes(parent) {
+					var nodes = $(parent).find('.donate_landing__section');
+					var count = 100 / nodes.length;
+					nodes.css({ width: count + '%', float: 'left' });
+				},
+				setViewportWidth: function setViewportWidth(parent) {
+					$(parent).find('.donate_landing__viewport').css('width', '300%');
+				},
+				showCard: function showCard() {
+					var _this2 = this;
+
+					Object.keys(this.card).map(function (key) {
+						if (key === _this2.cardType) {
+							return _this2.card[key] = true;
+						} else {
+							return _this2.card[key] = false;
+						}
+					});
+				},
+				cleanNumber: function cleanNumber(keypath) {
+					var val = this.$get(keypath);
+					this.$set(keypath, val.replace(/[^0-9]+/, ''));
+				},
+				maxLength: function maxLength(keypath, length) {
+					var val = this.$get(keypath);
+					this.$set(keypath, val.substring(0, length));
+				},
+				createToken: function createToken() {
+					var _this3 = this;
+
+					var stripeData = {
+						number: this.stripe.number,
+						cvc: this.stripe.cvc,
+						exp_month: this.stripe.exp_month,
+						exp_year: this.stripe.exp_year
+					};
+
+					this.toggleLoading();
+
+					//send wp_ajax to get token
+					var data = {
+						action: 'stripe_token',
+						data: stripeData
+					};
+
+					$.ajax({
+						type: 'post',
+						url: '/wp-admin/admin-ajax.php',
+						data: data
+					}).done(function (res) {
+						return _this3.handleToken(res);
+					});
+				},
+				handleToken: function handleToken(response) {
+					this.toggleLoading();
+
+					if (response.id) {
+						this.stripe.token = response.id;
+						this.declined = false;
+						this.nextSection();
+					} else {
+						this.declined = true;
+					}
+				},
+				cardValidation: function cardValidation() {
+					var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { type: '', field: '' };
+					var type = action.type,
+					    field = action.field;
+
+					var isValid = Stripe.card[type](this.$get(field));
+					this.$set('errors.' + field, !isValid);
+				},
+				expiryValidation: function expiryValidation() {
+					var isValid = Stripe.card.validateExpiry(this.stripe.exp_month, this.stripe.exp_year);
+					this.$set('errors.stripe.exp_month', !isValid);
+					this.$set('errors.stripe.exp_year', !isValid);
+				},
+				validateContact: function validateContact() {
+					var field = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+					var val = this.$get('contact.' + field) ? this.$get('contact.' + field) : '';
+
+					if (field == 'email') {
+						this.$set('errors.contact.' + field, !_validator2.default.isEmail(val));
+					} else {
+						this.$set('errors.contact.' + field, _validator2.default.isEmpty(val));
+					}
+				},
+				contactValidations: function contactValidations() {
+					var _this4 = this;
+
+					var fields = ['name', 'email', 'country'];
+					fields.forEach(function (key) {
+						return _this4.validateContact(key);
+					});
+				},
+				showStripeErrors: function showStripeErrors() {
+					this.$set('errors.stripe', (0, _validation2.default)(this.stripe).errors);
+					this.changeViewportHeight(2);
+				},
+				removeErrors: function removeErrors() {
+					this.errors = _extends({}, componentData.errors);
+				},
+				toggleLoading: function toggleLoading() {
+					this.loading = !this.loading;
+				},
+				getToken: function getToken(e) {
+					if (e) e.preventDefault();
+
+					if ((0, _validation2.default)(this.stripe).success) {
+						this.removeErrors();
+						this.createToken();
+					} else {
+						this.showStripeErrors();
+					}
+				},
+				isValid: function isValid() {
+					var contactErrs = this.errors.contact;
+					var errs = Object.keys(contactErrs).filter(function (field) {
+						return contactErrs[field] == true;
+					});
+
+					return errs.length == 0;
+				},
+				onSubmit: function onSubmit(e) {
+					var _this5 = this;
+
+					e.preventDefault();
+					var contact = this.contact,
+					    currency = this.currency,
+					    amount = this.amount,
+					    donation_type = this.donation_type,
+					    token = this.stripe.token;
+
+					var data = _extends({}, contact, { currency: currency, amount: amount, donation_type: donation_type, stripe_token: token });
+
+					this.contactValidations();
+					this.toggleLoading();
+
+					if (this.isValid()) {
+
+						this.stripeCharge(data).then(function (response) {
+							if (response.id) {
+								return _this5.infusion(contact).then(function () {
+									return $.Deferred().resolve(response);
+								});
+							} else {
+								_this5.declined = true;
+								_this5.toggleLoading();
+							}
+						}).then(function (response) {
+							var id = response.id,
+							    customer = response.customer;
+							var donation_type = _this5.donation_type,
+							    amount = _this5.amount;
+
+
+							ga('ecommerce:addTransaction', {
+								'id': _this5.contact.email + '-' + id, // Transaction ID. Required.
+								'affiliation': 'ACN International', // Affiliation or store name.
+								'revenue': amount,
+								'currency': 'USD'
+							});
+
+							ga('ecommerce:send');
+							var url = _this5.redirect[donation_type] + '?customer_id=' + customer + '-' + id + '&order_revenue=' + amount + '&order_id=' + id;
+							window.location = url;
+						});
+					} else {
+						this.toggleLoading();
+						this.changeViewportHeight(3);
+					}
+				},
+				stripeCharge: function stripeCharge(data) {
+					var _this6 = this;
+
+					return $.ajax({
+						url: '/wp-admin/admin-ajax.php',
+						type: 'post',
+						data: {
+							action: 'stripe_charge',
+							data: data
+						},
+						beforeSend: function beforeSend() {
+							_this6.removeErrors();
+						}
+					});
+				},
+				infusion: function infusion(contact) {
+					var tags = '';
+					if (this.donation_type == 'monthly') tags = '870';
+					if (this.donation_type == 'once') tags = '868';
+
+					return $.ajax({
+						url: '/wp-admin/admin-ajax.php',
+						type: 'post',
+						data: { action: 'infusion_contact', data: _extends({}, contact, { tags: tags }) }
+					});
+				},
+				changeType: function changeType(type, evt) {
+					evt.preventDefault();
+					this.donation_type = type;
+				}
+			},
+
+			handleSubmit: function handleSubmit() {
+				if (this.vertical !== 'true') {
+					this.onSubmit();
+				} else {
+					this.allSubmit();
+				}
+			},
+			allSubmit: function allSubmit() {
+				this.getToken();
+				this.onSubmit();
+			},
+
+
+			template: '\n    <form method="post" class="donate_landing">\n      <div class="donate_landing__viewport">\n\t\t\t\n      <div class="donate_landing__section donate_landing__section-1">\n        <div class="donate_landing__section__title col-sm-12">\n          <h3 class="color-red">{{texts.sectionOne.title}}</h3>\n          <p>{{texts.sectionOne.content}}</p>\n        </div>\n      \n        <change-amount other="Other"></change-amount>\n\n          <div class="form-group col-md-7 col-sm-8" style="float: left">\n            <div class="input-group col-sm-12" >\n              <div class="input-group-addon">USD</div>\n              <input\n                type="text"\n                class="form-control"\n                v-model="amount"\n                v-el:amount-input\n                v-on:keyup="cleanNumber(\'amount\')"\n                placeholder="{{placeholders.amount}}"\n              >\n            </div>\n          </div>\n\n          <div class="col-md-5">\n            <a \n              href="#"\n              v-on:click="changeType(\'monthly\', $event)"\n              v-bind:class="[donation_type == \'monthly\' ? \'donate_landing__type donate_landing__type--active\' : \'donate_landing__type\' ]"\n            >\n              {{monthly}}\n            </a>\n            \n            <a\n              href="#" \n              v-on:click="changeType(\'once\', $event)"\n              v-bind:class="[donation_type == \'once\' ? \'donate_landing__type donate_landing__type--active\' : \'donate_landing__type\' ]"\n            >\n            {{once}}\n          </a>\n          </div>\n\n        <div class="col-xs-12 next-section-group">\n          <button class="donate_landing__submit pull-left" v-on:click.prevent="nextSection">\n            {{texts.sectionOne.btn}}\n          </button>\n\n          <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type == \'monthly\' ? monthly : once}}</span>\n        </div>\n      </div> <!-- donate_landing__section-1 -->\n\n      <div class="stripe-info donate_landing__section donate_landing__section-2" >\n        <div class="donate_landing__section__title col-sm-12">\n          <h3 class="color-red">{{texts.sectionTwo.title}}</h3>\n          <p>{{texts.sectionTwo.content}}</p>\n        </div>\n\n           <div class="row">\n\n          <div class="form-group col-sm-12 donate_landing__cards">\n            <img \n              v-bind:class="{\'card-type--active\': card.Visa}" \n              class="card-type" \n              :src="cardSrc.Visa" \n            >\n\n            <img\n              v-bind:class="{\'card-type--active\': card.MasterCard}" \n              class="card-type" \n              :src="cardSrc.MasterCard" \n            >\n\n            <img \n              v-bind:class="{\'card-type--active\': card.DinersClub}" \n              class="card-type" \n              :src="cardSrc.DinersClub" \n            >\n            \n            <img \n              v-bind:class="{\'card-type--active\': card.AmericanExpress}" \n              class="card-type" \n              :src="cardSrc.AmericanExpress" \n            >\n\n            <img \n              v-bind:class="{\'card-type--active\': card.Discover}" \n              class="card-type" \n              :src="cardSrc.Discover" \n            >\n          </div>\n        \n        </div>\n\n        <div class="form-group col-sm-12">\n          <input\n            type="text"\n            v-on:keyup="[cleanNumber(\'stripe.number\'), maxLength(\'stripe.number\', 16), showCard(), cardValidation({type: \'validateCardNumber\', field: \'stripe.number\'})]"\n            class="form-control form-control--outline"\n            v-bind:class="{\'form-group--error\': errors.stripe.number}"\n            v-model="stripe.number"\n            placeholder="{{placeholders.creditCard}}"\n          >\n\n          <span class="form-group__error" v-if="errors.stripe.number">\n            {{validationMessages.card}}\n          </span>\n        </div>\n\n        <div class="form-group col-xs-4">\n          <input\n            type="text"\n            v-on:keyup="[cleanNumber(\'stripe.exp_month\'), maxLength(\'stripe.exp_month\', 2), expiryValidation(\'month\')]"\n            class="form-control form-control--outline"\n            v-bind:class="{\'form-group--error\': errors.stripe.exp_month}"\n            style="text-align: center;"\n            placeholder="{{placeholders.month}}"\n            v-model="stripe.exp_month"\n          >\n\n          <span class="form-group__error" v-if="errors.stripe.exp_month">\n            {{validationMessages.month}}  \n          </span> \n        </div>\n\n        <div class="form-group col-xs-4" >\n          <input\n            type="text"\n            v-on:keyup="[expiryValidation(\'year\'), cleanNumber(\'stripe.exp_year\'), maxLength(\'stripe.exp_year\', 2)]"\n            class="form-control form-control--outline"\n            v-bind:class="{\'form-group--error\': errors.stripe.exp_year}"\n            style="text-align: center;"\n            placeholder="{{placeholders.year}}"\n            v-model="stripe.exp_year"\n          >\n\n           <span class="form-group__error" v-if="errors.stripe.exp_year">\n             {{validationMessages.year}}\n           </span>\n        </div>\n\n        <div class="form-group col-xs-4">\n          <input\n            type="text"\n            v-on:keyup="[cardValidation({type: \'validateCVC\', field: \'stripe.cvc\'}), cleanNumber(\'stripe.cvc\'), maxLength(\'stripe.cvc\', 4)]"\n            class="form-control form-control--outline"\n            v-bind:class="{\'form-group--error\': errors.stripe.cvc}"\n            style="text-align: center;"\n            v-model="stripe.cvc"\n            placeholder="{{placeholders.cvc}}"\n          >\n           <span class="form-group__error" v-if="errors.stripe.cvc">\n             {{validationMessages.cvc}}\n           </span>\n        </div>\n\n        <div class="col-md-12 form-group next-section-group">\n            <button \n              class="donate_landing__submit donate_landing__submit-get_token pull-left" \n              v-on:click.prevent="getToken" \n              :disabled="loading"\n            >\n            \t{{loading ? placeholders.loading : texts.sectionTwo.btn}}\n            </button>\n\n             <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type == \'monthly\' ? monthly : once}}</span>\n\n            <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"> < {{backText}}</button>\n            </div>\n\n\t\t\t<div class="form-group col-sm-12">\n\t\t\t\t<div class="alert alert-danger" v-if="declined">\n\t\t\t\t\t{{validationMessages.declined}}\n\t\t\t\t</div>\n\t\t\t</div>\n      </div><!-- donate_landing__section-2 -->\n\n\n    <div class="donate_landing__section donate_landing__section-3" >\n      <div class="donate_landing__section__title col-sm-12">\n        <h3 class="color-red">{{texts.sectionThree.title}}</h3>\n        <p>{{texts.sectionThree.content}}</p>\n      </div>\n        <div class="col-sm-12">\n          <div class="form-group ">\n            <input\n\t\t\t\t\t\t\tv-on:keyup="validateContact(\'name\')"\n              type="text"\n              name="name"\n              class="form-control form-control--outline"\n\t\t\t\t\t\t\tv-bind:class="{\'form-group--error\': errors.contact.name}"\n              placeholder="{{placeholders.name}}"\n              v-model="contact.name"\n              >\n               <span class="form-group__error" v-if="errors.contact.name">\n                 {{validationMessages.name}}\n              </span>\n          </div>\n        </div>\n\n        <div class="col-sm-12">\n          <div class="form-group">\n            <input\n\t\t\t\t\t\t\tv-on:keyup="validateContact(\'email\')"\n              type="text"\n              name="email"\n              class="form-control form-control--outline"\n\t\t\t\t\t\t\tv-bind:class="{\'form-group--error\': errors.contact.email}"\n              placeholder="{{placeholders.email}}"\n              v-model="contact.email"\n            >\n\n            <span class="form-group__error" v-if="errors.contact.email">\n               {{validationMessages.email}}\n            </span>\n          </div>\n        </div>\n\n        <div class="col-sm-12">\n          <div class="form-group">\n            <select \n\t\t\t\t\t\t\tclass="form-control form-control--outline"\n\t\t\t\t\t\t\tv-bind:class="{\'form-group--error\': errors.contact.country}"\n\t\t\t\t\t\t\tname="country" \n\t\t\t\t\t\t\tv-model="contact.country"\n\t\t\t\t\t\t>\n                <option value="{{country}}" v-for="country in countries">{{country}}</option>\n            </select>\n            <span class="form-group__error" v-if="errors.contact.country">\n               {{validationMessages.country}}\n            </span>\n          </div>\n        </div>\n  \n      <div class="col-md-12">\n        \n        <button \n          class="donate_landing__submit pull-left" \n          v-on:click.prevent="onSubmit" \n          :disabled="loading"\n        >\n          {{loading ? placeholders.loading : texts.sectionThree.btn}}\n        </button>\n        <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>\n        <button v-on:click.prevent="backSection" class="donate_landing__back pull-right">{{backText}}</button>\n      </div>\n\t\t\t<div class="form-group col-sm-12">\n\t\t\t\t<div class="alert alert-danger" v-if="declined">\n\t\t\t\t\t{{validationMessages.declined}}\n\t\t\t\t</div>\n\t\t\t</div>\n    </div><!-- donate_landing__section-3 -->\n    </div><!-- viewport -->\n\n  </div> <!-- success -->\n  <div class="form-group col-xs-12">\n    <div class="pro-bar">\n      <div class="pro-bar__status" v-bind:style="{width: progress}"></div>\n    </div>\n  </div>\n\n   <div class="form-group col-sm-12" v-if="section == 1">\n      <a style="padding-top: 30px" v-bind:href="link.anchor">\n        <h4 class="color-red">{{link.text}}</h4> <i class="ion-chevron-down color-red"></i>\n      </a>\n    </div>\n\n  </form>\n\n  </div>\n\t'
+		};
+	};
 
 /***/ }
 /******/ ]);
