@@ -290,14 +290,14 @@ export default () => ({
 			evt.preventDefault();
 			this.donation_type = type;
 		},
-
+		handleSubmit(e) {
+			e.preventDefault();
+			this.getToken();
+			this.onSubmit();
+		},
 	},
 
-	handleSubmit(e) {
-		e.preventDefault();
-		this.getToken();
-		this.onSubmit();
-	},
+
 
 	template: `
     <form method="post" class="donate_landing">
