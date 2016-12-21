@@ -4782,6 +4782,7 @@
 			},
 			ready: function ready() {
 				$(this.$el).find('.donate_landing__viewport').css({ 'display': 'block' });
+				$(this.$el).find('.donate_landing__section__title').css({ 'margin-bottom': '0' });
 				this.contact.country = this.country;
 			},
 
