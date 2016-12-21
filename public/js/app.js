@@ -4925,7 +4925,7 @@
 					    token = this.stripe.token;
 
 					var data = _extends({}, contact, { currency: currency, amount: amount, donation_type: donation_type, stripe_token: token });
-					console.log(this.stripe);
+					console.log(this.$get('stripe.token'));
 					this.contactValidations();
 					this.toggleLoading();
 
