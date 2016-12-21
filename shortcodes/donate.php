@@ -239,7 +239,7 @@ function bs_donate_vc() {
        "type" => "checkbox",
         "heading" => "vertical",
         "param_name" => "vertical",
-        "value" => 'false'
+        "value" => false
     ));
 
   vc_map(
