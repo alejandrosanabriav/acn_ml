@@ -1,6 +1,7 @@
 'use strict';
 import validator from 'validator';
 import validateStripe from '../stripe/validation';
+import infusionContact from '../lib/infusion_contact';
 
 const componentData = {
 	donation_type: 'monthly',
@@ -88,16 +89,6 @@ export default () => ({
 	},
 
 	methods: {
-		addStylesToNodes(parent) {
-			let nodes = $(parent).find('.donate_landing__section');
-			let count = 100 / nodes.length;
-			nodes.css({width: `${count}%`, float: 'left'});
-		},
-
-		setViewportWidth(parent) {
-			$(parent).find('.donate_landing__viewport').css('width', '300%');
-		},
-
 		showCard() {
 			Object.keys(this.card).map(key => {
 				if (key === this.cardType) {
@@ -184,7 +175,6 @@ export default () => ({
 
 		showStripeErrors() {
 			this.$set('errors.stripe', validateStripe(this.stripe).errors);
-			this.changeViewportHeight(2);
 		},
 
 		removeErrors() {
@@ -201,6 +191,8 @@ export default () => ({
 			if (validateStripe(this.stripe).success) {
 				this.removeErrors();
 				this.createToken();
+			} else {
+				this.showStripeErrors();
 			}
 		},
 
@@ -213,7 +205,7 @@ export default () => ({
 		},
 		
 		onSubmit(e) {
-			if(e) e.preventDefault();
+			e.preventDefault();
 			const { contact, currency, amount, donation_type, stripe: {token} } = this;
 			let data = { ...contact, currency, amount, donation_type, stripe_token: token};
 
@@ -223,36 +215,40 @@ export default () => ({
 			if(this.isValid()) {
 				
 				this.stripeCharge(data)
-				.then(response => {
-					if (response.id) {
-						return this.infusion(contact)
-						.then(() => {
-							return $.Deferred().resolve(response);
-						});
-					} else {
-						this.declined = true;
-						this.toggleLoading();
-					}
-				})
-				.then(response => {
-					const {id, customer} = response;
-					const {donation_type, amount} = this;
-
-					ga('ecommerce:addTransaction', {
-						'id': `${this.contact.email}-${id}`,                     // Transaction ID. Required.
-						'affiliation': 'ACN International',   // Affiliation or store name.
-						'revenue': amount,
-						'currency': 'USD'
-					});
-
-					ga('ecommerce:send');
-					let url = `${this.redirect[donation_type]}?customer_id=${customer}-${id}&order_revenue=${amount}&order_id=${id}`;
-					window.location = url;
-				});
+				.then(this.handleChargeResponse)
+				.then(this.handleCharge);
 
 			} else {
 				this.toggleLoading();
 			}
+		},
+
+		handleChargeResponse(response) {
+			const { contact } = this;
+			if (response.id) {
+				return this.infusion(contact).then(() => {
+					return $.Deferred().resolve(response);
+				});
+			} else {
+				this.declined = true;
+				this.toggleLoading();
+			}
+		},
+
+		handleCharge(response) {
+			const {id, customer} = response;
+			const {donation_type, amount} = this;
+
+			ga('ecommerce:addTransaction', {
+				'id': `${this.contact.email}-${id}`,                     // Transaction ID. Required.
+				'affiliation': 'ACN International',   // Affiliation or store name.
+				'revenue': amount,
+				'currency': 'USD'
+			});
+
+			ga('ecommerce:send');
+			let url = `${this.redirect[donation_type]}?customer_id=${customer}-${id}&order_revenue=${amount}&order_id=${id}`;
+			window.location = url;
 		},
 
 		stripeCharge(data) {
@@ -274,25 +270,20 @@ export default () => ({
 			if(this.donation_type == 'monthly') tags = '870';
 			if(this.donation_type == 'once') tags = '868';
 
-			return $.ajax({
-				url: '/wp-admin/admin-ajax.php',
-				type: 'post',
-				data: { action: 'infusion_contact', data: {...contact, tags} }
-			});
-
+			infusionContact(contact, tags);
 		},
 
 		changeType(type, evt) {
 			evt.preventDefault();
 			this.donation_type = type;
 		},
+
 		handleSubmit(e) {
 			e.preventDefault();
-			this.getToken();
-			this.onSubmit();
+			this.getToken()
+			.then(this.onSubmit);
 		},
 	},
-
 
 
 	template: `

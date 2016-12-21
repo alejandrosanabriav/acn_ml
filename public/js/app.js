@@ -4721,6 +4721,10 @@
 
 	var _validation2 = _interopRequireDefault(_validation);
 
+	var _infusion_contact = __webpack_require__(113);
+
+	var _infusion_contact2 = _interopRequireDefault(_infusion_contact);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var componentData = {
@@ -4798,14 +4802,6 @@
 			},
 
 			methods: {
-				addStylesToNodes: function addStylesToNodes(parent) {
-					var nodes = $(parent).find('.donate_landing__section');
-					var count = 100 / nodes.length;
-					nodes.css({ width: count + '%', float: 'left' });
-				},
-				setViewportWidth: function setViewportWidth(parent) {
-					$(parent).find('.donate_landing__viewport').css('width', '300%');
-				},
 				showCard: function showCard() {
 					var _this2 = this;
 
@@ -4895,7 +4891,6 @@
 				},
 				showStripeErrors: function showStripeErrors() {
 					this.$set('errors.stripe', (0, _validation2.default)(this.stripe).errors);
-					this.changeViewportHeight(2);
 				},
 				removeErrors: function removeErrors() {
 					this.errors = _extends({}, componentData.errors);
@@ -4909,6 +4904,8 @@
 					if ((0, _validation2.default)(this.stripe).success) {
 						this.removeErrors();
 						this.createToken();
+					} else {
+						this.showStripeErrors();
 					}
 				},
 				isValid: function isValid() {
@@ -4920,9 +4917,7 @@
 					return errs.length == 0;
 				},
 				onSubmit: function onSubmit(e) {
-					var _this5 = this;
-
-					if (e) e.preventDefault();
+					e.preventDefault();
 					var contact = this.contact,
 					    currency = this.currency,
 					    amount = this.amount,
@@ -4936,39 +4931,43 @@
 
 					if (this.isValid()) {
 
-						this.stripeCharge(data).then(function (response) {
-							if (response.id) {
-								return _this5.infusion(contact).then(function () {
-									return $.Deferred().resolve(response);
-								});
-							} else {
-								_this5.declined = true;
-								_this5.toggleLoading();
-							}
-						}).then(function (response) {
-							var id = response.id,
-							    customer = response.customer;
-							var donation_type = _this5.donation_type,
-							    amount = _this5.amount;
-
-
-							ga('ecommerce:addTransaction', {
-								'id': _this5.contact.email + '-' + id, // Transaction ID. Required.
-								'affiliation': 'ACN International', // Affiliation or store name.
-								'revenue': amount,
-								'currency': 'USD'
-							});
-
-							ga('ecommerce:send');
-							var url = _this5.redirect[donation_type] + '?customer_id=' + customer + '-' + id + '&order_revenue=' + amount + '&order_id=' + id;
-							window.location = url;
-						});
+						this.stripeCharge(data).then(this.handleChargeResponse).then(this.handleCharge);
 					} else {
 						this.toggleLoading();
 					}
 				},
+				handleChargeResponse: function handleChargeResponse(response) {
+					var contact = this.contact;
+
+					if (response.id) {
+						return this.infusion(contact).then(function () {
+							return $.Deferred().resolve(response);
+						});
+					} else {
+						this.declined = true;
+						this.toggleLoading();
+					}
+				},
+				handleCharge: function handleCharge(response) {
+					var id = response.id,
+					    customer = response.customer;
+					var donation_type = this.donation_type,
+					    amount = this.amount;
+
+
+					ga('ecommerce:addTransaction', {
+						'id': this.contact.email + '-' + id, // Transaction ID. Required.
+						'affiliation': 'ACN International', // Affiliation or store name.
+						'revenue': amount,
+						'currency': 'USD'
+					});
+
+					ga('ecommerce:send');
+					var url = this.redirect[donation_type] + '?customer_id=' + customer + '-' + id + '&order_revenue=' + amount + '&order_id=' + id;
+					window.location = url;
+				},
 				stripeCharge: function stripeCharge(data) {
-					var _this6 = this;
+					var _this5 = this;
 
 					return $.ajax({
 						url: '/wp-admin/admin-ajax.php',
@@ -4978,7 +4977,7 @@
 							data: data
 						},
 						beforeSend: function beforeSend() {
-							_this6.removeErrors();
+							_this5.removeErrors();
 						}
 					});
 				},
@@ -4987,11 +4986,7 @@
 					if (this.donation_type == 'monthly') tags = '870';
 					if (this.donation_type == 'once') tags = '868';
 
-					return $.ajax({
-						url: '/wp-admin/admin-ajax.php',
-						type: 'post',
-						data: { action: 'infusion_contact', data: _extends({}, contact, { tags: tags }) }
-					});
+					(0, _infusion_contact2.default)(contact, tags);
 				},
 				changeType: function changeType(type, evt) {
 					evt.preventDefault();
@@ -4999,14 +4994,35 @@
 				},
 				handleSubmit: function handleSubmit(e) {
 					e.preventDefault();
-					this.getToken();
-					this.onSubmit();
+					this.getToken().then(this.onSubmit);
 				}
 			},
 
 			template: '\n    <form method="post" class="donate_landing">\n      <div class="donate_landing__viewport">\n\t\t\t\n      <div class="donate_landing__section donate_landing__section-1">\n        <div class="donate_landing__section__title col-sm-12">\n          <h3 class="color-red">{{texts.sectionOne.title}}</h3>\n          <p>{{texts.sectionOne.content}}</p>\n        </div>\n      \n        <change-amount other="Other"></change-amount>\n\n          <div class="form-group col-md-7 col-sm-8" style="float: left">\n            <div class="input-group col-sm-12" >\n              <div class="input-group-addon">USD</div>\n              <input\n                type="text"\n                class="form-control"\n                v-model="amount"\n                v-el:amount-input\n                v-on:keyup="cleanNumber(\'amount\')"\n                placeholder="{{placeholders.amount}}"\n              >\n            </div>\n          </div>\n\n          <div class="col-md-5">\n            <a \n              href="#"\n              v-on:click="changeType(\'monthly\', $event)"\n              v-bind:class="[donation_type == \'monthly\' ? \'donate_landing__type donate_landing__type--active\' : \'donate_landing__type\' ]"\n            >\n              {{monthly}}\n            </a>\n            \n            <a\n              href="#" \n              v-on:click="changeType(\'once\', $event)"\n              v-bind:class="[donation_type == \'once\' ? \'donate_landing__type donate_landing__type--active\' : \'donate_landing__type\' ]"\n            >\n            {{once}}\n          </a>\n          </div>\n\n\n      </div> <!-- donate_landing__section-1 -->\n\n      <div class="stripe-info donate_landing__section donate_landing__section-2" >\n        <div class="donate_landing__section__title col-sm-12">\n          <h3 class="color-red">{{texts.sectionTwo.title}}</h3>\n          <p>{{texts.sectionTwo.content}}</p>\n        </div>\n\n           <div class="row">\n\n          <div class="form-group col-sm-12 donate_landing__cards">\n            <img \n              v-bind:class="{\'card-type--active\': card.Visa}" \n              class="card-type" \n              :src="cardSrc.Visa" \n            >\n\n            <img\n              v-bind:class="{\'card-type--active\': card.MasterCard}" \n              class="card-type" \n              :src="cardSrc.MasterCard" \n            >\n\n            <img \n              v-bind:class="{\'card-type--active\': card.DinersClub}" \n              class="card-type" \n              :src="cardSrc.DinersClub" \n            >\n            \n            <img \n              v-bind:class="{\'card-type--active\': card.AmericanExpress}" \n              class="card-type" \n              :src="cardSrc.AmericanExpress" \n            >\n\n            <img \n              v-bind:class="{\'card-type--active\': card.Discover}" \n              class="card-type" \n              :src="cardSrc.Discover" \n            >\n          </div>\n        \n        </div>\n\n        <div class="form-group col-sm-12">\n          <input\n            type="text"\n            v-on:keyup="[cleanNumber(\'stripe.number\'), maxLength(\'stripe.number\', 16), showCard(), cardValidation({type: \'validateCardNumber\', field: \'stripe.number\'})]"\n            class="form-control form-control--outline"\n            v-bind:class="{\'form-group--error\': errors.stripe.number}"\n            v-model="stripe.number"\n            placeholder="{{placeholders.creditCard}}"\n          >\n\n          <span class="form-group__error" v-if="errors.stripe.number">\n            {{validationMessages.card}}\n          </span>\n        </div>\n\n        <div class="form-group col-xs-4">\n          <input\n            type="text"\n            v-on:keyup="[cleanNumber(\'stripe.exp_month\'), maxLength(\'stripe.exp_month\', 2), expiryValidation(\'month\')]"\n            class="form-control form-control--outline"\n            v-bind:class="{\'form-group--error\': errors.stripe.exp_month}"\n            style="text-align: center;"\n            placeholder="{{placeholders.month}}"\n            v-model="stripe.exp_month"\n          >\n\n          <span class="form-group__error" v-if="errors.stripe.exp_month">\n            {{validationMessages.month}}  \n          </span> \n        </div>\n\n        <div class="form-group col-xs-4" >\n          <input\n            type="text"\n            v-on:keyup="[expiryValidation(\'year\'), cleanNumber(\'stripe.exp_year\'), maxLength(\'stripe.exp_year\', 2)]"\n            class="form-control form-control--outline"\n            v-bind:class="{\'form-group--error\': errors.stripe.exp_year}"\n            style="text-align: center;"\n            placeholder="{{placeholders.year}}"\n            v-model="stripe.exp_year"\n          >\n\n           <span class="form-group__error" v-if="errors.stripe.exp_year">\n             {{validationMessages.year}}\n           </span>\n        </div>\n\n        <div class="form-group col-xs-4">\n          <input\n            type="text"\n            v-on:keyup="[cardValidation({type: \'validateCVC\', field: \'stripe.cvc\'}), cleanNumber(\'stripe.cvc\'), maxLength(\'stripe.cvc\', 4)]"\n            class="form-control form-control--outline"\n            v-bind:class="{\'form-group--error\': errors.stripe.cvc}"\n            style="text-align: center;"\n            v-model="stripe.cvc"\n            placeholder="{{placeholders.cvc}}"\n          >\n           <span class="form-group__error" v-if="errors.stripe.cvc">\n             {{validationMessages.cvc}}\n           </span>\n        </div>\n\n    \n\n\t\t\t<div class="form-group col-sm-12">\n\t\t\t\t<div class="alert alert-danger" v-if="declined">\n\t\t\t\t\t{{validationMessages.declined}}\n\t\t\t\t</div>\n\t\t\t</div>\n      </div><!-- donate_landing__section-2 -->\n\n\n    <div class="donate_landing__section donate_landing__section-3" >\n      <div class="donate_landing__section__title col-sm-12">\n        <h3 class="color-red">{{texts.sectionThree.title}}</h3>\n        <p>{{texts.sectionThree.content}}</p>\n      </div>\n        <div class="col-sm-12">\n          <div class="form-group ">\n            <input\n\t\t\t\t\t\t\tv-on:keyup="validateContact(\'name\')"\n              type="text"\n              name="name"\n              class="form-control form-control--outline"\n\t\t\t\t\t\t\tv-bind:class="{\'form-group--error\': errors.contact.name}"\n              placeholder="{{placeholders.name}}"\n              v-model="contact.name"\n              >\n               <span class="form-group__error" v-if="errors.contact.name">\n                 {{validationMessages.name}}\n              </span>\n          </div>\n        </div>\n\n        <div class="col-sm-12">\n          <div class="form-group">\n            <input\n\t\t\t\t\t\t\tv-on:keyup="validateContact(\'email\')"\n              type="text"\n              name="email"\n              class="form-control form-control--outline"\n\t\t\t\t\t\t\tv-bind:class="{\'form-group--error\': errors.contact.email}"\n              placeholder="{{placeholders.email}}"\n              v-model="contact.email"\n            >\n\n            <span class="form-group__error" v-if="errors.contact.email">\n               {{validationMessages.email}}\n            </span>\n          </div>\n        </div>\n\n        <div class="col-sm-12">\n          <div class="form-group">\n            <select \n\t\t\t\t\t\t\tclass="form-control form-control--outline"\n\t\t\t\t\t\t\tv-bind:class="{\'form-group--error\': errors.contact.country}"\n\t\t\t\t\t\t\tname="country" \n\t\t\t\t\t\t\tv-model="contact.country"\n\t\t\t\t\t\t>\n                <option value="{{country}}" v-for="country in countries">{{country}}</option>\n            </select>\n            <span class="form-group__error" v-if="errors.contact.country">\n               {{validationMessages.country}}\n            </span>\n          </div>\n        </div>\n  \n      <div class="col-md-12">\n        \n        <button \n          class="donate_landing__submit pull-left" \n          v-on:click.prevent="handleSubmit" \n          :disabled="loading"\n        >\n          {{loading ? placeholders.loading : texts.sectionThree.btn}}\n        </button>\n        <span class="donate_landing__info pull-left">{{amount}} USD {{donation_type}}</span>\n      </div>\n\t\t\t<div class="form-group col-sm-12">\n\t\t\t\t<div class="alert alert-danger" v-if="declined">\n\t\t\t\t\t{{validationMessages.declined}}\n\t\t\t\t</div>\n\t\t\t</div>\n    </div><!-- donate_landing__section-3 -->\n    </div><!-- viewport -->\n\n  </div> <!-- success -->\n\n   <div class="form-group col-sm-12" v-if="section == 1">\n      <a style="padding-top: 30px" v-bind:href="link.anchor">\n        <h4 class="color-red">{{link.text}}</h4> <i class="ion-chevron-down color-red"></i>\n      </a>\n    </div>\n\n  </form>\n\n  </div>\n\t'
 		};
 	};
+
+/***/ },
+/* 112 */,
+/* 113 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.default = createInfusionContact;
+	function createInfusionContact(contact, tags) {
+		return $.ajax({
+			url: '/wp-admin/admin-ajax.php',
+			type: 'post',
+			data: { action: 'infusion_contact', data: _extends({}, contact, { tags: tags }) }
+		});
+	}
 
 /***/ }
 /******/ ]);
