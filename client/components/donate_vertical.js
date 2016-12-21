@@ -68,7 +68,7 @@ export default () => ({
 	},
 
 	ready() {
-		console.log($(this.$el).find('.donate_landing__viewport'));
+		console.log('ready', $(this.$el).find('.donate_landing__viewport'));
 		$(this.$el).find('.donate_landing__viewport').css({'display': 'block'});
 		this.contact.country = this.country;
 	},
