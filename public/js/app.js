@@ -5003,7 +5003,8 @@
 				}
 			},
 
-			handleSubmit: function handleSubmit() {
+			handleSubmit: function handleSubmit(e) {
+				e.preventDefault();
 				this.getToken();
 				this.onSubmit();
 			},

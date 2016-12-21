@@ -293,7 +293,8 @@ export default () => ({
 
 	},
 
-	handleSubmit() {
+	handleSubmit(e) {
+		e.preventDefault();
 		this.getToken();
 		this.onSubmit();
 	},
