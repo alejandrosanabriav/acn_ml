@@ -15,8 +15,8 @@ const amount = React.createClass({
 
 	changeAmount(amount,e) {
 		if(e) e.preventDefault();
-		let el = e.currentTarget;
-		console.log(el, amount);
+		let el = this.refs.amountInput;
+		console.log(this.refs.amountInput, amount);
 		if(amount == 5) el.focus();
 		this.setState({amount});
 	},
@@ -37,7 +37,7 @@ const amount = React.createClass({
 					<li> <a href="#" onClick={this.changeAmount.bind(null, 100)}>100</a> </li>
 					<li> <a href="#" onClick={this.changeAmount.bind(null, 5)}>{this.props.other}</a> </li>
 				</ul>
-				<input type="text" onChange={this.handleAmount} value={this.state.amount} />
+				<input ref="amountInput" type="text" onChange={this.handleAmount} value={this.state.amount} />
 			</div>
 		)
 	}

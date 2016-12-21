@@ -9162,8 +9162,8 @@
 		},
 		changeAmount: function changeAmount(amount, e) {
 			if (e) e.preventDefault();
-			var el = e.currentTarget;
-			console.log(el, amount);
+			var el = this.refs.amountInput;
+			console.log(this.refs.amountInput, amount);
 			if (amount == 5) el.focus();
 			this.setState({ amount: amount });
 		},
@@ -9235,7 +9235,7 @@
 						' '
 					)
 				),
-				_react2.default.createElement('input', { type: 'text', onChange: this.handleAmount, value: this.state.amount })
+				_react2.default.createElement('input', { ref: 'amountInput', type: 'text', onChange: this.handleAmount, value: this.state.amount })
 			);
 		}
 	});
