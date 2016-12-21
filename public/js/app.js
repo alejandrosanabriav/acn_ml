@@ -4777,11 +4777,7 @@
 				});
 			},
 			ready: function ready() {
-				var $el = this.$el;
-				this.addStylesToNodes($el);
-				this.setViewportWidth($el);
-				var firstNode = $($el).find('.donate_landing__section-1');
-				$($el).find('.donate_landing__viewport').css({ height: firstNode.offsetHeight + 'px' });
+				$('.donate_landing__viewport').css({ 'display': 'block' });
 				this.contact.country = this.country;
 			},
 
