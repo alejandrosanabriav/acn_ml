@@ -37,7 +37,7 @@ const amount = React.createClass({
 		let props = a.getAttribute('data-props');
 		let texts = this.state.texts;
 		try {	
-			props = JSON.parse(props);
+			props = JSON.parse(JSON.stringify(props));
 			texts = {...texts,  ...props};
 			console.log(texts);
 			this.setState({texts});
