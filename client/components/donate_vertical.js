@@ -69,7 +69,6 @@ export default () => ({
 	},
 
 	ready() {
-		console.log('ready', $(this.$el).find('.donate_landing__viewport'));
 		$(this.$el).find('.donate_landing__viewport').css({'display': 'block'});
 		this.contact.country = this.country;
 	},
@@ -202,7 +201,6 @@ export default () => ({
 			let contactErrs = this.errors.contact;
 			let errs = Object.keys(contactErrs)
 				.filter(field => contactErrs[field] == true);
-
 			return errs.length == 0;
 		},
 		
@@ -210,7 +208,7 @@ export default () => ({
 			if(e) e.preventDefault();
 			const { contact, currency, amount, donation_type, stripe: {token} } = this;
 			let data = { ...contact, currency, amount, donation_type, stripe_token: token};
-
+			console.log(token);
 			this.contactValidations();
 			this.toggleLoading();
 			

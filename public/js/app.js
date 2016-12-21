@@ -4781,7 +4781,6 @@
 				});
 			},
 			ready: function ready() {
-				console.log('ready', $(this.$el).find('.donate_landing__viewport'));
 				$(this.$el).find('.donate_landing__viewport').css({ 'display': 'block' });
 				this.contact.country = this.country;
 			},
@@ -4915,7 +4914,6 @@
 					var errs = Object.keys(contactErrs).filter(function (field) {
 						return contactErrs[field] == true;
 					});
-
 					return errs.length == 0;
 				},
 				onSubmit: function onSubmit(e) {
@@ -4927,7 +4925,7 @@
 					    token = this.stripe.token;
 
 					var data = _extends({}, contact, { currency: currency, amount: amount, donation_type: donation_type, stripe_token: token });
-
+					console.log(token);
 					this.contactValidations();
 					this.toggleLoading();
 
