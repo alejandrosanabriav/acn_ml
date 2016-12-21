@@ -4,7 +4,8 @@ function bs_donate_react_sc($atts, $content = null) {
 		 "other" => "Otro",
 		 "monthly" => "Mensual",
 		 "once" => "Una vez"
-	 ]);
+	 ], $atts);
+
 	ob_start();
 ?>
 
