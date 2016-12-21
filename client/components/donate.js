@@ -227,7 +227,7 @@ export default () => ({
 		},
 		
 		onSubmit(e) {
-			if(e) e.preventDefault();
+			e.preventDefault();
 			const { contact, currency, amount, donation_type, stripe: {token} } = this;
 			let data = { ...contact, currency, amount, donation_type, stripe_token: token};
 
@@ -338,8 +338,7 @@ export default () => ({
 		}
 	},
 
-	handleSubmit(e) {
-		e.preventDefault();
+	handleSubmit() {
 		if(this.vertical !== 'true') {
 			this.onSubmit();
 		} else {
@@ -592,7 +591,7 @@ export default () => ({
         
         <button 
           class="donate_landing__submit pull-left" 
-          v-on:click.prevent="handleSubmit"
+          v-on:click.prevent="onSubmit" 
           :disabled="loading"
         >
           {{loading ? placeholders.loading : texts.sectionThree.btn}}
