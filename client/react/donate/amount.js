@@ -35,9 +35,12 @@ const amount = React.createClass({
 	componentDidMount() {
 		let a = document.getElementById('bs-donate-react');
 		let props = a.getAttribute('data-props');
+		let texts = this.state.texts;
 		try {	
 			props = JSON.parse(props);
-			this.setState({texts: {...this.state.texts,  ...props}});
+			texts = {...texts,  ...props};
+			console.log(texts);
+			this.setState({texts});
 		} catch(err) {
 			console.log(err);
 		}

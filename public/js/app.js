@@ -9182,9 +9182,12 @@
 		componentDidMount: function componentDidMount() {
 			var a = document.getElementById('bs-donate-react');
 			var props = a.getAttribute('data-props');
+			var texts = this.state.texts;
 			try {
 				props = JSON.parse(props);
-				this.setState({ texts: _extends({}, this.state.texts, props) });
+				texts = _extends({}, texts, props);
+				console.log(texts);
+				this.setState({ texts: texts });
 			} catch (err) {
 				console.log(err);
 			}
