@@ -72,6 +72,8 @@ export default () => ({
 		if(this.vertical == 'false') {
 			this.addStylesToNodes($el);
 			this.setViewportWidth($el);
+		} else {
+			$('.donate_landing__viewport').css({'display': 'block'});
 		}
 
 		let firstNode = $($el).find('.donate_landing__section-1');
