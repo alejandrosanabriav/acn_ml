@@ -2,6 +2,7 @@
 
 function bs_donate_sc($atts, $content = null) {
   $at = shortcode_atts( array(
+    "vertical" => false,
     "section_title_1" => "",
     "section_content_1" => "",
     "section_btn_1" => "DONATE",
@@ -40,6 +41,7 @@ function bs_donate_sc($atts, $content = null) {
 ?>
 
 <donate-landing
+    vertical=<?php echo $at['vertical'] ?>
     donation_type="monthly"
     url="<?php echo get_template_directory_uri() ?>"
     currency="usd"
@@ -108,6 +110,7 @@ function bs_donate_sc($atts, $content = null) {
 
 function bs_donate_vc() {
   $bs_donate_sections = [];
+  
 
   foreach([1,2,3] as $section) {
 
@@ -231,6 +234,13 @@ function bs_donate_vc() {
 
       array_push($bs_donate_sections, $placeholder);
     }
+
+    array_push($bs_donate_sections, array(
+       "type" => "checkbox",
+        "heading" => "vertical",
+        "param_name" => "vertical",
+        "value" => 'false'
+    ));
 
   vc_map(
     array(
