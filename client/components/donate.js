@@ -74,6 +74,7 @@ export default () => ({
 			this.setViewportWidth($el);
 		} else {
 			$('.donate_landing__viewport').css({'display': 'block'});
+			$('.next-section-group').remove();
 		}
 
 		let firstNode = $($el).find('.donate_landing__section-1');
@@ -335,7 +336,7 @@ export default () => ({
 		}
 	},
 
-	template: `
+	template: '
     <form method="post" class="donate_landing">
       <div class="donate_landing__viewport">
 			
@@ -379,7 +380,7 @@ export default () => ({
           </a>
           </div>
 
-        <div class="col-xs-12">
+        <div class="col-xs-12 next-section-group">
           <button class="donate_landing__submit pull-left" v-on:click.prevent="nextSection">
             {{texts.sectionOne.btn}}
           </button>
@@ -492,7 +493,7 @@ export default () => ({
            </span>
         </div>
 
-        <div class="col-md-12 form-group">
+        <div class="col-md-12 form-group next-section-group">
             <button 
               class="donate_landing__submit donate_landing__submit-get_token pull-left" 
               v-on:click.prevent="getToken" 
@@ -505,6 +506,7 @@ export default () => ({
 
             <button v-on:click.prevent="backSection" class="donate_landing__back pull-right"> < {{backText}}</button>
             </div>
+
 			<div class="form-group col-sm-12">
 				<div class="alert alert-danger" v-if="declined">
 					{{validationMessages.declined}}
