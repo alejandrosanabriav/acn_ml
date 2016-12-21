@@ -139,10 +139,10 @@ export default () => ({
 			if (response.id) {
 				this.stripe.token = response.id;
 				this.declined = false;
-				return $.Deferred.resolve();
+				return $.Deferred().resolve();
 			} else {
 				this.declined = true;
-				return $.Deferred.reject();
+				return $.Deferred().reject();
 			}
 		},
  
