@@ -68,7 +68,7 @@ export default () => ({
 	},
 
 	ready() {
-		$('.donate_landing__viewport').css({'display': 'block'});
+		$(this.$el).find('.donate_landing__viewport').css({'display': 'block'});
 		this.contact.country = this.country;
 	},
 
