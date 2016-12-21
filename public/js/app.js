@@ -4989,7 +4989,7 @@
 					if (this.donation_type == 'monthly') tags = '870';
 					if (this.donation_type == 'once') tags = '868';
 
-					(0, _infusion_contact2.default)(contact, tags);
+					return (0, _infusion_contact2.default)(contact, tags);
 				},
 				changeType: function changeType(type, evt) {
 					evt.preventDefault();

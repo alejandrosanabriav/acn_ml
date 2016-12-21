@@ -273,7 +273,7 @@ export default () => ({
 			if(this.donation_type == 'monthly') tags = '870';
 			if(this.donation_type == 'once') tags = '868';
 
-			infusionContact(contact, tags);
+			return infusionContact(contact, tags);
 		},
 
 		changeType(type, evt) {
