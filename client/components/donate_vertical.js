@@ -294,15 +294,6 @@ export default () => ({
 	},
 
 	handleSubmit() {
-		if(this.vertical !== 'true') {
-			this.onSubmit();
-		} else {
-			this.allSubmit();
-		}
-			
-	},
-
-	allSubmit() {
 		this.getToken();
 		this.onSubmit();
 	},
@@ -528,7 +519,7 @@ export default () => ({
         
         <button 
           class="donate_landing__submit pull-left" 
-          v-on:click.prevent="onSubmit" 
+          v-on:click.prevent="handleSubmit" 
           :disabled="loading"
         >
           {{loading ? placeholders.loading : texts.sectionThree.btn}}
