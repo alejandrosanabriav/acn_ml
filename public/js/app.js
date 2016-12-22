@@ -26762,8 +26762,13 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	var Contact = _react2.default.createClass({
 		displayName: "Contact",
+		handleChange: function handleChange(field, e) {
+			this.props.onChange(_defineProperty({}, field, e.currentTarget.value));
+		},
 		render: function render() {
 			var texts = this.props.texts;
 
@@ -26776,7 +26781,8 @@
 					_react2.default.createElement("input", {
 						type: "text",
 						className: "form-control",
-						placeholder: texts.placeholder_name
+						placeholder: texts.placeholder_name,
+						onChange: this.handleChange.bind(null, 'name')
 					})
 				),
 				_react2.default.createElement(
@@ -26785,7 +26791,8 @@
 					_react2.default.createElement("input", {
 						type: "text",
 						className: "form-control",
-						placeholder: texts.placeholder_email
+						placeholder: texts.placeholder_email,
+						onChange: this.handleChange.bind(null, 'email')
 					})
 				)
 			);

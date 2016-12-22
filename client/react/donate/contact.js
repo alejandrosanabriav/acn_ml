@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Contact =React.createClass({
+const Contact = React.createClass({
+	handleChange(field, e) {
+		this.props.onChange({[field]: e.currentTarget.value});
+	},
+	
 	render() {
 		const {texts} = this.props;
 		return (
@@ -9,14 +13,17 @@ const Contact =React.createClass({
 					<input 
 						type="text" 
 						className="form-control" 
-						placeholder={texts.placeholder_name} 
+						placeholder={texts.placeholder_name}
+						onChange={this.handleChange.bind(null, 'name')}
 					/>
 				</div>
+
 				<div className="form-group col-sm-12">
 					<input 
 						type="text" 
 						className="form-control" 
-						placeholder={texts.placeholder_email} 
+						placeholder={texts.placeholder_email}
+						onChange={this.handleChange.bind(null, 'email')} 
 					/>
 				</div>
 				
