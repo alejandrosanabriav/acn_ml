@@ -60,7 +60,10 @@ const Donate = React.createClass({
 					onChange={this.handleChange}  
 				/>
 
-				
+				<Contact
+					{...this.state}
+					onChange={this.handleChange} 
+				 />
 			</div>
 		)
 	}

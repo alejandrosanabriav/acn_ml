@@ -25404,6 +25404,9 @@
 				_react2.default.createElement(_credit_card2.default, _extends({}, this.state, {
 					onlyNum: this.onlyNum,
 					onChange: this.handleChange
+				})),
+				_react2.default.createElement(Contact, _extends({}, this.state, {
+					onChange: this.handleChange
 				}))
 			);
 		}
