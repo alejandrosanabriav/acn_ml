@@ -25707,9 +25707,12 @@
 			e.preventDefault();
 			var stripe = this.props.stripe;
 
-			this.validateCard(stripe.number);
-			this.validateExpiry(stripe.exp_month, stripe.exp_year);
-			this.validateCvc(stripe.cvc);
+			var number = this.validateCard(stripe.number);
+			var exp_month = this.validateExpiry(stripe.exp_month, stripe.exp_year);
+			var exp_year = this.validateExpiry(stripe.exp_month, stripe.exp_year);
+			var cvc = this.validateCvc(stripe.cvc);
+			var errors = _extends({}, this.props.errors, { stripe: { number: number, exp_month: exp_month, exp_year: exp_year, cvc: cvc } });
+			this.props.onChange({ errors: errors });
 		},
 		render: function render() {
 			var _props4 = this.props,

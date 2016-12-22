@@ -67,9 +67,12 @@ const CedritCard = React.createClass({
 	allValidations(e) {
 		e.preventDefault();
 		const {stripe} = this.props;
-		this.validateCard(stripe.number);
-		this.validateExpiry(stripe.exp_month, stripe.exp_year);
-		this.validateCvc(stripe.cvc);
+		let number = this.validateCard(stripe.number);
+		let exp_month = this.validateExpiry(stripe.exp_month, stripe.exp_year);
+		let exp_year = this.validateExpiry(stripe.exp_month, stripe.exp_year);
+		let cvc = this.validateCvc(stripe.cvc);
+		let errors = {...this.props.errors, stripe: {number, exp_month, exp_year, cvc}};
+		this.props.onChange({errors});
 	},
 
 	render() {
@@ -132,7 +135,7 @@ const CedritCard = React.createClass({
 					</span>
 				</div>
 			</div>
-		<button onClick={this.allValidations}>validate</button>
+			<button onClick={this.allValidations}>validate</button>
 		</div>
 		)
 	}
