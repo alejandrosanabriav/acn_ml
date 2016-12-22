@@ -25676,7 +25676,7 @@
 			    maxLength = _props2.maxLength;
 
 			var val = onlyNum(e.currentTarget.value);
-			val = maxLength(number, 2);
+			val = maxLength(val, 2);
 			var exp_month = stripe.exp_month;
 			var exp_year = stripe.exp_year;
 			if (type == 'exp_month') exp_month = val;

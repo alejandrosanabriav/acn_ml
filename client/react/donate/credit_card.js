@@ -36,7 +36,7 @@ const CedritCard = React.createClass({
 	handleExpiry(type, e) {
 		let {stripe, onlyNum, maxLength} = this.props;
 		let val = onlyNum(e.currentTarget.value);
-		val =  maxLength(number, 2);
+		val =  maxLength(val, 2);
 		let exp_month = stripe.exp_month;
 		let exp_year = stripe.exp_year;
 		if(type == 'exp_month') exp_month = val;
