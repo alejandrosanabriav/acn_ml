@@ -21,19 +21,21 @@ const CedritCard = React.createClass({
 					className="form-control" 
 				/>
 			</div>
-			<div className="form-group col-md-4">
-				<input 
-					type="text" 
-					placeholder={texts.year_placeholder} 
-					className="form-control" 
+			<div className="row">
+				<div className="form-group col-md-4">
+					<input 
+						type="text" 
+						placeholder={texts.year_placeholder} 
+						className="form-control" 
+					/>
+				</div>
+				<div className="form-group col-md-4">
+					<input 
+						type="text" 
+						placeholder={texts.cvc_placeholder} 
+						className="form-control" 
 				/>
 			</div>
-			<div className="form-group col-md-4">
-				<input 
-					type="text" 
-					placeholder={texts.cvc_placeholder} 
-					className="form-control" 
-				/>
 			</div>
 		</div>
 		)

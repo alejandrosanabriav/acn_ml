@@ -25587,21 +25587,25 @@
 				),
 				_react2.default.createElement(
 					"div",
-					{ className: "form-group col-md-4" },
-					_react2.default.createElement("input", {
-						type: "text",
-						placeholder: texts.year_placeholder,
-						className: "form-control"
-					})
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-md-4" },
-					_react2.default.createElement("input", {
-						type: "text",
-						placeholder: texts.cvc_placeholder,
-						className: "form-control"
-					})
+					{ className: "row" },
+					_react2.default.createElement(
+						"div",
+						{ className: "form-group col-md-4" },
+						_react2.default.createElement("input", {
+							type: "text",
+							placeholder: texts.year_placeholder,
+							className: "form-control"
+						})
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "form-group col-md-4" },
+						_react2.default.createElement("input", {
+							type: "text",
+							placeholder: texts.cvc_placeholder,
+							className: "form-control"
+						})
+					)
 				)
 			);
 		}
