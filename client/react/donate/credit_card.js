@@ -2,19 +2,23 @@ import React from 'react';
 import Cards from './cards';
 
 const CedritCard = React.createClass({
-	validateCard() {
-		let number = Stripe.card.validateCardNumber(this.props.stripe.number);
-		return {...this.props.errors, stripe: {number}};
+	validateCard(card) {
+		let number = Stripe.card.validateCardNumber(card);
+		return this.updateErrors({number});
 	},
 
-	validateExpiry() {
-		let valid = Stripe.card.validateExpiry(this.props.stripe.exp_month, this.props.stripe.exp_year);
-		return {...this.props.errors, stripe: {exp_month: valid, exp_year: valid}};
+	validateExpiry(month, year) {
+		let valid = Stripe.card.validateExpiry(month, year);
+		return this.updateErrors({exp_month: valid, exp_year: valid});
 	},
 
-	validateCvc() {
-		let valid = Stripe.card.validateCVC(this.props.stripe.cvc);
-		return {...this.props.errors, stripe: {cvc: valid}};
+	validateCvc(cvc) {
+		let cvc = Stripe.card.validateCVC(cvc);
+		return this.updateErrors({cvc});
+	},
+
+	updateErrors(field) {
+		return {...this.props.errors, stripe: field};
 	},
 
 	getCardType(number) {
@@ -51,9 +55,9 @@ const CedritCard = React.createClass({
 		let cvc = onlyNum(e.currentTarget.value);
 		cvc = maxLength(cvc, 4);
 		stripe = {...stripe, cvc};
-		this.props.onChange({stripe});
 		let errors = this.validateCvc(cvc);
-		this.props.onChange({errors});
+		this.props.onChange({stripe, errors});
+		
 	},
 
 	showErr(field) {
