@@ -25571,8 +25571,8 @@
 			var card = e.currentTarget.value;
 			var card_type = Stripe.card.cardType(card).replace(' ', '');
 			var stripe = _extends({}, this.stripe, { card: card, card_type: card_type });
-			this.props.validateStripe(card);
 			this.props.onChange({ stripe: stripe });
+			this.props.validateStripe(card);
 		},
 		render: function render() {
 			var _props = this.props,
