@@ -26,7 +26,7 @@ const amount = React.createClass({
 
 		return (
 			<div>
-			<AmountBtns changeAmount={this.changeAmount} />
+			<AmountBtns texts={texts} changeAmount={this.changeAmount} />
 			<div className="row">
 				<div className="form-group col-xs-7">
 					<input ref="amountInput" className="form-control" type="text" onChange={this.handleAmount} value={amount} />

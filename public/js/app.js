@@ -25492,7 +25492,7 @@
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_amount_btns2.default, { changeAmount: this.changeAmount }),
+				_react2.default.createElement(_amount_btns2.default, { texts: texts, changeAmount: this.changeAmount }),
 				_react2.default.createElement(
 					'div',
 					{ className: 'row' },
