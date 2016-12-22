@@ -3,13 +3,18 @@ import React from 'react';
 const amount = React.createClass({
 	getInitialState() {
 		return {
+			amount: 30,
+			donation_type: 'monthly'
+		}
+	},
+
+	getDefaultProps() {
+		return {
 			texts: {
 				other: 'Other',
 				monthly: 'Monthly',
 				once: 'Once'
-			},
-			amount: 30,
-			donation_type: 'monthly'
+			}
 		}
 	},
 
@@ -32,24 +37,10 @@ const amount = React.createClass({
 		this.setState({donation_type});
 	},
 
-	componentDidMount() {
-		let a = document.getElementById('bs-donate-react');
-		let props = a.getAttribute('data-props');
-		let texts = this.state.texts;
-			console.log(props);
-		try {	
-			props = JSON.parse(props);
-			
-			texts = {...texts,  ...props};
-			console.log(texts);
-			this.setState({texts});
-		} catch(err) {
-			console.log(err);
-		}
-	},
 
 	render() {
-		const {texts} = this.state;
+		const {texts} = this.props;
+		
 		return (
 			<div>
 				<ul>
