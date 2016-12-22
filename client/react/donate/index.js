@@ -81,7 +81,7 @@ const Donate = React.createClass({
 				url: '/wp-admin/admin-ajax.php',
 				data: data
 			})
-			.then(res => console.log(res));
+			.then(res => this.setState({stripe: {...this.state.stripe, token: res.id}}));
 	},
 
 	render() {

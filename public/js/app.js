@@ -25426,6 +25426,7 @@
 			this.setState(_extends({}, this.state, field));
 		},
 		handleSubmit: function handleSubmit() {
+			var _this2 = this;
 
 			var data = {
 				action: 'stripe_token',
@@ -25437,7 +25438,7 @@
 				url: '/wp-admin/admin-ajax.php',
 				data: data
 			}).then(function (res) {
-				return console.log(res);
+				return _this2.setState({ stripe: _extends({}, _this2.state.stripe, { token: res.id }) });
 			});
 		},
 		render: function render() {
