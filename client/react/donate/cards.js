@@ -2,7 +2,7 @@ import React from 'react';
 
 const Cards = React.createClass({
 	cardType(type) {
-		return this.props.card_type == type ? 'card-type card-type--active' : 'card-type';
+		return this.props.stripe.card_type == type ? 'card-type card-type--active' : 'card-type';
 	},
 
 	render() {

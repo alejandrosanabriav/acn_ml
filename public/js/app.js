@@ -26863,7 +26863,7 @@
 	var Cards = _react2.default.createClass({
 		displayName: 'Cards',
 		cardType: function cardType(type) {
-			return this.props.card_type == type ? 'card-type card-type--active' : 'card-type';
+			return this.props.stripe.card_type == type ? 'card-type card-type--active' : 'card-type';
 		},
 		render: function render() {
 			var _props = this.props,
