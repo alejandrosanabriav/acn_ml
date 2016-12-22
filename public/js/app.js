@@ -25644,6 +25644,10 @@
 			var valid = Stripe.card.validateCardNumber(number);
 			return _extends({}, this.props.errors, { stripe: { number: valid } });
 		},
+		validateExpiry: function validateExpiry(month, year) {
+			var valid = Stripe.card.validateExpiry(month, year);
+			return _extends({}, this.props.errors, { stripe: { exp_month: valid, exp_year: valid } });
+		},
 		getCardType: function getCardType(number) {
 			return Stripe.card.cardType(number).replace(' ', '');
 		},
@@ -25658,6 +25662,19 @@
 			var errors = this.validateCard(number);
 			var card_type = this.getCardType(number);
 			var stripe = _extends({}, this.stripe, { number: number, card_type: card_type });
+			this.props.onChange({ stripe: stripe, errors: errors });
+		},
+		handleExpiry: function handleExpiry(type, e) {
+			var val = e.currentTarget.value;
+			var exp_month = '';
+			var exp_year = '';
+			if (type == 'exp_month') exp_month = val;
+			if (type == 'exp_year') exp_year = val;
+			var errors = validateExpiry(exp_month, exp_year);
+			var stripe = _extends({}, this.stripe, { exp_month: exp_month, exp_year: exp_year });
+			this.props.onChange({ stripe: stripe, errors: errors });
+		},
+		handleCvc: function handleCvc(type, e) {
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
 		showErr: function showErr(field) {
@@ -25699,8 +25716,15 @@
 						_react2.default.createElement('input', {
 							type: 'text',
 							placeholder: texts.month_placeholder,
-							className: 'form-control'
-						})
+							className: 'form-control',
+							onChange: this.handleExpiry.bind(null, 'exp_month'),
+							value: stripe.exp_month
+						}),
+						_react2.default.createElement(
+							'span',
+							{ className: this.showErr('number') },
+							texts.validation_card
+						)
 					),
 					_react2.default.createElement(
 						'div',
@@ -25708,7 +25732,9 @@
 						_react2.default.createElement('input', {
 							type: 'text',
 							placeholder: texts.year_placeholder,
-							className: 'form-control'
+							className: 'form-control',
+							onChange: this.handleExpiry.bind(null, 'exp_year'),
+							value: stripe.exp_year
 						})
 					),
 					_react2.default.createElement(
@@ -25717,8 +25743,15 @@
 						_react2.default.createElement('input', {
 							type: 'text',
 							placeholder: texts.cvc_placeholder,
-							className: 'form-control'
-						})
+							className: 'form-control',
+							onChange: this.handleCvc,
+							value: stripe.cvc
+						}),
+						_react2.default.createElement(
+							'span',
+							{ className: this.showErr('cvc') },
+							texts.validation_cvc
+						)
 					)
 				)
 			);

@@ -7,6 +7,11 @@ const CedritCard = React.createClass({
 		return {...this.props.errors, stripe: {number: valid}};
 	},
 
+	validateExpiry(month, year) {
+		let valid = Stripe.card.validateExpiry(month, year);
+		return {...this.props.errors, stripe: {exp_month: valid, exp_year: valid}};
+	},
+
 	getCardType(number) {
 		return Stripe.card.cardType(number).replace(' ', '');
 	},
@@ -19,6 +24,21 @@ const CedritCard = React.createClass({
 		let errors = this.validateCard(number);
 		let card_type = this.getCardType(number);
 		let stripe = {...this.stripe, number, card_type};
+		this.props.onChange({stripe, errors});
+	},
+	
+	handleExpiry(type, e) {
+		let val = e.currentTarget.value;
+		let exp_month = '';
+		let exp_year= '';
+		if(type == 'exp_month') exp_month = val;
+		if(type == 'exp_year') exp_year = val;
+		let errors = validateExpiry(exp_month, exp_year);
+		let stripe = {...this.stripe, exp_month, exp_year};
+		this.props.onChange({stripe, errors});
+	},
+
+	handleCvc(type, e) {
 		this.props.onChange({stripe, errors});
 	},
 
@@ -46,13 +66,18 @@ const CedritCard = React.createClass({
         </span>
 
 			</div>
-			<div className="row">
+		<div className="row">
 			<div className="form-group col-md-4">
 				<input 
 					type="text" 
 					placeholder={texts.month_placeholder} 
 					className="form-control" 
+					onChange={this.handleExpiry.bind(null, 'exp_month')}
+					value={stripe.exp_month}
 				/>
+				<span className={this.showErr('number')}>
+					{texts.validation_card}
+        </span>
 			</div>
 			
 				<div className="form-group col-md-4">
@@ -60,15 +85,23 @@ const CedritCard = React.createClass({
 						type="text" 
 						placeholder={texts.year_placeholder} 
 						className="form-control" 
+						onChange={this.handleExpiry.bind(null, 'exp_year')}
+						value={stripe.exp_year}
 					/>
 				</div>
 				<div className="form-group col-md-4">
-					<input 
+					<input
 						type="text" 
 						placeholder={texts.cvc_placeholder} 
 						className="form-control" 
-				/>
-			</div>
+						onChange={this.handleCvc}
+						value={stripe.cvc}
+					/>
+		
+					<span className={this.showErr('cvc')}>
+						{texts.validation_cvc}
+					</span>
+				</div>
 			</div>
 		</div>
 		)
