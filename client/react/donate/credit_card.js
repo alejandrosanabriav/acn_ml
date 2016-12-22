@@ -23,7 +23,7 @@ const CedritCard = React.createClass({
 	},
 
 	showErr(field) {
-		return errors.stripe[field] == false ? 'form-group__error' : 'hidden';
+		return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 	},
 
 	render() {

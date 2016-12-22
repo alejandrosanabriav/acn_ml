@@ -25661,7 +25661,7 @@
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
 		showErr: function showErr(field) {
-			return errors.stripe[field] == false ? 'form-group__error' : 'hidden';
+			return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 		},
 		render: function render() {
 			var _props2 = this.props,
