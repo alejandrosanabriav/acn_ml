@@ -25828,6 +25828,7 @@
 		displayName: 'Contact',
 		validate: function validate(field, val) {
 			var valid = !_validator2.default.isEmpty(val);
+			if (field == 'email') valid = _validator2.default.isEmail(val);
 			return _extends({}, this.props.errors, { contact: _defineProperty({}, field, valid) });
 		},
 		handleChange: function handleChange(field, e) {
