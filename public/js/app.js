@@ -80,7 +80,7 @@
 
 	var _reactDom = __webpack_require__(119);
 
-	var _donate3 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./react/donate\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _donate3 = __webpack_require__(265);
 
 	var _donate4 = _interopRequireDefault(_donate3);
 
@@ -25329,11 +25329,624 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(90)))
 
 /***/ },
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _validator = __webpack_require__(14);
+
+	var _validator2 = _interopRequireDefault(_validator);
+
+	var _amount = __webpack_require__(266);
+
+	var _amount2 = _interopRequireDefault(_amount);
+
+	var _credit_card = __webpack_require__(268);
+
+	var _credit_card2 = _interopRequireDefault(_credit_card);
+
+	var _contact = __webpack_require__(269);
+
+	var _contact2 = _interopRequireDefault(_contact);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Donate = _react2.default.createClass({
+		displayName: 'Donate',
+		getInitialState: function getInitialState() {
+			return {
+				donation_type: 'monthly',
+				amount: 30,
+				countries: [],
+				contact: {
+					name: '',
+					email: '',
+					country: ''
+				},
+				stripe: {
+					card_type: 'visa',
+					number: '',
+					exp_month: '',
+					exp_year: '',
+					cvc: '',
+					token: ''
+				},
+				texts: {},
+				errors: {
+					stripe: {},
+					contact: {}
+				}
+			};
+		},
+		getProps: function getProps() {
+			var a = document.getElementById('bs-donate-react');
+			var props = a.getAttribute('data-props');
+			var texts = this.state.texts;
+
+			try {
+				props = JSON.parse(props);
+				texts = _extends({}, texts, props);
+				this.setState({ texts: texts });
+			} catch (err) {
+				console.log('err on parsing donate props', props);
+			}
+		},
+		fetchCountries: function fetchCountries() {
+			var _this = this;
+
+			$.ajax({
+				url: '/wp-admin/admin-ajax.php',
+				data: { action: 'countries' }
+			}).then(function (res) {
+				return _this.setState({ countries: res });
+			});
+		},
+		componentWillMount: function componentWillMount() {
+			this.getProps();
+			this.fetchCountries();
+		},
+		onlyNum: function onlyNum(val) {
+			return val.replace(/[^0-9]+/, '');
+		},
+		maxLength: function maxLength(val, length) {
+			return val.substring(0, length);
+		},
+		handleChange: function handleChange(field) {
+			this.setState(_extends({}, this.state, field));
+		},
+		handleSubmit: function handleSubmit() {
+			var _this2 = this;
+
+			var data = {
+				action: 'stripe_token',
+				data: this.state.stripe
+			};
+
+			$.ajax({
+				type: 'post',
+				url: '/wp-admin/admin-ajax.php',
+				data: data
+			}).then(function (res) {
+				return _this2.setState({ stripe: _extends({}, _this2.state.stripe, { token: res.id }) });
+			}).then(function (res) {
+				return console.log('another then', res);
+			});
+		},
+		render: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_amount2.default, _extends({}, this.state, {
+					onlyNum: this.onlyNum,
+					onChange: this.handleChange
+				})),
+				_react2.default.createElement(_credit_card2.default, _extends({}, this.state, {
+					onlyNum: this.onlyNum,
+					maxLength: this.maxLength,
+					onChange: this.handleChange,
+					validateStripe: this.validateStripe
+				})),
+				_react2.default.createElement(_contact2.default, _extends({}, this.state, {
+					onChange: this.handleChange
+				})),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement(
+						'button',
+						{ className: 'donate_landing__submit pull-left', onClick: this.handleSubmit },
+						'Donate'
+					)
+				)
+			);
+		}
+	});
+
+	exports.default = Donate;
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _amount_btns = __webpack_require__(267);
+
+	var _amount_btns2 = _interopRequireDefault(_amount_btns);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var amount = _react2.default.createClass({
+		displayName: 'amount',
+		changeAmount: function changeAmount(amount, e) {
+			if (e) e.preventDefault();
+			var el = this.refs.amountInput;
+			if (amount == 5) el.focus();
+			this.props.onChange({ amount: amount });
+		},
+		handleAmount: function handleAmount(e) {
+			var el = e.currentTarget;
+			var amount = this.props.onlyNum(el.value);
+			this.props.onChange({ amount: amount });
+		},
+		changeType: function changeType(donation_type, e) {
+			if (e) e.preventDefault();
+			this.props.onChange({ donation_type: donation_type });
+		},
+		render: function render() {
+			var _props = this.props,
+			    texts = _props.texts,
+			    donation_type = _props.donation_type,
+			    amount = _props.amount;
+
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_amount_btns2.default, { texts: texts, changeAmount: this.changeAmount }),
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'form-group col-xs-7' },
+						_react2.default.createElement('input', { ref: 'amountInput', className: 'form-control', type: 'text', onChange: this.handleAmount, value: amount })
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'form-group col-xs-5' },
+						_react2.default.createElement(
+							'a',
+							{
+								href: '#',
+								onClick: this.changeType.bind(null, 'monthly'),
+								className: donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '
+							},
+							texts.monthly
+						),
+						_react2.default.createElement(
+							'a',
+							{ href: '#',
+								onClick: this.changeType.bind(null, 'once'),
+								className: donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '
+							},
+							texts.once
+						)
+					)
+				)
+			);
+		}
+	});
+
+	exports.default = amount;
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AmountBtns = _react2.default.createClass({
+		displayName: "AmountBtns",
+		render: function render() {
+			var _props = this.props,
+			    changeAmount = _props.changeAmount,
+			    texts = _props.texts;
+
+
+			return _react2.default.createElement(
+				"ul",
+				{ className: "change-amount", style: { padding: 0 } },
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 10) },
+						"$10"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 30) },
+						"$30"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 50) },
+						"$50"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 100) },
+						"$100"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 5) },
+						texts.other
+					)
+				)
+			);
+		}
+	});
+
+	exports.default = AmountBtns;
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _cards = __webpack_require__(295);
+
+	var _cards2 = _interopRequireDefault(_cards);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var CedritCard = _react2.default.createClass({
+		displayName: 'CedritCard',
+		validateCard: function validateCard(card) {
+			var number = Stripe.card.validateCardNumber(card);
+			return this.updateErrors({ number: number });
+		},
+		validateExpiry: function validateExpiry(month, year) {
+			var valid = Stripe.card.validateExpiry(month, year);
+			return this.updateErrors({ exp_month: valid, exp_year: valid });
+		},
+		validateCvc: function validateCvc(cvc) {
+			cvc = Stripe.card.validateCVC(cvc);
+			return this.updateErrors({ cvc: cvc });
+		},
+		updateErrors: function updateErrors(field) {
+			return _extends({}, this.props.errors, { stripe: field });
+		},
+		getCardType: function getCardType(number) {
+			return Stripe.card.cardType(number).replace(' ', '');
+		},
+		handleCard: function handleCard(e) {
+			var _props = this.props,
+			    onlyNum = _props.onlyNum,
+			    maxLength = _props.maxLength;
+
+			var val = e.currentTarget.value;
+			var number = onlyNum(val);
+			number = maxLength(number, 16);
+			var errors = this.validateCard(number);
+			var card_type = this.getCardType(number);
+			var stripe = _extends({}, this.props.stripe, { number: number, card_type: card_type });
+			this.props.onChange({ stripe: stripe, errors: errors });
+		},
+		handleExpiry: function handleExpiry(type, e) {
+			var _props2 = this.props,
+			    stripe = _props2.stripe,
+			    onlyNum = _props2.onlyNum,
+			    maxLength = _props2.maxLength;
+
+			var val = onlyNum(e.currentTarget.value);
+			val = maxLength(val, 2);
+			var exp_month = stripe.exp_month;
+			var exp_year = stripe.exp_year;
+			if (type == 'exp_month') exp_month = val;
+			if (type == 'exp_year') exp_year = val;
+			var errors = this.validateExpiry(exp_month, exp_year);
+			stripe = _extends({}, stripe, { exp_month: exp_month, exp_year: exp_year });
+
+			this.props.onChange({ stripe: stripe, errors: errors });
+		},
+		handleCvc: function handleCvc(e) {
+			var _props3 = this.props,
+			    stripe = _props3.stripe,
+			    onlyNum = _props3.onlyNum,
+			    maxLength = _props3.maxLength;
+
+			var cvc = onlyNum(e.currentTarget.value);
+			cvc = maxLength(cvc, 4);
+			stripe = _extends({}, stripe, { cvc: cvc });
+			var errors = this.validateCvc(cvc);
+			this.props.onChange({ stripe: stripe, errors: errors });
+		},
+		showErr: function showErr(field) {
+			return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
+		},
+		inputErrStyle: function inputErrStyle(field) {
+			return this.props.errors.stripe[field] == false ? 'form-group--error' : '';
+		},
+		allValidations: function allValidations(e) {
+			e.preventDefault();
+			var stripe = this.props.stripe;
+
+			var number = this.validateCard(stripe.number);
+			var exp_month = this.validateExpiry(stripe.exp_month, stripe.exp_year);
+			var cvc = this.validateCvc(stripe.cvc);
+			var errors = _extends({}, this.props.errors, { stripe: _extends({}, number.stripe, exp_month.stripe, cvc.stripe) });
+			this.props.onChange({ errors: errors });
+		},
+		render: function render() {
+			var _props4 = this.props,
+			    texts = _props4.texts,
+			    stripe = _props4.stripe,
+			    errors = _props4.errors;
+
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_cards2.default, this.props),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						placeholder: texts.placeholder_credit_card,
+						className: 'form-control ' + this.inputErrStyle('number'),
+						onChange: this.handleCard,
+						value: stripe.number
+					}),
+					_react2.default.createElement(
+						'span',
+						{ className: this.showErr('number') },
+						texts.validation_card
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
+							placeholder: texts.placeholder_month,
+							className: 'form-control',
+							onChange: this.handleExpiry.bind(null, 'exp_month'),
+							value: stripe.exp_month
+						}),
+						_react2.default.createElement(
+							'span',
+							{ className: this.showErr('exp_month') },
+							texts.validation_month
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
+							placeholder: texts.placeholder_year,
+							className: 'form-control',
+							onChange: this.handleExpiry.bind(null, 'exp_year'),
+							value: stripe.exp_year
+						}),
+						_react2.default.createElement(
+							'span',
+							{ className: this.showErr('exp_year') },
+							texts.validation_year
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
+							placeholder: texts.placeholder_cvc,
+							className: 'form-control',
+							onChange: this.handleCvc,
+							value: stripe.cvc
+						}),
+						_react2.default.createElement(
+							'span',
+							{ className: this.showErr('cvc') },
+							texts.validation_cvc
+						)
+					)
+				)
+			);
+		}
+	});
+
+	exports.default = CedritCard;
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _validator = __webpack_require__(14);
+
+	var _validator2 = _interopRequireDefault(_validator);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	var Contact = _react2.default.createClass({
+		displayName: 'Contact',
+		validate: function validate(field, val) {
+			var valid = !_validator2.default.isEmpty(val);
+			if (field == 'email') valid = _validator2.default.isEmail(val);
+			var contact = _extends({}, this.props.errors.contact, _defineProperty({}, field, valid));
+			return _extends({}, this.props.errors, { contact: contact });
+		},
+		handleChange: function handleChange(field, e) {
+			var val = e.currentTarget.value;
+			var errors = this.validate(field, val);
+
+			this.props.onChange({
+				contact: _extends({}, this.props.contact, _defineProperty({}, field, val)),
+				errors: errors
+			});
+		},
+		showErr: function showErr(field) {
+			return this.props.errors.contact[field] == false ? 'form-group__error' : 'hidden';
+		},
+		inputErrStyle: function inputErrStyle(field) {
+			return this.props.errors.contact[field] == false ? 'form-group--error' : '';
+		},
+		validateAll: function validateAll() {
+			var contact = this.props.contact;
+
+			var name = this.validate('name', contact.name);
+			var email = this.validate('email', contact.email);
+			var country = this.validate('country', contact.country);
+			var errors = _extends({}, this.props.errors, { contact: _extends({}, name.contact, email.contact, country.contact) });
+			this.props.onChange({ errors: errors });
+		},
+		render: function render() {
+			var _props = this.props,
+			    texts = _props.texts,
+			    contact = _props.contact;
+
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'row' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group col-sm-12' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						className: 'form-control ' + this.inputErrStyle('name'),
+						placeholder: texts.placeholder_name,
+						onChange: this.handleChange.bind(null, 'name'),
+						value: contact.name
+					}),
+					_react2.default.createElement(
+						'span',
+						{ className: this.showErr('name') },
+						texts.validation_card
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group col-sm-12' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						className: 'form-control ' + this.inputErrStyle('email'),
+						placeholder: texts.placeholder_email,
+						onChange: this.handleChange.bind(null, 'email'),
+						value: contact.email
+					}),
+					_react2.default.createElement(
+						'span',
+						{ className: this.showErr('email') },
+						texts.validation_card
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group col-sm-12' },
+					_react2.default.createElement(
+						'select',
+						{
+							type: 'text',
+							className: 'form-control',
+							placeholder: texts.placeholder_country,
+							onChange: this.handleChange.bind(null, 'country'),
+							value: contact.country || texts.country
+						},
+						this.props.countries.map(function (country, i) {
+							return _react2.default.createElement(
+								'option',
+								{ key: i, value: country },
+								country
+							);
+						})
+					)
+				)
+			);
+		}
+	});
+
+	exports.default = Contact;
+
+/***/ },
 /* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -26465,6 +27078,62 @@
 		return polyfill;
 	};
 
+
+/***/ },
+/* 295 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Cards = _react2.default.createClass({
+		displayName: 'Cards',
+		cardType: function cardType(type) {
+			return this.props.stripe.card_type == type ? 'card-type card-type--active' : 'card-type';
+		},
+		render: function render() {
+			var _props = this.props,
+			    card_type = _props.card_type,
+			    texts = _props.texts;
+
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'form-group donate_landing__cards' },
+				_react2.default.createElement('img', {
+					className: this.cardType('Visa'),
+					src: texts.template_uri + '/public/img/cards/Visa.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('MasterCard'),
+					src: texts.template_uri + '/public/img/cards/MasterCard.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('DinersClub'),
+					src: texts.template_uri + '/public/img/cards/DinersClub.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('AmericanExpress'),
+					src: texts.template_uri + '/public/img/cards/AmericanExpress.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('Discover'),
+					src: texts.template_uri + '/public/img/cards/Discover.png'
+				})
+			);
+		}
+	});
+
+	exports.default = Cards;
 
 /***/ }
 /******/ ]);
