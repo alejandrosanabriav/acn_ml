@@ -26765,11 +26765,24 @@
 
 			return _react2.default.createElement(
 				"div",
-				null,
+				{ className: "row" },
 				_react2.default.createElement(
 					"div",
-					{ "class": "form-group" },
-					_react2.default.createElement("input", { type: "text", "class": "form-control", placeholder: texts.placeholder_name })
+					{ className: "form-group" },
+					_react2.default.createElement("input", {
+						type: "text",
+						className: "form-control",
+						placeholder: texts.placeholder_name
+					})
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group" },
+					_react2.default.createElement("input", {
+						type: "text",
+						className: "form-control",
+						placeholder: texts.placeholder_email
+					})
 				)
 			);
 		}
