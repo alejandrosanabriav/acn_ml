@@ -25692,6 +25692,7 @@
 			    onlyNum = _props3.onlyNum;
 
 			var cvc = onlyNum(e.currentTarget.value);
+			cvc = maxLength(cvc, 4);
 			stripe = _extends({}, stripe, { cvc: cvc });
 			var errors = this.validateCvc(cvc);
 			this.props.onChange({ stripe: stripe, errors: errors });
