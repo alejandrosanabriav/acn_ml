@@ -86,7 +86,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	__webpack_require__(268);
+	__webpack_require__(270);
 
 
 	(function () {
@@ -25352,11 +25352,11 @@
 
 	var _amount2 = _interopRequireDefault(_amount);
 
-	var _credit_card = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./credit_card\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _credit_card = __webpack_require__(268);
 
 	var _credit_card2 = _interopRequireDefault(_credit_card);
 
-	var _contact = __webpack_require__(293);
+	var _contact = __webpack_require__(269);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -25468,7 +25468,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _amount_btns = __webpack_require__(296);
+	var _amount_btns = __webpack_require__(267);
 
 	var _amount_btns2 = _interopRequireDefault(_amount_btns);
 
@@ -25539,17 +25539,278 @@
 	exports.default = amount;
 
 /***/ },
-/* 267 */,
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AmountBtns = _react2.default.createClass({
+		displayName: "AmountBtns",
+		render: function render() {
+			var _props = this.props,
+			    changeAmount = _props.changeAmount,
+			    texts = _props.texts;
+
+
+			return _react2.default.createElement(
+				"ul",
+				{ className: "change-amount", style: { padding: 0 } },
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 10) },
+						"$10"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 30) },
+						"$30"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 50) },
+						"$50"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 100) },
+						"$100"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 5) },
+						texts.other
+					)
+				)
+			);
+		}
+	});
+
+	exports.default = AmountBtns;
+
+/***/ },
 /* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var define = __webpack_require__(269);
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
 
-	var implementation = __webpack_require__(273);
-	var getPolyfill = __webpack_require__(291);
-	var shim = __webpack_require__(292);
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _cards = __webpack_require__(295);
+
+	var _cards2 = _interopRequireDefault(_cards);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var CedritCard = _react2.default.createClass({
+		displayName: 'CedritCard',
+		handleCard: function handleCard(e) {
+			var _props = this.props,
+			    onlyNum = _props.onlyNum,
+			    maxLength = _props.maxLength;
+
+			var val = e.currentTarget.value;
+			var card = onlyNum(val);
+			card = maxLength(card, 16);
+			console.log(card);
+			var valid = Stripe.card.validateCardNumber(card);
+			var errors = _extends({}, this.props.errors, { stripe: { number: valid } });
+			var card_type = Stripe.card.cardType(card).replace(' ', '');
+			var stripe = _extends({}, this.stripe, { card: card, card_type: card_type });
+			this.props.onChange({ stripe: stripe, errors: errors });
+		},
+		render: function render() {
+			var _props2 = this.props,
+			    texts = _props2.texts,
+			    stripe = _props2.stripe,
+			    errors = _props2.errors;
+
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_cards2.default, this.props),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						placeholder: texts.creditcard_placeholder,
+						className: 'form-control',
+						onChange: this.handleCard,
+						value: stripe.number
+					}),
+					_react2.default.createElement(
+						'span',
+						{ className: errors.stripe.number == false ? 'form-group__error' : 'hidden' },
+						texts.validation_card
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
+							placeholder: texts.month_placeholder,
+							className: 'form-control'
+						})
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
+							placeholder: texts.year_placeholder,
+							className: 'form-control'
+						})
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
+							placeholder: texts.cvc_placeholder,
+							className: 'form-control'
+						})
+					)
+				)
+			);
+		}
+	});
+
+	exports.default = CedritCard;
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	var Contact = _react2.default.createClass({
+		displayName: "Contact",
+		handleChange: function handleChange(field, e) {
+			this.props.onChange({ contact: _extends({}, this.props.contact, _defineProperty({}, field, e.currentTarget.value)) });
+		},
+		render: function render() {
+			var _props = this.props,
+			    texts = _props.texts,
+			    contact = _props.contact;
+
+
+			return _react2.default.createElement(
+				"div",
+				{ className: "row" },
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group col-sm-12" },
+					_react2.default.createElement("input", {
+						type: "text",
+						className: "form-control",
+						placeholder: texts.placeholder_name,
+						onChange: this.handleChange.bind(null, 'name'),
+						value: contact.name
+					})
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group col-sm-12" },
+					_react2.default.createElement("input", {
+						type: "text",
+						className: "form-control",
+						placeholder: texts.placeholder_email,
+						onChange: this.handleChange.bind(null, 'email'),
+						value: contact.email
+					})
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group col-sm-12" },
+					_react2.default.createElement(
+						"select",
+						{
+							type: "text",
+							className: "form-control",
+							placeholder: texts.placeholder_country,
+							onChange: this.handleChange.bind(null, 'country'),
+							value: contact.country
+						},
+						_react2.default.createElement(
+							"option",
+							null,
+							"nea"
+						)
+					)
+				)
+			);
+		}
+	});
+
+	exports.default = Contact;
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var define = __webpack_require__(271);
+
+	var implementation = __webpack_require__(275);
+	var getPolyfill = __webpack_require__(293);
+	var shim = __webpack_require__(294);
 
 	// eslint-disable-next-line no-unused-vars
 	var boundFromShim = function from(array) {
@@ -25567,13 +25828,13 @@
 
 
 /***/ },
-/* 269 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var keys = __webpack_require__(270);
-	var foreach = __webpack_require__(272);
+	var keys = __webpack_require__(272);
+	var foreach = __webpack_require__(274);
 	var hasSymbols = typeof Symbol === 'function' && typeof Symbol() === 'symbol';
 
 	var toStr = Object.prototype.toString;
@@ -25629,7 +25890,7 @@
 
 
 /***/ },
-/* 270 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25638,7 +25899,7 @@
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
 	var slice = Array.prototype.slice;
-	var isArgs = __webpack_require__(271);
+	var isArgs = __webpack_require__(273);
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -25775,7 +26036,7 @@
 
 
 /***/ },
-/* 271 */
+/* 273 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25798,7 +26059,7 @@
 
 
 /***/ },
-/* 272 */
+/* 274 */
 /***/ function(module, exports) {
 
 	
@@ -25826,12 +26087,12 @@
 
 
 /***/ },
-/* 273 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var ES = __webpack_require__(274);
-	var supportsDescriptors = __webpack_require__(269).supportsDescriptors;
+	var ES = __webpack_require__(276);
+	var supportsDescriptors = __webpack_require__(271).supportsDescriptors;
 
 	/*! https://mths.be/array-from v0.2.0 by @mathias */
 	module.exports = function from(arrayLike) {
@@ -25880,7 +26141,7 @@
 
 
 /***/ },
-/* 274 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25889,17 +26150,17 @@
 	var hasSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol';
 	var symbolToStr = hasSymbols ? Symbol.prototype.toString : toStr;
 
-	var $isNaN = __webpack_require__(275);
-	var $isFinite = __webpack_require__(276);
+	var $isNaN = __webpack_require__(277);
+	var $isFinite = __webpack_require__(278);
 	var MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
 
-	var assign = __webpack_require__(277);
-	var sign = __webpack_require__(278);
-	var mod = __webpack_require__(279);
-	var isPrimitive = __webpack_require__(280);
-	var toPrimitive = __webpack_require__(281);
+	var assign = __webpack_require__(279);
+	var sign = __webpack_require__(280);
+	var mod = __webpack_require__(281);
+	var isPrimitive = __webpack_require__(282);
+	var toPrimitive = __webpack_require__(283);
 	var parseInteger = parseInt;
-	var bind = __webpack_require__(286);
+	var bind = __webpack_require__(288);
 	var strSlice = bind.call(Function.call, String.prototype.slice);
 	var isBinary = bind.call(Function.call, RegExp.prototype.test, /^0b[01]+$/i);
 	var isOctal = bind.call(Function.call, RegExp.prototype.test, /^0o[0-7]+$/i);
@@ -25922,9 +26183,9 @@
 		return replace(value, trimRegex, '');
 	};
 
-	var ES5 = __webpack_require__(288);
+	var ES5 = __webpack_require__(290);
 
-	var hasRegExpMatcher = __webpack_require__(290);
+	var hasRegExpMatcher = __webpack_require__(292);
 
 	// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-abstract-operations
 	var ES6 = assign(assign({}, ES5), {
@@ -26147,7 +26408,7 @@
 
 
 /***/ },
-/* 275 */
+/* 277 */
 /***/ function(module, exports) {
 
 	module.exports = Number.isNaN || function isNaN(a) {
@@ -26156,7 +26417,7 @@
 
 
 /***/ },
-/* 276 */
+/* 278 */
 /***/ function(module, exports) {
 
 	var $isNaN = Number.isNaN || function (a) { return a !== a; };
@@ -26165,7 +26426,7 @@
 
 
 /***/ },
-/* 277 */
+/* 279 */
 /***/ function(module, exports) {
 
 	var has = Object.prototype.hasOwnProperty;
@@ -26180,7 +26441,7 @@
 
 
 /***/ },
-/* 278 */
+/* 280 */
 /***/ function(module, exports) {
 
 	module.exports = function sign(number) {
@@ -26189,7 +26450,7 @@
 
 
 /***/ },
-/* 279 */
+/* 281 */
 /***/ function(module, exports) {
 
 	module.exports = function mod(number, modulo) {
@@ -26199,7 +26460,7 @@
 
 
 /***/ },
-/* 280 */
+/* 282 */
 /***/ function(module, exports) {
 
 	module.exports = function isPrimitive(value) {
@@ -26208,17 +26469,17 @@
 
 
 /***/ },
-/* 281 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var hasSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol';
 
-	var isPrimitive = __webpack_require__(282);
-	var isCallable = __webpack_require__(283);
-	var isDate = __webpack_require__(284);
-	var isSymbol = __webpack_require__(285);
+	var isPrimitive = __webpack_require__(284);
+	var isCallable = __webpack_require__(285);
+	var isDate = __webpack_require__(286);
+	var isSymbol = __webpack_require__(287);
 
 	var ordinaryToPrimitive = function OrdinaryToPrimitive(O, hint) {
 		if (typeof O === 'undefined' || O === null) {
@@ -26288,7 +26549,7 @@
 
 
 /***/ },
-/* 282 */
+/* 284 */
 /***/ function(module, exports) {
 
 	module.exports = function isPrimitive(value) {
@@ -26297,7 +26558,7 @@
 
 
 /***/ },
-/* 283 */
+/* 285 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26342,7 +26603,7 @@
 
 
 /***/ },
-/* 284 */
+/* 286 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26368,7 +26629,7 @@
 
 
 /***/ },
-/* 285 */
+/* 287 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26401,16 +26662,16 @@
 
 
 /***/ },
-/* 286 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var implementation = __webpack_require__(287);
+	var implementation = __webpack_require__(289);
 
 	module.exports = Function.prototype.bind || implementation;
 
 
 /***/ },
-/* 287 */
+/* 289 */
 /***/ function(module, exports) {
 
 	var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
@@ -26464,19 +26725,19 @@
 
 
 /***/ },
-/* 288 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var $isNaN = __webpack_require__(275);
-	var $isFinite = __webpack_require__(276);
+	var $isNaN = __webpack_require__(277);
+	var $isFinite = __webpack_require__(278);
 
-	var sign = __webpack_require__(278);
-	var mod = __webpack_require__(279);
+	var sign = __webpack_require__(280);
+	var mod = __webpack_require__(281);
 
-	var IsCallable = __webpack_require__(283);
-	var toPrimitive = __webpack_require__(289);
+	var IsCallable = __webpack_require__(285);
+	var toPrimitive = __webpack_require__(291);
 
 	// https://es5.github.io/#x9
 	var ES5 = {
@@ -26556,16 +26817,16 @@
 
 
 /***/ },
-/* 289 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var toStr = Object.prototype.toString;
 
-	var isPrimitive = __webpack_require__(282);
+	var isPrimitive = __webpack_require__(284);
 
-	var isCallable = __webpack_require__(283);
+	var isCallable = __webpack_require__(285);
 
 	// https://es5.github.io/#x8.12
 	var ES5internalSlots = {
@@ -26599,7 +26860,7 @@
 
 
 /***/ },
-/* 290 */
+/* 292 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26624,13 +26885,13 @@
 
 
 /***/ },
-/* 291 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var ES = __webpack_require__(274);
-	var implementation = __webpack_require__(273);
+	var ES = __webpack_require__(276);
+	var implementation = __webpack_require__(275);
 
 	var tryCall = function (fn) {
 		try {
@@ -26651,13 +26912,13 @@
 
 
 /***/ },
-/* 292 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var define = __webpack_require__(269);
-	var getPolyfill = __webpack_require__(291);
+	var define = __webpack_require__(271);
+	var getPolyfill = __webpack_require__(293);
 
 	module.exports = function shimArrayFrom() {
 		var polyfill = getPolyfill();
@@ -26673,16 +26934,14 @@
 
 
 /***/ },
-/* 293 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _react = __webpack_require__(88);
 
@@ -26690,148 +26949,45 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-	var Contact = _react2.default.createClass({
-		displayName: "Contact",
-		handleChange: function handleChange(field, e) {
-			this.props.onChange({ contact: _extends({}, this.props.contact, _defineProperty({}, field, e.currentTarget.value)) });
+	var Cards = _react2.default.createClass({
+		displayName: 'Cards',
+		cardType: function cardType(type) {
+			return this.props.stripe.card_type == type ? 'card-type card-type--active' : 'card-type';
 		},
 		render: function render() {
 			var _props = this.props,
-			    texts = _props.texts,
-			    contact = _props.contact;
-
-
-			return _react2.default.createElement(
-				"div",
-				{ className: "row" },
-				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-sm-12" },
-					_react2.default.createElement("input", {
-						type: "text",
-						className: "form-control",
-						placeholder: texts.placeholder_name,
-						onChange: this.handleChange.bind(null, 'name'),
-						value: contact.name
-					})
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-sm-12" },
-					_react2.default.createElement("input", {
-						type: "text",
-						className: "form-control",
-						placeholder: texts.placeholder_email,
-						onChange: this.handleChange.bind(null, 'email'),
-						value: contact.email
-					})
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-sm-12" },
-					_react2.default.createElement(
-						"select",
-						{
-							type: "text",
-							className: "form-control",
-							placeholder: texts.placeholder_country,
-							onChange: this.handleChange.bind(null, 'country'),
-							value: contact.country
-						},
-						_react2.default.createElement(
-							"option",
-							null,
-							"nea"
-						)
-					)
-				)
-			);
-		}
-	});
-
-	exports.default = Contact;
-
-/***/ },
-/* 294 */,
-/* 295 */,
-/* 296 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(88);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var AmountBtns = _react2.default.createClass({
-		displayName: "AmountBtns",
-		render: function render() {
-			var _props = this.props,
-			    changeAmount = _props.changeAmount,
+			    card_type = _props.card_type,
 			    texts = _props.texts;
 
 
 			return _react2.default.createElement(
-				"ul",
-				{ className: "change-amount", style: { padding: 0 } },
-				_react2.default.createElement(
-					"li",
-					{ className: "col-md-2" },
-					_react2.default.createElement(
-						"a",
-						{ href: "#", onClick: changeAmount.bind(null, 10) },
-						"$10"
-					)
-				),
-				_react2.default.createElement(
-					"li",
-					{ className: "col-md-2" },
-					_react2.default.createElement(
-						"a",
-						{ href: "#", onClick: changeAmount.bind(null, 30) },
-						"$30"
-					)
-				),
-				_react2.default.createElement(
-					"li",
-					{ className: "col-md-2" },
-					_react2.default.createElement(
-						"a",
-						{ href: "#", onClick: changeAmount.bind(null, 50) },
-						"$50"
-					)
-				),
-				_react2.default.createElement(
-					"li",
-					{ className: "col-md-2" },
-					_react2.default.createElement(
-						"a",
-						{ href: "#", onClick: changeAmount.bind(null, 100) },
-						"$100"
-					)
-				),
-				_react2.default.createElement(
-					"li",
-					{ className: "col-md-2" },
-					_react2.default.createElement(
-						"a",
-						{ href: "#", onClick: changeAmount.bind(null, 5) },
-						texts.other
-					)
-				)
+				'div',
+				{ className: 'form-group donate_landing__cards' },
+				_react2.default.createElement('img', {
+					className: this.cardType('Visa'),
+					src: texts.template_uri + '/public/img/cards/Visa.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('MasterCard'),
+					src: texts.template_uri + '/public/img/cards/MasterCard.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('DinersClub'),
+					src: texts.template_uri + '/public/img/cards/DinersClub.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('AmericanExpress'),
+					src: texts.template_uri + '/public/img/cards/AmericanExpress.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('Discover'),
+					src: texts.template_uri + '/public/img/cards/Discover.png'
+				})
 			);
 		}
 	});
 
-	exports.default = AmountBtns;
+	exports.default = Cards;
 
 /***/ }
 /******/ ]);
