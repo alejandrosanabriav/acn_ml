@@ -26765,10 +26765,10 @@
 
 			return _react2.default.createElement(
 				"div",
-				null,
+				{ className: "row" },
 				_react2.default.createElement(
 					"div",
-					{ className: "form-group" },
+					{ className: "form-group col-sm-12" },
 					_react2.default.createElement("input", {
 						type: "text",
 						className: "form-control",
@@ -26777,7 +26777,7 @@
 				),
 				_react2.default.createElement(
 					"div",
-					{ className: "form-group" },
+					{ className: "form-group col-sm-12" },
 					_react2.default.createElement("input", {
 						type: "text",
 						className: "form-control",

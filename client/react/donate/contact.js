@@ -4,15 +4,15 @@ const Contact =React.createClass({
 	render() {
 		const {texts} = this.props;
 		return (
-			<div>
-				<div className="form-group">
+			<div className="row">
+				<div className="form-group col-sm-12">
 					<input 
 						type="text" 
 						className="form-control" 
 						placeholder={texts.placeholder_name} 
 					/>
 				</div>
-				<div className="form-group">
+				<div className="form-group col-sm-12">
 					<input 
 						type="text" 
 						className="form-control" 
