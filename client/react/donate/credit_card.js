@@ -13,7 +13,7 @@ const CedritCard = React.createClass({
 	},
 
 	validateCvc(cvc) {
-		let cvc = Stripe.card.validateCVC(cvc);
+		cvc = Stripe.card.validateCVC(cvc);
 		return this.updateErrors({cvc});
 	},
 

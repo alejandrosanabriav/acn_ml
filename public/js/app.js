@@ -25352,7 +25352,7 @@
 
 	var _amount2 = _interopRequireDefault(_amount);
 
-	var _credit_card = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./credit_card\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _credit_card = __webpack_require__(268);
 
 	var _credit_card2 = _interopRequireDefault(_credit_card);
 
@@ -25617,7 +25617,178 @@
 	exports.default = AmountBtns;
 
 /***/ },
-/* 268 */,
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _cards = __webpack_require__(295);
+
+	var _cards2 = _interopRequireDefault(_cards);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var CedritCard = _react2.default.createClass({
+		displayName: 'CedritCard',
+		validateCard: function validateCard(card) {
+			var number = Stripe.card.validateCardNumber(card);
+			return this.updateErrors({ number: number });
+		},
+		validateExpiry: function validateExpiry(month, year) {
+			var valid = Stripe.card.validateExpiry(month, year);
+			return this.updateErrors({ exp_month: valid, exp_year: valid });
+		},
+		validateCvc: function validateCvc(cvc) {
+			cvc = Stripe.card.validateCVC(cvc);
+			return this.updateErrors({ cvc: cvc });
+		},
+		updateErrors: function updateErrors(field) {
+			return _extends({}, this.props.errors, { stripe: field });
+		},
+		getCardType: function getCardType(number) {
+			return Stripe.card.cardType(number).replace(' ', '');
+		},
+		handleCard: function handleCard(e) {
+			var _props = this.props,
+			    onlyNum = _props.onlyNum,
+			    maxLength = _props.maxLength;
+
+			var val = e.currentTarget.value;
+			var number = onlyNum(val);
+			number = maxLength(number, 16);
+			var errors = this.validateCard(number);
+			var card_type = this.getCardType(number);
+			var stripe = _extends({}, this.props.stripe, { number: number, card_type: card_type });
+			this.props.onChange({ stripe: stripe, errors: errors });
+		},
+		handleExpiry: function handleExpiry(type, e) {
+			var _props2 = this.props,
+			    stripe = _props2.stripe,
+			    onlyNum = _props2.onlyNum,
+			    maxLength = _props2.maxLength;
+
+			var val = onlyNum(e.currentTarget.value);
+			val = maxLength(val, 2);
+			var exp_month = stripe.exp_month;
+			var exp_year = stripe.exp_year;
+			if (type == 'exp_month') exp_month = val;
+			if (type == 'exp_year') exp_year = val;
+			var errors = this.validateExpiry();
+			stripe = _extends({}, stripe, { exp_month: exp_month, exp_year: exp_year });
+
+			this.props.onChange({ stripe: stripe, errors: errors });
+		},
+		handleCvc: function handleCvc(e) {
+			var _props3 = this.props,
+			    stripe = _props3.stripe,
+			    onlyNum = _props3.onlyNum,
+			    maxLength = _props3.maxLength;
+
+			var cvc = onlyNum(e.currentTarget.value);
+			cvc = maxLength(cvc, 4);
+			stripe = _extends({}, stripe, { cvc: cvc });
+			var errors = this.validateCvc(cvc);
+			this.props.onChange({ stripe: stripe, errors: errors });
+		},
+		showErr: function showErr(field) {
+			return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
+		},
+		render: function render() {
+			var _props4 = this.props,
+			    texts = _props4.texts,
+			    stripe = _props4.stripe,
+			    errors = _props4.errors;
+
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_cards2.default, this.props),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						placeholder: texts.creditcard_placeholder,
+						className: 'form-control',
+						onChange: this.handleCard,
+						value: stripe.number
+					}),
+					_react2.default.createElement(
+						'span',
+						{ className: this.showErr('number') },
+						texts.validation_card
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
+							placeholder: texts.month_placeholder,
+							className: 'form-control',
+							onChange: this.handleExpiry.bind(null, 'exp_month'),
+							value: stripe.exp_month
+						}),
+						_react2.default.createElement(
+							'span',
+							{ className: this.showErr('exp_month') },
+							texts.validation_month
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
+							placeholder: texts.year_placeholder,
+							className: 'form-control',
+							onChange: this.handleExpiry.bind(null, 'exp_year'),
+							value: stripe.exp_year
+						}),
+						_react2.default.createElement(
+							'span',
+							{ className: this.showErr('exp_year') },
+							texts.validation_year
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
+							placeholder: texts.cvc_placeholder,
+							className: 'form-control',
+							onChange: this.handleCvc,
+							value: stripe.cvc
+						}),
+						_react2.default.createElement(
+							'span',
+							{ className: this.showErr('cvc') },
+							texts.validation_cvc
+						)
+					)
+				)
+			);
+		}
+	});
+
+	exports.default = CedritCard;
+
+/***/ },
 /* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -26830,6 +27001,62 @@
 		return polyfill;
 	};
 
+
+/***/ },
+/* 295 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Cards = _react2.default.createClass({
+		displayName: 'Cards',
+		cardType: function cardType(type) {
+			return this.props.stripe.card_type == type ? 'card-type card-type--active' : 'card-type';
+		},
+		render: function render() {
+			var _props = this.props,
+			    card_type = _props.card_type,
+			    texts = _props.texts;
+
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'form-group donate_landing__cards' },
+				_react2.default.createElement('img', {
+					className: this.cardType('Visa'),
+					src: texts.template_uri + '/public/img/cards/Visa.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('MasterCard'),
+					src: texts.template_uri + '/public/img/cards/MasterCard.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('DinersClub'),
+					src: texts.template_uri + '/public/img/cards/DinersClub.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('AmericanExpress'),
+					src: texts.template_uri + '/public/img/cards/AmericanExpress.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('Discover'),
+					src: texts.template_uri + '/public/img/cards/Discover.png'
+				})
+			);
+		}
+	});
+
+	exports.default = Cards;
 
 /***/ }
 /******/ ]);
