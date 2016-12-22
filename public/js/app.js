@@ -25703,6 +25703,13 @@
 		showErr: function showErr(field) {
 			return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 		},
+		allValidations: function allValidations() {
+			var stripe = this.props.stripe;
+
+			this.validateCard(stripe.number);
+			this.validateExpiry(stripe.exp_month, stripe.exp_year);
+			this.validateCvc(stripe.cvc);
+		},
 		render: function render() {
 			var _props4 = this.props,
 			    texts = _props4.texts,
@@ -25781,6 +25788,11 @@
 							texts.validation_cvc
 						)
 					)
+				),
+				_react2.default.createElement(
+					'button',
+					{ onClick: this.allValidations },
+					'validate'
 				)
 			);
 		}

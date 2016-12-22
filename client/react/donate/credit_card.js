@@ -64,6 +64,13 @@ const CedritCard = React.createClass({
 		return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 	},
 
+	allValidations() {
+		const {stripe} = this.props;
+		this.validateCard(stripe.number);
+		this.validateExpiry(stripe.exp_month, stripe.exp_year);
+		this.validateCvc(stripe.cvc);
+	},
+
 	render() {
 		const {texts, stripe, errors} = this.props;
 
@@ -124,6 +131,7 @@ const CedritCard = React.createClass({
 					</span>
 				</div>
 			</div>
+		<button onClick={this.allValidations}>validate</button>
 		</div>
 		)
 	}
