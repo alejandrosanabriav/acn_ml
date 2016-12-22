@@ -48,7 +48,7 @@ const CedritCard = React.createClass({
 	},
 
 	handleCvc(e) {
-		let {stripe, onlyNum} = this.props;
+		let {stripe, onlyNum, maxLength} = this.props;
 		let cvc = onlyNum(e.currentTarget.value);
 		cvc = maxLength(cvc, 4);
 		stripe = {...stripe, cvc};

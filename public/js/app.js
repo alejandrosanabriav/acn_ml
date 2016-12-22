@@ -25689,7 +25689,8 @@
 		handleCvc: function handleCvc(e) {
 			var _props3 = this.props,
 			    stripe = _props3.stripe,
-			    onlyNum = _props3.onlyNum;
+			    onlyNum = _props3.onlyNum,
+			    maxLength = _props3.maxLength;
 
 			var cvc = onlyNum(e.currentTarget.value);
 			cvc = maxLength(cvc, 4);
