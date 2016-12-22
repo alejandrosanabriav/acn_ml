@@ -8,15 +8,6 @@ const amount = React.createClass({
 		}
 	},
 
-	getDefaultProps() {
-		return {
-			texts: {
-				other: 'Other',
-				monthly: 'Monthly',
-				once: 'Once'
-			}
-		}
-	},
 
 	changeAmount(amount,e) {
 		if(e) e.preventDefault();

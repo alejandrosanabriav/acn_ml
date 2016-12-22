@@ -5,7 +5,15 @@ import CreditCard from './credit_card';
 const Donate = React.createClass({
 	getInitialState() {
 		return {
-			texts: {}
+			texts: {
+				creditcard_placeholder: 'Credit Card number',
+				month_placeholder: 'MM',
+				year_placeholder: 'YY',
+				cvc_placeholder: 'CVC',
+				other: 'Other',
+				monthly: 'Monthly',
+				once: 'Once'
+			}
 		}
 	},
 

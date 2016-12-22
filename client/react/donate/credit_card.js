@@ -1,19 +1,10 @@
 import React from 'react';
 
 const CedritCard = React.createClass({
-	getDefaultProps() {
-		return {
-			texts: {
-				creditcard_placeholder: 'Credit Card number',
-				month_placeholder: 'MM',
-				year_placeholder: 'YY',
-				cvc_placeholder: 'CVC'
-			}	
-		}
-	},
 
 	render() {
 		const {texts} = this.props;
+
 		return (
 			<div>
 			<div className="form-group">
