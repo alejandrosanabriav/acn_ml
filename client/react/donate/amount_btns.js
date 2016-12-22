@@ -2,7 +2,7 @@ import React from 'react';
 
 const AmountBtns = React.createClass({
 render() {
-	const {changeAmount} = this.props;
+	const {changeAmount, texts} = this.props;
 
 	return (
 			<ul className="change-amount" style={{padding: 0}}>

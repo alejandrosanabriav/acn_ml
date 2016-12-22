@@ -26912,7 +26912,9 @@
 	var AmountBtns = _react2.default.createClass({
 		displayName: "AmountBtns",
 		render: function render() {
-			var changeAmount = this.props.changeAmount;
+			var _props = this.props,
+			    changeAmount = _props.changeAmount,
+			    texts = _props.texts;
 
 
 			return _react2.default.createElement(
