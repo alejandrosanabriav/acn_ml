@@ -25391,7 +25391,10 @@
 					monthly: 'Monthly',
 					once: 'Once'
 				},
-				errors: {}
+				errors: {
+					stripe: {},
+					contact: {}
+				}
 			};
 		},
 		getProps: function getProps() {

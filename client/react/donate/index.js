@@ -32,7 +32,10 @@ const Donate = React.createClass({
 				monthly: 'Monthly',
 				once: 'Once'
 			},
-			errors: {}
+			errors: {
+				stripe: {},
+				contact: {}
+			}
 		}
 	},
 
