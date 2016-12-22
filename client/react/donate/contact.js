@@ -80,7 +80,6 @@ const Contact = React.createClass({
 					})}
 					</select>
 				</div>
-				<button onClick={this.validateAll}>validate</button>
 			</div>
 		)
 	}

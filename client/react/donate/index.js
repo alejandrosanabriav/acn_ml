@@ -69,6 +69,10 @@ const Donate = React.createClass({
 		this.setState({...this.state, ...field});
 	},
 
+	handleSubmit() {
+		console.log(this.state);
+	},
+
 	render() {
 		return (
 			<div>
@@ -92,7 +96,7 @@ const Donate = React.createClass({
 				 />
 
 				 <div className="form-group">
-				 	<button className="donate_landing__submit pull-left">Donate</button>
+					 <button className="donate_landing__submit pull-left" onClick={this.handleSubmit}>Donate</button>
 				 </div>
 				 
 			</div>

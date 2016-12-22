@@ -25425,6 +25425,9 @@
 		handleChange: function handleChange(field) {
 			this.setState(_extends({}, this.state, field));
 		},
+		handleSubmit: function handleSubmit() {
+			console.log(this.state);
+		},
 		render: function render() {
 			return _react2.default.createElement(
 				'div',
@@ -25447,7 +25450,7 @@
 					{ className: 'form-group' },
 					_react2.default.createElement(
 						'button',
-						{ className: 'donate_landing__submit pull-left' },
+						{ className: 'donate_landing__submit pull-left', onClick: this.handleSubmit },
 						'Donate'
 					)
 				)
@@ -25921,11 +25924,6 @@
 							);
 						})
 					)
-				),
-				_react2.default.createElement(
-					'button',
-					{ onClick: this.validateAll },
-					'validate'
 				)
 			);
 		}
