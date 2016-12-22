@@ -24,7 +24,7 @@ const amount = React.createClass({
 		const {texts, donation_type, amount} = this.props;
 
 		return (
-			<div className="row">
+			<div>
 				<ul className="change-amount">
 					<li className="col-md-2"> 
 						<a href="#" onClick={this.changeAmount.bind(null, 10)}>10</a> 
