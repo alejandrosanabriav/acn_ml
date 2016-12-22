@@ -25713,7 +25713,7 @@
 			var cvc = this.validateCvc(stripe.cvc);
 			var er = { errors: _extends({}, number, exp_month, exp_year, cvc) };
 			var errors = _extends({}, this.props.errors, { er: er });
-			console.log(er);Ó;
+			console.log(er);
 			this.props.onChange({ errors: errors });
 		},
 		render: function render() {

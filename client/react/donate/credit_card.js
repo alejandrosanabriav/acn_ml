@@ -73,7 +73,7 @@ const CedritCard = React.createClass({
 		let cvc = this.validateCvc(stripe.cvc);
 		let er = {errors: {...number, ...exp_month, ...exp_year, ...cvc}};
 		let errors = {...this.props.errors, er};
-		console.log(er);Ó
+		console.log(er);
 		this.props.onChange({errors});
 	},
 
