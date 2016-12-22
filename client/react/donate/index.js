@@ -85,7 +85,7 @@ const Donate = React.createClass({
 					onChange={this.handleChange} 
 				 />
 				 <div className="form-group">
-				 	<button className="donate_landing__submi">Donate</button>
+				 	<button className="donate_landing__submit pull-left">Donate</button>
 				 </div>
 				 
 			</div>

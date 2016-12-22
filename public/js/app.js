@@ -25435,7 +25435,7 @@
 					{ className: 'form-group' },
 					_react2.default.createElement(
 						'button',
-						{ className: 'donate_landing__submi' },
+						{ className: 'donate_landing__submit pull-left' },
 						'Donate'
 					)
 				)
