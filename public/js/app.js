@@ -25426,7 +25426,7 @@
 			var valid = Stripe.card.validateCardNumber(val);
 			console.log('valid', valid);
 			var errors = { stripe: { number: valid } };
-			this.setState(_extends({}, this.state, { errors: errors }));
+			this.setState(_extends({}, this.state, errors));
 		},
 		render: function render() {
 			return _react2.default.createElement(
