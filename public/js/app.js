@@ -25852,6 +25852,8 @@
 			return this.props.errors.contact[field] == false ? 'form-group--error' : '';
 		},
 		validateAll: function validateAll() {
+			var contact = this.props.contact;
+
 			var name = this.validate('name', contact.name);
 			var email = this.validate('email', contact.email);
 			var country = this.validate('country', contact.country);

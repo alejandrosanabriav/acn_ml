@@ -28,6 +28,7 @@ const Contact = React.createClass({
 	},
 
 	validateAll() {
+		let {contact} = this.props;
 		let name = this.validate('name', contact.name);
 		let email = this.validate('email', contact.email);
 		let country = this.validate('country', contact.country);
