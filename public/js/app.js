@@ -25672,7 +25672,8 @@
 		handleExpiry: function handleExpiry(type, e) {
 			var _props2 = this.props,
 			    stripe = _props2.stripe,
-			    onlyNum = _props2.onlyNum;
+			    onlyNum = _props2.onlyNum,
+			    maxLength = _props2.maxLength;
 
 			var val = onlyNum(e.currentTarget.value);
 			val = maxLength(number, 2);
