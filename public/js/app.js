@@ -25496,7 +25496,11 @@
 						' '
 					)
 				),
-				_react2.default.createElement('input', { ref: 'amountInput', type: 'text', onChange: this.handleAmount, value: this.state.amount }),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement('input', { ref: 'amountInput', className: 'form-control', type: 'text', onChange: this.handleAmount, value: this.state.amount })
+				),
 				_react2.default.createElement(
 					'a',
 					{ href: '#',

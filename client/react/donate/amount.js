@@ -51,9 +51,10 @@ const amount = React.createClass({
 					<li> 
 						<a href="#" onClick={this.changeAmount.bind(null, 5)}>{texts.other}</a> </li>
 				</ul>
-
-				<input ref="amountInput" type="text" onChange={this.handleAmount} value={this.state.amount} />
-
+				<div className="form-group">
+					<input ref="amountInput" className="form-control" type="text" onChange={this.handleAmount} value={this.state.amount} />
+				</div>
+				
 				<a href="#" 
 					onClick={this.changeType.bind(null, 'monthly')} 
 					style={this.state.donation_type == 'monthly' ? {color: 'red'} : {}}
