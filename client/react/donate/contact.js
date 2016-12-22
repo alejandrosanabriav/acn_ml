@@ -4,7 +4,7 @@ const Contact = React.createClass({
 	handleChange(field, e) {
 		this.props.onChange({[field]: e.currentTarget.value});
 	},
-	
+
 	render() {
 		const {texts} = this.props;
 		return (
@@ -15,6 +15,7 @@ const Contact = React.createClass({
 						className="form-control" 
 						placeholder={texts.placeholder_name}
 						onChange={this.handleChange.bind(null, 'name')}
+						value={}
 					/>
 				</div>
 

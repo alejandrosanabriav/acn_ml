@@ -45,15 +45,16 @@ const amount = React.createClass({
 					<input ref="amountInput" className="form-control" type="text" onChange={this.handleAmount} value={amount} />
 				</div>
 				<div className="form-group col-xs-5">
-					<a href="#" 
-						onClick={this.changeType.bind(null, 'monthly')} 
-						style={donation_type == 'monthly' ? {color: 'red'} : {}}
+					<a 
+						href="#" 
+						onClick={this.changeType.bind(null, 'monthly')}
+						className={donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '}
 					>
 					{texts.monthly}
 				</a>
 				<a href="#" 
 						onClick={this.changeType.bind(null, 'once')} 
-						style={donation_type == 'once' ? {color: 'red'} : {}}
+						className={donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '}
 					>
 					{texts.once}
 				</a>
