@@ -25426,16 +25426,18 @@
 			this.setState(_extends({}, this.state, field));
 		},
 		handleSubmit: function handleSubmit() {
-			console.log(this.state);
+
 			var data = {
 				action: 'stripe_token',
 				data: this.state.stripe
 			};
-			console.log(data);
+
 			$.ajax({
 				type: 'post',
 				url: '/wp-admin/admin-ajax.php',
 				data: data
+			}).then(function (res) {
+				return console.log(res);
 			});
 		},
 		render: function render() {
