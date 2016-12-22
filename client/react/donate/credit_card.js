@@ -57,11 +57,14 @@ const CedritCard = React.createClass({
 		stripe = {...stripe, cvc};
 		let errors = this.validateCvc(cvc);
 		this.props.onChange({stripe, errors});
-		
 	},
 
 	showErr(field) {
 		return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
+	},
+
+	inputErrStyle(field) {
+		return this.props.errors.stripe[field] == false ? 'form-control--error' : '';
 	},
 
 	allValidations(e) {
@@ -71,7 +74,6 @@ const CedritCard = React.createClass({
 		let exp_month = this.validateExpiry(stripe.exp_month, stripe.exp_year);
 		let cvc = this.validateCvc(stripe.cvc);
 		let errors = {stripe:{ ...number.stripe, ...exp_month.stripe, ...cvc.stripe}};
-		console.log(errors);
 		this.props.onChange({errors});
 	},
 
@@ -82,10 +84,10 @@ const CedritCard = React.createClass({
 			<div>
 			<Cards {...this.props} />
 			<div className="form-group">
-				<input 
-					type="text" 
+				<input
+					type="text"
 					placeholder={texts.creditcard_placeholder} 
-					className="form-control"
+					className={`form-control ${this.inputErrStyle('number')}`}
 					onChange={this.handleCard}
 					value={stripe.number}
 				/>

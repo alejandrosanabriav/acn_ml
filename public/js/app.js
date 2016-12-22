@@ -25703,6 +25703,9 @@
 		showErr: function showErr(field) {
 			return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 		},
+		inputErrStyle: function inputErrStyle(field) {
+			return this.props.errors.stripe[field] == false ? 'form-control--error' : '';
+		},
 		allValidations: function allValidations(e) {
 			e.preventDefault();
 			var stripe = this.props.stripe;
@@ -25711,7 +25714,6 @@
 			var exp_month = this.validateExpiry(stripe.exp_month, stripe.exp_year);
 			var cvc = this.validateCvc(stripe.cvc);
 			var errors = { stripe: _extends({}, number.stripe, exp_month.stripe, cvc.stripe) };
-			console.log(errors);
 			this.props.onChange({ errors: errors });
 		},
 		render: function render() {
@@ -25731,7 +25733,7 @@
 					_react2.default.createElement('input', {
 						type: 'text',
 						placeholder: texts.creditcard_placeholder,
-						className: 'form-control',
+						className: 'form-control ' + this.inputErrStyle('number'),
 						onChange: this.handleCard,
 						value: stripe.number
 					}),
