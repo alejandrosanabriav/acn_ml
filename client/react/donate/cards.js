@@ -9,7 +9,7 @@ const Cards = React.createClass({
 		const {card_type, texts} = this.props;
 
 		return (
-			 <div class="form-group col-sm-12 donate_landing__cards">
+			 <div className="form-group col-sm-12 donate_landing__cards">
         	<img 
             className={this.cardType('Visa')}  
 						src={`${texts.template_uri}/public/img/cards/Visa.png`}
