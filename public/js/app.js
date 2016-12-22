@@ -25441,7 +25441,9 @@
 			}).then(function (res) {
 				return _this2.setState({ stripe: _extends({}, _this2.state.stripe, { token: res.id }) });
 			}).then(function (res) {
-				return console.log('another then', _this2.state.stripe);
+				return _this2.stripeCharge();
+			}).then(function (res) {
+				return console.log(res);
 			});
 		},
 		stripeCharge: function stripeCharge() {

@@ -83,7 +83,8 @@ const Donate = React.createClass({
 				data: data
 			})
 			.then(res => this.setState({stripe: {...this.state.stripe, token: res.id}}))
-			.then(res => console.log('another then', this.state.stripe));
+			.then(res => this.stripeCharge())
+			.then(res => console.log(res));
 	},
 
 	stripeCharge() {
