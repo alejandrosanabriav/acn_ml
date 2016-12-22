@@ -25902,7 +25902,7 @@
 							className: 'form-control',
 							placeholder: texts.placeholder_country,
 							onChange: this.handleChange.bind(null, 'country'),
-							value: contact.country
+							value: contact.country || texts.country
 						},
 						this.props.countries.map(function (country) {
 							return _react2.default.createElement(

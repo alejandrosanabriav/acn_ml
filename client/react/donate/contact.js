@@ -64,7 +64,7 @@ const Contact = React.createClass({
 						className="form-control" 
 						placeholder={texts.placeholder_country}
 						onChange={this.handleChange.bind(null, 'country')} 
-						value={contact.country}
+						value={contact.country || texts.country}
 					>
 					{this.props.countries.map(country => {
 						return <option value={country}>{country}</option>
