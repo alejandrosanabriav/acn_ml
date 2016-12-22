@@ -1,5 +1,6 @@
 import React from 'react';
 import Amount from './amount';
+import CreditCard from './credit_card';
 
 const Donate = React.createClass({
 	getInitialState() {
@@ -29,6 +30,7 @@ const Donate = React.createClass({
 		return (
 			<div>
 				<Amount texts={this.state.texts} />
+				<CreditCard texts={this.state.texts} />
 			</div>
 		)
 	}

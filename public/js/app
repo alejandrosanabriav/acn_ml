@@ -25402,6 +25402,10 @@
 
 	var _amount2 = _interopRequireDefault(_amount);
 
+	var _credit_card = __webpack_require__(292);
+
+	var _credit_card2 = _interopRequireDefault(_credit_card);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Donate = _react2.default.createClass({
@@ -25431,7 +25435,8 @@
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_amount2.default, { texts: this.state.texts })
+				_react2.default.createElement(_amount2.default, { texts: this.state.texts }),
+				_react2.default.createElement(_credit_card2.default, { texts: this.state.texts })
 			);
 		}
 	});
@@ -26701,6 +26706,64 @@
 		return polyfill;
 	};
 
+
+/***/ },
+/* 292 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var CedritCard = _react2.default.createClass({
+		displayName: "CedritCard",
+		render: function render() {
+			_react2.default.createElement(
+				"div",
+				null,
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group" },
+					_react2.default.createElement("input", {
+						type: "text",
+						placeholder: texts.creditcard_placeholder,
+						"class": "form-control"
+					})
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group col-md-4" },
+					_react2.default.createElement("input", {
+						type: "text",
+						placeholder: texts.month_placeholder,
+						"class": "form-control"
+					})
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group col-md-4" },
+					_react2.default.createElement("input", {
+						type: "text",
+						placeholder: texts.year_placeholder,
+						"class": "form-control"
+					})
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group col-md-4" },
+					_react2.default.createElement("input", {
+						type: "text",
+						placeholder: texts.cvc_placeholder,
+						"class": "form-control"
+					})
+				)
+			);
+		}
+	});
 
 /***/ }
 /******/ ]);
