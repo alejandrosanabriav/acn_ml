@@ -25490,10 +25490,10 @@
 				{ className: "row" },
 				_react2.default.createElement(
 					"ul",
-					null,
+					{ className: "change-amount" },
 					_react2.default.createElement(
 						"li",
-						null,
+						{ className: "col-md-2" },
 						_react2.default.createElement(
 							"a",
 							{ href: "#", onClick: this.changeAmount.bind(null, 10) },
@@ -25502,7 +25502,7 @@
 					),
 					_react2.default.createElement(
 						"li",
-						null,
+						{ className: "col-md-2" },
 						_react2.default.createElement(
 							"a",
 							{ href: "#", onClick: this.changeAmount.bind(null, 30) },
@@ -25511,7 +25511,7 @@
 					),
 					_react2.default.createElement(
 						"li",
-						null,
+						{ className: "col-md-2" },
 						_react2.default.createElement(
 							"a",
 							{ href: "#", onClick: this.changeAmount.bind(null, 50) },
@@ -25520,7 +25520,7 @@
 					),
 					_react2.default.createElement(
 						"li",
-						null,
+						{ className: "col-md-2" },
 						_react2.default.createElement(
 							"a",
 							{ href: "#", onClick: this.changeAmount.bind(null, 100) },
@@ -25529,7 +25529,7 @@
 					),
 					_react2.default.createElement(
 						"li",
-						null,
+						{ className: "col-md-2" },
 						_react2.default.createElement(
 							"a",
 							{ href: "#", onClick: this.changeAmount.bind(null, 5) },
