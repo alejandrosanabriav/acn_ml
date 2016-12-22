@@ -25541,7 +25541,7 @@
 		render: function render() {
 			var texts = this.props.texts;
 
-			_react2.default.createElement(
+			return _react2.default.createElement(
 				"div",
 				null,
 				_react2.default.createElement(

@@ -3,7 +3,8 @@ import React from 'react';
 const CedritCard = React.createClass({
 	render() {
 		const {texts} = this.props;
-		<div>
+		return (
+			<div>
 			<div className="form-group">
 				<input 
 					type="text" 
@@ -33,6 +34,7 @@ const CedritCard = React.createClass({
 				/>
 			</div>
 		</div>
+		)
 	}
 });
 
