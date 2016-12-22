@@ -25710,7 +25710,7 @@
 			var number = this.validateCard(stripe.number);
 			var exp_month = this.validateExpiry(stripe.exp_month, stripe.exp_year);
 			var cvc = this.validateCvc(stripe.cvc);
-			var errors = { stripe: _extends({}, number.stripe, exp_month.stripe, exp_month.cvc) };
+			var errors = { stripe: _extends({}, number.stripe, exp_month.stripe, cvc.stripe) };
 			console.log(errors);
 			this.props.onChange({ errors: errors });
 		},
