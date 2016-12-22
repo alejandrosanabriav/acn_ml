@@ -27,7 +27,7 @@ const CedritCard = React.createClass({
 					value={stripe.number}
 				/>
 
-				<span className={errors.stripe.number ? 'form-group__error' : 'hidden'}>
+				<span className={errors.stripe.number == false ? 'form-group__error' : 'hidden'}>
 					{texts.validation_card}
         </span>
 

@@ -25593,7 +25593,7 @@
 					}),
 					_react2.default.createElement(
 						'span',
-						{ className: errors.stripe.number ? 'form-group__error' : 'hidden' },
+						{ className: errors.stripe.number == false ? 'form-group__error' : 'hidden' },
 						texts.validation_card
 					)
 				),
