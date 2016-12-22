@@ -25641,15 +25641,16 @@
 	var CedritCard = _react2.default.createClass({
 		displayName: 'CedritCard',
 		validateCard: function validateCard() {
-			var valid = Stripe.card.validateCardNumber(this.props.stripe.number);
-			return _extends({}, this.props.errors, { stripe: { number: valid } });
+			var number = Stripe.card.validateCardNumber(this.props.stripe.number);
+			return _extends({}, this.props.errors, { stripe: { number: number } });
 		},
-		validateExpiry: function validateExpiry(month, year) {
-			var valid = Stripe.card.validateExpiry(month, year);
+		validateExpiry: function validateExpiry() {
+
+			var valid = Stripe.card.validateExpiry(this.props.stripe.exp_month, this.props.stripe.exp_year);
 			return _extends({}, this.props.errors, { stripe: { exp_month: valid, exp_year: valid } });
 		},
-		validateCvc: function validateCvc(cvc) {
-			var valid = Stripe.card.validateCVC(cvc);
+		validateCvc: function validateCvc() {
+			var valid = Stripe.card.validateCVC(this.props.stripe.cvc);
 			return _extends({}, this.props.errors, { stripe: { cvc: valid } });
 		},
 		getCardType: function getCardType(number) {
