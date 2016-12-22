@@ -25352,6 +25352,10 @@
 
 	var _credit_card2 = _interopRequireDefault(_credit_card);
 
+	var _contact = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./contact\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _contact2 = _interopRequireDefault(_contact);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Donate = _react2.default.createClass({
@@ -25405,7 +25409,7 @@
 					onlyNum: this.onlyNum,
 					onChange: this.handleChange
 				})),
-				_react2.default.createElement(Contact, _extends({}, this.state, {
+				_react2.default.createElement(_contact2.default, _extends({}, this.state, {
 					onChange: this.handleChange
 				}))
 			);

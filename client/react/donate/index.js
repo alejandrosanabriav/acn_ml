@@ -1,6 +1,7 @@
 import React from 'react';
 import Amount from './amount';
 import CreditCard from './credit_card';
+import Contact from './contact';
 
 const Donate = React.createClass({
 	getInitialState() {
