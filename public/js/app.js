@@ -25364,6 +25364,7 @@
 			return {
 				donation_type: 'monthly',
 				amount: 30,
+				card_type: '',
 				contact: {
 					name: '',
 					email: '',
@@ -25399,6 +25400,9 @@
 		onlyNum: function onlyNum(val) {
 			return val.replace(/[^0-9]+/, '');
 		},
+		maxLength: function maxLength(length) {
+			return val.substring(0, length);
+		},
 		handleChange: function handleChange(field) {
 			this.setState(_extends({}, this.state, field));
 		},
@@ -25412,6 +25416,7 @@
 				})),
 				_react2.default.createElement(_credit_card2.default, _extends({}, this.state, {
 					onlyNum: this.onlyNum,
+					maxLength: this.maxLength,
 					onChange: this.handleChange
 				})),
 				_react2.default.createElement(_contact2.default, _extends({}, this.state, {
@@ -25552,7 +25557,7 @@
 /* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -25562,54 +25567,59 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _cards = __webpack_require__(294);
+
+	var _cards2 = _interopRequireDefault(_cards);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var CedritCard = _react2.default.createClass({
-		displayName: "CedritCard",
+		displayName: 'CedritCard',
 		render: function render() {
 			var texts = this.props.texts;
 
 
 			return _react2.default.createElement(
-				"div",
+				'div',
 				null,
+				_react2.default.createElement(_cards2.default, this.props),
 				_react2.default.createElement(
-					"div",
-					{ className: "form-group" },
-					_react2.default.createElement("input", {
-						type: "text",
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement('input', {
+						type: 'text',
 						placeholder: texts.creditcard_placeholder,
-						className: "form-control"
+						className: 'form-control'
 					})
 				),
 				_react2.default.createElement(
-					"div",
-					{ className: "row" },
+					'div',
+					{ className: 'row' },
 					_react2.default.createElement(
-						"div",
-						{ className: "form-group col-md-4" },
-						_react2.default.createElement("input", {
-							type: "text",
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
 							placeholder: texts.month_placeholder,
-							className: "form-control"
+							className: 'form-control'
 						})
 					),
 					_react2.default.createElement(
-						"div",
-						{ className: "form-group col-md-4" },
-						_react2.default.createElement("input", {
-							type: "text",
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
 							placeholder: texts.year_placeholder,
-							className: "form-control"
+							className: 'form-control'
 						})
 					),
 					_react2.default.createElement(
-						"div",
-						{ className: "form-group col-md-4" },
-						_react2.default.createElement("input", {
-							type: "text",
+						'div',
+						{ className: 'form-group col-md-4' },
+						_react2.default.createElement('input', {
+							type: 'text',
 							placeholder: texts.cvc_placeholder,
-							className: "form-control"
+							className: 'form-control'
 						})
 					)
 				)
@@ -26813,6 +26823,46 @@
 	});
 
 	exports.default = Contact;
+
+/***/ },
+/* 294 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Cards = _react2.default.createClass({
+		displayName: 'Cards',
+		cardType: function cardType(type) {
+			return this.props.card_type == type ? 'card-type card-type--active' : 'card-type';
+		},
+		render: function render() {
+			var _props = this.props,
+			    card_type = _props.card_type,
+			    template_uri = _props.template_uri;
+
+
+			return _react2.default.createElement(
+				'div',
+				{ 'class': 'form-group col-sm-12 donate_landing__cards' },
+				_react2.default.createElement('img', {
+					className: this.cardType('visa'),
+					src: template_uri + '/public/img/cards/Visa.png'
+				})
+			);
+		}
+	});
+
+	exports.default = Cards;
 
 /***/ }
 /******/ ]);

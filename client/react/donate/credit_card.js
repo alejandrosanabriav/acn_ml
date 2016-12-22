@@ -1,4 +1,5 @@
 import React from 'react';
+import Cards from './cards';
 
 const CedritCard = React.createClass({
 
@@ -7,6 +8,7 @@ const CedritCard = React.createClass({
 
 		return (
 			<div>
+			<Cards {...this.props} />
 			<div className="form-group">
 				<input 
 					type="text" 

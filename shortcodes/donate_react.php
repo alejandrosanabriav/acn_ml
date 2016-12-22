@@ -12,6 +12,7 @@ function bs_donate_react_sc($atts, $content = null) {
     "placeholder_name" => "Name",
     "placeholder_email" => "Email",
     "placeholder_country" => "Country",
+		"template_uri" => str_replace("http:", "", get_template_directory_uri())
 	 ], $atts);
 
 	ob_start();

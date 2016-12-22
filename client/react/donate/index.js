@@ -8,6 +8,7 @@ const Donate = React.createClass({
 		return {
 			donation_type: 'monthly',
 			amount: 30,
+			card_type: '',
 			contact: {
 				name: '',
 				email: '',
@@ -47,6 +48,10 @@ const Donate = React.createClass({
 		return val.replace(/[^0-9]+/, '');
 	},
 
+	maxLength(length) {
+		return val.substring(0, length);
+	},
+
 	handleChange(field) {
 		this.setState({...this.state, ...field});
 	},
@@ -63,6 +68,7 @@ const Donate = React.createClass({
 				<CreditCard 
 					{...this.state} 
 					onlyNum={this.onlyNum} 
+					maxLength={this.maxLength}
 					onChange={this.handleChange}  
 				/>
 
