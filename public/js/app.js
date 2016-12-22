@@ -25648,7 +25648,7 @@
 			var val = e.currentTarget.value;
 			var card = onlyNum(val);
 			card = maxLength(card, 16);
-			console.log(card);
+			console.log({ card: card });
 			var valid = Stripe.card.validateCardNumber(card);
 			var errors = _extends({}, this.props.errors, { stripe: { number: valid } });
 			var card_type = Stripe.card.cardType(card).replace(' ', '');
