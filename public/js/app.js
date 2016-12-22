@@ -25640,6 +25640,13 @@
 
 	var CedritCard = _react2.default.createClass({
 		displayName: 'CedritCard',
+		validateCard: function validateCard(number) {
+			var valid = Stripe.card.validateCardNumber(number);
+			return _extends({}, this.props.errors, { stripe: { number: valid } });
+		},
+		getCardType: function getCardType(number) {
+			return Stripe.card.cardType(number).replace(' ', '');
+		},
 		handleCard: function handleCard(e) {
 			var _props = this.props,
 			    onlyNum = _props.onlyNum,
@@ -25648,15 +25655,13 @@
 			var val = e.currentTarget.value;
 			var number = onlyNum(val);
 			number = maxLength(number, 16);
-			console.log({ number: number });
-			var valid = Stripe.card.validateCardNumber(number);
-			var errors = _extends({}, this.props.errors, { stripe: { number: valid } });
-
-			var card_type = Stripe.card.cardType(number).replace(' ', '');
-
+			var errors = this.validateCard(number);
+			var card_type = this.getCardType(number);
 			var stripe = _extends({}, this.stripe, { number: number, card_type: card_type });
-			console.log({ stripe: stripe });
 			this.props.onChange({ stripe: stripe, errors: errors });
+		},
+		showErr: function showErr(field) {
+			return errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 		},
 		render: function render() {
 			var _props2 = this.props,
@@ -25681,7 +25686,7 @@
 					}),
 					_react2.default.createElement(
 						'span',
-						{ className: errors.stripe.number == false ? 'form-group__error' : 'hidden' },
+						{ className: this.showErr('number') },
 						texts.validation_card
 					)
 				),

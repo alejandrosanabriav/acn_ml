@@ -2,21 +2,28 @@ import React from 'react';
 import Cards from './cards';
 
 const CedritCard = React.createClass({
+	validateCard(number) {
+		let valid = Stripe.card.validateCardNumber(number);
+		return {...this.props.errors, stripe: {number: valid}};
+	},
+
+	getCardType(number) {
+		return Stripe.card.cardType(number).replace(' ', '');
+	},
 
 	handleCard(e) {
 		const {onlyNum, maxLength} = this.props;
 		let val =  e.currentTarget.value;
 		let number = onlyNum(val);
 		number = maxLength(number, 16);
-		console.log({number});
-		let valid = Stripe.card.validateCardNumber(number);
-		let errors = {...this.props.errors, stripe: {number: valid}};
-
-		let card_type = Stripe.card.cardType(number).replace(' ', '');
-		
+		let errors = this.validateCard(number);
+		let card_type = this.getCardType(number);
 		let stripe = {...this.stripe, number, card_type};
-		console.log({stripe});
 		this.props.onChange({stripe, errors});
+	},
+
+	showErr(field) {
+		return errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 	},
 
 	render() {
@@ -34,7 +41,7 @@ const CedritCard = React.createClass({
 					value={stripe.number}
 				/>
 
-				<span className={errors.stripe.number == false ? 'form-group__error' : 'hidden'}>
+				<span className={this.showErr('number')}>
 					{texts.validation_card}
         </span>
 
