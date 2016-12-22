@@ -25565,7 +25565,7 @@
 		handleCard: function handleCard(e) {
 			var card = e.currentTarget.value;
 			var valid = Stripe.card.validateCardNumber(card);
-			var errors = { stripe: { number: valid } };
+			var errors = _extends({}, this.props.errors, { stripe: { number: valid } });
 			var card_type = Stripe.card.cardType(card).replace(' ', '');
 			var stripe = _extends({}, this.stripe, { card: card, card_type: card_type });
 			this.props.onChange({ stripe: stripe, errors: errors });

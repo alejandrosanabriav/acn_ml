@@ -6,7 +6,7 @@ const CedritCard = React.createClass({
 	handleCard(e) {
 		let card = e.currentTarget.value;
 		let valid = Stripe.card.validateCardNumber(card);
-		let errors = {stripe: {number: valid}};
+		let errors = {...this.props.errors, stripe: {number: valid}};
 		let card_type = Stripe.card.cardType(card).replace(' ', '');
 		let stripe = {...this.stripe, card, card_type};
 		this.props.onChange({stripe, errors});
