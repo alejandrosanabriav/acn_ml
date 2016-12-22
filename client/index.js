@@ -22,8 +22,10 @@ import DonateReact from './react/donate';
 	Vue.component('bs-share', share());
 
 	const vm = new Vue({ el: '#app-ml' });
-
-	render(<DonateReact />, document.getElementById('bs-donate-react'));
+	if(document.getElementById('bs-donate-react')) {
+		render(<DonateReact />, document.getElementById('bs-donate-react'));
+	}
+	
 	
 	btnDonate();
 
