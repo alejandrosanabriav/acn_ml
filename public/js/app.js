@@ -25498,24 +25498,28 @@
 				),
 				_react2.default.createElement(
 					'div',
-					{ className: 'form-group' },
+					{ className: 'form-group col-xs-7' },
 					_react2.default.createElement('input', { ref: 'amountInput', className: 'form-control', type: 'text', onChange: this.handleAmount, value: this.state.amount })
 				),
 				_react2.default.createElement(
-					'a',
-					{ href: '#',
-						onClick: this.changeType.bind(null, 'monthly'),
-						style: this.state.donation_type == 'monthly' ? { color: 'red' } : {}
-					},
-					texts.monthly
-				),
-				_react2.default.createElement(
-					'a',
-					{ href: '#',
-						onClick: this.changeType.bind(null, 'once'),
-						style: this.state.donation_type == 'once' ? { color: 'red' } : {}
-					},
-					texts.once
+					'div',
+					{ 'class': 'form-group col-xs-5' },
+					_react2.default.createElement(
+						'a',
+						{ href: '#',
+							onClick: this.changeType.bind(null, 'monthly'),
+							style: this.state.donation_type == 'monthly' ? { color: 'red' } : {}
+						},
+						texts.monthly
+					),
+					_react2.default.createElement(
+						'a',
+						{ href: '#',
+							onClick: this.changeType.bind(null, 'once'),
+							style: this.state.donation_type == 'once' ? { color: 'red' } : {}
+						},
+						texts.once
+					)
 				)
 			);
 		}
