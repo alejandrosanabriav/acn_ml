@@ -9,21 +9,22 @@ const Donate = React.createClass({
 		}
 	},
 
-	componentWillMount(){
+	getProps() {
 		let a = document.getElementById('bs-donate-react');
 		let props = a.getAttribute('data-props');
 		let texts = this.state.texts;
-			console.log(props);
 
 		try {	
 			props = JSON.parse(props);
-			
 			texts = {...texts,  ...props};
-			console.log(texts);
 			this.setState({texts});
 		} catch(err) {
 			console.log(err);
 		}
+	},
+
+	componentWillMount(){
+		this.getProps();
 	},
 
 	render() {
