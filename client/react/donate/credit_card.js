@@ -6,22 +6,22 @@ const CedritCard = React.createClass({
 	handleCard(e) {
 		const {onlyNum, maxLength} = this.props;
 		let val =  e.currentTarget.value;
-		let card = onlyNum(val);
-		card = maxLength(card, 16);
-		console.log({card});
-		let valid = Stripe.card.validateCardNumber(card);
+		let number = onlyNum(val);
+		number = maxLength(number, 16);
+		console.log({number});
+		let valid = Stripe.card.validateCardNumber(number);
 		let errors = {...this.props.errors, stripe: {number: valid}};
 
-		let card_type = Stripe.card.cardType(card).replace(' ', '');
+		let card_type = Stripe.card.cardType(number).replace(' ', '');
 		
-		let stripe = {...this.stripe, card, card_type};
+		let stripe = {...this.stripe, number, card_type};
 		console.log({stripe});
 		this.props.onChange({stripe, errors});
 	},
 
 	render() {
 		const {texts, stripe, errors} = this.props;
-
+		console.log(stripe.number);
 		return (
 			<div>
 			<Cards {...this.props} />

@@ -25646,15 +25646,15 @@
 			    maxLength = _props.maxLength;
 
 			var val = e.currentTarget.value;
-			var card = onlyNum(val);
-			card = maxLength(card, 16);
-			console.log({ card: card });
-			var valid = Stripe.card.validateCardNumber(card);
+			var number = onlyNum(val);
+			number = maxLength(number, 16);
+			console.log({ number: number });
+			var valid = Stripe.card.validateCardNumber(number);
 			var errors = _extends({}, this.props.errors, { stripe: { number: valid } });
 
-			var card_type = Stripe.card.cardType(card).replace(' ', '');
+			var card_type = Stripe.card.cardType(number).replace(' ', '');
 
-			var stripe = _extends({}, this.stripe, { card: card, card_type: card_type });
+			var stripe = _extends({}, this.stripe, { number: number, card_type: card_type });
 			console.log({ stripe: stripe });
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
@@ -25664,7 +25664,7 @@
 			    stripe = _props2.stripe,
 			    errors = _props2.errors;
 
-
+			console.log(stripe.number);
 			return _react2.default.createElement(
 				'div',
 				null,
