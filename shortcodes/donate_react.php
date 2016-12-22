@@ -3,7 +3,15 @@ function bs_donate_react_sc($atts, $content = null) {
 	 $at = shortcode_atts([
 		 "other" => "Otro",
 		 "monthly" => "Mensual",
-		 "once" => "Una vez"
+		 "once" => "Una vez",
+		 "placeholder_amount" => "Amount",
+    "placeholder_credit_card" => "Credit Card Number",
+    "placeholder_month" => "MM",
+    "placeholder_year" => "YY",
+    "placeholder_cvc" => "CVC",
+    "placeholder_name" => "Name",
+    "placeholder_email" => "Email",
+    "placeholder_country" => "Country",
 	 ], $atts);
 
 	ob_start();
