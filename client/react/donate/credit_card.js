@@ -34,3 +34,5 @@ const CedritCard = React.createClass({
 		</div>
 	}
 });
+
+export default CedritCard;
