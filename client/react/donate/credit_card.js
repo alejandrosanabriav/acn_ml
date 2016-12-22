@@ -64,7 +64,7 @@ const CedritCard = React.createClass({
 	},
 
 	inputErrStyle(field) {
-		return this.props.errors.stripe[field] == false ? 'form-control--error' : '';
+		return this.props.errors.stripe[field] == false ? 'form-group--error' : '';
 	},
 
 	allValidations(e) {

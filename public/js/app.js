@@ -25704,7 +25704,7 @@
 			return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 		},
 		inputErrStyle: function inputErrStyle(field) {
-			return this.props.errors.stripe[field] == false ? 'form-control--error' : '';
+			return this.props.errors.stripe[field] == false ? 'form-group--error' : '';
 		},
 		allValidations: function allValidations(e) {
 			e.preventDefault();
