@@ -25649,6 +25649,10 @@
 			var valid = Stripe.card.validateExpiry(month, year);
 			return _extends({}, this.props.errors, { stripe: { exp_month: valid, exp_year: valid } });
 		},
+		validateCvc: function validateCvc(cvc) {
+			var valid = Stripe.card.validateCVC(cvc);
+			return _extends({}, this.props.errors, { stripe: { cvc: valid } });
+		},
 		getCardType: function getCardType(number) {
 			return Stripe.card.cardType(number).replace(' ', '');
 		},
@@ -25666,9 +25670,12 @@
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
 		handleExpiry: function handleExpiry(type, e) {
-			var stripe = this.props.stripe;
+			var _props2 = this.props,
+			    stripe = _props2.stripe,
+			    onlyNum = _props2.onlyNum;
 
-			var val = e.currentTarget.value;
+			var val = onlyNum(e.currentTarget.value);
+			val = maxLength(number, 2);
 			var exp_month = stripe.exp_month;
 			var exp_year = stripe.exp_year;
 			if (type == 'exp_month') exp_month = val;
@@ -25678,17 +25685,24 @@
 
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
-		handleCvc: function handleCvc(type, e) {
+		handleCvc: function handleCvc(e) {
+			var _props3 = this.props,
+			    stripe = _props3.stripe,
+			    onlyNum = _props3.onlyNum;
+
+			var cvc = onlyNum(e.currentTarget.value);
+			stripe = _extends({}, stripe, { cvc: cvc });
+			var errors = this.validateCvc(cvc);
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
 		showErr: function showErr(field) {
 			return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 		},
 		render: function render() {
-			var _props2 = this.props,
-			    texts = _props2.texts,
-			    stripe = _props2.stripe,
-			    errors = _props2.errors;
+			var _props4 = this.props,
+			    texts = _props4.texts,
+			    stripe = _props4.stripe,
+			    errors = _props4.errors;
 
 			console.log(stripe.number);
 			return _react2.default.createElement(

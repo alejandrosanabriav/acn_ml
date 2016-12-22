@@ -13,6 +13,11 @@ const CedritCard = React.createClass({
 		return {...this.props.errors, stripe: {exp_month: valid, exp_year: valid}};
 	},
 
+	validateCvc(cvc) {
+		let valid = Stripe.card.validateCVC(cvc);
+		return {...this.props.errors, stripe: {cvc: valid}};
+	},
+
 	getCardType(number) {
 		return Stripe.card.cardType(number).replace(' ', '');
 	},
@@ -29,8 +34,9 @@ const CedritCard = React.createClass({
 	},
 	
 	handleExpiry(type, e) {
-		let {stripe} = this.props;
-		let val = e.currentTarget.value;
+		let {stripe, onlyNum} = this.props;
+		let val = onlyNum(e.currentTarget.value);
+		val =  maxLength(number, 2);
 		let exp_month = stripe.exp_month;
 		let exp_year = stripe.exp_year;
 		if(type == 'exp_month') exp_month = val;
@@ -41,7 +47,11 @@ const CedritCard = React.createClass({
 		this.props.onChange({stripe, errors});
 	},
 
-	handleCvc(type, e) {
+	handleCvc(e) {
+		let {stripe, onlyNum} = this.props;
+		let cvc = onlyNum(e.currentTarget.value);
+		stripe = {...stripe, cvc};
+		let errors = this.validateCvc(cvc);
 		this.props.onChange({stripe, errors});
 	},
 
