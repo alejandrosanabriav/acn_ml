@@ -2,12 +2,12 @@ import React from 'react';
 
 const Contact = React.createClass({
 	handleChange(field, e) {
-		this.props.onChange({[field]: e.currentTarget.value});
+		this.props.onChange({contact: {...this.props.contact, [field]: e.currentTarget.value}});
 	},
 
 	render() {
-		const {texts, name} = this.props;
-		
+		const {texts, contact} = this.props;
+
 		return (
 			<div className="row">
 				<div className="form-group col-sm-12">
@@ -16,7 +16,7 @@ const Contact = React.createClass({
 						className="form-control" 
 						placeholder={texts.placeholder_name}
 						onChange={this.handleChange.bind(null, 'name')}
-						value={name}
+						value={contact.name}
 					/>
 				</div>
 
@@ -26,6 +26,7 @@ const Contact = React.createClass({
 						className="form-control" 
 						placeholder={texts.placeholder_email}
 						onChange={this.handleChange.bind(null, 'email')} 
+						value={contact.email}
 					/>
 				</div>
 				

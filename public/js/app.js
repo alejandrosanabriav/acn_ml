@@ -25364,6 +25364,11 @@
 			return {
 				donation_type: 'monthly',
 				amount: 30,
+				contact: {
+					name: null,
+					email: null,
+					country: null
+				},
 				texts: {
 					creditcard_placeholder: 'Credit Card number',
 					month_placeholder: 'MM',
@@ -26757,6 +26762,8 @@
 		value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _react = __webpack_require__(88);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -26768,12 +26775,12 @@
 	var Contact = _react2.default.createClass({
 		displayName: "Contact",
 		handleChange: function handleChange(field, e) {
-			this.props.onChange(_defineProperty({}, field, e.currentTarget.value));
+			this.props.onChange({ contact: _extends({}, this.props.contact, _defineProperty({}, field, e.currentTarget.value)) });
 		},
 		render: function render() {
 			var _props = this.props,
 			    texts = _props.texts,
-			    name = _props.name;
+			    contact = _props.contact;
 
 
 			return _react2.default.createElement(
@@ -26787,7 +26794,7 @@
 						className: "form-control",
 						placeholder: texts.placeholder_name,
 						onChange: this.handleChange.bind(null, 'name'),
-						value: name
+						value: contact.name
 					})
 				),
 				_react2.default.createElement(
@@ -26797,7 +26804,8 @@
 						type: "text",
 						className: "form-control",
 						placeholder: texts.placeholder_email,
-						onChange: this.handleChange.bind(null, 'email')
+						onChange: this.handleChange.bind(null, 'email'),
+						value: contact.email
 					})
 				)
 			);
