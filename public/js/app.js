@@ -25397,7 +25397,7 @@
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_amount2.default, { texts: this.state.texts, onlyNum: this.onlyNum, onChange: this.handleChange }),
+				_react2.default.createElement(_amount2.default, _extends({}, this.state, { onlyNum: this.onlyNum, onChange: this.handleChange })),
 				_react2.default.createElement(_credit_card2.default, { texts: this.state.texts })
 			);
 		}

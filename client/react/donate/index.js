@@ -48,7 +48,7 @@ const Donate = React.createClass({
 	render() {
 		return (
 			<div>
-				<Amount texts={this.state.texts} onlyNum={this.onlyNum} onChange={this.handleChange} />
+				<Amount {...this.state} onlyNum={this.onlyNum} onChange={this.handleChange} />
 				<CreditCard texts={this.state.texts} />
 			</div>
 		)
