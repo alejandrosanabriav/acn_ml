@@ -1,6 +1,15 @@
 import React from 'react';
 
 const CedritCard = React.createClass({
+	getDefaultProps() {
+		return {
+			creditcard_placeholder: 'Credit Card number',
+			month_placeholder: 'MM',
+			year_placeholder: 'YY',
+			cvc_placeholder: 'CVC'
+		}
+	},
+
 	render() {
 		const {texts} = this.props;
 		return (

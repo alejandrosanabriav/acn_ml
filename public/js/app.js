@@ -25524,7 +25524,7 @@
 /* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -25537,47 +25537,55 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var CedritCard = _react2.default.createClass({
-		displayName: "CedritCard",
+		displayName: 'CedritCard',
+		getDefaultProps: function getDefaultProps() {
+			return {
+				creditcard_placeholder: 'Credit Card number',
+				month_placeholder: 'MM',
+				year_placeholder: 'YY',
+				cvc_placeholder: 'CVC'
+			};
+		},
 		render: function render() {
 			var texts = this.props.texts;
 
 			return _react2.default.createElement(
-				"div",
+				'div',
 				null,
 				_react2.default.createElement(
-					"div",
-					{ className: "form-group" },
-					_react2.default.createElement("input", {
-						type: "text",
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement('input', {
+						type: 'text',
 						placeholder: texts.creditcard_placeholder,
-						className: "form-control"
+						className: 'form-control'
 					})
 				),
 				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-md-4" },
-					_react2.default.createElement("input", {
-						type: "text",
+					'div',
+					{ className: 'form-group col-md-4' },
+					_react2.default.createElement('input', {
+						type: 'text',
 						placeholder: texts.month_placeholder,
-						className: "form-control"
+						className: 'form-control'
 					})
 				),
 				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-md-4" },
-					_react2.default.createElement("input", {
-						type: "text",
+					'div',
+					{ className: 'form-group col-md-4' },
+					_react2.default.createElement('input', {
+						type: 'text',
 						placeholder: texts.year_placeholder,
-						className: "form-control"
+						className: 'form-control'
 					})
 				),
 				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-md-4" },
-					_react2.default.createElement("input", {
-						type: "text",
+					'div',
+					{ className: 'form-group col-md-4' },
+					_react2.default.createElement('input', {
+						type: 'text',
 						placeholder: texts.cvc_placeholder,
-						className: "form-control"
+						className: 'form-control'
 					})
 				)
 			);
