@@ -6,7 +6,8 @@ const Contact = React.createClass({
 	},
 
 	render() {
-		const {texts} = this.props;
+		const {texts, name} = this.props;
+		
 		return (
 			<div className="row">
 				<div className="form-group col-sm-12">
@@ -15,7 +16,7 @@ const Contact = React.createClass({
 						className="form-control" 
 						placeholder={texts.placeholder_name}
 						onChange={this.handleChange.bind(null, 'name')}
-						value={}
+						value={name}
 					/>
 				</div>
 

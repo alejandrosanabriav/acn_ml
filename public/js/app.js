@@ -25352,7 +25352,7 @@
 
 	var _credit_card2 = _interopRequireDefault(_credit_card);
 
-	var _contact = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./contact\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _contact = __webpack_require__(293);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -26746,6 +26746,65 @@
 		return polyfill;
 	};
 
+
+/***/ },
+/* 293 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	var Contact = _react2.default.createClass({
+		displayName: "Contact",
+		handleChange: function handleChange(field, e) {
+			this.props.onChange(_defineProperty({}, field, e.currentTarget.value));
+		},
+		render: function render() {
+			var _props = this.props,
+			    texts = _props.texts,
+			    name = _props.name;
+
+
+			return _react2.default.createElement(
+				"div",
+				{ className: "row" },
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group col-sm-12" },
+					_react2.default.createElement("input", {
+						type: "text",
+						className: "form-control",
+						placeholder: texts.placeholder_name,
+						onChange: this.handleChange.bind(null, 'name'),
+						value: name
+					})
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group col-sm-12" },
+					_react2.default.createElement("input", {
+						type: "text",
+						className: "form-control",
+						placeholder: texts.placeholder_email,
+						onChange: this.handleChange.bind(null, 'email')
+					})
+				)
+			);
+		}
+	});
+
+	exports.default = Contact;
 
 /***/ }
 /******/ ]);
