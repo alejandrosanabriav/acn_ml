@@ -19,7 +19,7 @@ const amount = React.createClass({
 
 	handleAmount(e) {
 		let el = e.currentTarget;
-		let amount = el.value.replace(/[^0-9]+/, '');
+		let amount = this.props.onlyNum(el.value);
 		this.setState({amount});
 	},
 

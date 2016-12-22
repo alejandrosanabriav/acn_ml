@@ -35,10 +35,14 @@ const Donate = React.createClass({
 		this.getProps();
 	},
 
+	onlyNum(val) {
+		return val.replace(/[^0-9]+/, '');
+	},
+
 	render() {
 		return (
 			<div>
-				<Amount texts={this.state.texts} />
+				<Amount texts={this.state.texts} onlyNum={this.onlyNum} />
 				<CreditCard texts={this.state.texts} />
 			</div>
 		)

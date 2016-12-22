@@ -25385,11 +25385,14 @@
 		componentWillMount: function componentWillMount() {
 			this.getProps();
 		},
+		onlyNum: function onlyNum(val) {
+			return val.replace(/[^0-9]+/, '');
+		},
 		render: function render() {
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_amount2.default, { texts: this.state.texts }),
+				_react2.default.createElement(_amount2.default, { texts: this.state.texts, onlyNum: this.onlyNum }),
 				_react2.default.createElement(_credit_card2.default, { texts: this.state.texts })
 			);
 		}
@@ -25430,7 +25433,7 @@
 		},
 		handleAmount: function handleAmount(e) {
 			var el = e.currentTarget;
-			var amount = el.value.replace(/[^0-9]+/, '');
+			var amount = this.props.onlyNum(el.value);
 			this.setState({ amount: amount });
 		},
 		changeType: function changeType(donation_type, e) {
