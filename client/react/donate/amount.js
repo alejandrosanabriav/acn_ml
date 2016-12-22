@@ -34,13 +34,14 @@ const amount = React.createClass({
 
 	changeType(donation_type, e) {
 		if(e) e.preventDefault();
-		this.setState({donation_type});
+		if(donation_type > 0) {
+			this.setState({donation_type});
+		}
 	},
-
 
 	render() {
 		const {texts} = this.props;
-		
+
 		return (
 			<div>
 				<ul>
