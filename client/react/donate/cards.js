@@ -15,9 +15,22 @@ const Cards = React.createClass({
 						src={`${texts.template_uri}/public/img/cards/Visa.png`}
           />
 					<img 
-            className={this.cardType('Visa')}  
+            className={this.cardType('MasterCard')}  
 						src={`${texts.template_uri}/public/img/cards/MasterCard.png`}
           />
+					<img 
+            className={this.cardType('DinersClub')}  
+						src={`${texts.template_uri}/public/img/cards/DinersClub.png`}
+          />
+					<img 
+            className={this.cardType('AmericanExpress')}  
+						src={`${texts.template_uri}/public/img/cards/AmericanExpress.png`}
+          />
+					<img 
+            className={this.cardType('Discover')}  
+						src={`${texts.template_uri}/public/img/cards/Discover.png`}
+          />
+					
 			</div>
 		)
 	}

@@ -26879,8 +26879,20 @@
 					src: texts.template_uri + '/public/img/cards/Visa.png'
 				}),
 				_react2.default.createElement('img', {
-					className: this.cardType('Visa'),
+					className: this.cardType('MasterCard'),
 					src: texts.template_uri + '/public/img/cards/MasterCard.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('DinersClub'),
+					src: texts.template_uri + '/public/img/cards/DinersClub.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('AmericanExpress'),
+					src: texts.template_uri + '/public/img/cards/AmericanExpress.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('Discover'),
+					src: texts.template_uri + '/public/img/cards/Discover.png'
 				})
 			);
 		}
