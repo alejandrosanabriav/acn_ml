@@ -23,6 +23,9 @@ const CedritCard = React.createClass({
 					onChange={this.handleCard}
 					value={stripe.number}
 				/>
+				<span className="form-group__error">
+					{texts.validation_card}
+        </span>
 			</div>
 			<div className="row">
 			<div className="form-group col-md-4">

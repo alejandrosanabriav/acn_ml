@@ -25578,7 +25578,12 @@
 						className: 'form-control',
 						onChange: this.handleCard,
 						value: stripe.number
-					})
+					}),
+					_react2.default.createElement(
+						'span',
+						{ className: 'form-group__error' },
+						texts.validation_card
+					)
 				),
 				_react2.default.createElement(
 					'div',
