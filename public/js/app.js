@@ -25490,7 +25490,7 @@
 				null,
 				_react2.default.createElement(
 					"ul",
-					{ className: "change-amount" },
+					{ className: "change-amount", style: { padding: 0 } },
 					_react2.default.createElement(
 						"li",
 						{ className: "col-md-2" },
@@ -25540,28 +25540,32 @@
 				),
 				_react2.default.createElement(
 					"div",
-					{ className: "form-group col-xs-7" },
-					_react2.default.createElement("input", { ref: "amountInput", className: "form-control", type: "text", onChange: this.handleAmount, value: amount })
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-xs-5" },
+					{ className: "row" },
 					_react2.default.createElement(
-						"a",
-						{
-							href: "#",
-							onClick: this.changeType.bind(null, 'monthly'),
-							className: donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '
-						},
-						texts.monthly
+						"div",
+						{ className: "form-group col-xs-7" },
+						_react2.default.createElement("input", { ref: "amountInput", className: "form-control", type: "text", onChange: this.handleAmount, value: amount })
 					),
 					_react2.default.createElement(
-						"a",
-						{ href: "#",
-							onClick: this.changeType.bind(null, 'once'),
-							className: donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '
-						},
-						texts.once
+						"div",
+						{ className: "form-group col-xs-5" },
+						_react2.default.createElement(
+							"a",
+							{
+								href: "#",
+								onClick: this.changeType.bind(null, 'monthly'),
+								className: donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '
+							},
+							texts.monthly
+						),
+						_react2.default.createElement(
+							"a",
+							{ href: "#",
+								onClick: this.changeType.bind(null, 'once'),
+								className: donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '
+							},
+							texts.once
+						)
 					)
 				)
 			);

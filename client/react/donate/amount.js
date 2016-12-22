@@ -25,7 +25,7 @@ const amount = React.createClass({
 
 		return (
 			<div>
-				<ul className="change-amount">
+				<ul className="change-amount" style={{padding: 0}}>
 					<li className="col-md-2"> 
 						<a href="#" onClick={this.changeAmount.bind(null, 10)}>10</a> 
 					</li>
@@ -41,6 +41,7 @@ const amount = React.createClass({
 					<li className="col-md-2"> 
 						<a href="#" onClick={this.changeAmount.bind(null, 5)}>{texts.other}</a> </li>
 				</ul>
+			<div className="row">
 				<div className="form-group col-xs-7">
 					<input ref="amountInput" className="form-control" type="text" onChange={this.handleAmount} value={amount} />
 				</div>
@@ -59,7 +60,7 @@ const amount = React.createClass({
 					{texts.once}
 				</a>
 				</div>
-				
+			</div>
 			</div>
 		)
 	}
