@@ -73,6 +73,7 @@ const Donate = React.createClass({
 		let valid = Stripe.card.validateCardNumber(val);
 		console.log('valid', valid);
 		let errors = {stripe: {number: valid}};
+		console.log({errors});
 		this.setState({...this.state, ...errors});
 	},
 
