@@ -6,13 +6,13 @@ const Cards = React.createClass({
 	},
 
 	render() {
-		const {card_type, template_uri} = this.props;
+		const {card_type, texts} = this.props;
 
 		return (
 			 <div class="form-group col-sm-12 donate_landing__cards">
         	<img 
             className={this.cardType('visa')}  
-						src={`${template_uri}/public/img/cards/Visa.png`}
+						src={`${texts.template_uri}/public/img/cards/Visa.png`}
           />
 			</div>
 		)

@@ -26848,7 +26848,7 @@
 		render: function render() {
 			var _props = this.props,
 			    card_type = _props.card_type,
-			    template_uri = _props.template_uri;
+			    texts = _props.texts;
 
 
 			return _react2.default.createElement(
@@ -26856,7 +26856,7 @@
 				{ 'class': 'form-group col-sm-12 donate_landing__cards' },
 				_react2.default.createElement('img', {
 					className: this.cardType('visa'),
-					src: template_uri + '/public/img/cards/Visa.png'
+					src: texts.template_uri + '/public/img/cards/Visa.png'
 				})
 			);
 		}
