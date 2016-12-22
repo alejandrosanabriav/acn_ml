@@ -71,9 +71,9 @@ const CedritCard = React.createClass({
 		let exp_month = this.validateExpiry(stripe.exp_month, stripe.exp_year);
 		let exp_year = this.validateExpiry(stripe.exp_month, stripe.exp_year);
 		let cvc = this.validateCvc(stripe.cvc);
-		let er = {errors: ...number, ...exp_month, ...exp_year, ...cvc};
+		let er = {errors: {...number, ...exp_month, ...exp_year, ...cvc}};
 		let errors = {...this.props.errors, er};
-		console.log(er);
+		console.log(er);Ó
 		this.props.onChange({errors});
 	},
 
