@@ -25735,7 +25735,7 @@
 					{ className: 'form-group' },
 					_react2.default.createElement('input', {
 						type: 'text',
-						placeholder: texts.creditcard_placeholder,
+						placeholder: texts.placeholder_credit_card,
 						className: 'form-control ' + this.inputErrStyle('number'),
 						onChange: this.handleCard,
 						value: stripe.number
@@ -25754,7 +25754,7 @@
 						{ className: 'form-group col-md-4' },
 						_react2.default.createElement('input', {
 							type: 'text',
-							placeholder: texts.month_placeholder,
+							placeholder: texts.placeholder_month,
 							className: 'form-control',
 							onChange: this.handleExpiry.bind(null, 'exp_month'),
 							value: stripe.exp_month
@@ -25770,7 +25770,7 @@
 						{ className: 'form-group col-md-4' },
 						_react2.default.createElement('input', {
 							type: 'text',
-							placeholder: texts.year_placeholder,
+							placeholder: texts.placeholder_year,
 							className: 'form-control',
 							onChange: this.handleExpiry.bind(null, 'exp_year'),
 							value: stripe.exp_year
@@ -25786,7 +25786,7 @@
 						{ className: 'form-group col-md-4' },
 						_react2.default.createElement('input', {
 							type: 'text',
-							placeholder: texts.cvc_placeholder,
+							placeholder: texts.placeholder_cvc,
 							className: 'form-control',
 							onChange: this.handleCvc,
 							value: stripe.cvc
