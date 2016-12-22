@@ -25578,16 +25578,16 @@
 				),
 				_react2.default.createElement(
 					"div",
-					{ className: "form-group col-md-4" },
-					_react2.default.createElement("input", {
-						type: "text",
-						placeholder: texts.month_placeholder,
-						className: "form-control"
-					})
-				),
-				_react2.default.createElement(
-					"div",
 					{ className: "row" },
+					_react2.default.createElement(
+						"div",
+						{ className: "form-group col-md-4" },
+						_react2.default.createElement("input", {
+							type: "text",
+							placeholder: texts.month_placeholder,
+							className: "form-control"
+						})
+					),
 					_react2.default.createElement(
 						"div",
 						{ className: "form-group col-md-4" },

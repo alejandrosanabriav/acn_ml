@@ -14,6 +14,7 @@ const CedritCard = React.createClass({
 					className="form-control" 
 				/>
 			</div>
+			<div className="row">
 			<div className="form-group col-md-4">
 				<input 
 					type="text" 
@@ -21,7 +22,7 @@ const CedritCard = React.createClass({
 					className="form-control" 
 				/>
 			</div>
-			<div className="row">
+			
 				<div className="form-group col-md-4">
 					<input 
 						type="text" 
