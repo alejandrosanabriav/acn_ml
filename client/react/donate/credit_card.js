@@ -75,8 +75,8 @@ const CedritCard = React.createClass({
 					onChange={this.handleExpiry.bind(null, 'exp_month')}
 					value={stripe.exp_month}
 				/>
-				<span className={this.showErr('number')}>
-					{texts.validation_card}
+				<span className={this.showErr('exp_month')}>
+					{texts.validation_month}
         </span>
 			</div>
 			
@@ -88,6 +88,9 @@ const CedritCard = React.createClass({
 						onChange={this.handleExpiry.bind(null, 'exp_year')}
 						value={stripe.exp_year}
 					/>
+					<span className={this.showErr('exp_year')}>
+						{texts.validation_year}
+					</span>
 				</div>
 				<div className="form-group col-md-4">
 					<input

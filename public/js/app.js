@@ -25722,8 +25722,8 @@
 						}),
 						_react2.default.createElement(
 							'span',
-							{ className: this.showErr('number') },
-							texts.validation_card
+							{ className: this.showErr('exp_month') },
+							texts.validation_month
 						)
 					),
 					_react2.default.createElement(
@@ -25735,7 +25735,12 @@
 							className: 'form-control',
 							onChange: this.handleExpiry.bind(null, 'exp_year'),
 							value: stripe.exp_year
-						})
+						}),
+						_react2.default.createElement(
+							'span',
+							{ className: this.showErr('exp_year') },
+							texts.validation_year
+						)
 					),
 					_react2.default.createElement(
 						'div',
