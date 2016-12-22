@@ -25716,7 +25716,7 @@
 			var number = this.validateCard(stripe.number);
 			var exp_month = this.validateExpiry(stripe.exp_month, stripe.exp_year);
 			var cvc = this.validateCvc(stripe.cvc);
-			var errors = { stripe: _extends({}, number.stripe, exp_month.stripe, cvc.stripe) };
+			var errors = _extends({}, this.props.errors, { stripe: _extends({}, number.stripe, exp_month.stripe, cvc.stripe) });
 			this.props.onChange({ errors: errors });
 		},
 		render: function render() {
