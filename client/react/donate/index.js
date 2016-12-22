@@ -61,7 +61,7 @@ const Donate = React.createClass({
 		return val.replace(/[^0-9]+/, '');
 	},
 
-	maxLength(length) {
+	maxLength(val, length) {
 		return val.substring(0, length);
 	},
 

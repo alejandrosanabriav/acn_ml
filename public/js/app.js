@@ -25416,7 +25416,7 @@
 		onlyNum: function onlyNum(val) {
 			return val.replace(/[^0-9]+/, '');
 		},
-		maxLength: function maxLength(length) {
+		maxLength: function maxLength(val, length) {
 			return val.substring(0, length);
 		},
 		handleChange: function handleChange(field) {
@@ -25564,6 +25564,7 @@
 		displayName: 'CedritCard',
 		handleCard: function handleCard(e) {
 			var card = e.currentTarget.value;
+			card = this.props.maxLength(card, 16);
 			var valid = Stripe.card.validateCardNumber(card);
 			var errors = _extends({}, this.props.errors, { stripe: { number: valid } });
 			var card_type = Stripe.card.cardType(card).replace(' ', '');
