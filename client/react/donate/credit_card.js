@@ -8,6 +8,7 @@ const CedritCard = React.createClass({
 	},
 
 	validateExpiry(month, year) {
+		console.log(month, year);
 		let valid = Stripe.card.validateExpiry(month, year);
 		return {...this.props.errors, stripe: {exp_month: valid, exp_year: valid}};
 	},

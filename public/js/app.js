@@ -25645,6 +25645,7 @@
 			return _extends({}, this.props.errors, { stripe: { number: valid } });
 		},
 		validateExpiry: function validateExpiry(month, year) {
+			console.log(month, year);
 			var valid = Stripe.card.validateExpiry(month, year);
 			return _extends({}, this.props.errors, { stripe: { exp_month: valid, exp_year: valid } });
 		},
