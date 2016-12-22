@@ -4,7 +4,7 @@ const Contact =React.createClass({
 	render() {
 		const {texts} = this.props;
 		return (
-			<div className="row">
+			<div>
 				<div className="form-group">
 					<input 
 						type="text" 

@@ -26765,7 +26765,7 @@
 
 			return _react2.default.createElement(
 				"div",
-				{ className: "row" },
+				null,
 				_react2.default.createElement(
 					"div",
 					{ className: "form-group" },
