@@ -25638,8 +25638,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 	var CedritCard = _react2.default.createClass({
 		displayName: 'CedritCard',
 		validateCard: function validateCard(card) {
@@ -25706,8 +25704,6 @@
 			return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 		},
 		allValidations: function allValidations(e) {
-			var _console;
-
 			e.preventDefault();
 			var stripe = this.props.stripe;
 
@@ -25715,8 +25711,8 @@
 			var exp_month = this.validateExpiry(stripe.exp_month, stripe.exp_year);
 			var exp_year = this.validateExpiry(stripe.exp_month, stripe.exp_year);
 			var cvc = this.validateCvc(stripe.cvc);
-			// let errors = {...this.props.errors, ...number, ...exp_month, ...exp_year, ...cvc};
-			(_console = console).log.apply(_console, _toConsumableArray(number));
+			var errors = _extends({}, this.props.errors, number, exp_month, exp_year, cvc);
+			console.log(number);
 			this.props.onChange({ errors: errors });
 		},
 		render: function render() {
