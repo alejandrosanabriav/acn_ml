@@ -33,7 +33,7 @@ const amount = React.createClass({
 		const {texts} = this.props;
 
 		return (
-			<div>
+			<div className="row">
 				<ul>
 					<li> 
 						<a href="#" onClick={this.changeAmount.bind(null, 10)}>10</a> 

@@ -25444,7 +25444,7 @@
 
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'row' },
 				_react2.default.createElement(
 					'ul',
 					null,
