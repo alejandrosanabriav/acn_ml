@@ -25834,9 +25834,10 @@
 		handleChange: function handleChange(field, e) {
 			var val = e.currentTarget.value;
 			var errors = this.validate(field, val);
-			console.log(errors);
+
 			this.props.onChange({
-				contact: _extends({}, this.props.contact, _defineProperty({}, field, val))
+				contact: _extends({}, this.props.contact, _defineProperty({}, field, val)),
+				errors: errors
 			});
 		},
 		render: function render() {

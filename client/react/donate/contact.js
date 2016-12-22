@@ -11,9 +11,10 @@ const Contact = React.createClass({
 	handleChange(field, e) {
 		let val = e.currentTarget.value;
 		let errors = this.validate(field, val);
-		console.log(errors);
+
 		this.props.onChange({
-			contact: {...this.props.contact, [field]: val}
+			contact: {...this.props.contact, [field]: val},
+			errors
 		});
 	},
 
