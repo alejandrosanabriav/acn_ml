@@ -25540,10 +25540,12 @@
 		displayName: 'CedritCard',
 		getDefaultProps: function getDefaultProps() {
 			return {
-				creditcard_placeholder: 'Credit Card number',
-				month_placeholder: 'MM',
-				year_placeholder: 'YY',
-				cvc_placeholder: 'CVC'
+				texts: {
+					creditcard_placeholder: 'Credit Card number',
+					month_placeholder: 'MM',
+					year_placeholder: 'YY',
+					cvc_placeholder: 'CVC'
+				}
 			};
 		},
 		render: function render() {
