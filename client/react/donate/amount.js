@@ -25,9 +25,8 @@ const amount = React.createClass({
 
 	changeType(donation_type, e) {
 		if(e) e.preventDefault();
-		if(donation_type > 0) {
-			this.setState({donation_type});
-		}
+		donation_type = donation_type.replace(/[^0-9]+/, '');
+		this.setState({donation_type});
 	},
 
 	render() {
