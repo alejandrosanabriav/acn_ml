@@ -25352,7 +25352,7 @@
 
 	var _amount2 = _interopRequireDefault(_amount);
 
-	var _credit_card = __webpack_require__(267);
+	var _credit_card = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./credit_card\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _credit_card2 = _interopRequireDefault(_credit_card);
 
@@ -25539,104 +25539,7 @@
 	exports.default = amount;
 
 /***/ },
-/* 267 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(88);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _cards = __webpack_require__(294);
-
-	var _cards2 = _interopRequireDefault(_cards);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var CedritCard = _react2.default.createClass({
-		displayName: 'CedritCard',
-		handleCard: function handleCard(e) {
-			var val = e.currentTarget.value;
-			var card = this.props.onlyNum(val);
-			card = this.props.maxLength(card, 16);
-			var valid = Stripe.card.validateCardNumber(card);
-			var errors = _extends({}, this.props.errors, { stripe: { number: valid } });
-			var card_type = Stripe.card.cardType(card).replace(' ', '');
-			var stripe = _extends({}, this.stripe, { card: card, card_type: card_type });
-			this.props.onChange({ stripe: stripe, errors: errors });
-		},
-		render: function render() {
-			var _props = this.props,
-			    texts = _props.texts,
-			    stripe = _props.stripe,
-			    errors = _props.errors;
-
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(_cards2.default, this.props),
-				_react2.default.createElement(
-					'div',
-					{ className: 'form-group' },
-					_react2.default.createElement('input', {
-						type: 'text',
-						placeholder: texts.creditcard_placeholder,
-						className: 'form-control',
-						onChange: this.handleCard,
-						value: stripe.number
-					}),
-					_react2.default.createElement(
-						'span',
-						{ className: errors.stripe.number == false ? 'form-group__error' : 'hidden' },
-						texts.validation_card
-					)
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'row' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'form-group col-md-4' },
-						_react2.default.createElement('input', {
-							type: 'text',
-							placeholder: texts.month_placeholder,
-							className: 'form-control'
-						})
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'form-group col-md-4' },
-						_react2.default.createElement('input', {
-							type: 'text',
-							placeholder: texts.year_placeholder,
-							className: 'form-control'
-						})
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'form-group col-md-4' },
-						_react2.default.createElement('input', {
-							type: 'text',
-							placeholder: texts.cvc_placeholder,
-							className: 'form-control'
-						})
-					)
-				)
-			);
-		}
-	});
-
-	exports.default = CedritCard;
-
-/***/ },
+/* 267 */,
 /* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -26851,62 +26754,7 @@
 	exports.default = Contact;
 
 /***/ },
-/* 294 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(88);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Cards = _react2.default.createClass({
-		displayName: 'Cards',
-		cardType: function cardType(type) {
-			return this.props.stripe.card_type == type ? 'card-type card-type--active' : 'card-type';
-		},
-		render: function render() {
-			var _props = this.props,
-			    card_type = _props.card_type,
-			    texts = _props.texts;
-
-
-			return _react2.default.createElement(
-				'div',
-				{ className: 'form-group donate_landing__cards' },
-				_react2.default.createElement('img', {
-					className: this.cardType('Visa'),
-					src: texts.template_uri + '/public/img/cards/Visa.png'
-				}),
-				_react2.default.createElement('img', {
-					className: this.cardType('MasterCard'),
-					src: texts.template_uri + '/public/img/cards/MasterCard.png'
-				}),
-				_react2.default.createElement('img', {
-					className: this.cardType('DinersClub'),
-					src: texts.template_uri + '/public/img/cards/DinersClub.png'
-				}),
-				_react2.default.createElement('img', {
-					className: this.cardType('AmericanExpress'),
-					src: texts.template_uri + '/public/img/cards/AmericanExpress.png'
-				}),
-				_react2.default.createElement('img', {
-					className: this.cardType('Discover'),
-					src: texts.template_uri + '/public/img/cards/Discover.png'
-				})
-			);
-		}
-	});
-
-	exports.default = Cards;
-
-/***/ },
+/* 294 */,
 /* 295 */,
 /* 296 */
 /***/ function(module, exports, __webpack_require__) {
