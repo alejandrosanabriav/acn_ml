@@ -71,6 +71,16 @@ const Donate = React.createClass({
 
 	handleSubmit() {
 		console.log(this.state);
+			let data = {
+				action: 'stripe_token',
+				data: this.state.stripe
+			};
+			console.log(data);
+			$.ajax({
+				type: 'post',
+				url: '/wp-admin/admin-ajax.php',
+				data: data
+			})
 	},
 
 	render() {

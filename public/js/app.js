@@ -25427,6 +25427,16 @@
 		},
 		handleSubmit: function handleSubmit() {
 			console.log(this.state);
+			var data = {
+				action: 'stripe_token',
+				data: this.state.stripe
+			};
+			console.log(data);
+			$.ajax({
+				type: 'post',
+				url: '/wp-admin/admin-ajax.php',
+				data: data
+			});
 		},
 		render: function render() {
 			return _react2.default.createElement(
