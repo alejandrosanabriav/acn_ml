@@ -25673,6 +25673,7 @@
 			if (type == 'exp_year') exp_year = val;
 			var errors = this.validateExpiry(exp_month, exp_year);
 			var stripe = _extends({}, this.stripe, { exp_month: exp_month, exp_year: exp_year });
+			console.log({ stripe: stripe });
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
 		handleCvc: function handleCvc(type, e) {
