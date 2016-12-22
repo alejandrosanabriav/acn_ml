@@ -25670,7 +25670,7 @@
 			var exp_year = '';
 			if (type == 'exp_month') exp_month = val;
 			if (type == 'exp_year') exp_year = val;
-			var errors = validateExpiry(exp_month, exp_year);
+			var errors = this.validateExpiry(exp_month, exp_year);
 			var stripe = _extends({}, this.stripe, { exp_month: exp_month, exp_year: exp_year });
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},

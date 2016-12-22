@@ -33,7 +33,7 @@ const CedritCard = React.createClass({
 		let exp_year= '';
 		if(type == 'exp_month') exp_month = val;
 		if(type == 'exp_year') exp_year = val;
-		let errors = validateExpiry(exp_month, exp_year);
+		let errors = this.validateExpiry(exp_month, exp_year);
 		let stripe = {...this.stripe, exp_month, exp_year};
 		this.props.onChange({stripe, errors});
 	},
