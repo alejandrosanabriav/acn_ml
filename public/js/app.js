@@ -25711,7 +25711,7 @@
 			var exp_month = this.validateExpiry(stripe.exp_month, stripe.exp_year);
 			var exp_year = this.validateExpiry(stripe.exp_month, stripe.exp_year);
 			var cvc = this.validateCvc(stripe.cvc);
-			var errors = _extends({}, number, exp_month, exp_year, cvc);
+			var errors = _extends({}, this.props.errors, number, exp_month, exp_year, cvc);
 			this.props.onChange({ errors: errors });
 		},
 		render: function render() {
