@@ -9,9 +9,9 @@ const Donate = React.createClass({
 			donation_type: 'monthly',
 			amount: 30,
 			contact: {
-				name: null,
-				email: null,
-				country: null
+				name: '',
+				email: '',
+				country: ''
 			},
 			texts: {
 				creditcard_placeholder: 'Credit Card number',
