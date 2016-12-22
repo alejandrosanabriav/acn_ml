@@ -31,7 +31,7 @@ const Contact = React.createClass({
 		let name = this.validate('name', contact.name);
 		let email = this.validate('email', contact.email);
 		let country = this.validate('country', contact.country);
-		let errors = {contact: ...name.contact, ...email.contact, ...country.contact};
+		let errors = {contact: {...name.contact, ...email.contact, ...country.contact}};
 		this.props.onChange({errors});
 	},
 

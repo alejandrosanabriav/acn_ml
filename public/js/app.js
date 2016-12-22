@@ -25356,7 +25356,7 @@
 
 	var _credit_card2 = _interopRequireDefault(_credit_card);
 
-	var _contact = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./contact\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _contact = __webpack_require__(269);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -25805,7 +25805,133 @@
 	exports.default = CedritCard;
 
 /***/ },
-/* 269 */,
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _validator = __webpack_require__(14);
+
+	var _validator2 = _interopRequireDefault(_validator);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	var Contact = _react2.default.createClass({
+		displayName: 'Contact',
+		validate: function validate(field, val) {
+			var valid = !_validator2.default.isEmpty(val);
+			if (field == 'email') valid = _validator2.default.isEmail(val);
+			var contact = _extends({}, this.props.errors.contact, _defineProperty({}, field, valid));
+			return _extends({}, this.props.errors, { contact: contact });
+		},
+		handleChange: function handleChange(field, e) {
+			var val = e.currentTarget.value;
+			var errors = this.validate(field, val);
+
+			this.props.onChange({
+				contact: _extends({}, this.props.contact, _defineProperty({}, field, val)),
+				errors: errors
+			});
+		},
+		showErr: function showErr(field) {
+			return this.props.errors.contact[field] == false ? 'form-group__error' : 'hidden';
+		},
+		inputErrStyle: function inputErrStyle(field) {
+			return this.props.errors.contact[field] == false ? 'form-group--error' : '';
+		},
+		validateAll: function validateAll() {
+			var name = this.validate('name', contact.name);
+			var email = this.validate('email', contact.email);
+			var country = this.validate('country', contact.country);
+			var errors = { contact: _extends({}, name.contact, email.contact, country.contact) };
+			this.props.onChange({ errors: errors });
+		},
+		render: function render() {
+			var _props = this.props,
+			    texts = _props.texts,
+			    contact = _props.contact;
+
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'row' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group col-sm-12' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						className: 'form-control ' + this.inputErrStyle('name'),
+						placeholder: texts.placeholder_name,
+						onChange: this.handleChange.bind(null, 'name'),
+						value: contact.name
+					}),
+					_react2.default.createElement(
+						'span',
+						{ className: this.showErr('name') },
+						texts.validation_card
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group col-sm-12' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						className: 'form-control ' + this.inputErrStyle('email'),
+						placeholder: texts.placeholder_email,
+						onChange: this.handleChange.bind(null, 'email'),
+						value: contact.email
+					}),
+					_react2.default.createElement(
+						'span',
+						{ className: this.showErr('email') },
+						texts.validation_card
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group col-sm-12' },
+					_react2.default.createElement(
+						'select',
+						{
+							type: 'text',
+							className: 'form-control',
+							placeholder: texts.placeholder_country,
+							onChange: this.handleChange.bind(null, 'country'),
+							value: contact.country || texts.country
+						},
+						this.props.countries.map(function (country) {
+							return _react2.default.createElement(
+								'option',
+								{ value: country },
+								country
+							);
+						})
+					)
+				),
+				_react2.default.createElement(
+					'button',
+					{ onClick: this.validateAll },
+					'validate'
+				)
+			);
+		}
+	});
+
+	exports.default = Contact;
+
+/***/ },
 /* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
