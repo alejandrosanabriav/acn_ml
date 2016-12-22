@@ -25666,14 +25666,16 @@
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
 		handleExpiry: function handleExpiry(type, e) {
+			var stripe = this.props.stripe;
+
 			var val = e.currentTarget.value;
-			var exp_month = this.props.exp_month;
-			var exp_year = this.props.exp_year;
+			var exp_month = stripe.exp_month;
+			var exp_year = stripe.exp_year;
 			if (type == 'exp_month') exp_month = val;
 			if (type == 'exp_year') exp_year = val;
 			var errors = this.validateExpiry(exp_month, exp_year);
-			var stripe = _extends({}, this.props.stripe, { exp_month: exp_month, exp_year: exp_year });
-			console.log(stripe);
+			stripe = _extends({}, stripe, { exp_month: exp_month, exp_year: exp_year });
+
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
 		handleCvc: function handleCvc(type, e) {
