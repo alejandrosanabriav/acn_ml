@@ -26873,7 +26873,7 @@
 
 			return _react2.default.createElement(
 				'div',
-				{ className: 'form-group col-sm-12 donate_landing__cards' },
+				{ className: 'form-group donate_landing__cards' },
 				_react2.default.createElement('img', {
 					className: this.cardType('Visa'),
 					src: texts.template_uri + '/public/img/cards/Visa.png'
