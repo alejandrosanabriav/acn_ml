@@ -25857,7 +25857,7 @@
 			var name = this.validate('name', contact.name);
 			var email = this.validate('email', contact.email);
 			var country = this.validate('country', contact.country);
-			var errors = { contact: _extends({}, name.contact, email.contact, country.contact) };
+			var errors = _extends({}, this.props.errors, { contact: _extends({}, name.contact, email.contact, country.contact) });
 			this.props.onChange({ errors: errors });
 		},
 		render: function render() {
