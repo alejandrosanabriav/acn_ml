@@ -25563,8 +25563,9 @@
 	var CedritCard = _react2.default.createClass({
 		displayName: 'CedritCard',
 		handleCard: function handleCard(e) {
-			var card = e.currentTarget.value;
-			card = this.props.maxLength(card, 16);
+			var val = e.currentTarget.value;
+			card = this.props.onlyNum(val);
+			card = this.props.maxLength(val, 16);
 			var valid = Stripe.card.validateCardNumber(card);
 			var errors = _extends({}, this.props.errors, { stripe: { number: valid } });
 			var card_type = Stripe.card.cardType(card).replace(' ', '');
