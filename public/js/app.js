@@ -25368,6 +25368,7 @@
 			return {
 				donation_type: 'monthly',
 				amount: 30,
+				countries: [],
 				contact: {
 					name: '',
 					email: '',
@@ -25381,15 +25382,7 @@
 					cvc: '',
 					token: ''
 				},
-				texts: {
-					creditcard_placeholder: 'Credit Card number',
-					month_placeholder: 'MM',
-					year_placeholder: 'YY',
-					cvc_placeholder: 'CVC',
-					other: 'Other',
-					monthly: 'Monthly',
-					once: 'Once'
-				},
+				texts: {},
 				errors: {
 					stripe: {},
 					contact: {}
@@ -25409,8 +25402,19 @@
 				console.log('err on parsing donate props', props);
 			}
 		},
+		fetchCountries: function fetchCountries() {
+			var _this = this;
+
+			$.ajax({
+				url: '/wp-admin/admin-ajax.php',
+				data: { action: 'countries' }
+			}).then(function (res) {
+				return _this.setState({ countries: res });
+			});
+		},
 		componentWillMount: function componentWillMount() {
 			this.getProps();
+			this.fetchCountries();
 		},
 		onlyNum: function onlyNum(val) {
 			return val.replace(/[^0-9]+/, '');
@@ -25900,11 +25904,13 @@
 							onChange: this.handleChange.bind(null, 'country'),
 							value: contact.country
 						},
-						_react2.default.createElement(
-							'option',
-							null,
-							'nea'
-						)
+						this.props.countries.map(function (country) {
+							return _react2.default.createElement(
+								'option',
+								{ value: country },
+								country
+							);
+						})
 					)
 				)
 			);

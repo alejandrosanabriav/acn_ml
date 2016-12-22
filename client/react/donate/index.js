@@ -9,6 +9,7 @@ const Donate = React.createClass({
 		return {
 			donation_type: 'monthly',
 			amount: 30,
+			countries: [],
 			contact: {
 				name: '',
 				email: '',
@@ -22,15 +23,7 @@ const Donate = React.createClass({
 				cvc: '',
 				token: ''
 			},
-			texts: {
-				creditcard_placeholder: 'Credit Card number',
-				month_placeholder: 'MM',
-				year_placeholder: 'YY',
-				cvc_placeholder: 'CVC',
-				other: 'Other',
-				monthly: 'Monthly',
-				once: 'Once'
-			},
+			texts: {},
 			errors: {
 				stripe: {},
 				contact: {}
@@ -52,8 +45,16 @@ const Donate = React.createClass({
 		}
 	},
 
+	fetchCountries() {
+		$.ajax({
+			url: '/wp-admin/admin-ajax.php',
+			data: {action: 'countries'}
+		}).then(res => this.setState({countries: res}));
+	},
+
 	componentWillMount(){
 		this.getProps();
+		this.fetchCountries();
 	},
 
 	onlyNum(val) {
@@ -89,7 +90,7 @@ const Donate = React.createClass({
 					{...this.state}
 					onChange={this.handleChange} 
 				 />
-				 
+
 				 <div className="form-group">
 				 	<button className="donate_landing__submit pull-left">Donate</button>
 				 </div>

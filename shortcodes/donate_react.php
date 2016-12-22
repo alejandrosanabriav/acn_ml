@@ -1,6 +1,7 @@
 <?php
 function bs_donate_react_sc($atts, $content = null) {
 	 $at = shortcode_atts([
+		 "country" => getCountry(),
 		 "other" => "Otro",
 		 "monthly" => "Mensual",
 		 "once" => "Una vez",

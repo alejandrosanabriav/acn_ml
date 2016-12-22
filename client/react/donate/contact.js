@@ -66,7 +66,9 @@ const Contact = React.createClass({
 						onChange={this.handleChange.bind(null, 'country')} 
 						value={contact.country}
 					>
-					<option>nea</option>
+					{this.props.countries.map(country => {
+						return <option value={country}>{country}</option>
+					})}
 					</select>
 				</div>
 				
