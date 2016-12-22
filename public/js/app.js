@@ -25422,11 +25422,6 @@
 		handleChange: function handleChange(field) {
 			this.setState(_extends({}, this.state, field));
 		},
-		validateStripe: function validateStripe(val) {
-			var valid = Stripe.card.validateCardNumber(val);
-			var errors = { stripe: { number: valid } };
-			this.setState(_extends({}, this.state, { errors: errors }));
-		},
 		render: function render() {
 			return _react2.default.createElement(
 				'div',
@@ -25436,10 +25431,10 @@
 					onChange: this.handleChange
 				})),
 				_react2.default.createElement(_credit_card2.default, _extends({}, this.state, {
-					validateStripe: this.validateStripe,
 					onlyNum: this.onlyNum,
 					maxLength: this.maxLength,
-					onChange: this.handleChange
+					onChange: this.handleChange,
+					validateStripe: this.validateStripe
 				})),
 				_react2.default.createElement(_contact2.default, _extends({}, this.state, {
 					onChange: this.handleChange
@@ -25569,10 +25564,11 @@
 		displayName: 'CedritCard',
 		handleCard: function handleCard(e) {
 			var card = e.currentTarget.value;
+			var valid = Stripe.card.validateCardNumber(card);
+			var errors = { stripe: { number: valid } };
 			var card_type = Stripe.card.cardType(card).replace(' ', '');
 			var stripe = _extends({}, this.stripe, { card: card, card_type: card_type });
-			this.props.onChange({ stripe: stripe });
-			this.props.validateStripe(card);
+			this.props.onChange({ stripe: stripe, errors: errors });
 		},
 		render: function render() {
 			var _props = this.props,

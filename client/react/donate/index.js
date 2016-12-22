@@ -69,12 +69,6 @@ const Donate = React.createClass({
 		this.setState({...this.state, ...field});
 	},
 
-	validateStripe(val) {
-		let valid = Stripe.card.validateCardNumber(val);
-		let errors = {stripe: {number: valid}};
-		this.setState({...this.state, errors});
-	},
-
 	render() {
 		return (
 			<div>
@@ -86,10 +80,10 @@ const Donate = React.createClass({
 
 				<CreditCard 
 					{...this.state}
-					validateStripe={this.validateStripe}
 					onlyNum={this.onlyNum} 
 					maxLength={this.maxLength}
-					onChange={this.handleChange}  
+					onChange={this.handleChange} 
+					validateStripe={this.validateStripe}
 				/>
 
 				<Contact
