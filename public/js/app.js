@@ -25703,7 +25703,8 @@
 		showErr: function showErr(field) {
 			return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 		},
-		allValidations: function allValidations() {
+		allValidations: function allValidations(e) {
+			e.preventDefault();
 			var stripe = this.props.stripe;
 
 			this.validateCard(stripe.number);

@@ -64,7 +64,8 @@ const CedritCard = React.createClass({
 		return this.props.errors.stripe[field] == false ? 'form-group__error' : 'hidden';
 	},
 
-	allValidations() {
+	allValidations(e) {
+		e.preventDefault();
 		const {stripe} = this.props;
 		this.validateCard(stripe.number);
 		this.validateExpiry(stripe.exp_month, stripe.exp_year);
