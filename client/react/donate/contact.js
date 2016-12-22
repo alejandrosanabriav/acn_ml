@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Contact React.createClass({
+const Contact =React.createClass({
 	render() {
 		const {texts} = this.props;
 		return (

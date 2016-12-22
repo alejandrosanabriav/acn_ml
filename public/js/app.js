@@ -25352,7 +25352,7 @@
 
 	var _credit_card2 = _interopRequireDefault(_credit_card);
 
-	var _contact = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./contact\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _contact = __webpack_require__(293);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -26741,6 +26741,41 @@
 		return polyfill;
 	};
 
+
+/***/ },
+/* 293 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Contact = _react2.default.createClass({
+		displayName: "Contact",
+		render: function render() {
+			var texts = this.props.texts;
+
+			return _react2.default.createElement(
+				"div",
+				null,
+				_react2.default.createElement(
+					"div",
+					{ "class": "form-group" },
+					_react2.default.createElement("input", { type: "text", "class": "form-control", placeholder: texts.placeholder_name })
+				)
+			);
+		}
+	});
+
+	exports.default = Contact;
 
 /***/ }
 /******/ ]);
