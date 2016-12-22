@@ -25640,12 +25640,11 @@
 
 	var CedritCard = _react2.default.createClass({
 		displayName: 'CedritCard',
-		validateCard: function validateCard(number) {
-			var valid = Stripe.card.validateCardNumber(number);
+		validateCard: function validateCard() {
+			var valid = Stripe.card.validateCardNumber(this.props.stripe.number);
 			return _extends({}, this.props.errors, { stripe: { number: valid } });
 		},
 		validateExpiry: function validateExpiry(month, year) {
-			console.log(month, year);
 			var valid = Stripe.card.validateExpiry(month, year);
 			return _extends({}, this.props.errors, { stripe: { exp_month: valid, exp_year: valid } });
 		},
@@ -25707,7 +25706,7 @@
 			    stripe = _props4.stripe,
 			    errors = _props4.errors;
 
-			console.log(stripe.number);
+
 			return _react2.default.createElement(
 				'div',
 				null,

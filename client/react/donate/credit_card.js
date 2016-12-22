@@ -2,13 +2,12 @@ import React from 'react';
 import Cards from './cards';
 
 const CedritCard = React.createClass({
-	validateCard(number) {
-		let valid = Stripe.card.validateCardNumber(number);
+	validateCard() {
+		let valid = Stripe.card.validateCardNumber(this.props.stripe.number);
 		return {...this.props.errors, stripe: {number: valid}};
 	},
 
 	validateExpiry(month, year) {
-		console.log(month, year);
 		let valid = Stripe.card.validateExpiry(month, year);
 		return {...this.props.errors, stripe: {exp_month: valid, exp_year: valid}};
 	},
@@ -62,7 +61,7 @@ const CedritCard = React.createClass({
 
 	render() {
 		const {texts, stripe, errors} = this.props;
-		console.log(stripe.number);
+
 		return (
 			<div>
 			<Cards {...this.props} />
