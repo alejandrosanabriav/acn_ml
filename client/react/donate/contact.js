@@ -19,6 +19,14 @@ const Contact = React.createClass({
 		});
 	},
 
+	showErr(field) {
+		return this.props.errors.contact[field] == false ? 'form-group__error' : 'hidden';
+	},
+
+	inputErrStyle(field) {
+		return this.props.errors.contact[field] == false ? 'form-group--error' : '';
+	},
+
 	render() {
 		const {texts, contact} = this.props;
 
@@ -27,21 +35,27 @@ const Contact = React.createClass({
 				<div className="form-group col-sm-12">
 					<input 
 						type="text" 
-						className="form-control" 
+						className={`form-control ${this.inputErrStyle('name')}`} 
 						placeholder={texts.placeholder_name}
 						onChange={this.handleChange.bind(null, 'name')}
 						value={contact.name}
 					/>
+					<span className={this.showErr('name')}>
+						{texts.validation_card}
+        	</span>
 				</div>
 
 				<div className="form-group col-sm-12">
 					<input 
 						type="text" 
-						className="form-control" 
+						className={`form-control ${this.inputErrStyle('email')}`} 
 						placeholder={texts.placeholder_email}
 						onChange={this.handleChange.bind(null, 'email')} 
 						value={contact.email}
 					/>
+					<span className={this.showErr('email')}>
+						{texts.validation_card}
+        	</span>
 				</div>
 
 				<div className="form-group col-sm-12">

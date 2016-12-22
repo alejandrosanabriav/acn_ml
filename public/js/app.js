@@ -25841,6 +25841,12 @@
 				errors: errors
 			});
 		},
+		showErr: function showErr(field) {
+			return this.props.errors.contact[field] == false ? 'form-group__error' : 'hidden';
+		},
+		inputErrStyle: function inputErrStyle(field) {
+			return this.props.errors.contact[field] == false ? 'form-group--error' : '';
+		},
 		render: function render() {
 			var _props = this.props,
 			    texts = _props.texts,
@@ -25855,22 +25861,32 @@
 					{ className: 'form-group col-sm-12' },
 					_react2.default.createElement('input', {
 						type: 'text',
-						className: 'form-control',
+						className: 'form-control ' + this.inputErrStyle('name'),
 						placeholder: texts.placeholder_name,
 						onChange: this.handleChange.bind(null, 'name'),
 						value: contact.name
-					})
+					}),
+					_react2.default.createElement(
+						'span',
+						{ className: this.showErr('name') },
+						texts.validation_card
+					)
 				),
 				_react2.default.createElement(
 					'div',
 					{ className: 'form-group col-sm-12' },
 					_react2.default.createElement('input', {
 						type: 'text',
-						className: 'form-control',
+						className: 'form-control ' + this.inputErrStyle('email'),
 						placeholder: texts.placeholder_email,
 						onChange: this.handleChange.bind(null, 'email'),
 						value: contact.email
-					})
+					}),
+					_react2.default.createElement(
+						'span',
+						{ className: this.showErr('email') },
+						texts.validation_card
+					)
 				),
 				_react2.default.createElement(
 					'div',
