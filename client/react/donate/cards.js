@@ -11,8 +11,12 @@ const Cards = React.createClass({
 		return (
 			 <div class="form-group col-sm-12 donate_landing__cards">
         	<img 
-            className={this.cardType('visa')}  
+            className={this.cardType('Visa')}  
 						src={`${texts.template_uri}/public/img/cards/Visa.png`}
+          />
+					<img 
+            className={this.cardType('Visa')}  
+						src={`${texts.template_uri}/public/img/cards/MasterCard.png`}
           />
 			</div>
 		)
