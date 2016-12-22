@@ -25424,9 +25424,7 @@
 		},
 		validateStripe: function validateStripe(val) {
 			var valid = Stripe.card.validateCardNumber(val);
-			console.log('valid', valid);
 			var errors = { stripe: { number: valid } };
-			console.log(_extends({}, this.state, { errors: errors }));
 			this.setState(_extends({}, this.state, { errors: errors }));
 		},
 		render: function render() {
@@ -25571,10 +25569,10 @@
 		displayName: 'CedritCard',
 		handleCard: function handleCard(e) {
 			var card = e.currentTarget.value;
-			this.props.validateStripe(card);
 			var card_type = Stripe.card.cardType(card).replace(' ', '');
 			var stripe = _extends({}, this.stripe, { card: card, card_type: card_type });
 			this.props.onChange({ stripe: stripe });
+			this.props.validateStripe(card);
 		},
 		render: function render() {
 			var _props = this.props,
@@ -25599,7 +25597,7 @@
 					}),
 					_react2.default.createElement(
 						'span',
-						{ className: errors.stripe.number ? 'form-group__error' : 'hidden' },
+						{ className: !errors.stripe.number ? 'form-group__error' : 'hidden' },
 						texts.validation_card
 					)
 				),

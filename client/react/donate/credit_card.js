@@ -5,10 +5,10 @@ const CedritCard = React.createClass({
 
 	handleCard(e) {
 		let card = e.currentTarget.value;
-		this.props.validateStripe(card);
 		let card_type = Stripe.card.cardType(card).replace(' ', '');
 		let stripe = {...this.stripe, card, card_type};
 		this.props.onChange({stripe});
+		this.props.validateStripe(card);
 	},
 
 	render() {
@@ -26,7 +26,7 @@ const CedritCard = React.createClass({
 					value={stripe.number}
 				/>
 
-				<span className={errors.stripe.number ? 'form-group__error' : 'hidden'}>
+				<span className={!errors.stripe.number ? 'form-group__error' : 'hidden'}>
 					{texts.validation_card}
         </span>
 
