@@ -25666,8 +25666,8 @@
 		},
 		handleExpiry: function handleExpiry(type, e) {
 			var val = e.currentTarget.value;
-			var exp_month = '';
-			var exp_year = '';
+			var exp_month = this.props.exp_month;
+			var exp_year = this.props.exp_year;
 			if (type == 'exp_month') exp_month = val;
 			if (type == 'exp_year') exp_year = val;
 			var errors = this.validateExpiry(exp_month, exp_year);
