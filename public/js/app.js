@@ -25364,7 +25364,7 @@
 			return {
 				donation_type: 'monthly',
 				amount: 30,
-				card_type: '',
+				card_type: 'visa',
 				contact: {
 					name: '',
 					email: '',
