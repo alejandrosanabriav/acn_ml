@@ -27,6 +27,14 @@ const Contact = React.createClass({
 		return this.props.errors.contact[field] == false ? 'form-group--error' : '';
 	},
 
+	validateAll() {
+		let name = this.validate('name', contact.name);
+		let email = this.validate('email', contact.email);
+		let country = this.validate('country', contact.country);
+		let errors = {contact: ...name.contact, ...email.contact, ...country.contact};
+		this.props.onChange({errors});
+	},
+
 	render() {
 		const {texts, contact} = this.props;
 
@@ -71,7 +79,7 @@ const Contact = React.createClass({
 					})}
 					</select>
 				</div>
-				
+				<button onClick={this.validateAll}>validate</button>
 			</div>
 		)
 	}
