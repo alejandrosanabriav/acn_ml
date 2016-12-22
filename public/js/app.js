@@ -25449,7 +25449,7 @@
 /* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -25459,10 +25459,14 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _amount_btns = __webpack_require__(296);
+
+	var _amount_btns2 = _interopRequireDefault(_amount_btns);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var amount = _react2.default.createClass({
-		displayName: "amount",
+		displayName: 'amount',
 		changeAmount: function changeAmount(amount, e) {
 			if (e) e.preventDefault();
 			var el = this.refs.amountInput;
@@ -25486,81 +25490,32 @@
 
 
 			return _react2.default.createElement(
-				"div",
+				'div',
 				null,
+				_react2.default.createElement(_amount_btns2.default, { changeAmount: this.changeAmount }),
 				_react2.default.createElement(
-					"ul",
-					{ className: "change-amount", style: { padding: 0 } },
+					'div',
+					{ className: 'row' },
 					_react2.default.createElement(
-						"li",
-						{ className: "col-md-2" },
-						_react2.default.createElement(
-							"a",
-							{ href: "#", onClick: this.changeAmount.bind(null, 10) },
-							"10"
-						)
+						'div',
+						{ className: 'form-group col-xs-7' },
+						_react2.default.createElement('input', { ref: 'amountInput', className: 'form-control', type: 'text', onChange: this.handleAmount, value: amount })
 					),
 					_react2.default.createElement(
-						"li",
-						{ className: "col-md-2" },
+						'div',
+						{ className: 'form-group col-xs-5' },
 						_react2.default.createElement(
-							"a",
-							{ href: "#", onClick: this.changeAmount.bind(null, 30) },
-							"30"
-						)
-					),
-					_react2.default.createElement(
-						"li",
-						{ className: "col-md-2" },
-						_react2.default.createElement(
-							"a",
-							{ href: "#", onClick: this.changeAmount.bind(null, 50) },
-							"50"
-						)
-					),
-					_react2.default.createElement(
-						"li",
-						{ className: "col-md-2" },
-						_react2.default.createElement(
-							"a",
-							{ href: "#", onClick: this.changeAmount.bind(null, 100) },
-							"100"
-						)
-					),
-					_react2.default.createElement(
-						"li",
-						{ className: "col-md-2" },
-						_react2.default.createElement(
-							"a",
-							{ href: "#", onClick: this.changeAmount.bind(null, 5) },
-							texts.other
-						),
-						" "
-					)
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "row" },
-					_react2.default.createElement(
-						"div",
-						{ className: "form-group col-xs-7" },
-						_react2.default.createElement("input", { ref: "amountInput", className: "form-control", type: "text", onChange: this.handleAmount, value: amount })
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "form-group col-xs-5" },
-						_react2.default.createElement(
-							"a",
+							'a',
 							{
-								href: "#",
+								href: '#',
 								onClick: this.changeType.bind(null, 'monthly'),
 								className: donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '
 							},
 							texts.monthly
 						),
 						_react2.default.createElement(
-							"a",
-							{ href: "#",
+							'a',
+							{ href: '#',
 								onClick: this.changeType.bind(null, 'once'),
 								className: donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '
 							},
@@ -26931,6 +26886,83 @@
 	});
 
 	exports.default = Cards;
+
+/***/ },
+/* 295 */,
+/* 296 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AmountBtns = _react2.default.createClass({
+		displayName: "AmountBtns",
+		render: function render() {
+			var changeAmount = this.props.changeAmount;
+
+
+			return _react2.default.createElement(
+				"ul",
+				{ className: "change-amount", style: { padding: 0 } },
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 10) },
+						"$10"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 30) },
+						"$30"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 50) },
+						"$50"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 100) },
+						"$100"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					{ className: "col-md-2" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: changeAmount.bind(null, 5) },
+						texts.other
+					)
+				)
+			);
+		}
+	});
+
+	exports.default = AmountBtns;
 
 /***/ }
 /******/ ]);
