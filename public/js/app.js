@@ -25364,11 +25364,19 @@
 			return {
 				donation_type: 'monthly',
 				amount: 30,
-				card_type: 'visa',
+
 				contact: {
 					name: '',
 					email: '',
 					country: ''
+				},
+				stripe: {
+					card_type: 'visa',
+					number: '',
+					exp_month: '',
+					exp_year: '',
+					cvc: '',
+					token: ''
 				},
 				texts: {
 					creditcard_placeholder: 'Credit Card number',
@@ -25563,6 +25571,8 @@
 		value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _react = __webpack_require__(88);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -25575,8 +25585,16 @@
 
 	var CedritCard = _react2.default.createClass({
 		displayName: 'CedritCard',
+		handleCard: function handleCard(e) {
+			var card = e.currentTarget.value;
+			var card_type = Stripe.card.cardType(card).replace(' ', '');
+			var stripe = _extends({}, this.stripe, { card: card, card_type: card_type });
+			this.props.onChange({ stripe: stripe });
+		},
 		render: function render() {
-			var texts = this.props.texts;
+			var _props = this.props,
+			    texts = _props.texts,
+			    stripe = _props.stripe;
 
 
 			return _react2.default.createElement(
@@ -25589,7 +25607,9 @@
 					_react2.default.createElement('input', {
 						type: 'text',
 						placeholder: texts.creditcard_placeholder,
-						className: 'form-control'
+						className: 'form-control',
+						onChange: this.handleCard,
+						value: stripe.number
 					})
 				),
 				_react2.default.createElement(

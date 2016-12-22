@@ -8,11 +8,19 @@ const Donate = React.createClass({
 		return {
 			donation_type: 'monthly',
 			amount: 30,
-			card_type: 'visa',
+			
 			contact: {
 				name: '',
 				email: '',
 				country: ''
+			},
+			stripe: {
+				card_type: 'visa',
+				number: '',
+				exp_month: '',
+				exp_year: '',
+				cvc: '',
+				token: ''
 			},
 			texts: {
 				creditcard_placeholder: 'Credit Card number',
