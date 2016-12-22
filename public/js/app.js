@@ -25827,7 +25827,7 @@
 	var Contact = _react2.default.createClass({
 		displayName: 'Contact',
 		validate: function validate(field, val) {
-			var valid = _validator2.default.isEmpty(val);
+			var valid = !_validator2.default.isEmpty(val);
 			return _extends({}, this.props.errors, { contact: _defineProperty({}, field, valid) });
 		},
 		handleChange: function handleChange(field, e) {

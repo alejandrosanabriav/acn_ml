@@ -3,7 +3,7 @@ import validator from 'validator';
 
 const Contact = React.createClass({
 	validate(field, val) {
-		let valid = validator.isEmpty(val);
+		let valid = !validator.isEmpty(val);
 		return {...this.props.errors, contact: {[field]: valid}};
 	},
 
