@@ -25429,7 +25429,16 @@
 				})),
 				_react2.default.createElement(_contact2.default, _extends({}, this.state, {
 					onChange: this.handleChange
-				}))
+				})),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement(
+						'button',
+						{ className: 'donate_landing__submi' },
+						'Donate'
+					)
+				)
 			);
 		}
 	});

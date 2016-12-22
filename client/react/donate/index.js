@@ -84,6 +84,10 @@ const Donate = React.createClass({
 					{...this.state}
 					onChange={this.handleChange} 
 				 />
+				 <div className="form-group">
+				 	<button className="donate_landing__submi">Donate</button>
+				 </div>
+				 
 			</div>
 		)
 	}
