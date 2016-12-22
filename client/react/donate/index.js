@@ -9,6 +9,7 @@ const Donate = React.createClass({
 		return {
 			donation_type: 'monthly',
 			amount: 30,
+			currency: 'usd',
 			countries: [],
 			contact: {
 				name: '',
@@ -83,6 +84,21 @@ const Donate = React.createClass({
 			})
 			.then(res => this.setState({stripe: {...this.state.stripe, token: res.id}}))
 			.then(res => console.log('another then', this.state.stripe));
+	},
+
+	stripeCharge() {
+		const { contact, currency, amount, donation_type, stripe: {token} } = this.state;
+		let data = { ...contact, currency, amount, donation_type, stripe_token: token};
+
+		let request = $.ajax({
+			url: '/wp-admin/admin-ajax.php',
+			type: 'post',
+			data: {
+				action: 'stripe_charge',
+				data: data
+		}});
+
+		return request;
 	},
 
 	render() {

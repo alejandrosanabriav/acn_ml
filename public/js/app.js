@@ -25368,6 +25368,7 @@
 			return {
 				donation_type: 'monthly',
 				amount: 30,
+				currency: 'usd',
 				countries: [],
 				contact: {
 					name: '',
@@ -25442,6 +25443,26 @@
 			}).then(function (res) {
 				return console.log('another then', _this2.state.stripe);
 			});
+		},
+		stripeCharge: function stripeCharge() {
+			var _state = this.state,
+			    contact = _state.contact,
+			    currency = _state.currency,
+			    amount = _state.amount,
+			    donation_type = _state.donation_type,
+			    token = _state.stripe.token;
+
+			var data = _extends({}, contact, { currency: currency, amount: amount, donation_type: donation_type, stripe_token: token });
+
+			var request = $.ajax({
+				url: '/wp-admin/admin-ajax.php',
+				type: 'post',
+				data: {
+					action: 'stripe_charge',
+					data: data
+				} });
+
+			return request;
 		},
 		render: function render() {
 			return _react2.default.createElement(
