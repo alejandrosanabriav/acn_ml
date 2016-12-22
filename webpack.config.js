@@ -1,4 +1,5 @@
 'use strict';
+var webpack = require('webpack');
 
 module.exports = {
 	watch: true,
@@ -21,5 +22,8 @@ module.exports = {
 				test: /\.scss$/,
 				loaders: ['css', 'sass']
 			}
-		]}
+		]},
+	plugins: [
+		new webpack.optimize.CommonsChunkPlugin('app')
+	]
 };

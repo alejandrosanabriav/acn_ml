@@ -11,11 +11,7 @@ function bs_donate_react_sc($atts, $content = null) {
 
 <div 
 	id="bs-donate-react" 
-	data-props='{
-		"other": "<?php echo $at['other'] ?>"
-		"monthly": "<?php echo $at['monthly'] ?>"
-		"once": "<?php echo $at['once'] ?>"
-	}'
+	data-props='<?php echo json_encode($at) ?>'
 >
 </div>
 

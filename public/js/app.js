@@ -100,6 +100,7 @@
 		Vue.component('bs-share', (0, _share2.default)());
 
 		var vm = new Vue({ el: '#app-ml' });
+
 		if (document.getElementById('bs-donate-react')) {
 			(0, _reactDom.render)(_react2.default.createElement(_donate4.default, null), document.getElementById('bs-donate-react'));
 		}
