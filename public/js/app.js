@@ -25358,6 +25358,8 @@
 		displayName: 'Donate',
 		getInitialState: function getInitialState() {
 			return {
+				donation_type: 'monthly',
+				amount: 30,
 				texts: {
 					creditcard_placeholder: 'Credit Card number',
 					month_placeholder: 'MM',
@@ -25388,11 +25390,14 @@
 		onlyNum: function onlyNum(val) {
 			return val.replace(/[^0-9]+/, '');
 		},
+		handleChange: function handleChange(field) {
+			this.setState(_extends({}, this.state, field));
+		},
 		render: function render() {
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_amount2.default, { texts: this.state.texts, onlyNum: this.onlyNum }),
+				_react2.default.createElement(_amount2.default, { texts: this.state.texts, onlyNum: this.onlyNum, onChange: this.handleChange }),
 				_react2.default.createElement(_credit_card2.default, { texts: this.state.texts })
 			);
 		}
@@ -25404,7 +25409,7 @@
 /* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -25417,13 +25422,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var amount = _react2.default.createClass({
-		displayName: 'amount',
-		getInitialState: function getInitialState() {
-			return {
-				amount: 30,
-				donation_type: 'monthly'
-			};
-		},
+		displayName: "amount",
 		changeAmount: function changeAmount(amount, e) {
 			if (e) e.preventDefault();
 			var el = this.refs.amountInput;
@@ -25434,90 +25433,93 @@
 		handleAmount: function handleAmount(e) {
 			var el = e.currentTarget;
 			var amount = this.props.onlyNum(el.value);
-			this.setState({ amount: amount });
+			this.props.onChange({ amount: amount });
 		},
 		changeType: function changeType(donation_type, e) {
 			if (e) e.preventDefault();
-			this.setState({ donation_type: donation_type });
+			this.props.onChange({ donation_type: donation_type });
 		},
 		render: function render() {
-			var texts = this.props.texts;
+			var _props = this.props,
+			    texts = _props.texts,
+			    donation_type = _props.donation_type,
+			    amount = _props.amount;
 
 
 			return _react2.default.createElement(
-				'div',
-				{ className: 'row' },
+				"div",
+				{ className: "row" },
 				_react2.default.createElement(
-					'ul',
+					"ul",
 					null,
 					_react2.default.createElement(
-						'li',
+						"li",
 						null,
 						_react2.default.createElement(
-							'a',
-							{ href: '#', onClick: this.changeAmount.bind(null, 10) },
-							'10'
+							"a",
+							{ href: "#", onClick: this.changeAmount.bind(null, 10) },
+							"10"
 						)
 					),
 					_react2.default.createElement(
-						'li',
+						"li",
 						null,
 						_react2.default.createElement(
-							'a',
-							{ href: '#', onClick: this.changeAmount.bind(null, 30) },
-							'30'
+							"a",
+							{ href: "#", onClick: this.changeAmount.bind(null, 30) },
+							"30"
 						)
 					),
 					_react2.default.createElement(
-						'li',
+						"li",
 						null,
 						_react2.default.createElement(
-							'a',
-							{ href: '#', onClick: this.changeAmount.bind(null, 50) },
-							'50'
+							"a",
+							{ href: "#", onClick: this.changeAmount.bind(null, 50) },
+							"50"
 						)
 					),
 					_react2.default.createElement(
-						'li',
+						"li",
 						null,
 						_react2.default.createElement(
-							'a',
-							{ href: '#', onClick: this.changeAmount.bind(null, 100) },
-							'100'
+							"a",
+							{ href: "#", onClick: this.changeAmount.bind(null, 100) },
+							"100"
 						)
 					),
 					_react2.default.createElement(
-						'li',
+						"li",
 						null,
 						_react2.default.createElement(
-							'a',
-							{ href: '#', onClick: this.changeAmount.bind(null, 5) },
+							"a",
+							{ href: "#", onClick: this.changeAmount.bind(null, 5) },
 							texts.other
 						),
-						' '
+						" "
 					)
 				),
 				_react2.default.createElement(
-					'div',
-					{ className: 'form-group col-xs-7' },
-					_react2.default.createElement('input', { ref: 'amountInput', className: 'form-control', type: 'text', onChange: this.handleAmount, value: this.state.amount })
+					"div",
+					{ className: "form-group col-xs-7" },
+					_react2.default.createElement("input", { ref: "amountInput", className: "form-control", type: "text", onChange: this.handleAmount, value: amount })
 				),
 				_react2.default.createElement(
-					'div',
-					{ className: 'form-group col-xs-5' },
+					"div",
+					{ className: "form-group col-xs-5" },
 					_react2.default.createElement(
-						'a',
-						{ href: '#',
+						"a",
+						{ href: "#",
 							onClick: this.changeType.bind(null, 'monthly'),
-							style: this.state.donation_type == 'monthly' ? { color: 'red' } : {}
+							style: donation_type == 'monthly' ? { color: 'red' } : {}
 						},
 						texts.monthly
 					),
 					_react2.default.createElement(
-						'a',
-						{ href: '#',
+						"a",
+						{ href: "#",
 							onClick: this.changeType.bind(null, 'once'),
-							style: this.state.donation_type == 'once' ? { color: 'red' } : {}
+							style: donation_type == 'once' ? { color: 'red' } : {}
 						},
 						texts.once
 					)

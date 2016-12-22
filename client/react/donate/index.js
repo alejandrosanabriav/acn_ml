@@ -5,6 +5,8 @@ import CreditCard from './credit_card';
 const Donate = React.createClass({
 	getInitialState() {
 		return {
+			donation_type: 'monthly',
+			amount: 30,
 			texts: {
 				creditcard_placeholder: 'Credit Card number',
 				month_placeholder: 'MM',
@@ -39,10 +41,14 @@ const Donate = React.createClass({
 		return val.replace(/[^0-9]+/, '');
 	},
 
+	handleChange(field) {
+		this.setState({...this.state, ...field});
+	},
+
 	render() {
 		return (
 			<div>
-				<Amount texts={this.state.texts} onlyNum={this.onlyNum} />
+				<Amount texts={this.state.texts} onlyNum={this.onlyNum} onChange={this.handleChange} />
 				<CreditCard texts={this.state.texts} />
 			</div>
 		)

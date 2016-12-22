@@ -1,13 +1,6 @@
 import React from 'react';
 
 const amount = React.createClass({
-	getInitialState() {
-		return {
-			amount: 30,
-			donation_type: 'monthly'
-		}
-	},
-
 
 	changeAmount(amount,e) {
 		if(e) e.preventDefault();
@@ -20,16 +13,16 @@ const amount = React.createClass({
 	handleAmount(e) {
 		let el = e.currentTarget;
 		let amount = this.props.onlyNum(el.value);
-		this.setState({amount});
+		this.props.onChange({amount});
 	},
 
 	changeType(donation_type, e) {
 		if(e) e.preventDefault();
-		this.setState({donation_type});
+		this.props.onChange({donation_type});
 	},
 
 	render() {
-		const {texts} = this.props;
+		const {texts, donation_type, amount} = this.props;
 
 		return (
 			<div className="row">
@@ -50,19 +43,19 @@ const amount = React.createClass({
 						<a href="#" onClick={this.changeAmount.bind(null, 5)}>{texts.other}</a> </li>
 				</ul>
 				<div className="form-group col-xs-7">
-					<input ref="amountInput" className="form-control" type="text" onChange={this.handleAmount} value={this.state.amount} />
+					<input ref="amountInput" className="form-control" type="text" onChange={this.handleAmount} value={amount} />
 				</div>
 				<div className="form-group col-xs-5">
 					<a href="#" 
-					onClick={this.changeType.bind(null, 'monthly')} 
-					style={this.state.donation_type == 'monthly' ? {color: 'red'} : {}}
-				>
+						onClick={this.changeType.bind(null, 'monthly')} 
+						style={donation_type == 'monthly' ? {color: 'red'} : {}}
+					>
 					{texts.monthly}
 				</a>
 				<a href="#" 
-					onClick={this.changeType.bind(null, 'once')} 
-					style={this.state.donation_type == 'once' ? {color: 'red'} : {}}
-				>
+						onClick={this.changeType.bind(null, 'once')} 
+						style={donation_type == 'once' ? {color: 'red'} : {}}
+					>
 					{texts.once}
 				</a>
 				</div>
