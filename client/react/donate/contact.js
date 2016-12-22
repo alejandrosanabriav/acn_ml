@@ -29,6 +29,18 @@ const Contact = React.createClass({
 						value={contact.email}
 					/>
 				</div>
+
+				<div className="form-group col-sm-12">
+					<select
+						type="text" 
+						className="form-control" 
+						placeholder={texts.placeholder_country}
+						onChange={this.handleChange.bind(null, 'country')} 
+						value={contact.country}
+					>
+					<option>nea</option>
+					</select>
+				</div>
 				
 			</div>
 		)

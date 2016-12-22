@@ -26846,6 +26846,25 @@
 						onChange: this.handleChange.bind(null, 'email'),
 						value: contact.email
 					})
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group col-sm-12" },
+					_react2.default.createElement(
+						"select",
+						{
+							type: "text",
+							className: "form-control",
+							placeholder: texts.placeholder_country,
+							onChange: this.handleChange.bind(null, 'country'),
+							value: contact.country
+						},
+						_react2.default.createElement(
+							"option",
+							null,
+							"nea"
+						)
+					)
 				)
 			);
 		}
