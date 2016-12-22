@@ -25651,8 +25651,11 @@
 			console.log({ card: card });
 			var valid = Stripe.card.validateCardNumber(card);
 			var errors = _extends({}, this.props.errors, { stripe: { number: valid } });
+
 			var card_type = Stripe.card.cardType(card).replace(' ', '');
+
 			var stripe = _extends({}, this.stripe, { card: card, card_type: card_type });
+			console.log({ stripe: stripe });
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
 		render: function render() {
