@@ -25550,7 +25550,7 @@
 					_react2.default.createElement("input", {
 						type: "text",
 						placeholder: texts.creditcard_placeholder,
-						"class": "form-control"
+						className: "form-control"
 					})
 				),
 				_react2.default.createElement(
@@ -25559,7 +25559,7 @@
 					_react2.default.createElement("input", {
 						type: "text",
 						placeholder: texts.month_placeholder,
-						"class": "form-control"
+						className: "form-control"
 					})
 				),
 				_react2.default.createElement(
@@ -25568,7 +25568,7 @@
 					_react2.default.createElement("input", {
 						type: "text",
 						placeholder: texts.year_placeholder,
-						"class": "form-control"
+						className: "form-control"
 					})
 				),
 				_react2.default.createElement(
@@ -25577,7 +25577,7 @@
 					_react2.default.createElement("input", {
 						type: "text",
 						placeholder: texts.cvc_placeholder,
-						"class": "form-control"
+						className: "form-control"
 					})
 				)
 			);
