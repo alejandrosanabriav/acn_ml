@@ -19,13 +19,12 @@ const amount = React.createClass({
 
 	handleAmount(e) {
 		let el = e.currentTarget;
-		let amount = el.value;
+		let amount = el.value.replace(/[^0-9]+/, '');
 		this.setState({amount});
 	},
 
 	changeType(donation_type, e) {
 		if(e) e.preventDefault();
-		donation_type = donation_type.replace(/[^0-9]+/, '');
 		this.setState({donation_type});
 	},
 

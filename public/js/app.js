@@ -25430,12 +25430,11 @@
 		},
 		handleAmount: function handleAmount(e) {
 			var el = e.currentTarget;
-			var amount = el.value;
+			var amount = el.value.replace(/[^0-9]+/, '');
 			this.setState({ amount: amount });
 		},
 		changeType: function changeType(donation_type, e) {
 			if (e) e.preventDefault();
-			donation_type = donation_type.replace(/[^0-9]+/, '');
 			this.setState({ donation_type: donation_type });
 		},
 		render: function render() {
