@@ -24,7 +24,7 @@ const CedritCard = React.createClass({
 		number = maxLength(number, 16);
 		let errors = this.validateCard(number);
 		let card_type = this.getCardType(number);
-		let stripe = {...this.stripe, number, card_type};
+		let stripe = {...this.props.stripe, number, card_type};
 		this.props.onChange({stripe, errors});
 	},
 	
@@ -35,7 +35,7 @@ const CedritCard = React.createClass({
 		if(type == 'exp_month') exp_month = val;
 		if(type == 'exp_year') exp_year = val;
 		let errors = this.validateExpiry(exp_month, exp_year);
-		let stripe = {...this.stripe, ...exp_month, ...exp_year};
+		let stripe = {...this.props.stripe, exp_month, exp_year};
 		console.log(stripe);
 		this.props.onChange({stripe, errors});
 	},

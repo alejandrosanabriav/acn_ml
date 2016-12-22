@@ -25662,7 +25662,7 @@
 			number = maxLength(number, 16);
 			var errors = this.validateCard(number);
 			var card_type = this.getCardType(number);
-			var stripe = _extends({}, this.stripe, { number: number, card_type: card_type });
+			var stripe = _extends({}, this.props.stripe, { number: number, card_type: card_type });
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
 		handleExpiry: function handleExpiry(type, e) {
@@ -25672,7 +25672,7 @@
 			if (type == 'exp_month') exp_month = val;
 			if (type == 'exp_year') exp_year = val;
 			var errors = this.validateExpiry(exp_month, exp_year);
-			var stripe = _extends({}, this.stripe, exp_month, exp_year);
+			var stripe = _extends({}, this.props.stripe, { exp_month: exp_month, exp_year: exp_year });
 			console.log(stripe);
 			this.props.onChange({ stripe: stripe, errors: errors });
 		},
