@@ -25539,6 +25539,8 @@
 	var CedritCard = _react2.default.createClass({
 		displayName: "CedritCard",
 		render: function render() {
+			var texts = this.props.texts;
+
 			_react2.default.createElement(
 				"div",
 				null,

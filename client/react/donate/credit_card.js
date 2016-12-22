@@ -2,6 +2,7 @@ import React from 'react';
 
 const CedritCard = React.createClass({
 	render() {
+		const {texts} = this.props;
 		<div>
 			<div className="form-group">
 				<input 
