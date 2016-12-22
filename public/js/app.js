@@ -25426,9 +25426,8 @@
 		changeAmount: function changeAmount(amount, e) {
 			if (e) e.preventDefault();
 			var el = this.refs.amountInput;
-			console.log(this.refs.amountInput, amount);
 			if (amount == 5) el.focus();
-			this.setState({ amount: amount });
+			this.props.onChange({ amount: amount });
 		},
 		handleAmount: function handleAmount(e) {
 			var el = e.currentTarget;

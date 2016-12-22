@@ -5,9 +5,8 @@ const amount = React.createClass({
 	changeAmount(amount,e) {
 		if(e) e.preventDefault();
 		let el = this.refs.amountInput;
-		console.log(this.refs.amountInput, amount);
 		if(amount == 5) el.focus();
-		this.setState({amount});
+		this.props.onChange({amount});
 	},
 
 	handleAmount(e) {
