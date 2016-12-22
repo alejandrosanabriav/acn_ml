@@ -1,4 +1,5 @@
 import React from 'react';
+import validator from 'validator';
 import Amount from './amount';
 import CreditCard from './credit_card';
 import Contact from './contact';
@@ -30,7 +31,8 @@ const Donate = React.createClass({
 				other: 'Other',
 				monthly: 'Monthly',
 				once: 'Once'
-			}
+			},
+			errors: {}
 		}
 	},
 
@@ -44,7 +46,7 @@ const Donate = React.createClass({
 			texts = {...texts,  ...props};
 			this.setState({texts});
 		} catch(err) {
-			console.log(err);
+			console.log('err on parsing donate props', props);
 		}
 	},
 
@@ -64,6 +66,12 @@ const Donate = React.createClass({
 		this.setState({...this.state, ...field});
 	},
 
+	validateStripe(val) {
+		let valid = Stripe.card.validateCardNumber(val);
+		let errors = {stripe: {number: valid}};
+		this.setState({...this.state, errors});
+	},
+
 	render() {
 		return (
 			<div>
@@ -74,7 +82,8 @@ const Donate = React.createClass({
 				/>
 
 				<CreditCard 
-					{...this.state} 
+					{...this.state}
+					validateStripe={this.validateStripe}
 					onlyNum={this.onlyNum} 
 					maxLength={this.maxLength}
 					onChange={this.handleChange}  

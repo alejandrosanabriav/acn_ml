@@ -25344,6 +25344,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _validator = __webpack_require__(14);
+
+	var _validator2 = _interopRequireDefault(_validator);
+
 	var _amount = __webpack_require__(266);
 
 	var _amount2 = _interopRequireDefault(_amount);
@@ -25386,7 +25390,8 @@
 					other: 'Other',
 					monthly: 'Monthly',
 					once: 'Once'
-				}
+				},
+				errors: {}
 			};
 		},
 		getProps: function getProps() {
@@ -25399,7 +25404,7 @@
 				texts = _extends({}, texts, props);
 				this.setState({ texts: texts });
 			} catch (err) {
-				console.log(err);
+				console.log('err on parsing donate props', props);
 			}
 		},
 		componentWillMount: function componentWillMount() {
@@ -25414,6 +25419,11 @@
 		handleChange: function handleChange(field) {
 			this.setState(_extends({}, this.state, field));
 		},
+		validateStripe: function validateStripe(val) {
+			var valid = Stripe.card.validateCardNumber(val);
+			var errors = { stripe: { number: valid } };
+			this.setState(_extends({}, this.state, { errors: errors }));
+		},
 		render: function render() {
 			return _react2.default.createElement(
 				'div',
@@ -25423,6 +25433,7 @@
 					onChange: this.handleChange
 				})),
 				_react2.default.createElement(_credit_card2.default, _extends({}, this.state, {
+					validateStripe: this.validateStripe,
 					onlyNum: this.onlyNum,
 					maxLength: this.maxLength,
 					onChange: this.handleChange
@@ -25555,6 +25566,7 @@
 		displayName: 'CedritCard',
 		handleCard: function handleCard(e) {
 			var card = e.currentTarget.value;
+			this.props.validateStripe(card);
 			var card_type = Stripe.card.cardType(card).replace(' ', '');
 			var stripe = _extends({}, this.stripe, { card: card, card_type: card_type });
 			this.props.onChange({ stripe: stripe });
@@ -25562,7 +25574,8 @@
 		render: function render() {
 			var _props = this.props,
 			    texts = _props.texts,
-			    stripe = _props.stripe;
+			    stripe = _props.stripe,
+			    errors = _props.errors;
 
 
 			return _react2.default.createElement(
@@ -25581,7 +25594,7 @@
 					}),
 					_react2.default.createElement(
 						'span',
-						{ className: 'form-group__error' },
+						{ className: errors.stripe.number ? 'form-group__error' : 'hidden' },
 						texts.validation_card
 					)
 				),
