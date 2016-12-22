@@ -53,7 +53,7 @@ const amount = React.createClass({
 				<div className="form-group col-xs-7">
 					<input ref="amountInput" className="form-control" type="text" onChange={this.handleAmount} value={this.state.amount} />
 				</div>
-				<div class="form-group col-xs-5">
+				<div className="form-group col-xs-5">
 					<a href="#" 
 					onClick={this.changeType.bind(null, 'monthly')} 
 					style={this.state.donation_type == 'monthly' ? {color: 'red'} : {}}

@@ -25502,7 +25502,7 @@
 				),
 				_react2.default.createElement(
 					'div',
-					{ 'class': 'form-group col-xs-5' },
+					{ className: 'form-group col-xs-5' },
 					_react2.default.createElement(
 						'a',
 						{ href: '#',
