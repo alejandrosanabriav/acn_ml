@@ -25913,10 +25913,10 @@
 							onChange: this.handleChange.bind(null, 'country'),
 							value: contact.country || texts.country
 						},
-						this.props.countries.map(function (country) {
+						this.props.countries.map(function (country, i) {
 							return _react2.default.createElement(
 								'option',
-								{ value: country },
+								{ key: i, value: country },
 								country
 							);
 						})
