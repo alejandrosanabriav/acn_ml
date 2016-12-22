@@ -137,7 +137,6 @@ const CedritCard = React.createClass({
 					</span>
 				</div>
 			</div>
-			<button onClick={this.allValidations}>validate</button>
 		</div>
 		)
 	}

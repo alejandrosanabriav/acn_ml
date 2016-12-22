@@ -1,8 +1,19 @@
 import React from 'react';
+import validator from 'validator';
 
 const Contact = React.createClass({
+	validate(field, val) {
+		let valid = validator.isEmpty(val);
+		return {...this.props.errors, contact: {[field]: valid}};
+	},
+
 	handleChange(field, e) {
-		this.props.onChange({contact: {...this.props.contact, [field]: e.currentTarget.value}});
+		let val = e.currentTarget.value;
+		let errors = this.validate(field, val);
+		console.log(errors);
+		this.props.onChange({
+			contact: {...this.props.contact, [field]: val}
+		});
 	},
 
 	render() {

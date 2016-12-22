@@ -9,7 +9,6 @@ const Donate = React.createClass({
 		return {
 			donation_type: 'monthly',
 			amount: 30,
-			
 			contact: {
 				name: '',
 				email: '',
@@ -90,6 +89,7 @@ const Donate = React.createClass({
 					{...this.state}
 					onChange={this.handleChange} 
 				 />
+				 
 				 <div className="form-group">
 				 	<button className="donate_landing__submit pull-left">Donate</button>
 				 </div>

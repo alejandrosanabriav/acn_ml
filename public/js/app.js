@@ -25368,7 +25368,6 @@
 			return {
 				donation_type: 'monthly',
 				amount: 30,
-
 				contact: {
 					name: '',
 					email: '',
@@ -25794,11 +25793,6 @@
 							texts.validation_cvc
 						)
 					)
-				),
-				_react2.default.createElement(
-					'button',
-					{ onClick: this.allValidations },
-					'validate'
 				)
 			);
 		}
@@ -25810,7 +25804,7 @@
 /* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -25822,14 +25816,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _validator = __webpack_require__(14);
+
+	var _validator2 = _interopRequireDefault(_validator);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	var Contact = _react2.default.createClass({
-		displayName: "Contact",
+		displayName: 'Contact',
+		validate: function validate(field, val) {
+			var valid = _validator2.default.isEmpty(val);
+			return _extends({}, this.props.errors, { contact: _defineProperty({}, field, valid) });
+		},
 		handleChange: function handleChange(field, e) {
-			this.props.onChange({ contact: _extends({}, this.props.contact, _defineProperty({}, field, e.currentTarget.value)) });
+			var val = e.currentTarget.value;
+			var errors = this.validate(field, val);
+			console.log(errors);
+			this.props.onChange({
+				contact: _extends({}, this.props.contact, _defineProperty({}, field, val))
+			});
 		},
 		render: function render() {
 			var _props = this.props,
@@ -25838,46 +25845,46 @@
 
 
 			return _react2.default.createElement(
-				"div",
-				{ className: "row" },
+				'div',
+				{ className: 'row' },
 				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-sm-12" },
-					_react2.default.createElement("input", {
-						type: "text",
-						className: "form-control",
+					'div',
+					{ className: 'form-group col-sm-12' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						className: 'form-control',
 						placeholder: texts.placeholder_name,
 						onChange: this.handleChange.bind(null, 'name'),
 						value: contact.name
 					})
 				),
 				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-sm-12" },
-					_react2.default.createElement("input", {
-						type: "text",
-						className: "form-control",
+					'div',
+					{ className: 'form-group col-sm-12' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						className: 'form-control',
 						placeholder: texts.placeholder_email,
 						onChange: this.handleChange.bind(null, 'email'),
 						value: contact.email
 					})
 				),
 				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-sm-12" },
+					'div',
+					{ className: 'form-group col-sm-12' },
 					_react2.default.createElement(
-						"select",
+						'select',
 						{
-							type: "text",
-							className: "form-control",
+							type: 'text',
+							className: 'form-control',
 							placeholder: texts.placeholder_country,
 							onChange: this.handleChange.bind(null, 'country'),
 							value: contact.country
 						},
 						_react2.default.createElement(
-							"option",
+							'option',
 							null,
-							"nea"
+							'nea'
 						)
 					)
 				)
