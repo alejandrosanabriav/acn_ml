@@ -36,4 +36,31 @@ import DonateReact from './react/donate';
 		 window.history.back();
 	});
 
+	function throttle(fn, delay) {
+		let wait = false;
+
+		return () => {
+			if (!wait) {
+				fn.call();
+				wait = true;
+				setTimeout(() => {
+					wait = false;
+				}, delay);
+			}
+		}
+
+	}
+
+function showAfterScroll() {
+	let scrollTop = $(window).scrollTop();
+	let elScrollTop = $('.donate_landing').offset().top;
+	if(scrollTop > elScrollTop) {
+		$('.after_donate').removeClass('hidden');
+	} else {
+		$('.after_donate').addClass('hidden');
+	}
+}	
+
+	$(window).on('scroll', throttle(showAfterScroll, 300));
+
 })();

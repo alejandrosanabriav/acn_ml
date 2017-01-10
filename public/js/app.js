@@ -86,7 +86,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	__webpack_require__(270);
+	__webpack_require__(271);
 
 
 	(function () {
@@ -115,6 +115,32 @@
 			e.preventDefault();
 			window.history.back();
 		});
+
+		function throttle(fn, delay) {
+			var wait = false;
+
+			return function () {
+				if (!wait) {
+					fn.call();
+					wait = true;
+					setTimeout(function () {
+						wait = false;
+					}, delay);
+				}
+			};
+		}
+
+		function showAfterScroll() {
+			var scrollTop = $(window).scrollTop();
+			var elScrollTop = $('.donate_landing').offset().top;
+			if (scrollTop > elScrollTop) {
+				$('.after_donate').removeClass('hidden');
+			} else {
+				$('.after_donate').addClass('hidden');
+			}
+		}
+
+		$(window).on('scroll', throttle(showAfterScroll, 300));
 	})();
 
 /***/ },
@@ -25356,7 +25382,7 @@
 
 	var _credit_card2 = _interopRequireDefault(_credit_card);
 
-	var _contact = __webpack_require__(269);
+	var _contact = __webpack_require__(270);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -25676,7 +25702,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _cards = __webpack_require__(295);
+	var _cards = __webpack_require__(269);
 
 	var _cards2 = _interopRequireDefault(_cards);
 
@@ -25855,6 +25881,62 @@
 		value: true
 	});
 
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Cards = _react2.default.createClass({
+		displayName: 'Cards',
+		cardType: function cardType(type) {
+			return this.props.stripe.card_type == type ? 'card-type card-type--active' : 'card-type';
+		},
+		render: function render() {
+			var _props = this.props,
+			    card_type = _props.card_type,
+			    texts = _props.texts;
+
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'form-group donate_landing__cards' },
+				_react2.default.createElement('img', {
+					className: this.cardType('Visa'),
+					src: texts.template_uri + '/public/img/cards/Visa.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('MasterCard'),
+					src: texts.template_uri + '/public/img/cards/MasterCard.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('DinersClub'),
+					src: texts.template_uri + '/public/img/cards/DinersClub.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('AmericanExpress'),
+					src: texts.template_uri + '/public/img/cards/AmericanExpress.png'
+				}),
+				_react2.default.createElement('img', {
+					className: this.cardType('Discover'),
+					src: texts.template_uri + '/public/img/cards/Discover.png'
+				})
+			);
+		}
+	});
+
+	exports.default = Cards;
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _react = __webpack_require__(88);
@@ -25970,16 +26052,16 @@
 	exports.default = Contact;
 
 /***/ },
-/* 270 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var define = __webpack_require__(271);
+	var define = __webpack_require__(272);
 
-	var implementation = __webpack_require__(275);
-	var getPolyfill = __webpack_require__(293);
-	var shim = __webpack_require__(294);
+	var implementation = __webpack_require__(276);
+	var getPolyfill = __webpack_require__(294);
+	var shim = __webpack_require__(295);
 
 	// eslint-disable-next-line no-unused-vars
 	var boundFromShim = function from(array) {
@@ -25997,13 +26079,13 @@
 
 
 /***/ },
-/* 271 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var keys = __webpack_require__(272);
-	var foreach = __webpack_require__(274);
+	var keys = __webpack_require__(273);
+	var foreach = __webpack_require__(275);
 	var hasSymbols = typeof Symbol === 'function' && typeof Symbol() === 'symbol';
 
 	var toStr = Object.prototype.toString;
@@ -26059,7 +26141,7 @@
 
 
 /***/ },
-/* 272 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26068,7 +26150,7 @@
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
 	var slice = Array.prototype.slice;
-	var isArgs = __webpack_require__(273);
+	var isArgs = __webpack_require__(274);
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -26205,7 +26287,7 @@
 
 
 /***/ },
-/* 273 */
+/* 274 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26228,7 +26310,7 @@
 
 
 /***/ },
-/* 274 */
+/* 275 */
 /***/ function(module, exports) {
 
 	
@@ -26256,12 +26338,12 @@
 
 
 /***/ },
-/* 275 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var ES = __webpack_require__(276);
-	var supportsDescriptors = __webpack_require__(271).supportsDescriptors;
+	var ES = __webpack_require__(277);
+	var supportsDescriptors = __webpack_require__(272).supportsDescriptors;
 
 	/*! https://mths.be/array-from v0.2.0 by @mathias */
 	module.exports = function from(arrayLike) {
@@ -26310,7 +26392,7 @@
 
 
 /***/ },
-/* 276 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26319,17 +26401,17 @@
 	var hasSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol';
 	var symbolToStr = hasSymbols ? Symbol.prototype.toString : toStr;
 
-	var $isNaN = __webpack_require__(277);
-	var $isFinite = __webpack_require__(278);
+	var $isNaN = __webpack_require__(278);
+	var $isFinite = __webpack_require__(279);
 	var MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
 
-	var assign = __webpack_require__(279);
-	var sign = __webpack_require__(280);
-	var mod = __webpack_require__(281);
-	var isPrimitive = __webpack_require__(282);
-	var toPrimitive = __webpack_require__(283);
+	var assign = __webpack_require__(280);
+	var sign = __webpack_require__(281);
+	var mod = __webpack_require__(282);
+	var isPrimitive = __webpack_require__(283);
+	var toPrimitive = __webpack_require__(284);
 	var parseInteger = parseInt;
-	var bind = __webpack_require__(288);
+	var bind = __webpack_require__(289);
 	var strSlice = bind.call(Function.call, String.prototype.slice);
 	var isBinary = bind.call(Function.call, RegExp.prototype.test, /^0b[01]+$/i);
 	var isOctal = bind.call(Function.call, RegExp.prototype.test, /^0o[0-7]+$/i);
@@ -26352,9 +26434,9 @@
 		return replace(value, trimRegex, '');
 	};
 
-	var ES5 = __webpack_require__(290);
+	var ES5 = __webpack_require__(291);
 
-	var hasRegExpMatcher = __webpack_require__(292);
+	var hasRegExpMatcher = __webpack_require__(293);
 
 	// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-abstract-operations
 	var ES6 = assign(assign({}, ES5), {
@@ -26577,7 +26659,7 @@
 
 
 /***/ },
-/* 277 */
+/* 278 */
 /***/ function(module, exports) {
 
 	module.exports = Number.isNaN || function isNaN(a) {
@@ -26586,7 +26668,7 @@
 
 
 /***/ },
-/* 278 */
+/* 279 */
 /***/ function(module, exports) {
 
 	var $isNaN = Number.isNaN || function (a) { return a !== a; };
@@ -26595,7 +26677,7 @@
 
 
 /***/ },
-/* 279 */
+/* 280 */
 /***/ function(module, exports) {
 
 	var has = Object.prototype.hasOwnProperty;
@@ -26610,7 +26692,7 @@
 
 
 /***/ },
-/* 280 */
+/* 281 */
 /***/ function(module, exports) {
 
 	module.exports = function sign(number) {
@@ -26619,7 +26701,7 @@
 
 
 /***/ },
-/* 281 */
+/* 282 */
 /***/ function(module, exports) {
 
 	module.exports = function mod(number, modulo) {
@@ -26629,7 +26711,7 @@
 
 
 /***/ },
-/* 282 */
+/* 283 */
 /***/ function(module, exports) {
 
 	module.exports = function isPrimitive(value) {
@@ -26638,17 +26720,17 @@
 
 
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var hasSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol';
 
-	var isPrimitive = __webpack_require__(284);
-	var isCallable = __webpack_require__(285);
-	var isDate = __webpack_require__(286);
-	var isSymbol = __webpack_require__(287);
+	var isPrimitive = __webpack_require__(285);
+	var isCallable = __webpack_require__(286);
+	var isDate = __webpack_require__(287);
+	var isSymbol = __webpack_require__(288);
 
 	var ordinaryToPrimitive = function OrdinaryToPrimitive(O, hint) {
 		if (typeof O === 'undefined' || O === null) {
@@ -26718,7 +26800,7 @@
 
 
 /***/ },
-/* 284 */
+/* 285 */
 /***/ function(module, exports) {
 
 	module.exports = function isPrimitive(value) {
@@ -26727,7 +26809,7 @@
 
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26772,7 +26854,7 @@
 
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26798,7 +26880,7 @@
 
 
 /***/ },
-/* 287 */
+/* 288 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26831,16 +26913,16 @@
 
 
 /***/ },
-/* 288 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var implementation = __webpack_require__(289);
+	var implementation = __webpack_require__(290);
 
 	module.exports = Function.prototype.bind || implementation;
 
 
 /***/ },
-/* 289 */
+/* 290 */
 /***/ function(module, exports) {
 
 	var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
@@ -26894,19 +26976,19 @@
 
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var $isNaN = __webpack_require__(277);
-	var $isFinite = __webpack_require__(278);
+	var $isNaN = __webpack_require__(278);
+	var $isFinite = __webpack_require__(279);
 
-	var sign = __webpack_require__(280);
-	var mod = __webpack_require__(281);
+	var sign = __webpack_require__(281);
+	var mod = __webpack_require__(282);
 
-	var IsCallable = __webpack_require__(285);
-	var toPrimitive = __webpack_require__(291);
+	var IsCallable = __webpack_require__(286);
+	var toPrimitive = __webpack_require__(292);
 
 	// https://es5.github.io/#x9
 	var ES5 = {
@@ -26986,16 +27068,16 @@
 
 
 /***/ },
-/* 291 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var toStr = Object.prototype.toString;
 
-	var isPrimitive = __webpack_require__(284);
+	var isPrimitive = __webpack_require__(285);
 
-	var isCallable = __webpack_require__(285);
+	var isCallable = __webpack_require__(286);
 
 	// https://es5.github.io/#x8.12
 	var ES5internalSlots = {
@@ -27029,7 +27111,7 @@
 
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27054,13 +27136,13 @@
 
 
 /***/ },
-/* 293 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var ES = __webpack_require__(276);
-	var implementation = __webpack_require__(275);
+	var ES = __webpack_require__(277);
+	var implementation = __webpack_require__(276);
 
 	var tryCall = function (fn) {
 		try {
@@ -27081,13 +27163,13 @@
 
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var define = __webpack_require__(271);
-	var getPolyfill = __webpack_require__(293);
+	var define = __webpack_require__(272);
+	var getPolyfill = __webpack_require__(294);
 
 	module.exports = function shimArrayFrom() {
 		var polyfill = getPolyfill();
@@ -27101,62 +27183,6 @@
 		return polyfill;
 	};
 
-
-/***/ },
-/* 295 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(88);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Cards = _react2.default.createClass({
-		displayName: 'Cards',
-		cardType: function cardType(type) {
-			return this.props.stripe.card_type == type ? 'card-type card-type--active' : 'card-type';
-		},
-		render: function render() {
-			var _props = this.props,
-			    card_type = _props.card_type,
-			    texts = _props.texts;
-
-
-			return _react2.default.createElement(
-				'div',
-				{ className: 'form-group donate_landing__cards' },
-				_react2.default.createElement('img', {
-					className: this.cardType('Visa'),
-					src: texts.template_uri + '/public/img/cards/Visa.png'
-				}),
-				_react2.default.createElement('img', {
-					className: this.cardType('MasterCard'),
-					src: texts.template_uri + '/public/img/cards/MasterCard.png'
-				}),
-				_react2.default.createElement('img', {
-					className: this.cardType('DinersClub'),
-					src: texts.template_uri + '/public/img/cards/DinersClub.png'
-				}),
-				_react2.default.createElement('img', {
-					className: this.cardType('AmericanExpress'),
-					src: texts.template_uri + '/public/img/cards/AmericanExpress.png'
-				}),
-				_react2.default.createElement('img', {
-					className: this.cardType('Discover'),
-					src: texts.template_uri + '/public/img/cards/Discover.png'
-				})
-			);
-		}
-	});
-
-	exports.default = Cards;
 
 /***/ }
 /******/ ]);
