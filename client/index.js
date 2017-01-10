@@ -54,6 +54,7 @@ import DonateReact from './react/donate';
 function showAfterScroll() {
 	let scrollTop = $(window).scrollTop();
 	let elScrollTop = $('.donate_landing').offset().top;
+	console.count(scrollTop > elScrollTop);
 	if(scrollTop > elScrollTop) {
 		$('.after_donate').removeClass('hidden');
 	} else {

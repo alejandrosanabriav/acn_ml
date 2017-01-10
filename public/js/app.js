@@ -133,6 +133,7 @@
 		function showAfterScroll() {
 			var scrollTop = $(window).scrollTop();
 			var elScrollTop = $('.donate_landing').offset().top;
+			console.count(scrollTop > elScrollTop);
 			if (scrollTop > elScrollTop) {
 				$('.after_donate').removeClass('hidden');
 			} else {
