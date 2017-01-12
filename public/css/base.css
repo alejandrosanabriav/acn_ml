@@ -195,13 +195,13 @@ p {
 
 button {
   height: 50px;
-  min-width: 130;
   background: transparent;
   border: 3px solid #fff;
   padding: 12px;
   color: #fff;
   text-align: center;
-  font-size: 1.78571em; }
+  font-size: 1.78571em;
+  border-radius: 8px; }
   button:focus {
     box-shadow: none;
     outline: none; }
