@@ -27301,6 +27301,11 @@
 				borderRadius: '5px'
 			};
 
+			var btnStyle = {
+				border: '4px solid #fff',
+				background: 'transparent'
+			};
+
 			return _react2.default.createElement(
 				'form',
 				{ className: 'form', onSubmit: this.handleSubmit },
@@ -27370,7 +27375,7 @@
 				),
 				_react2.default.createElement(
 					'button',
-					{ className: 'btn', disabled: this.state.loading },
+					{ style: btnStyle, disabled: this.state.loading },
 					'Desea Ayudar'
 				)
 			);

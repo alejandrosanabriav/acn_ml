@@ -77,6 +77,11 @@ const HelpForm = React.createClass({
 			borderRadius: '5px'
 		};
 
+		let btnStyle = {
+			border: '4px solid #fff',
+			background: 'transparent'
+		};
+
 		return (
 			<form className="form" onSubmit={this.handleSubmit}>
 				<div className="form-group">
@@ -128,7 +133,7 @@ const HelpForm = React.createClass({
 						campo obligatorio
 					</div>
 				</div>
-				<button className="btn" disabled={this.state.loading}>Desea Ayudar</button>
+				<button style={btnStyle} disabled={this.state.loading}>Desea Ayudar</button>
 			</form>
 		)
 	}
