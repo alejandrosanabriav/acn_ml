@@ -27269,7 +27269,7 @@
 		handleChange: function handleChange(field, e) {
 			e.preventDefault();
 			var val = e.currentTarget.value;
-			this.state(_extends({}, this.state, _defineProperty({}, field, val)));
+			this.setState(_extends({}, this.state, _defineProperty({}, field, val)));
 		},
 		render: function render() {
 			return _react2.default.createElement(

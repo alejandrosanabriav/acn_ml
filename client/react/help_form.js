@@ -50,7 +50,7 @@ const HelpForm = React.createClass({
 	handleChange(field, e) {
 		e.preventDefault();
 		let val = e.currentTarget.value;
-		this.state({...this.state, [field]: val});
+		this.setState({...this.state, [field]: val});
 	},
 
 	render() {
