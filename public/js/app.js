@@ -27263,8 +27263,6 @@
 			this.isValid().then(this.storeContact);
 		},
 		storeContact: function storeContact(isValid) {
-			var _this2 = this;
-
 			var contact = this.state;
 			var tags = '900,419';
 			var data = _extends({}, contact, { tags: tags, name: contact.firstName + ' ' + contact.lastName });
@@ -27275,7 +27273,6 @@
 					type: 'post',
 					data: { action: 'infusion_contact', data: data }
 				}).then(function (res) {
-					_this2.setState(_extends({}, contact, { loading: false }));
 					var firstName = contact.firstName,
 					    lastName = contact.lastName,
 					    email = contact.email,
