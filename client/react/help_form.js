@@ -54,6 +54,9 @@ const HelpForm = React.createClass({
 				data: { action: 'infusion_contact', data }
 			}).then((res) => {
 				this.setState({...contact, loading: false});
+				const {firstName, lastName, email, phone} = contact;
+				let url = `https://campaigns.acncolombia.org/medioriente/?nombre=${firstName}&apellido=${lastName}&email=${email}&celular=${phone}`;
+				window.location = url;
 			});
 		} else {
 			this.setState({...contact, loading: false});

@@ -27276,6 +27276,13 @@
 					data: { action: 'infusion_contact', data: data }
 				}).then(function (res) {
 					_this2.setState(_extends({}, contact, { loading: false }));
+					var firstName = contact.firstName,
+					    lastName = contact.lastName,
+					    email = contact.email,
+					    phone = contact.phone;
+
+					var url = 'https://campaigns.acncolombia.org/medioriente/?nombre=' + firstName + '&apellido=' + lastName + '&email=' + email + '&celular=' + phone;
+					window.location = url;
 				});
 			} else {
 				this.setState(_extends({}, contact, { loading: false }));
