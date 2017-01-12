@@ -27226,7 +27226,7 @@
 				email: '',
 				name: '',
 				firstName: '',
-				lastname: '',
+				lastName: '',
 				mobile: '',
 				loading: false,
 				errors: {}
@@ -27239,7 +27239,7 @@
 			var _this = this;
 
 			var errors = {};
-			var validations = ['firstName', 'lastname', 'email', 'mobile'].map(function (field) {
+			var validations = ['firstName', 'lastName', 'email', 'mobile'].map(function (field) {
 				var val = _this.checkEmpty(field);
 				errors = _extends({}, errors, _defineProperty({}, field, val));
 				return val;
@@ -27267,7 +27267,7 @@
 
 			var contact = this.state;
 			var tags = '900 419';
-			var data = _extends({}, contact, { tags: tags, name: contact.firstName + ' ' + contact.lastname });
+			var data = _extends({}, contact, { tags: tags, name: contact.firstName + ' ' + contact.lastName });
 
 			if (isValid) {
 				$.ajax({
@@ -27335,8 +27335,8 @@
 					_react2.default.createElement('input', {
 						type: 'text',
 						className: 'form-control',
-						onChange: this.handleChange.bind(null, 'lastname'),
-						value: this.state.lastname,
+						onChange: this.handleChange.bind(null, 'lastName'),
+						value: this.state.lastName,
 						placeholder: 'Apellido'
 					}),
 					_react2.default.createElement(

@@ -7,7 +7,7 @@ const HelpForm = React.createClass({
 			email: '',
 			name: '',
 			firstName: '',
-			lastname: '',
+			lastName: '',
 			mobile: '',
 			loading: false,
 			errors: {}
@@ -20,7 +20,7 @@ const HelpForm = React.createClass({
 	
 	validate() {
 		let errors = {};
-		let validations = ['firstName', 'lastname', 'email', 'mobile'].map((field) => {
+		let validations = ['firstName', 'lastName', 'email', 'mobile'].map((field) => {
 			let val = this.checkEmpty(field);
 			errors = {...errors, [field]: val };
 			return val;
@@ -45,7 +45,7 @@ const HelpForm = React.createClass({
 	storeContact(isValid) {
 		let contact = this.state;
 		let tags = '900 419';
-		let data = {...contact, tags, name: `${contact.firstName} ${contact.lastname}`};
+		let data = {...contact, tags, name: `${contact.firstName} ${contact.lastName}`};
 
 		if(isValid) {
 			$.ajax({
@@ -105,8 +105,8 @@ const HelpForm = React.createClass({
 					<input 
 						type="text"
 						className="form-control" 
-						onChange={this.handleChange.bind(null, 'lastname')} 
-						value={this.state.lastname} 
+						onChange={this.handleChange.bind(null, 'lastName')} 
+						value={this.state.lastName} 
 						placeholder="Apellido"
 					/>
 					<div style={errorStyle} className={this.state.errors.lastName ? "form-error" : "hidden" }>
