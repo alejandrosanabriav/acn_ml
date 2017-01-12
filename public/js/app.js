@@ -27260,6 +27260,8 @@
 		storeContact: function storeContact(isValid) {
 			var _this2 = this;
 
+			var contact = this.state;
+
 			if (isValid) {
 				$.ajax({
 					url: '/wp-admin/admin-ajax.php',
@@ -27268,6 +27270,8 @@
 				}).then(function (res) {
 					_this2.setState(_extends({}, contact, { loading: false }));
 				});
+			} else {
+				this.setState(_extends({}, contact, { loading: false }));
 			}
 		},
 		handleChange: function handleChange(field, e) {

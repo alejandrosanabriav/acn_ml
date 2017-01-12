@@ -38,6 +38,8 @@ const HelpForm = React.createClass({
 	},
 
 	storeContact(isValid) {
+		let contact = this.state;
+		
 		if(isValid) {
 			$.ajax({
 				url: '/wp-admin/admin-ajax.php',
@@ -46,6 +48,8 @@ const HelpForm = React.createClass({
 			}).then((res) => {
 				this.setState({...contact, loading: false});
 			});
+		} else {
+			this.setState({...contact, loading: false});
 		}
 	},
 
