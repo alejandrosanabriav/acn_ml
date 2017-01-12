@@ -27227,7 +27227,7 @@
 				name: '',
 				firstName: '',
 				lastName: '',
-				mobile: '',
+				phone: '',
 				loading: false,
 				errors: {}
 			};
@@ -27239,7 +27239,7 @@
 			var _this = this;
 
 			var errors = {};
-			var validations = ['firstName', 'lastName', 'email', 'mobile'].map(function (field) {
+			var validations = ['firstName', 'lastName', 'email', 'phone'].map(function (field) {
 				var val = _this.checkEmpty(field);
 				errors = _extends({}, errors, _defineProperty({}, field, val));
 				return val;
@@ -27351,13 +27351,13 @@
 					_react2.default.createElement('input', {
 						type: 'text',
 						className: 'form-control',
-						onChange: this.handleChange.bind(null, 'mobile'),
-						value: this.state.mobile,
+						onChange: this.handleChange.bind(null, 'phone'),
+						value: this.state.phone,
 						placeholder: 'Celular'
 					}),
 					_react2.default.createElement(
 						'div',
-						{ style: errorStyle, className: this.state.errors.mobile ? "form-error" : "hidden" },
+						{ style: errorStyle, className: this.state.errors.phone ? "form-error" : "hidden" },
 						'campo obligatorio'
 					)
 				),

@@ -8,7 +8,7 @@ const HelpForm = React.createClass({
 			name: '',
 			firstName: '',
 			lastName: '',
-			mobile: '',
+			phone: '',
 			loading: false,
 			errors: {}
 		}
@@ -20,7 +20,7 @@ const HelpForm = React.createClass({
 	
 	validate() {
 		let errors = {};
-		let validations = ['firstName', 'lastName', 'email', 'mobile'].map((field) => {
+		let validations = ['firstName', 'lastName', 'email', 'phone'].map((field) => {
 			let val = this.checkEmpty(field);
 			errors = {...errors, [field]: val };
 			return val;
@@ -117,11 +117,11 @@ const HelpForm = React.createClass({
 					<input 
 						type="text"
 						className="form-control" 
-						onChange={this.handleChange.bind(null, 'mobile')} 
-						value={this.state.mobile}
+						onChange={this.handleChange.bind(null, 'phone')} 
+						value={this.state.phone}
 						placeholder="Celular"
 					/>
-					<div style={errorStyle} className={this.state.errors.mobile ? "form-error" : "hidden" }>
+					<div style={errorStyle} className={this.state.errors.phone ? "form-error" : "hidden" }>
 						campo obligatorio
 					</div>
 				</div>
