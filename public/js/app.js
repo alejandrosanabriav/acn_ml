@@ -27239,7 +27239,9 @@
 			var _this = this;
 
 			var validations = ['firstName', 'lastname', 'email', 'mobile'].map(function (field) {
-				return _this.checkEmpty(field);
+				var val = _this.checkEmpty(field);
+				_this.setState({ errors: _extends({}, _this.state.errors, _defineProperty({}, field, val)) });
+				return val;
 			});
 
 			return Promise.all(validations);
