@@ -44,7 +44,7 @@ const HelpForm = React.createClass({
 
 	storeContact(isValid) {
 		let contact = this.state;
-		let tags = '900 419';
+		let tags = '900,419';
 		let data = {...contact, tags, name: `${contact.firstName} ${contact.lastName}`};
 
 		if(isValid) {

@@ -27266,7 +27266,7 @@
 			var _this2 = this;
 
 			var contact = this.state;
-			var tags = '900 419';
+			var tags = '900,419';
 			var data = _extends({}, contact, { tags: tags, name: contact.firstName + ' ' + contact.lastName });
 
 			if (isValid) {
