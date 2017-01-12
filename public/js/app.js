@@ -27238,14 +27238,14 @@
 		validate: function validate() {
 			var _this = this;
 
+			var errors = {};
 			var validations = ['firstName', 'lastname', 'email', 'mobile'].map(function (field) {
 				var val = _this.checkEmpty(field);
-				var errors = _extends({}, _this.state.errors, _defineProperty({}, field, val));
+				errors = _extends({}, errors, _defineProperty({}, field, val));
 				console.log(errors);
-				_this.setState({ errors: errors });
 				return val;
 			});
-
+			this.setState({ errors: errors });
 			return Promise.all(validations);
 		},
 		isValid: function isValid() {

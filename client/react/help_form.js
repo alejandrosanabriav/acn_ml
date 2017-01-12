@@ -19,14 +19,14 @@ const HelpForm = React.createClass({
 	},
 	
 	validate() {
+		let errors = {};
 		let validations = ['firstName', 'lastname', 'email', 'mobile'].map((field) => {
 			let val = this.checkEmpty(field);
-			let errors = {...this.state.errors, [field]: val };
+			errors = {...errors, [field]: val };
 			console.log(errors);
-			this.setState({ errors });
 			return val;
 		});
-
+		this.setState({ errors });
 		return Promise.all(validations);
 	},
 
