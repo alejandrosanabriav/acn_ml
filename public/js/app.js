@@ -27309,7 +27309,7 @@
 					}),
 					_react2.default.createElement(
 						'div',
-						{ style: errorStyle, className: this.state.errors.firstName ? "form-error" : "hidden" },
+						{ style: errorStyle, className: this.state.errors.email ? "form-error" : "hidden" },
 						'campo obligatorio'
 					)
 				),

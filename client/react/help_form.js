@@ -84,7 +84,7 @@ const HelpForm = React.createClass({
 						value={this.state.email} 
 						placeholder="Correo"
 					/>
-					<div style={errorStyle} className={this.state.errors.firstName ? "form-error" : "hidden" }>
+					<div style={errorStyle} className={this.state.errors.email ? "form-error" : "hidden" }>
 						campo obligatorio
 					</div>
 				</div>
