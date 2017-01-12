@@ -58,7 +58,7 @@ import HelpForm from './react/help_form';
 
 function showAfterScroll() {
 	let scrollTop = $(window).scrollTop();
-	let elScrollTop = $('.donate_landing') ? $('.donate_landing').offset().top : 0;
+	let elScrollTop = $('.donate_landing').length ? $('.donate_landing').offset().top : 0;
 	console.count(scrollTop > elScrollTop);
 
 	if(scrollTop > elScrollTop) {
@@ -67,7 +67,8 @@ function showAfterScroll() {
 		$('.after_donate').addClass('hidden');
 	}
 }	
-
-	$(window).on('scroll', throttle(showAfterScroll, 100));
+	if($('.after_donate').length ) {
+		$(window).on('scroll', throttle(showAfterScroll, 100));
+	}
 
 })();
