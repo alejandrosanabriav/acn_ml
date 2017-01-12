@@ -132,7 +132,7 @@ const HelpForm = React.createClass({
 						campo obligatorio
 					</div>
 				</div>
-				<button disabled={this.state.loading}>Desea Ayudar</button>
+				<button disabled={this.state.loading}>Deseo Ayudar</button>
 			</form>
 		)
 	}

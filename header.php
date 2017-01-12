@@ -100,6 +100,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 <div class="hidden country">
+  <?php echo get_the_ID(); ?>
   <?php echo get_user_location()->names['en'] ?>
   <?php echo get_client_ip_server() ?>
 </div>
