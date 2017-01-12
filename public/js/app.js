@@ -27274,7 +27274,7 @@
 		render: function render() {
 			return _react2.default.createElement(
 				'form',
-				{ onSubmit: this.handleSubmit },
+				{ className: 'form', onSubmit: this.handleSubmit },
 				_react2.default.createElement(
 					'div',
 					{ className: 'form-group' },
@@ -27286,7 +27286,7 @@
 					}),
 					_react2.default.createElement(
 						'div',
-						{ 'class': this.state.errors.name ? "form-error" : "hidden" },
+						{ className: this.state.errors.name ? "form-error" : "hidden" },
 						'campo obligatorio'
 					)
 				),

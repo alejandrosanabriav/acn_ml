@@ -55,7 +55,7 @@ const HelpForm = React.createClass({
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form className="form" onSubmit={this.handleSubmit}>
 				<div className="form-group">
 					<input 
 						type="text"
@@ -63,7 +63,7 @@ const HelpForm = React.createClass({
 						onChange={this.handleChange.bind(null, 'email')} 
 						value={this.state.email} 
 					/>
-					<div class={this.state.errors.name ? "form-error" : "hidden" }>
+					<div className={this.state.errors.name ? "form-error" : "hidden" }>
 						campo obligatorio
 					</div>
 				</div>
