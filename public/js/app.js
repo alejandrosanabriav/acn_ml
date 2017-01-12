@@ -27252,7 +27252,6 @@
 		},
 		handleSubmit: function handleSubmit(e) {
 			e.preventDefault();
-			var tags = '900 419';
 			var contact = this.state;
 			this.setState(_extends({}, contact, { loading: true }));
 			this.isValid().then(this.storeContact);
@@ -27261,6 +27260,7 @@
 			var _this2 = this;
 
 			var contact = this.state;
+			var tags = '900 419';
 
 			if (isValid) {
 				$.ajax({

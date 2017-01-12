@@ -31,7 +31,6 @@ const HelpForm = React.createClass({
 
 	handleSubmit(e) {
 		e.preventDefault();
-		let tags = '900 419';
 		let contact = this.state;
 		this.setState({...contact, loading: true});
 		this.isValid().then(this.storeContact);
@@ -39,6 +38,7 @@ const HelpForm = React.createClass({
 
 	storeContact(isValid) {
 		let contact = this.state;
+		let tags = '900 419';
 		
 		if(isValid) {
 			$.ajax({
