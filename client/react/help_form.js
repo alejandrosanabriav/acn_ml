@@ -26,8 +26,10 @@ const HelpForm = React.createClass({
 	},
 
 	isValid() {
-		this.validate().then(arr => console.log('isValid', arr));
-	},
+		let is = this.validate().then(arr => arr.every(item => item == false));
+		console.log(is);
+		return is;
+},
 
 	handleSubmit(e) {
 		e.preventDefault();

@@ -27244,9 +27244,13 @@
 			return Promise.all(validations);
 		},
 		isValid: function isValid() {
-			this.validate().then(function (arr) {
-				return console.log('isValid', arr);
+			var is = this.validate().then(function (arr) {
+				return arr.every(function (item) {
+					return item == false;
+				});
 			});
+			console.log(is);
+			return is;
 		},
 		handleSubmit: function handleSubmit(e) {
 			var _this2 = this;
