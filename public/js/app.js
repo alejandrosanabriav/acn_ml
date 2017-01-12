@@ -27245,11 +27245,10 @@
 		},
 		isValid: function isValid() {
 			var is = this.validate().then(function (arr) {
-				return arr.every(function (item) {
+				return console.log(arr.every(function (item) {
 					return item == false;
-				});
+				}));
 			});
-			console.log(is);
 			return is;
 		},
 		handleSubmit: function handleSubmit(e) {
