@@ -27375,7 +27375,7 @@
 				),
 				_react2.default.createElement(
 					'button',
-					{ style: btnStyle, disabled: this.state.loading },
+					{ disabled: this.state.loading },
 					'Desea Ayudar'
 				)
 			);
