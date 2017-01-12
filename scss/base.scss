@@ -302,12 +302,12 @@ button {
   height: 50px;
   background: transparent;
   border: 3px solid #fff;
-  padding: 12px;
+  padding: 0 15px;
   color: #fff;
   text-align: center;
   font-size: (25 / 14) * 1em;
   border-radius: 8px;
-  
+
   &:focus {
     box-shadow: none;
     outline: none;
