@@ -368,8 +368,8 @@ button {
   .donate_landing__submit {
     background: transparent;
     font-size: 1.78571em;
-    color: #3C515F;
-    border: 3px solid #fff;
+    color: #fff;
+    border: 3px solid #f1364e;
     border-radius: 8px;
     text-transform: uppercase;
     line-height: 0;
