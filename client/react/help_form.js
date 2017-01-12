@@ -96,3 +96,5 @@ const HelpForm = React.createClass({
 		)
 	}
 });
+
+export default HelpForm;
