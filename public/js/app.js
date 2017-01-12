@@ -27242,10 +27242,11 @@
 			var validations = ['firstName', 'lastname', 'email', 'mobile'].map(function (field) {
 				var val = _this.checkEmpty(field);
 				errors = _extends({}, errors, _defineProperty({}, field, val));
-				console.log(errors);
 				return val;
 			});
+
 			this.setState({ errors: errors });
+
 			return Promise.all(validations);
 		},
 		isValid: function isValid() {
@@ -27289,9 +27290,11 @@
 			var errorStyle = {
 				background: 'red',
 				color: '#fff',
-				padding: '10px'
+				padding: '10px',
+				marginTop: '5px',
+				borderRadius: '5px'
 			};
-			console.log('errors', this.state.errors);
+
 			return _react2.default.createElement(
 				'form',
 				{ className: 'form', onSubmit: this.handleSubmit },

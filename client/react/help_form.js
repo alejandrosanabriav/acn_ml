@@ -23,10 +23,11 @@ const HelpForm = React.createClass({
 		let validations = ['firstName', 'lastname', 'email', 'mobile'].map((field) => {
 			let val = this.checkEmpty(field);
 			errors = {...errors, [field]: val };
-			console.log(errors);
 			return val;
 		});
+
 		this.setState({ errors });
+		
 		return Promise.all(validations);
 	},
 
@@ -69,9 +70,11 @@ const HelpForm = React.createClass({
 		let errorStyle = {
 			background: 'red',
 			color: '#fff',
-			padding: '10px'
+			padding: '10px',
+			marginTop: '5px',
+			borderRadius: '5px'
 		};
-		console.log('errors', this.state.errors);
+
 		return (
 			<form className="form" onSubmit={this.handleSubmit}>
 				<div className="form-group">
