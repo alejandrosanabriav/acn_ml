@@ -58,7 +58,7 @@ import HelpForm from './react/help_form';
 
 function showAfterScroll() {
 	let scrollTop = $(window).scrollTop();
-	let elScrollTop = $('.donate_landing').offset().top;
+	let elScrollTop = $('.donate_landing') ? $('.donate_landing').offset().top : 0;
 	console.count(scrollTop > elScrollTop);
 
 	if(scrollTop > elScrollTop) {
