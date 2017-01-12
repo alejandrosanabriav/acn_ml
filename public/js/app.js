@@ -27291,7 +27291,6 @@
 				background: 'red',
 				color: '#fff',
 				padding: '10px',
-				marginTop: '5px',
 				borderRadius: '5px'
 			};
 
@@ -27323,7 +27322,12 @@
 						onChange: this.handleChange.bind(null, 'firstName'),
 						value: this.state.firstName,
 						placeholder: 'Nombre'
-					})
+					}),
+					_react2.default.createElement(
+						'div',
+						{ style: errorStyle, className: this.state.errors.firstName ? "form-error" : "hidden" },
+						'campo obligatorio'
+					)
 				),
 				_react2.default.createElement(
 					'div',
@@ -27334,7 +27338,12 @@
 						onChange: this.handleChange.bind(null, 'lastname'),
 						value: this.state.lastname,
 						placeholder: 'Apellido'
-					})
+					}),
+					_react2.default.createElement(
+						'div',
+						{ style: errorStyle, className: this.state.errors.lastName ? "form-error" : "hidden" },
+						'campo obligatorio'
+					)
 				),
 				_react2.default.createElement(
 					'div',
@@ -27345,7 +27354,12 @@
 						onChange: this.handleChange.bind(null, 'mobile'),
 						value: this.state.mobile,
 						placeholder: 'Celular'
-					})
+					}),
+					_react2.default.createElement(
+						'div',
+						{ style: errorStyle, className: this.state.errors.mobile ? "form-error" : "hidden" },
+						'campo obligatorio'
+					)
 				),
 				_react2.default.createElement(
 					'button',

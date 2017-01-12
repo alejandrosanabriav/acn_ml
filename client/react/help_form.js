@@ -71,7 +71,6 @@ const HelpForm = React.createClass({
 			background: 'red',
 			color: '#fff',
 			padding: '10px',
-			marginTop: '5px',
 			borderRadius: '5px'
 		};
 
@@ -97,6 +96,9 @@ const HelpForm = React.createClass({
 						value={this.state.firstName} 
 						placeholder="Nombre"
 					/>
+					<div style={errorStyle} className={this.state.errors.firstName ? "form-error" : "hidden" }>
+						campo obligatorio
+					</div>
 				</div>
 				<div className="form-group">
 					<input 
@@ -106,6 +108,9 @@ const HelpForm = React.createClass({
 						value={this.state.lastname} 
 						placeholder="Apellido"
 					/>
+					<div style={errorStyle} className={this.state.errors.lastName ? "form-error" : "hidden" }>
+						campo obligatorio
+					</div>
 				</div>
 				<div className="form-group">
 					<input 
@@ -115,6 +120,9 @@ const HelpForm = React.createClass({
 						value={this.state.mobile}
 						placeholder="Celular"
 					/>
+					<div style={errorStyle} className={this.state.errors.mobile ? "form-error" : "hidden" }>
+						campo obligatorio
+					</div>
 				</div>
 				<button className="btn" disabled={this.state.loading}>Desea Ayudar</button>
 			</form>
