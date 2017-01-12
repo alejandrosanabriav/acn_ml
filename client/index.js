@@ -10,6 +10,7 @@ import btnDonate from './lib/btn_donate';
 import React from 'react';
 import {render} from 'react-dom';
 import DonateReact from './react/donate';
+import HelpForm from './react/help_form';
 
 (function() {
 	console.log('cache is:', new Date());
@@ -25,6 +26,10 @@ import DonateReact from './react/donate';
 	
 	if(document.getElementById('bs-donate-react')) {
 		render(<DonateReact />, document.getElementById('bs-donate-react'));
+	}
+
+	if(document.getElementById('bs-help-form')) {
+		render(<HelpForm />, document.getElementById('bs-help-form'));
 	}
 	
 	btnDonate();

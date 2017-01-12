@@ -17,6 +17,8 @@ include_once 'shortcodes/donate.php';
 include_once 'shortcodes/donate_vertical.php';
 include_once 'shortcodes/donate_react.php';
 include_once 'shortcodes/contact.php';
+include_once 'shortcodes/form_help.php';
+
 include_once 'options/index.php';
 include_once 'apis/index.php';
 include_once 'lib/index.php';

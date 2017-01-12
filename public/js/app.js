@@ -84,6 +84,10 @@
 
 	var _donate4 = _interopRequireDefault(_donate3);
 
+	var _help_form = __webpack_require__(296);
+
+	var _help_form2 = _interopRequireDefault(_help_form);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	__webpack_require__(271);
@@ -103,6 +107,10 @@
 
 		if (document.getElementById('bs-donate-react')) {
 			(0, _reactDom.render)(_react2.default.createElement(_donate4.default, null), document.getElementById('bs-donate-react'));
+		}
+
+		if (document.getElementById('bs-help-form')) {
+			(0, _reactDom.render)(_react2.default.createElement(_help_form2.default, null), document.getElementById('bs-help-form'));
 		}
 
 		(0, _btn_donate2.default)();
@@ -27185,6 +27193,136 @@
 		return polyfill;
 	};
 
+
+/***/ },
+/* 296 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(88);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _validator = __webpack_require__(14);
+
+	var _validator2 = _interopRequireDefault(_validator);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	var HelpForm = _react2.default.createClass({
+		displayName: 'HelpForm',
+		getInitialState: function getInitialState() {
+			return {
+				email: '',
+				name: '',
+				lastname: '',
+				mobile: '',
+				loading: false,
+				errors: {}
+			};
+		},
+		checkEmpty: function checkEmpty(field) {
+			return _validator2.default.isEmpty(this.state[field]);
+		},
+		validate: function validate() {
+			var _this = this;
+
+			var validations = ['name', 'lastname', 'email', 'mobile'].map(function (field) {
+				return _this.checkEmpty(field);
+			});
+
+			return Promise.all(validations);
+		},
+		isValid: function isValid() {
+			this.validate().then(function (arr) {
+				return console.log('isValid', arr);
+			});
+		},
+		handleSubmit: function handleSubmit(e) {
+			var _this2 = this;
+
+			e.preventDefault();
+			var tags = '900 419';
+			var contact = this.state;
+			this.setState(_extends({}, contact, { loading: true }));
+
+			if (this.isValid()) {
+				$.ajax({
+					url: '/wp-admin/admin-ajax.php',
+					type: 'post',
+					data: { action: 'infusion_contact', data: _extends({}, contact, { tags: tags }) }
+				}).then(function (res) {
+					_this2.setState(_extends({}, contact, { loading: false }));
+				});
+			}
+		},
+		handleChange: function handleChange(field, e) {
+			e.preventDefault();
+			var val = e.currentTarget.value;
+			this.state(_extends({}, this.state, _defineProperty({}, field, val)));
+		},
+		render: function render() {
+			return _react2.default.createElement(
+				'form',
+				{ onSubmit: this.handleSubmit },
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						className: 'form-control',
+						onChange: this.handleChange.bind(null, 'email'),
+						value: this.state.email
+					}),
+					_react2.default.createElement(
+						'div',
+						{ 'class': this.state.errors.name ? "form-error" : "hidden" },
+						'campo obligatorio'
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						className: 'form-control',
+						onChange: this.handleChange.bind(null, 'name'),
+						value: this.state.name
+					})
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						className: 'form-control',
+						onChange: this.handleChange.bind(null, 'lastname'),
+						value: this.state.lastname
+					})
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement('input', {
+						type: 'text',
+						className: 'form-control',
+						onChange: this.handleChange.bind(null, 'mobile'),
+						value: this.state.mobile
+					})
+				),
+				_react2.default.createElement(
+					'button',
+					{ className: 'btn', disabled: this.state.loading },
+					'Desea Ayudar'
+				)
+			);
+		}
+	});
 
 /***/ }
 /******/ ]);
