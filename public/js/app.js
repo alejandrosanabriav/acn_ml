@@ -27238,7 +27238,7 @@
 		validate: function validate() {
 			var _this = this;
 
-			var validations = ['name', 'lastname', 'email', 'mobile'].map(function (field) {
+			var validations = ['firstName', 'lastname', 'email', 'mobile'].map(function (field) {
 				return _this.checkEmpty(field);
 			});
 
@@ -27303,7 +27303,7 @@
 					}),
 					_react2.default.createElement(
 						'div',
-						{ style: errorStyle, className: this.state.errors.name ? "form-error" : "hidden" },
+						{ style: errorStyle, className: this.state.errors.firstName ? "form-error" : "hidden" },
 						'campo obligatorio'
 					)
 				),

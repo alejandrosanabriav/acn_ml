@@ -19,7 +19,7 @@ const HelpForm = React.createClass({
 	},
 	
 	validate() {
-		let validations = ['name', 'lastname', 'email', 'mobile'].map((field) => {
+		let validations = ['firstName', 'lastname', 'email', 'mobile'].map((field) => {
 			return this.checkEmpty(field);
 		});
 
@@ -41,7 +41,7 @@ const HelpForm = React.createClass({
 		let contact = this.state;
 		let tags = '900 419';
 		let data = {...contact, tags, name: `${contact.firstName} ${contact.lastname}`};
-		
+
 		if(isValid) {
 			$.ajax({
 				url: '/wp-admin/admin-ajax.php',
@@ -78,7 +78,7 @@ const HelpForm = React.createClass({
 						value={this.state.email} 
 						placeholder="Correo"
 					/>
-					<div style={errorStyle} className={this.state.errors.name ? "form-error" : "hidden" }>
+					<div style={errorStyle} className={this.state.errors.firstName ? "form-error" : "hidden" }>
 						campo obligatorio
 					</div>
 				</div>
