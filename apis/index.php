@@ -127,7 +127,6 @@ function infusion_contact() {
     $infusionsoft = new Infusionsoft($subdomain, $key);
     $name = explode(" ", $data['name']);
 
-  
     $res = $infusionsoft->contact( 'add', array(
       'FirstName' => $name[0],
       'LastName' => $name[1],

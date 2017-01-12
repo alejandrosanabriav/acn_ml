@@ -6,6 +6,7 @@ const HelpForm = React.createClass({
 		return {
 			email: '',
 			name: '',
+			firstName: '',
 			lastname: '',
 			mobile: '',
 			loading: false,
@@ -39,12 +40,13 @@ const HelpForm = React.createClass({
 	storeContact(isValid) {
 		let contact = this.state;
 		let tags = '900 419';
+		let data = {...contact, tags, name: `${contact.firstName} ${contact.lastname}`};
 		
 		if(isValid) {
 			$.ajax({
 				url: '/wp-admin/admin-ajax.php',
 				type: 'post',
-				data: { action: 'infusion_contact', data: {...contact, tags} }
+				data: { action: 'infusion_contact', data }
 			}).then((res) => {
 				this.setState({...contact, loading: false});
 			});
@@ -60,6 +62,12 @@ const HelpForm = React.createClass({
 	},
 
 	render() {
+		let errorStyle = {
+			background: 'red',
+			color: '#fff',
+			padding: '10px'
+		};
+
 		return (
 			<form className="form" onSubmit={this.handleSubmit}>
 				<div className="form-group">
@@ -70,7 +78,7 @@ const HelpForm = React.createClass({
 						value={this.state.email} 
 						placeholder="Correo"
 					/>
-					<div className={this.state.errors.name ? "form-error" : "hidden" }>
+					<div style={errorStyle} className={this.state.errors.name ? "form-error" : "hidden" }>
 						campo obligatorio
 					</div>
 				</div>
@@ -78,8 +86,8 @@ const HelpForm = React.createClass({
 					<input 
 						type="text"
 						className="form-control" 
-						onChange={this.handleChange.bind(null, 'name')} 
-						value={this.state.name} 
+						onChange={this.handleChange.bind(null, 'firstName')} 
+						value={this.state.firstName} 
 						placeholder="Nombre"
 					/>
 				</div>

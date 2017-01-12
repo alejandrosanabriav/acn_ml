@@ -27225,6 +27225,7 @@
 			return {
 				email: '',
 				name: '',
+				firstName: '',
 				lastname: '',
 				mobile: '',
 				loading: false,
@@ -27261,12 +27262,13 @@
 
 			var contact = this.state;
 			var tags = '900 419';
+			var data = _extends({}, contact, { tags: tags, name: contact.firstName + ' ' + contact.lastname });
 
 			if (isValid) {
 				$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					type: 'post',
-					data: { action: 'infusion_contact', data: _extends({}, contact, { tags: tags }) }
+					data: { action: 'infusion_contact', data: data }
 				}).then(function (res) {
 					_this2.setState(_extends({}, contact, { loading: false }));
 				});
@@ -27280,6 +27282,12 @@
 			this.setState(_extends({}, this.state, _defineProperty({}, field, val)));
 		},
 		render: function render() {
+			var errorStyle = {
+				background: 'red',
+				color: '#fff',
+				padding: '10px'
+			};
+
 			return _react2.default.createElement(
 				'form',
 				{ className: 'form', onSubmit: this.handleSubmit },
@@ -27295,7 +27303,7 @@
 					}),
 					_react2.default.createElement(
 						'div',
-						{ className: this.state.errors.name ? "form-error" : "hidden" },
+						{ style: errorStyle, className: this.state.errors.name ? "form-error" : "hidden" },
 						'campo obligatorio'
 					)
 				),
@@ -27305,8 +27313,8 @@
 					_react2.default.createElement('input', {
 						type: 'text',
 						className: 'form-control',
-						onChange: this.handleChange.bind(null, 'name'),
-						value: this.state.name,
+						onChange: this.handleChange.bind(null, 'firstName'),
+						value: this.state.firstName,
 						placeholder: 'Nombre'
 					})
 				),
