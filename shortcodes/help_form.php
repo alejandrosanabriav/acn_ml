@@ -1,6 +1,6 @@
 <?php
 
-function bs_form_help_sc($atts, $content = null) {
+function bs_help_form_sc($atts, $content = null) {
 	$at = shortcode_atts( array());
 
 	  ob_start();
@@ -11,4 +11,4 @@ function bs_form_help_sc($atts, $content = null) {
 }
 
 
-add_shortcode('bs_form_help', 'bs_form_help_sc');
+add_shortcode('bs_help_form', 'bs_help_form_sc');
