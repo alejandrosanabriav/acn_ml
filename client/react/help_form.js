@@ -67,7 +67,7 @@ const HelpForm = React.createClass({
 			color: '#fff',
 			padding: '10px'
 		};
-
+		console.log('errors', this.state.errors);
 		return (
 			<form className="form" onSubmit={this.handleSubmit}>
 				<div className="form-group">

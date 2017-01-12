@@ -27287,7 +27287,7 @@
 				color: '#fff',
 				padding: '10px'
 			};
-
+			console.log('errors', this.state.errors);
 			return _react2.default.createElement(
 				'form',
 				{ className: 'form', onSubmit: this.handleSubmit },
