@@ -88,6 +88,7 @@ const HelpForm = React.createClass({
 						campo obligatorio
 					</div>
 				</div>
+
 				<div className="form-group">
 					<input 
 						type="text"
