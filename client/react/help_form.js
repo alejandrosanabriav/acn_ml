@@ -68,6 +68,7 @@ const HelpForm = React.createClass({
 						className="form-control" 
 						onChange={this.handleChange.bind(null, 'email')} 
 						value={this.state.email} 
+						placeholder="Correo"
 					/>
 					<div className={this.state.errors.name ? "form-error" : "hidden" }>
 						campo obligatorio
@@ -79,6 +80,7 @@ const HelpForm = React.createClass({
 						className="form-control" 
 						onChange={this.handleChange.bind(null, 'name')} 
 						value={this.state.name} 
+						placeholder="Nombre"
 					/>
 				</div>
 				<div className="form-group">
@@ -87,6 +89,7 @@ const HelpForm = React.createClass({
 						className="form-control" 
 						onChange={this.handleChange.bind(null, 'lastname')} 
 						value={this.state.lastname} 
+						placeholder="Apellido"
 					/>
 				</div>
 				<div className="form-group">
@@ -94,7 +97,8 @@ const HelpForm = React.createClass({
 						type="text"
 						className="form-control" 
 						onChange={this.handleChange.bind(null, 'mobile')} 
-						value={this.state.mobile} 
+						value={this.state.mobile}
+						placeholder="Celular"
 					/>
 				</div>
 				<button className="btn" disabled={this.state.loading}>Desea Ayudar</button>

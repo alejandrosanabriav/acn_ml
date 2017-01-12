@@ -27290,7 +27290,8 @@
 						type: 'text',
 						className: 'form-control',
 						onChange: this.handleChange.bind(null, 'email'),
-						value: this.state.email
+						value: this.state.email,
+						placeholder: 'Correo'
 					}),
 					_react2.default.createElement(
 						'div',
@@ -27305,7 +27306,8 @@
 						type: 'text',
 						className: 'form-control',
 						onChange: this.handleChange.bind(null, 'name'),
-						value: this.state.name
+						value: this.state.name,
+						placeholder: 'Nombre'
 					})
 				),
 				_react2.default.createElement(
@@ -27315,7 +27317,8 @@
 						type: 'text',
 						className: 'form-control',
 						onChange: this.handleChange.bind(null, 'lastname'),
-						value: this.state.lastname
+						value: this.state.lastname,
+						placeholder: 'Apellido'
 					})
 				),
 				_react2.default.createElement(
@@ -27325,7 +27328,8 @@
 						type: 'text',
 						className: 'form-control',
 						onChange: this.handleChange.bind(null, 'mobile'),
-						value: this.state.mobile
+						value: this.state.mobile,
+						placeholder: 'Celular'
 					})
 				),
 				_react2.default.createElement(
