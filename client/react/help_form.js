@@ -86,7 +86,7 @@ const HelpForm = React.createClass({
 				<div className="form-group">
 					<input 
 						type="text"
-						className="form-control" 
+						className="form-control input-email" 
 						onChange={this.handleChange.bind(null, 'email')} 
 						value={this.state.email} 
 						placeholder="Correo"
@@ -132,7 +132,7 @@ const HelpForm = React.createClass({
 						campo obligatorio
 					</div>
 				</div>
-				<button disabled={this.state.loading}>Deseo Ayudar</button>
+				<button disabled={this.state.loading} onClick={this.handleSubmit}>Deseo Ayudar</button>
 			</form>
 		)
 	}

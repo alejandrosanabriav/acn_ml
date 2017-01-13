@@ -1,5 +1,6 @@
 'use strict';
 require('array.from');
+import Vue from 'vue';
 import donate from './components/donate';
 import donateVertical from './components/donate_vertical';
 import contact from './components/contact';
