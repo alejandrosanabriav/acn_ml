@@ -156,7 +156,7 @@
 
 		if ($('.hide_nav_mobile').length) {
 			if ($(window).width() <= 991) {
-				$('.navbar-toggle').css({ 'display': 'none!important' });
+				$('.navbar-toggle').css({ 'display': 'none' });
 			} else {
 				$('.navbar-toggle').attr('style', '');
 			}
