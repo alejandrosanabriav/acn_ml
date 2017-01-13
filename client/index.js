@@ -74,7 +74,7 @@ function showAfterScroll() {
 
 	if($('.hide_nav_mobile').length ) {
 		if($(window).width() <= 991) {
-			$('.navbar-toggle').css({'display': 'none'});
+			$('.navbar-toggle').css({'display': 'none!important'});
 		} else {
 			$('.navbar-toggle').attr('style', '');
 		}
