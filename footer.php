@@ -15,12 +15,14 @@
   </ul>
 </div>
 
+<script src="<?php echo get_template_directory_uri() . '/public/js/vendor.js' ?>"></script>
+
 <!--wordpress scripts -->
 <?php wp_footer() ?>
 <!-- End wordpress scripts -->
 
 <!--theme scripts -->
-<script src="<?php echo get_template_directory_uri() . '/public/js/vendor.js' ?>"></script>
+
 <script>
 	if (!document.querySelectorAll) {
   document.querySelectorAll = function (selectors) {
