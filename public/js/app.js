@@ -149,6 +149,19 @@
 				$('.after_donate').addClass('hidden');
 			}
 		}
+
+		var smViewportMax = 991;
+		var smViewportMin = 768;
+		var xsViewport = 767;
+
+		if ($('.hide_nav_mobile').length) {
+			if ($(window).width() <= 991) {
+				$('navbar-toggle').addClass('hide');
+			} else {
+				$('navbar-toggle').removeClass('hide');
+			}
+		}
+
 		if ($('.after_donate').length) {
 			$(window).on('scroll', throttle(showAfterScroll, 100));
 		}
@@ -3918,7 +3931,6 @@
 			methods: {
 				onClick: function onClick(e) {
 					e.preventDefault();
-					console.log('share');
 					ga('send', 'event', 'SHARE', 'SHARE', 'SHARE', 0);
 					window.location = e.currentTarget.getAttribute('href');
 				}

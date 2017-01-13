@@ -6,7 +6,6 @@ export default () => {
 		methods: {
 			onClick(e) {
 				e.preventDefault();
-				console.log('share');
 				ga('send', 'event', 'SHARE', 'SHARE', 'SHARE', 0);
 				window.location = e.currentTarget.getAttribute('href');
 			},

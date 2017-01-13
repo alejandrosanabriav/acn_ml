@@ -67,6 +67,19 @@ function showAfterScroll() {
 		$('.after_donate').addClass('hidden');
 	}
 }	
+
+	const smViewportMax = 991;
+	const smViewportMin = 768;
+	const xsViewport = 767;
+
+	if($('.hide_nav_mobile').length ) {
+		if($(window).width() <= 991) {
+			$('navbar-toggle').addClass('hide');
+		} else {
+			$('navbar-toggle').removeClass('hide');
+		}
+	}
+
 	if($('.after_donate').length ) {
 		$(window).on('scroll', throttle(showAfterScroll, 100));
 	}
