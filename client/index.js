@@ -1,5 +1,5 @@
 'use strict';
-require('array.from');
+require('babel-polyfill');
 import Vue from 'vue';
 import donate from './components/donate';
 import donateVertical from './components/donate_vertical';

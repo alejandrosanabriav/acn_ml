@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
+const concat = require('gulp-concat');
 
 gulp.task('sass', function () {
   return gulp.src('./scss/base.scss')
@@ -14,4 +15,16 @@ gulp.task('sass', function () {
 
 gulp.task('sass:watch', function () {
   gulp.watch('./scss/**/*.scss', ['sass']);
+});
+
+gulp.task('concat', function() {
+
+  return gulp.src([
+    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/flexslider/jquery.flexslider-min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.min.js',
+    'node_modules/sidr/dist/jquery.sidr.min.js'
+    ])
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('./public/js/'));
 });
