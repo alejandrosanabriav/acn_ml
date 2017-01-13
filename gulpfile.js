@@ -28,3 +28,14 @@ gulp.task('concat', function() {
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('./public/js/'));
 });
+
+gulp.task('concat-styles', function() {
+   return gulp.src([
+    'node_modules/bootstrap/dist/css/bootstrap.min.css',
+    'public/css/base.css',
+    'node_modules/flexslider/flexslider.css',
+    'node_modules/sidr/dist/stylesheets/jquery.sidr.light.min.css'
+    ])
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest('./public/css/'));
+});
