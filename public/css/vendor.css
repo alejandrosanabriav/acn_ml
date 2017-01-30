@@ -321,7 +321,7 @@ button {
         border-color: #3C515F; }
       .donate_landing--blue input .donate_landing__submit:hover, .donate_landing--blue .input-group-addon .donate_landing__submit:hover {
         color: #f1364e; }
-      .donate_landing--blue input.donate_landing__info, .donate_landing--blue input.donate_landing__section__title p, .donate_landing--blue .input-group-addon.donate_landing__info, .donate_landing--blue .input-group-addon.donate_landing__section__title p {
+      .donate_landing--blue input .donate_landing__info, .donate_landing--blue input .donate_landing__section__title p, .donate_landing--blue .input-group-addon .donate_landing__info, .donate_landing--blue .input-group-addon .donate_landing__section__title p {
         color: #3C515F; }
       .donate_landing--blue input::-webkit-input-placeholder, .donate_landing--blue .input-group-addon::-webkit-input-placeholder {
         color: #3C515F; }
