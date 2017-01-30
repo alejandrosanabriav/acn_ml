@@ -8,20 +8,21 @@
     input {
       border-color: #3C515F;
       color: #3C515F;
-      &:hover, &focus {
+      
+      &:hover, &:focus {
         border-color: #3C515F;
       }
       /* Webkit */
-      &::-webkit-input-placeholder { color: #CCC; }
+      &::-webkit-input-placeholder { color: #3C515F; }
 
       /* Firefox 4-18 */
-      &:-moz-placeholder { color: #CCC; }
+      &:-moz-placeholder { color: #3C515F; }
 
       /* Firefox 19+ */
-      &::-moz-placeholder { color: #CCC; }
+      &::-moz-placeholder { color: #3C515F; }
 
       /* IE10+ */
-      &:-ms-input-placeholder { color: #CCC; }
+      &:-ms-input-placeholder { color: #3C515F; }
     }
 
     .change-amount li a {
