@@ -123,7 +123,7 @@ function bs_donate_vc() {
     );
 
     $sec_content = array(
-      "type" => "textarea",
+      "type" => "textarea_html",
       "heading" => "section content " . $section,
       "param_name" => "section_content_" . $section,
       "value" => ''
