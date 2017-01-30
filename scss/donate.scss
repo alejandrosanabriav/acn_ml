@@ -6,9 +6,15 @@
   &--blue {
     input {
       border-color: #3C515F;
+      color: #3C515F;
     }
     .change-amount li a {
       border-color: #3C515F;
+      &:hover, &.active {
+        text-decoration: none;
+        background: #fff;
+        color: #fff;
+      }
     }
   }
 
