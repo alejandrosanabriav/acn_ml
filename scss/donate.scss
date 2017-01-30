@@ -3,6 +3,15 @@
   overflow: hidden;
   margin: 20px 0;
 
+  &-blue {
+    input, {
+      border-color: #3C515F;
+    }
+    .change-amount li a {
+      border-color: #3C515F;
+    }
+  }
+
   &__section {
     width: (100 / 3) * 1%;
     
