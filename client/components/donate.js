@@ -55,7 +55,8 @@ export default () => ({
 		'monthly',
 		'once',
 		'vertical',
-		'isBlue'
+		'isBlue',
+		'subtext'
 	],
 
 	data() {
@@ -355,6 +356,7 @@ export default () => ({
         <div class="donate_landing__section__title col-sm-12">
           <h3 class="color-red">{{texts.sectionOne.title}}</h3>
           <p>{{texts.sectionOne.content}}</p>
+					<p>{{ subtext }}</p>
         </div>
       
         <change-amount other="Other"></change-amount>

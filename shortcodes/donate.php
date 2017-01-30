@@ -35,7 +35,8 @@ function bs_donate_sc($atts, $content = null) {
     "validation_name" => "Incorrect name",
     "validation_email" => "Incorrect email",
     "validation_country" => "Incorrect country",
-    "is_blue" => false
+    "is_blue" => false,
+    "subtext" => ''
   ), $atts );
 
   ob_start();
@@ -75,10 +76,11 @@ function bs_donate_sc($atts, $content = null) {
       country: '<?php echo $at['validation_country'] ?>',
       declined: '<?php echo $at['validation_declined'] ?>'
     }"
+    subtext='<?php echo $at['subtext'] ?>'
     :texts="{
         sectionOne: {
           title: '<?php echo $at['section_title_1'] ?>',
-          content: '<?php echo esc_html( $at['section_content_1'] ) ?>',
+          content: '<?php echo $at['section_content_1']  ?>',
           btn: '<?php echo $at['section_btn_1'] ?>'
         },
         sectionTwo: {
@@ -123,7 +125,7 @@ function bs_donate_vc() {
     );
 
     $sec_content = array(
-      "type" => "textarea_html",
+      "type" => "textfield",
       "heading" => "section content " . $section,
       "param_name" => "section_content_" . $section,
       "value" => ''
@@ -146,6 +148,13 @@ function bs_donate_vc() {
       "heading" => "Blue",
       "param_name" => "is_blue",
       "value" => false
+    ],
+
+    [
+      "type" => "textfield",
+      "heading" => "subtext",
+      "param_name" => "subtext",
+      "value" => ''
     ],
 
     [
