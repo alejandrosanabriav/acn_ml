@@ -310,22 +310,24 @@ button {
   margin: 20px 0; }
   .donate_landing--blue {
     color: #3C515F; }
-    .donate_landing--blue input {
+    .donate_landing--blue input, .donate_landing--blue .input-group-addon {
       border-color: #3C515F;
       color: #3C515F;
       /* Webkit */
       /* Firefox 4-18 */
       /* Firefox 19+ */
       /* IE10+ */ }
-      .donate_landing--blue input:hover, .donate_landing--blue input:focus {
+      .donate_landing--blue input:hover, .donate_landing--blue input:focus, .donate_landing--blue .input-group-addon:hover, .donate_landing--blue .input-group-addon:focus {
         border-color: #3C515F; }
-      .donate_landing--blue input::-webkit-input-placeholder {
+      .donate_landing--blue input .donate_landing__submit:hover, .donate_landing--blue .input-group-addon .donate_landing__submit:hover {
+        color: #f1364e; }
+      .donate_landing--blue input::-webkit-input-placeholder, .donate_landing--blue .input-group-addon::-webkit-input-placeholder {
         color: #3C515F; }
-      .donate_landing--blue input:-moz-placeholder {
+      .donate_landing--blue input:-moz-placeholder, .donate_landing--blue .input-group-addon:-moz-placeholder {
         color: #3C515F; }
-      .donate_landing--blue input::-moz-placeholder {
+      .donate_landing--blue input::-moz-placeholder, .donate_landing--blue .input-group-addon::-moz-placeholder {
         color: #3C515F; }
-      .donate_landing--blue input:-ms-input-placeholder {
+      .donate_landing--blue input:-ms-input-placeholder, .donate_landing--blue .input-group-addon:-ms-input-placeholder {
         color: #3C515F; }
     .donate_landing--blue .change-amount li a {
       border-color: #3C515F;
