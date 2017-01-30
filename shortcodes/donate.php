@@ -78,7 +78,7 @@ function bs_donate_sc($atts, $content = null) {
     :texts="{
         sectionOne: {
           title: '<?php echo $at['section_title_1'] ?>',
-          content: '<?php echo $at['section_content_1'] ?>',
+          content: '<?php echo esc_html( $at['section_content_1'] ) ?>',
           btn: '<?php echo $at['section_btn_1'] ?>'
         },
         sectionTwo: {
