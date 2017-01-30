@@ -10696,6 +10696,7 @@
 				var firstNode = $($el).find('.donate_landing__section-1');
 				$($el).find('.donate_landing__viewport').css({ height: firstNode.offsetHeight + 'px' });
 				this.contact.country = this.country;
+				console.log('is blue', this.isBlue);
 			},
 
 
