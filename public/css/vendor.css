@@ -317,16 +317,16 @@ button {
       /* Firefox 4-18 */
       /* Firefox 19+ */
       /* IE10+ */ }
-      .donate_landing--blue input:hover, .donate_landing--blue inputfocus {
+      .donate_landing--blue input:hover, .donate_landing--blue input:focus {
         border-color: #3C515F; }
       .donate_landing--blue input::-webkit-input-placeholder {
-        color: #CCC; }
+        color: #3C515F; }
       .donate_landing--blue input:-moz-placeholder {
-        color: #CCC; }
+        color: #3C515F; }
       .donate_landing--blue input::-moz-placeholder {
-        color: #CCC; }
+        color: #3C515F; }
       .donate_landing--blue input:-ms-input-placeholder {
-        color: #CCC; }
+        color: #3C515F; }
     .donate_landing--blue .change-amount li a {
       border-color: #3C515F; }
       .donate_landing--blue .change-amount li a:hover, .donate_landing--blue .change-amount li a.active {
