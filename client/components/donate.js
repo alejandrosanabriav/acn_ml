@@ -54,7 +54,8 @@ export default () => ({
 		'redirect',
 		'monthly',
 		'once',
-		'vertical'
+		'vertical',
+		'isBlue'
 	],
 
 	data() {
