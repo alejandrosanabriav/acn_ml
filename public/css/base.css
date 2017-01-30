@@ -325,6 +325,8 @@ button {
       color: #f1364e; }
     .donate_landing--blue .donate_landing__info, .donate_landing--blue .donate_landing__section__title p {
       color: #3C515F; }
+    .donate_landing--blue .donate_landing__back {
+      color: #3C515F; }
     .donate_landing--blue .change-amount li a {
       border-color: #3C515F;
       color: #3C515F; }
