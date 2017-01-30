@@ -26,27 +26,33 @@ const amount = React.createClass({
 
 		return (
 			<div>
-			<AmountBtns texts={texts} changeAmount={this.changeAmount} />
-			<div className="row">
-				<div className="form-group col-xs-7">
-					<input ref="amountInput" className="form-control" type="text" onChange={this.handleAmount} value={amount} />
+				<AmountBtns texts={texts} changeAmount={this.changeAmount} />
+				<div className="row">
+					<div className="form-group col-xs-7">
+						<input 
+							ref="amountInput" 
+							className="form-control" 
+							type="text"
+							onChange={this.handleAmount} 
+							value={amount} 
+						/>
+					</div>
+					<div className="form-group col-xs-5">
+						<a
+							href="#" 
+							onClick={this.changeType.bind(null, 'monthly')}
+							className={donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '}
+						>
+						{texts.monthly}
+					</a>
+					<a href="#" 
+							onClick={this.changeType.bind(null, 'once')} 
+							className={donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '}
+						>
+						{texts.once}
+					</a>
+					</div>
 				</div>
-				<div className="form-group col-xs-5">
-					<a 
-						href="#" 
-						onClick={this.changeType.bind(null, 'monthly')}
-						className={donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '}
-					>
-					{texts.monthly}
-				</a>
-				<a href="#" 
-						onClick={this.changeType.bind(null, 'once')} 
-						className={donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '}
-					>
-					{texts.once}
-				</a>
-				</div>
-			</div>
 			</div>
 		)
 	}

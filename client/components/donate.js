@@ -5,6 +5,7 @@ import validateStripe from '../stripe/validation';
 const componentData = {
 	donation_type: 'monthly',
 	progress: '33.3%',
+	isBlue: false,
 	declined: false,
 	amount: 30,
 	section: 1,
@@ -345,7 +346,7 @@ export default () => ({
 	},
 
 	template: `
-    <form method="post" class="donate_landing">
+    <form method="post" class="donate_landing" v-bind:class={'donate_landing--blue: isBlue'}>
       <div class="donate_landing__viewport">
 			
       <div class="donate_landing__section donate_landing__section-1">

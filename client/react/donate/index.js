@@ -125,7 +125,12 @@ const Donate = React.createClass({
 				 />
 
 				 <div className="form-group">
-					 <button className="donate_landing__submit pull-left" onClick={this.handleSubmit}>Donate</button>
+					 <button 
+					 	className="donate_landing__submit pull-left" 
+						 onClick={this.handleSubmit}
+						>
+						Donate
+					</button>
 				 </div>
 				 
 			</div>
