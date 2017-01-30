@@ -302,9 +302,9 @@ button {
   position: relative;
   overflow: hidden;
   margin: 20px 0; }
-  .donate_landing-blue input {
+  .donate_landing--blue input {
     border-color: #3C515F; }
-  .donate_landing-blue .change-amount li a {
+  .donate_landing--blue .change-amount li a {
     border-color: #3C515F; }
   .donate_landing__section {
     width: 33.33333%; }
