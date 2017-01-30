@@ -27,9 +27,10 @@
 
     .change-amount li a {
       border-color: #3C515F;
+      color: #3C515F;
       &:hover, &.active {
         text-decoration: none;
-        background: #fff;
+        background: #3C515F;
         color: #fff;
       }
     }

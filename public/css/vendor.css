@@ -328,10 +328,11 @@ button {
       .donate_landing--blue input:-ms-input-placeholder {
         color: #3C515F; }
     .donate_landing--blue .change-amount li a {
-      border-color: #3C515F; }
+      border-color: #3C515F;
+      color: #3C515F; }
       .donate_landing--blue .change-amount li a:hover, .donate_landing--blue .change-amount li a.active {
         text-decoration: none;
-        background: #fff;
+        background: #3C515F;
         color: #fff; }
   .donate_landing__section {
     width: 33.33333%; }
