@@ -49,7 +49,7 @@ function bs_donate_sc($atts, $content = null) {
     back-text=<?php echo $at['back_text'] ?>
     monthly=<?php echo $at['monthly'] ?>
     once="<?php echo $at['once'] ?>"
-    is-blue"<?php echo $at['is_blue'] ?>"
+    is-blue=<?php echo $at['is_blue'] ?>
     :redirect="{
       once: '<?php echo get_option('donate_once_redirect') ?>',
       monthly: '<?php echo get_option('donate_monthly_redirect') ?>',
@@ -145,7 +145,9 @@ function bs_donate_vc() {
       "type" => "checkbox",
       "heading" => "Blue",
       "param_name" => "is_blue",
+      "value" => false
     ],
+
     [
       "type" => "textfield",
       "heading" => "Link text",
