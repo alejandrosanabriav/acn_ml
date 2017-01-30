@@ -151,7 +151,7 @@ function bs_donate_vc() {
     ],
 
     [
-      "type" => "textfield",
+      "type" => "textarea",
       "heading" => "subtext",
       "param_name" => "subtext",
       "value" => ''
