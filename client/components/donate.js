@@ -346,7 +346,7 @@ export default () => ({
 	},
 
 	template: `
-    <form method="post" class="donate_landing" v-bind:class={'donate_landing--blue': isBlue}>
+    <form method="post" class="donate_landing" v-bind:class="{'donate_landing--blue': isBlue}">
       <div class="donate_landing__viewport">
 			
       <div class="donate_landing__section donate_landing__section-1">
