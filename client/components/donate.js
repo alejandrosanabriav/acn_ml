@@ -356,7 +356,7 @@ export default () => ({
         <div class="donate_landing__section__title col-sm-12">
           <h3 class="color-red">{{texts.sectionOne.title}}</h3>
           <p>{{texts.sectionOne.content}}</p>
-					<p>{{ subtext }}</p>
+					<i style="font-size: 1.28571em">{{ subtext }}</i>
         </div>
       
         <change-amount other="Other"></change-amount>
