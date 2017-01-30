@@ -8,6 +8,9 @@
     input {
       border-color: #3C515F;
       color: #3C515F;
+      &:hover, &focus {
+        border-color: #3C515F;
+      }
       /* Webkit */
       &::-webkit-input-placeholder { color: #CCC; }
 
