@@ -19,7 +19,8 @@ export default () => ({
 
       let parent = $('.change-amount').offset();
       let active = $('.change-amount .active').offset();
-      let left = parent.left - active.left;
+      let left = active.left - parent.left;
+      console.log(left);
       $('.change-amount__copywrite__arrow').css({left});
 		}
 	},
