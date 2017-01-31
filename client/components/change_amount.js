@@ -20,7 +20,7 @@ export default () => ({
 		}
 	},
 
-	template:
+	template:`
     <div class="change-amount__copywrite">
       
     </div>
