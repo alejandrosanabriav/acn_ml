@@ -17,12 +17,18 @@ export default () => ({
 				this.$parent.amount = amount;
 			}
 
-		}
+		},
+
+    getText() {
+      console.log(this.$parent.amount);
+    }
 	},
 
 	template:`
-    <div class="change-amount__copywrite">
-      
+    <div style="padding: 0 15px">
+      <div class="change-amount__copywrite">
+        {getText}
+      </div>
     </div>
 
 		<ul class="change-amount" style="padding: 0 15px">

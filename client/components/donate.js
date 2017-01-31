@@ -84,6 +84,30 @@ export default () => ({
 		cardType() {
 			let type = Stripe.card.cardType(this.stripe.number).replace(' ', '');
 			return type;
+		},
+
+		amountText() {
+			let textKey  = 'thirty';
+
+			 switch(this.amount) {
+				case 10: 
+					textKey = 'ten';
+				break;
+				case 30: 
+					textKey = 'thirty';
+				break;
+				case 50: 
+					textKey = 'fifty';
+				break;
+					case 100: 
+					textKey = 'hundred';
+				break;
+				default: 
+				 	textKey = 'other';
+				break;
+			 }
+			 
+			return this.amountTexts[textKey];
 		}
 	},
 
