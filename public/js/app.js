@@ -14285,7 +14285,7 @@
 	        }
 
 	        var parent = $('.change-amount').offset();
-	        var active = $('.change-amount .active').offset();
+	        var active = $(e.currentTarget).offset();
 	        var left = active.left - parent.left;
 
 	        $('.change-amount__copywrite__arrow').css({ left: left });
