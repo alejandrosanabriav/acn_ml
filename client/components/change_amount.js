@@ -1,7 +1,7 @@
 'use strict';
 
 export default () => ({
-	props: ['other', 'amount-text'],
+	props: ['other', 'amount-text', 'showAmountTexts'],
 
   ready() {
      setTimeout(() => {
@@ -16,8 +16,6 @@ export default () => ({
 		isAmount(amount) {
 			this.$parent.amount == amount;
 		},
-
-   
 
 		changeAmount(amount, e) {
 			e.preventDefault();
@@ -36,7 +34,7 @@ export default () => ({
 	},
 
 	template:`
-    <div style="padding: 0 15px">
+    <div style="padding: 0 15px" v-bind:class="{'hidde': showAmountTexts}">
       <div class="change-amount__copywrite">
         {{amountText}}
         <div class="change-amount__copywrite__arrow"></div>

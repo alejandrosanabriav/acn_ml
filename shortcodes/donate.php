@@ -41,7 +41,8 @@ function bs_donate_sc($atts, $content = null) {
     "amount_text_thirty" => "",
     "amount_text_fifty" => "",
     "amount_text_hundred" => "",
-    "amount_text_other" => ""
+    "amount_text_other" => "",
+    "show_amount_texts" => false
   ), $atts );
 
   ob_start();
@@ -110,6 +111,7 @@ function bs_donate_sc($atts, $content = null) {
       email: '<?php echo $at['placeholder_email'] ?>',
       country: '<?php echo $at['placeholder_country'] ?>'
     }"
+    show-amount-texts=<?php echo $at['show-amount-texts'] ? true : false ?>
     :amount-texts="{
       ten: '<?php echo $at['amount_text_ten'] ?>',
       thirty: '<?php echo $at['amount_text_thirty'] ?>',
@@ -152,7 +154,6 @@ function bs_donate_vc() {
 
     array_push($bs_donate_sections, $sec_title, $sec_content, $sec_btn);
   }
-
 
   array_push($bs_donate_sections,
     [
@@ -270,11 +271,11 @@ function bs_donate_vc() {
         "param_name" => "vertical",
         "value" => false
     ));
-
+    
     array_push($bs_donate_sections, array(
        "type" => "checkbox",
-        "heading" => "vertical",
-        "param_name" => "vertical",
+        "heading" => "Show Amount texts",
+        "param_name" => "show_amount_texts",
         "value" => false
     ));
 

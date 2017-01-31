@@ -57,7 +57,8 @@ export default () => ({
 		'vertical',
 		'isBlue',
 		'subtext',
-		'amount-texts'
+		'amount-texts',
+		'showAmountTexts'
 	],
 
 	data() {
@@ -383,7 +384,7 @@ export default () => ({
 					<i style="font-size: 1.28571em">{{ subtext }}</i>
         </div>
       
-        <change-amount other="Other" v-bind:amount-text="amountText"></change-amount>
+        <change-amount other="Other" v-bind:amount-text="amountText" v-bind:show-amount-texts="showAmountTexts"></change-amount>
 
           <div class="form-group col-md-7 col-sm-8" style="float: left">
             <div class="input-group col-sm-12" >
