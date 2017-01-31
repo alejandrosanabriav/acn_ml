@@ -1,7 +1,7 @@
 'use strict';
 
 export default () => ({
-	props: ['other', 'amount-texts'],
+	props: ['other', 'amount-text'],
 
 	
 	methods: {
@@ -27,7 +27,7 @@ export default () => ({
 	template:`
     <div style="padding: 0 15px">
       <div class="change-amount__copywrite">
-        {getText}
+        {amountText}
       </div>
     </div>
 
