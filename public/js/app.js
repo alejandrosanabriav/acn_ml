@@ -14273,11 +14273,10 @@
 	    props: ['other', 'amount-text'],
 
 	    ready: function ready() {
-	      console.log('cjange amount ready');
 	      var parent = $('.change-amount').offset();
 	      var active = $('.change-amount .active').offset();
 	      var left = active.left - parent.left;
-
+	      console.log(left);
 	      $('.change-amount__copywrite__arrow').css({ left: left });
 	    },
 
