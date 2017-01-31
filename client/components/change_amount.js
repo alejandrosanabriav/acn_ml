@@ -17,6 +17,10 @@ export default () => ({
 				this.$parent.amount = amount;
 			}
 
+      let parent = $('.change-amount').offset();
+      let active = $('.change-amount .active').offset();
+      let left = parent.left - active.left;
+      $('.change-amount__copywrite__arrow').css({left});
 		}
 	},
 

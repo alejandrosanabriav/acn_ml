@@ -14283,6 +14283,11 @@
 	        } else {
 	          this.$parent.amount = amount;
 	        }
+
+	        var parent = $('.change-amount').offset();
+	        var active = $('.change-amount .active').offset();
+	        var left = parent.left - active.left;
+	        $('.change-amount__copywrite__arrow').css({ left: left });
 	      }
 	    },
 
