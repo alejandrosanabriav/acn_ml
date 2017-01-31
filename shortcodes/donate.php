@@ -105,6 +105,13 @@ function bs_donate_sc($atts, $content = null) {
       email: '<?php echo $at['placeholder_email'] ?>',
       country: '<?php echo $at['placeholder_country'] ?>'
     }"
+    :amount-texts="{
+      ten: '<?php echo $at['amount_text_ten'] ?>',
+      thirty: '<?php echo $at['amount_text_thirty'] ?>',
+      fifty: '<?php echo $at['amount_text_thirty'] ?>',
+      hundred: '<?php echo $at['amount_text_hundred'] ?>',
+      other: '<?php echo $at['amount_text_other'] ?>'
+    }"
   >
   </donate-landing>
 <?php
@@ -258,6 +265,25 @@ function bs_donate_vc() {
         "param_name" => "vertical",
         "value" => false
     ));
+
+    $amount_texts = [
+      'ten',
+      'thirty',
+      'fifty',
+      'hundred',
+      'other'
+    ];
+
+    foreach($amount_texts as $amount_text) {
+      $amountText = array(
+        "type" => "textarea",
+        "heading" => "amount for " . $amount_text,
+        "param_name" => "amount_text_" . $amount_text,
+        "value" => ''
+      );
+
+      array_push($bs_donate_sections, $amountText);
+    }
 
   vc_map(
     array(

@@ -19,7 +19,11 @@ export default () => ({
 		}
 	},
 
-	template:`
+	template:
+    <div class="change-amount__copywrite">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, id perferendis officia consectetur quos nostrum earum illo autem tempore sit. Corrupti veniam pariatur amet vitae quisquam suscipit inventore odit aspernatur.
+    </div>
+
 		<ul class="change-amount" style="padding: 0 15px">
       <li class="col-md-2">
         <a
@@ -27,6 +31,7 @@ export default () => ({
           v-bind:class="[ $parent.amount == 10 ? 'active' : ''  ]"
           v-on:click="changeAmount(10, $event)">$ 10</a>
       </li>
+      
       <li class="col-md-2">
         <a
           href="#"
