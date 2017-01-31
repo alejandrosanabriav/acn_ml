@@ -8,6 +8,14 @@ export default () => ({
 			this.$parent.amount == amount;
 		},
 
+    ready() {
+       let parent = $('.change-amount').offset();
+      let active = $('.change-amount .active').offset();
+      let left = active.left - parent.left;
+
+      $('.change-amount__copywrite__arrow').css({left});
+    },
+
 		changeAmount(amount, e) {
 			e.preventDefault();
 			if(amount == '') {

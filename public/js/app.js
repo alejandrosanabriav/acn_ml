@@ -14276,6 +14276,13 @@
 	      isAmount: function isAmount(amount) {
 	        this.$parent.amount == amount;
 	      },
+	      ready: function ready() {
+	        var parent = $('.change-amount').offset();
+	        var active = $('.change-amount .active').offset();
+	        var left = active.left - parent.left;
+
+	        $('.change-amount__copywrite__arrow').css({ left: left });
+	      },
 	      changeAmount: function changeAmount(amount, e) {
 	        e.preventDefault();
 	        if (amount == '') {
