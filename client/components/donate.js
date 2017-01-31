@@ -96,7 +96,7 @@ export default () => ({
 				case 30: 
 					textKey = 'thirty';
 				break;
-				case 50: 
+				case 50:
 					textKey = 'fifty';
 				break;
 					case 100: 

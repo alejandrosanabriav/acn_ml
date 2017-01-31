@@ -17,17 +17,13 @@ export default () => ({
 				this.$parent.amount = amount;
 			}
 
-		},
-
-    getText() {
-      console.log(this.$parent.amount);
-    }
+		}
 	},
 
 	template:`
     <div style="padding: 0 15px">
       <div class="change-amount__copywrite">
-        {amountText}
+        {{amountText}}
       </div>
     </div>
 

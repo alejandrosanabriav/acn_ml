@@ -113,7 +113,7 @@ function bs_donate_sc($atts, $content = null) {
     :amount-texts="{
       ten: '<?php echo $at['amount_text_ten'] ?>',
       thirty: '<?php echo $at['amount_text_thirty'] ?>',
-      fifty: '<?php echo $at['amount_text_thirty'] ?>',
+      fifty: '<?php echo $at['amount_text_fifty'] ?>',
       hundred: '<?php echo $at['amount_text_hundred'] ?>',
       other: '<?php echo $at['amount_text_other'] ?>'
     }"
