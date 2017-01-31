@@ -111,7 +111,7 @@ function bs_donate_sc($atts, $content = null) {
       email: '<?php echo $at['placeholder_email'] ?>',
       country: '<?php echo $at['placeholder_country'] ?>'
     }"
-    show-amount-texts=<?php echo $at['show-amount-texts'] ? true : false ?>
+    show-amount-texts=<?php echo $at['show_amount_texts'] ? true : false ?>
     :amount-texts="{
       ten: '<?php echo $at['amount_text_ten'] ?>',
       thirty: '<?php echo $at['amount_text_thirty'] ?>',
