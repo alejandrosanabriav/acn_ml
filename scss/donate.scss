@@ -198,6 +198,20 @@ a {
     font-size: 18px;
     float: left;
     margin-bottom: 60px;
+    font-weight: normal;
+
+    &__arrow {
+          position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+          bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px 5px 0;
+    border-top-color: #000;
+    }
   }
 
   li {

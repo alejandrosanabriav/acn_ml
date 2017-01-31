@@ -24,6 +24,7 @@ export default () => ({
     <div style="padding: 0 15px">
       <div class="change-amount__copywrite">
         {{amountText}}
+        <div class="change-amount__copywrite__arrow"></div>
       </div>
     </div>
 
