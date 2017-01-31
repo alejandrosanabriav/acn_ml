@@ -454,6 +454,7 @@ a:hover {
     border-style: solid;
     bottom: -27px;
     left: 0;
+    margin-left: -12px;
     border-width: 27px 27px 0;
     border-top-color: #3C515F;
     transition: 300ms all; }
