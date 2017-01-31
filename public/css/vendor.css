@@ -453,10 +453,10 @@ a:hover {
     border-color: transparent;
     border-style: solid;
     bottom: -27px;
-    left: 50%;
-    margin-left: -27px;
+    left: 0;
     border-width: 27px 27px 0;
-    border-top-color: #3C515F; }
+    border-top-color: #3C515F;
+    transition: 300ms all; }
 
 .change-amount li {
   float: left;
