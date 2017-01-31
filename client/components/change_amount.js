@@ -3,12 +3,7 @@
 export default () => ({
 	props: ['other', 'amount-text'],
 
-	methods: {
-		isAmount(amount) {
-			this.$parent.amount == amount;
-		},
-
-    ready() {
+   ready() {
       console.log('cjange amount ready');
       let parent = $('.change-amount').offset();
       let active = $('.change-amount .active').offset();
@@ -16,6 +11,13 @@ export default () => ({
 
       $('.change-amount__copywrite__arrow').css({left});
     },
+
+	methods: {
+		isAmount(amount) {
+			this.$parent.amount == amount;
+		},
+
+   
 
 		changeAmount(amount, e) {
 			e.preventDefault();
