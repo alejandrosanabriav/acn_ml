@@ -34,7 +34,7 @@ export default () => ({
 	},
 
 	template:`
-    <div style="padding: 0 15px" v-bind:class="{'hidde': showAmountTexts}">
+    <div style="padding: 0 15px" v-bind:class="{'hide': !showAmountTexts}">
       <div class="change-amount__copywrite">
         {{amountText}}
         <div class="change-amount__copywrite__arrow"></div>
