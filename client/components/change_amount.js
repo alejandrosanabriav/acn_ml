@@ -1,7 +1,8 @@
 'use strict';
 
 export default () => ({
-	props: ['other'],
+	props: ['other', 'amount-texts'],
+
 	
 	methods: {
 		isAmount(amount) {
@@ -21,7 +22,7 @@ export default () => ({
 
 	template:
     <div class="change-amount__copywrite">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, id perferendis officia consectetur quos nostrum earum illo autem tempore sit. Corrupti veniam pariatur amet vitae quisquam suscipit inventore odit aspernatur.
+      
     </div>
 
 		<ul class="change-amount" style="padding: 0 15px">

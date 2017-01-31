@@ -36,7 +36,12 @@ function bs_donate_sc($atts, $content = null) {
     "validation_email" => "Incorrect email",
     "validation_country" => "Incorrect country",
     "is_blue" => false,
-    "subtext" => ''
+    "subtext" => "",
+    "amount_text_ten" => "",
+    "amount_text_thirty" => "",
+    "amount_text_fifty" => "",
+    "amount_text_hundred" => "",
+    "amount_text_other" => ""
   ), $atts );
 
   ob_start();
@@ -258,6 +263,13 @@ function bs_donate_vc() {
 
       array_push($bs_donate_sections, $placeholder);
     }
+
+    array_push($bs_donate_sections, array(
+       "type" => "checkbox",
+        "heading" => "vertical",
+        "param_name" => "vertical",
+        "value" => false
+    ));
 
     array_push($bs_donate_sections, array(
        "type" => "checkbox",
