@@ -184,6 +184,20 @@ a {
 }
 
 .change-amount {
+  
+  &__copywrite {
+    background: #3C515F;
+    width: 100%;
+    min-height: 80px;
+    border-radius: 8px;
+    position: relative;
+    padding: 15px 100px;
+    text-align: center;
+    color: #ffffff;
+    line-height: 1.28;
+    font-size: 18px;
+  }
+
   li {
     float: left;
     width: (100 / 5) * 1%;
