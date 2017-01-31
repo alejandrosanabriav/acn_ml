@@ -14277,6 +14277,7 @@
 	        this.$parent.amount == amount;
 	      },
 	      ready: function ready() {
+	        console.log('cjange amount ready');
 	        var parent = $('.change-amount').offset();
 	        var active = $('.change-amount .active').offset();
 	        var left = active.left - parent.left;

@@ -9,6 +9,7 @@ export default () => ({
 		},
 
     ready() {
+      console.log('cjange amount ready');
       let parent = $('.change-amount').offset();
       let active = $('.change-amount .active').offset();
       let left = active.left - parent.left;
