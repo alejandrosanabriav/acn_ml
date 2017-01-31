@@ -78,7 +78,6 @@ export default () => ({
 		let firstNode = $($el).find('.donate_landing__section-1');
 		$($el).find('.donate_landing__viewport').css({height: `${firstNode.offsetHeight}px`});
 		this.contact.country = this.country;
-		console.log('is blue', this.isBlue);
 	},
 
 	computed: {
@@ -360,7 +359,7 @@ export default () => ({
 					<i style="font-size: 1.28571em">{{ subtext }}</i>
         </div>
       
-        <change-amount other="Other" amount-texts="amountTexts"></change-amount>
+        <change-amount other="Other" v-bind:amount-texts="amountTexts"></change-amount>
 
           <div class="form-group col-md-7 col-sm-8" style="float: left">
             <div class="input-group col-sm-12" >
