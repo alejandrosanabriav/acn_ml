@@ -342,6 +342,8 @@ button {
         color: #fff; }
     .donate_landing--blue .donate_landing__type {
       color: #3C515F; }
+      .donate_landing--blue .donate_landing__type:hover {
+        color: #3C515F; }
   .donate_landing__section {
     width: 33.33333%; }
     .donate_landing__section__title {
