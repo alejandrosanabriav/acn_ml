@@ -5,6 +5,7 @@
 
   &--blue {
     color: #3C515F;
+
     input, select, .input-group-addon {
       border-color: #3C515F;
       color: #3C515F;
@@ -48,6 +49,10 @@
         background: #3C515F;
         color: #fff;
       }
+    }
+
+    .donate_landing__type {
+      color: #3C515F;
     }
   }
 

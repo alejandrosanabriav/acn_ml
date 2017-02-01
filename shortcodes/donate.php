@@ -310,4 +310,3 @@ function bs_donate_vc() {
 
 add_shortcode('bs_donate', 'bs_donate_sc');
 add_action( 'vc_before_init', 'bs_donate_vc' );
-
