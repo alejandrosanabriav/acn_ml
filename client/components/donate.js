@@ -1,7 +1,7 @@
 'use strict';
 import validator from 'validator';
 import validateStripe from '../stripe/validation';
-
+global.$ = require('jquery');
 const componentData = {
 	donation_type: 'monthly',
 	progress: '33.3%',
@@ -66,10 +66,13 @@ export default () => ({
 	},
 
 	init() {
-		$.ajax({
+		return $.ajax({
 			url: '/wp-admin/admin-ajax.php',
 			data: {action: 'countries'}
-		}).then(res => this.countries = res);
+		}).then(res => {
+			this.countries = res;
+			return res;
+		});
 	},
 
 	ready() {

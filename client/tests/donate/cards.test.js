@@ -14,8 +14,3 @@ describe('donate amount component', () => {
 	})
 	
 });
-
-
-107.170.135.234
-
-Ascentbc2016

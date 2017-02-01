@@ -28,6 +28,8 @@
     "gulp-autoprefixer": "^3.1.1",
     "gulp-sass": "^2.3.2",
     "jest": "^18.1.0",
+    "jquery-mockjax": "^2.2.1",
+    "nock": "^9.0.2",
     "node-sass": "^3.11.1",
     "react-addons-test-utils": "^15.4.2",
     "sass-loader": "^4.0.2",
