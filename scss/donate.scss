@@ -53,7 +53,7 @@
 
     .donate_landing__type {
       color: #3C515F;
-      &:hover {
+      &:hover, &:active, &:focus {
         color: #3C515F;
       }
     }

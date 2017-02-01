@@ -342,7 +342,7 @@ button {
         color: #fff; }
     .donate_landing--blue .donate_landing__type {
       color: #3C515F; }
-      .donate_landing--blue .donate_landing__type:hover {
+      .donate_landing--blue .donate_landing__type:hover, .donate_landing--blue .donate_landing__type:active, .donate_landing--blue .donate_landing__type:focus {
         color: #3C515F; }
   .donate_landing__section {
     width: 33.33333%; }
