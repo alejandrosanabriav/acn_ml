@@ -56,7 +56,7 @@ function bs_donate_sc($atts, $content = null) {
     back-text=<?php echo $at['back_text'] ?>
     monthly=<?php echo $at['monthly'] ?>
     once="<?php echo $at['once'] ?>"
-    is-blue=<?php echo $at['is_blue'] ? true : false ?>
+    is-blue=<?php echo $at['is_blue']?>
     :redirect="{
       once: '<?php echo get_option('donate_once_redirect') ?>',
       monthly: '<?php echo get_option('donate_monthly_redirect') ?>',
@@ -111,7 +111,7 @@ function bs_donate_sc($atts, $content = null) {
       email: '<?php echo $at['placeholder_email'] ?>',
       country: '<?php echo $at['placeholder_country'] ?>'
     }"
-    :show-amount-texts="<?php echo $at['show_amount_texts'] ? true : false ?>"
+    :show-amount-texts="<?php echo $at['show_amount_texts']  ?>"
     :amount-texts="{
       ten: '<?php echo $at['amount_text_ten'] ?>',
       thirty: '<?php echo $at['amount_text_thirty'] ?>',
