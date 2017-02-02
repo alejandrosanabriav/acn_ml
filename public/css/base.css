@@ -436,7 +436,7 @@ a:hover {
   min-height: 80px;
   border-radius: 8px;
   position: relative;
-  padding: 15px 100px;
+  padding: 15px 1em;
   text-align: center;
   color: #ffffff;
   line-height: 1.28;
