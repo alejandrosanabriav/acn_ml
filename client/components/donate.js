@@ -284,6 +284,7 @@ export default () => ({
 					});
 
 					ga('ecommerce:send');
+					
 					let url = `${this.redirect[donation_type]}?customer_id=${customer}-${id}&order_revenue=${amount}&order_id=${id}`;
 					window.location = url;
 				});
