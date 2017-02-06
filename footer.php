@@ -93,7 +93,7 @@ onLoad(function() {
 	$(document).find('#sidr .sidr-class-close').on('click', function(e) {
     e.stopPropagation();
     e.preventDefault();
-    $.sidr('close', 'sidr');
+    jQuery.sidr('close', 'sidr');
   });
 })
 
