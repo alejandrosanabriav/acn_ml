@@ -21654,7 +21654,7 @@
 		progress: '33.3%',
 		isBlue: false,
 		declined: false,
-		amount: 30,
+		amount: 50,
 		section: 1,
 		success: false,
 		loading: false,
