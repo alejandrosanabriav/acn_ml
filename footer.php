@@ -55,7 +55,7 @@ if (!document.querySelector) {
 <script src="https://js.stripe.com/v2/"></script>
 <!--<script src="https://cdn.jsdelivr.net/flexslider/2.6.3/jquery.flexslider.js"></script>-->
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/sidr/2.2.1/jquery.sidr.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sidr/2.2.1/jquery.sidr.min.js"></script>
 	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.1/es6-shim.js"></script>-->
 <script src="<?php echo get_template_directory_uri() . '/public/js/app.js' ?>"></script>
 <!-- End theme scripts -->
@@ -72,8 +72,6 @@ if (!document.querySelector) {
 
   </script>
 <!-- End Google Analytics -->
-
-
 
 <script>
 onLoad(function() {
