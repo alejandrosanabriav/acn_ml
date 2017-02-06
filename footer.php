@@ -75,8 +75,8 @@ if (!document.querySelector) {
 
 <script>
 onLoad(function() {
-  console.log($, jQuery, $('.navbar-toggle'));
- $('.navbar-toggle').sidr({
+  console.log($, jQuery, jQuery('.navbar-toggle'));
+ jQuery('.navbar-toggle').sidr({
     name: 'sidr',
     source: '#sidr',
     side: 'right',
