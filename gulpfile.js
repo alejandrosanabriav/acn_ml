@@ -34,7 +34,8 @@ gulp.task('concat-styles', function() {
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
     'public/css/base.css',
     'node_modules/flexslider/flexslider.css',
-    'node_modules/sidr/dist/stylesheets/jquery.sidr.light.min.css'
+    'node_modules/sidr/dist/stylesheets/jquery.sidr.bare.css',
+    'node_modules/sidr/dist/stylesheets/jquery.sidr.light.css'
     ])
     .pipe(concat('vendor.css'))
     .pipe(gulp.dest('./public/css/'));
