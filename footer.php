@@ -22,34 +22,53 @@
 <!-- End wordpress scripts -->
 
 <!--theme scripts -->
+<!--olark-->
+
+<script type="text/javascript" async>
+;(function(o,l,a,r,k,y){if(o.olark)return;
+r="script";y=l.createElement(r);r=l.getElementsByTagName(r)[0];
+y.async=1;y.src="//"+a;r.parentNode.insertBefore(y,r);
+y=o.olark=function(){k.s.push(arguments);k.t.push(+new Date)};
+y.extend=function(i,j){y("extend",i,j)};
+y.identify=function(i){y("identify",k.i=i)};
+y.configure=function(i,j){y("configure",i,j);k.c[i]=j};
+k=y._={s:[],t:[+new Date],c:{},l:a};
+})(window,document,"static.olark.com/jsclient/loader.js");
+/* Add configuration calls bellow this comment */
+olark.identify('2850-621-10-4118');</script>
+
+<!--/olark-->
 
 <script>
-	if (!document.querySelectorAll) {
-  document.querySelectorAll = function (selectors) {
-    var style = document.createElement('style'), elements = [], element;
-    document.documentElement.firstChild.appendChild(style);
-    document._qsa = [];
+  if(window.location.href == "https://mediooriente.acninternational.org/" || window.location.href == "https://mediooriente.acninternational.org/ayuda-a-los-refugiados-en-siria-e-irak-e/") {
 
-    style.styleSheet.cssText = selectors + '{x-qsa:expression(document._qsa && document._qsa.push(this))}';
-    window.scrollBy(0, 0);
-    style.parentNode.removeChild(style);
+    if (!document.querySelectorAll) {
+    document.querySelectorAll = function (selectors) {
+      var style = document.createElement('style'), elements = [], element;
+      document.documentElement.firstChild.appendChild(style);
+      document._qsa = [];
 
-    while (document._qsa.length) {
-      element = document._qsa.shift();
-      element.style.removeAttribute('x-qsa');
-      elements.push(element);
-    }
-    document._qsa = null;
-    return elements;
-  };
-}
+      style.styleSheet.cssText = selectors + '{x-qsa:expression(document._qsa && document._qsa.push(this))}';
+      window.scrollBy(0, 0);
+      style.parentNode.removeChild(style);
 
-if (!document.querySelector) {
-  document.querySelector = function (selectors) {
-    var elements = document.querySelectorAll(selectors);
-    return (elements.length) ? elements[0] : null;
-  };
-}
+      while (document._qsa.length) {
+        element = document._qsa.shift();
+        element.style.removeAttribute('x-qsa');
+        elements.push(element);
+      }
+      document._qsa = null;
+      return elements;
+    };
+  }
+
+  if (!document.querySelector) {
+    document.querySelector = function (selectors) {
+      var elements = document.querySelectorAll(selectors);
+      return (elements.length) ? elements[0] : null;
+    };
+  }
+  }
 </script>
 
 <!--<script src="https://cdn.jsdelivr.net/flexslider/2.6.3/jquery.flexslider.js"></script>-->
