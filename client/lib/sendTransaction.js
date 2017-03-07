@@ -12,7 +12,7 @@ export default function sendTransaction(order) {
     // this will be called after the transaction and all
     // items are sent to the server.  once all elements have been
     // sent, it will resolve the promise.
-    let hits = order.items.length + 1;  // items + transaction
+    let hits = 1;  // items + transaction
     let hitCallback = function() {
       hits -= 1;
       if(hits === 0) {
