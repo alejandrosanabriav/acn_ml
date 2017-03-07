@@ -1,7 +1,9 @@
 'use strict';
 import validator from 'validator';
 import validateStripe from '../stripe/validation';
+import sendTransaction from '../lib/sendTransaction';
 global.$ = require('jquery');
+
 const componentData = {
 	donation_type: 'monthly',
 	progress: '33.3%',
@@ -276,17 +278,13 @@ export default () => ({
 					const {id, customer} = response;
 					const {donation_type, amount} = this;
 
-					ga('ecommerce:addTransaction', {
-						'id': `${this.contact.email}-${id}`,                     // Transaction ID. Required.
-						'affiliation': 'ACN International',   // Affiliation or store name.
-						'revenue': amount,
-						'currency': 'USD'
-					});
+					sendTransaction({id:  `${this.contact.email}-${id}`, amount})
+						.then(() => {
+							let url = `${this.redirect[donation_type]}?customer_id=${customer}-${id}&order_revenue=${amount}&order_id=${id}`;
+							window.location = url;
+						})
+						.catch(err => console.error(err));
 
-					ga('ecommerce:send');
-					
-					let url = `${this.redirect[donation_type]}?customer_id=${customer}-${id}&order_revenue=${amount}&order_id=${id}`;
-					window.location = url;
 				});
 
 			} else {
