@@ -251,6 +251,31 @@ export default () => ({
 
 			return errs.length == 0;
 		},
+
+		storeEventConvertLoop() {
+			const { contact, currency, amount, donation_type, stripe: {token} } = this;
+			const { email, country } = contact;
+
+			const metadata = {
+				amount: amount,
+				type: donation_type
+			};
+
+			const event = {
+				name: `Donation-${donation_type}`,
+				person: { email },
+				country,
+				metadata
+			};
+
+			const data = { data: event, action: "convertloop_event" };
+
+			return $.ajax({
+				type: 'post',
+				url: 'https://acninternational.org/wp-admin/admin-ajax.php',
+				data: data
+			})
+  	},
 		
 		onSubmit(e) {
 			e.preventDefault();
@@ -279,6 +304,7 @@ export default () => ({
 					const {donation_type, amount} = this;
 
 					sendTransaction({id:  `${this.contact.email}-${id}`, amount})
+						.then(this.storeEventConvertLoop)
 						.then(() => {
 							let url = `${this.redirect[donation_type]}?customer_id=${customer}-${id}&order_revenue=${amount}&order_id=${id}`;
 							window.location = url;
