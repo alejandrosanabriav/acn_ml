@@ -50021,7 +50021,7 @@
 	          ),
 	          _react2.default.createElement(
 	            "div",
-	            { className: "form-group col-5-l" },
+	            { className: "form-group col-5-xl", style: { float: 'left', paddingLeft: '5px' } },
 	            _react2.default.createElement(
 	              "a",
 	              {

@@ -42,7 +42,7 @@ class amount extends React.Component {
               value={amount}
             />
           </div>
-          <div className="form-group col-5-l">
+          <div className="form-group col-5-xl" style={{float: 'left', paddingLeft: '5px'}}>
             <a
               href="#"
               onClick={this.changeType.bind(null, "monthly")}
