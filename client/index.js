@@ -1,6 +1,9 @@
 'use strict';
 require('babel-polyfill');
 import Vue from 'vue';
+import React from 'react';
+import {render} from 'react-dom';
+import multipleRender from "react-multiple-render";
 import donate from './components/donate';
 import donateVertical from './components/donate_vertical';
 import contact from './components/contact';
@@ -8,14 +11,9 @@ import changeAmount from './components/change_amount';
 import sliderBg from './components/slider_bg';
 import share from './components/share';
 import btnDonate from './lib/btn_donate';
-import React from 'react';
-import {render} from 'react-dom';
-import DonateReact from './react/donate';
-import HelpForm from './react/help_form';
+import HelpForm from './components/help_form';
 
 (function() {
-	console.log('cache is:', new Date());
-	
 	Vue.component('change-amount', changeAmount());
 	Vue.component('donate-landing', donate());
 	Vue.component('donate-vertical', donateVertical());
@@ -24,14 +22,8 @@ import HelpForm from './react/help_form';
 	Vue.component('bs-share', share());
 
 	const vm = new Vue({ el: '#app-ml' });
-	
-	if(document.getElementById('bs-donate-react')) {
-		render(<DonateReact />, document.getElementById('bs-donate-react'));
-	}
 
-	if(document.getElementById('bs-help-form')) {
-		render(<HelpForm />, document.getElementById('bs-help-form'));
-	}
+	multipleRender(HelpForm, '.bs-help-form');
 	
 	btnDonate();
 
