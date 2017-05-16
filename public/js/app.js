@@ -50342,7 +50342,7 @@
 	          { className: "row donate_react__creditcard__row" },
 	          _react2.default.createElement(
 	            "div",
-	            { className: "form-group col-4-l col-4" },
+	            { className: "form-group col-xs-4" },
 	            _react2.default.createElement("input", {
 	              type: "text",
 	              placeholder: texts.placeholder_month,
@@ -50358,7 +50358,7 @@
 	          ),
 	          _react2.default.createElement(
 	            "div",
-	            { className: "form-group col-4-l col-4" },
+	            { className: "form-group col-xs-4" },
 	            _react2.default.createElement("input", {
 	              type: "text",
 	              placeholder: texts.placeholder_year,
@@ -50374,7 +50374,7 @@
 	          ),
 	          _react2.default.createElement(
 	            "div",
-	            { className: "form-group col-4-l col-4" },
+	            { className: "form-group col-xs-4" },
 	            _react2.default.createElement("input", {
 	              type: "text",
 	              placeholder: texts.placeholder_cvc,
