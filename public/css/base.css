@@ -516,6 +516,17 @@ a:hover {
   .donate_react .row {
     margin-left: 0 !important;
     margin-right: 0 !important; }
+  .donate_react .form-group {
+    position: relative; }
+    .donate_react .form-group--addon {
+      float: left; }
+      .donate_react .form-group--addon input {
+        padding-left: 50px; }
+    .donate_react .form-group__addon {
+      left: 25px;
+      top: 30%;
+      position: absolute;
+      color: #fff; }
   .donate_react input {
     border-color: #fff;
     color: #fff; }

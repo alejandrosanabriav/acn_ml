@@ -281,7 +281,6 @@ a {
   }
 }
 
-
 //react
 .donate_react {
   position: relative;
@@ -292,6 +291,25 @@ a {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
+
+  .form-group {
+	position: relative;
+
+	&--addon {
+		float: left;
+		
+		input {
+			padding-left: 50px;
+		}
+	}
+
+	&__addon {
+	left: 25px;
+		top: 30%;
+		position: absolute;
+		color: #fff;
+	}
+}
   
   input {
     border-color: #fff;
