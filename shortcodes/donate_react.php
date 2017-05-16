@@ -28,7 +28,7 @@ function bs_donate_react_sc($atts, $content = null) {
 ?>
 
 <div 
-	id="bs-donate-react" 
+	class="bs-donate-react" 
 	data-props='<?php echo json_encode($at) ?>'
 >
 </div>

@@ -12,6 +12,7 @@ import sliderBg from './components/slider_bg';
 import share from './components/share';
 import btnDonate from './lib/btn_donate';
 import HelpForm from './components/help_form';
+import DonateReact from './components/donate';
 
 (function() {
 	Vue.component('change-amount', changeAmount());
@@ -24,6 +25,7 @@ import HelpForm from './components/help_form';
 	const vm = new Vue({ el: '#app-ml' });
 
 	multipleRender(HelpForm, '.bs-help-form');
+	multipleRender(DonateReact, '.bs-donate-react');
 	
 	btnDonate();
 

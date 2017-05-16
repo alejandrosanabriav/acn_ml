@@ -108,6 +108,7 @@
 		var vm = new _vue2.default({ el: '#app-ml' });
 
 		(0, _reactMultipleRender2.default)(_help_form2.default, '.bs-help-form');
+		(0, _reactMultipleRender2.default)(_donate2.default, '.bs-donate-react');
 
 		(0, _btn_donate2.default)();
 
