@@ -43,6 +43,7 @@
     "babel-polyfill": "^6.20.0",
     "babel-preset-react": "^6.16.0",
     "bootstrap": "3.3.7",
+    "card-validator": "^4.0.0",
     "flexslider": "2.6.3",
     "jquery": "1.12.4",
     "lodash": "^4.16.6",

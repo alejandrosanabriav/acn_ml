@@ -1105,6 +1105,12 @@ caniuse-db@^1.0.30000539, caniuse-db@^1.0.30000554:
   version "1.0.30000574"
   resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000574.tgz#4b10fb5435c50262effd10653405befd0d0bfc2c"
 
+card-validator:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/card-validator/-/card-validator-4.0.0.tgz#f054ab0f407693fc0ced073f4092e35f53c339c8"
+  dependencies:
+    credit-card-type "^5.0.0"
+
 cardinal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/cardinal/-/cardinal-1.0.0.tgz#50e21c1b0aa37729f9377def196b5a9cec932ee9"
@@ -1375,6 +1381,10 @@ core-js@^2.4.0:
 core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
+
+credit-card-type@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/credit-card-type/-/credit-card-type-5.0.1.tgz#0e35efa17c7d36ea44c659de992b1d13072a587b"
 
 cross-spawn@^3.0.0:
   version "3.0.1"

@@ -12,7 +12,7 @@ import sliderBg from './components/slider_bg';
 import share from './components/share';
 import btnDonate from './lib/btn_donate';
 import HelpForm from './components/help_form';
-import DonateReact from './components/donate';
+import DonateReact from './components/donate/index';
 
 (function() {
 	Vue.component('change-amount', changeAmount());
