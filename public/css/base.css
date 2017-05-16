@@ -1,3 +1,7 @@
+/* Portrait tablets and medium desktops */
+/* Portrait tablets and small desktops */
+/* Landscape phones and portrait tablets */
+/* Landscape phones and smaller */
 body {
   font-family: 'Rubik', sans-serif;
   margin: 0;
@@ -10,7 +14,7 @@ body {
     body {
       font-size: 9px;
       padding-top: 60px; } }
-  @media (min-width: 768px) and (max-width: 991px) {
+  @media (max-width: 991px) {
     body {
       font-size: 11px; } }
 
@@ -33,7 +37,7 @@ body {
     @media (max-width: 767px) {
       #header img {
         width: 70px; } }
-  @media (max-width: 767px), (min-width: 768px) and (max-width: 991px) {
+  @media (max-width: 767px), (max-width: 991px) {
     #header .navbar-header {
       width: 100%; } }
   #header .navbar-toggle span {
@@ -242,7 +246,7 @@ button {
     display: block;
     float: left;
     padding-top: 7px; }
-    @media (min-width: 768px) and (max-width: 991px) {
+    @media (max-width: 991px) {
       .btn-pray img {
         display: none; } }
 
@@ -504,3 +508,212 @@ a:hover {
     height: 100%;
     background: #fff;
     transition: all 300ms ease-in-out; }
+
+.donate_react {
+  position: relative;
+  overflow: hidden;
+  margin: 0; }
+  .donate_react input {
+    border-color: #fff;
+    color: #fff; }
+    .donate_react input::-webkit-input-placeholder {
+      color: #fff; }
+    .donate_react input:-moz-placeholder {
+      /* Firefox 18- */
+      color: #fff; }
+    .donate_react input::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #fff; }
+    .donate_react input:-ms-input-placeholder {
+      color: #fff; }
+  .donate_react select {
+    border-color: #fff; }
+  @media (max-width: 767px) {
+    .donate_react .row {
+      margin: 0; } }
+  .donate_react .form-group__error {
+    background: RGBA(226, 35, 26, 1);
+    color: #fff;
+    padding: 4px 10px;
+    font-size: .9em; }
+  .donate_react h6 {
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 2.78px;
+    padding-bottom: 6px; }
+  .donate_react__viewport {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    transition: all 300ms;
+    position: relative;
+    left: 0;
+    margin: 0;
+    width: 300%; }
+  .donate_react__cards {
+    text-align: left;
+    margin-left: 15px;
+    margin-bottom: 0; }
+    .donate_react__cards .card-type {
+      width: 40px; }
+  .donate_react__info {
+    margin-left: 25px;
+    font-size: 1.07143em;
+    font-weight: 300;
+    color: #fff;
+    padding-top: 15px; }
+  .donate_react__back {
+    background: transparent;
+    border: none;
+    float: left;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding-top: 7px; }
+  .donate_react__type {
+    font-size: 1.28571em;
+    opacity: .4;
+    font-weight: 500;
+    color: #fff;
+    float: left;
+    transition: all 300ms ease;
+    margin-right: 5px;
+    text-decoration: none; }
+    @media (max-width: 767px) {
+      .donate_react__type {
+        margin: 10px 0 0 10px; } }
+    .donate_react__type:first-child {
+      margin-right: 22px; }
+    .donate_react__type:hover, .donate_react__type:focus {
+      color: #fff;
+      opacity: 1; }
+    .donate_react__type--active {
+      opacity: 1;
+      padding-bottom: 5px; }
+      .donate_react__type--active::after {
+        display: block;
+        content: '';
+        width: 60%;
+        height: 3px;
+        background: #fff; }
+  .donate_react__submit {
+    background: transparent;
+    font-size: 1.78571em;
+    color: #fff;
+    border: 3px solid #ED344E;
+    border-radius: 8px;
+    text-transform: uppercase;
+    line-height: 0;
+    background: #ED344E;
+    transition: all 300ms ease;
+    font-weight: bold; }
+    .donate_react__submit:hover {
+      background: transparent;
+      color: #fff; }
+  .donate_react .radio {
+    color: #fff;
+    float: left; }
+    @media (max-width: 767px) {
+      .donate_react .radio {
+        text-align: left;
+        width: 100%; } }
+    .donate_react .radio label {
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 3.11px; }
+  .donate_react .card-type {
+    opacity: .5;
+    margin-right: 5px; }
+    .donate_react .card-type--active {
+      opacity: 1; }
+  @media (max-width: 767px) {
+    .donate_react__creditcard__row {
+      margin: 0 -15px !important; } }
+
+a:hover {
+  text-decoration: none; }
+
+.change-amount__copywrite {
+  background: #3C515F;
+  width: 100%;
+  min-height: 80px;
+  border-radius: 8px;
+  position: relative;
+  padding: 15px 1em;
+  text-align: center;
+  color: #ffffff;
+  line-height: 1.28;
+  font-size: 18px;
+  float: left;
+  margin-bottom: 37px;
+  font-weight: 200; }
+  .change-amount__copywrite__arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    bottom: -27px;
+    left: 0;
+    margin-left: 12px;
+    border-width: 27px 27px 0;
+    border-top-color: #3C515F;
+    transition: 400ms all ease-in-out; }
+
+.change-amount li {
+  float: left;
+  width: 20%;
+  padding: 0 5px;
+  margin-bottom: 10px;
+  list-style: none; }
+  .change-amount li:first-child {
+    padding-left: 0; }
+  .change-amount li:last-child {
+    padding-right: 0; }
+  .change-amount li a {
+    float: left;
+    border: 1px solid #fff;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: 300;
+    transition: all 300ms ease;
+    text-decoration: none; }
+    @media (max-width: 767px) {
+      .change-amount li a {
+        font-size: 1em; } }
+    .change-amount li a:hover, .change-amount li a.active {
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.5);
+      color: #fff;
+      font-weight: 400; }
+
+.pro-bar {
+  height: 10px;
+  border-radius: 8px;
+  border: solid 3px #ffffff;
+  background: transparent; }
+  .pro-bar__status {
+    width: 33%;
+    height: 100%;
+    background: #fff;
+    transition: all 300ms ease-in-out; }
+
+.donate-react__container {
+  padding: 30px 120px 40px 40px;
+  background: #3C515F;
+  margin: 10% 0; }
+  @media (max-width: 767px) {
+    .donate-react__container {
+      padding: 20px; } }
