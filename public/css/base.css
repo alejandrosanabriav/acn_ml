@@ -513,6 +513,9 @@ a:hover {
   position: relative;
   overflow: hidden;
   margin: 0; }
+  .donate_react .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
   .donate_react input {
     border-color: #fff;
     color: #fff; }
