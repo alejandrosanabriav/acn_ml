@@ -40,9 +40,10 @@ class amount extends React.Component {
               type="text"
               onChange={this.handleAmount}
               value={amount}
+              style={{paddingLeft: '55px'}}
             />
           </div>
-          <div className="form-group col-5-xl" style={{float: 'left', paddingLeft: '5px'}}>
+          <div className="form-group col-5-xl" style={{float: 'left', paddingLeft: '20px'}}>
             <a
               href="#"
               onClick={this.changeType.bind(null, "monthly")}

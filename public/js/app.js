@@ -50016,12 +50016,13 @@
 	              className: "form-control",
 	              type: "text",
 	              onChange: this.handleAmount,
-	              value: amount
+	              value: amount,
+	              style: { paddingLeft: '55px' }
 	            })
 	          ),
 	          _react2.default.createElement(
 	            "div",
-	            { className: "form-group col-5-xl", style: { float: 'left', paddingLeft: '5px' } },
+	            { className: "form-group col-5-xl", style: { float: 'left', paddingLeft: '20px' } },
 	            _react2.default.createElement(
 	              "a",
 	              {
