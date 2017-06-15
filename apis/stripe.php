@@ -117,8 +117,8 @@ function stripe_create_subscription($api_key, $charge) {
 function get_plan_name($amount) {
   return 'donation-' . $amount .'-usd';
 }
-
 function stripe_once($api_key, $data) {
+
   $customer = stripe_create_customer($api_key, $data);
   $data['customer'] = $customer->id;
   return stripe_create_charge($api_key, $data);

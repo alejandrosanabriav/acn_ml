@@ -306,11 +306,10 @@ export default () => ({
 					sendTransaction({id:  `${this.contact.email}-${id}`, amount})
 						.then(this.storeEventConvertLoop)
 						.then(() => {
-							let url = `${this.redirect[donation_type]}?customer_id=${customer}-${id}&order_revenue=${amount}&order_id=${id}`;
+							let url = `${this.redirect[donation_type]}?customer_id=${customer}-${this.contact.email}&order_revenue=${amount}&order_id=${id}`;
 							window.location = url;
 						})
 						.catch(err => console.error(err));
-
 				});
 
 			} else {
