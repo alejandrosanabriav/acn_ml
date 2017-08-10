@@ -2,6 +2,7 @@
 import validator from 'validator';
 import validateStripe from '../stripe/validation';
 import sendTransaction from '../lib/sendTransaction';
+
 global.$ = require('jquery');
 
 const componentData = {

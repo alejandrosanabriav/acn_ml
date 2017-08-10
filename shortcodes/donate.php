@@ -42,13 +42,15 @@ function bs_donate_sc($atts, $content = null) {
     "amount_text_fifty" => "",
     "amount_text_hundred" => "",
     "amount_text_other" => "",
-    "show_amount_texts" => false
+    "show_amount_texts" => false,
+    "tags" => ""
   ), $atts );
 
   ob_start();
 ?>
 
 <donate-landing
+    tags="<?php echo $at['tags'] ?>"
     donation_type="monthly"
     url="<?php echo get_template_directory_uri() ?>"
     currency="usd"
@@ -74,11 +76,11 @@ function bs_donate_sc($atts, $content = null) {
     }"
     :validation-messages="{
       card: '<?php echo $at['validation_card'] ?>',
-      month: '<?php echo $at['validation_month'] ?>', 
-      year: '<?php echo $at['validation_year'] ?>', 
-      cvc: '<?php echo $at['validation_cvc'] ?>', 
-      name: '<?php echo $at['validation_name'] ?>', 
-      email: '<?php echo $at['validation_email'] ?>', 
+      month: '<?php echo $at['validation_month'] ?>',
+      year: '<?php echo $at['validation_year'] ?>',
+      cvc: '<?php echo $at['validation_cvc'] ?>',
+      name: '<?php echo $at['validation_name'] ?>',
+      email: '<?php echo $at['validation_email'] ?>',
       country: '<?php echo $at['validation_country'] ?>',
       declined: '<?php echo $at['validation_declined'] ?>'
     }"
@@ -127,7 +129,7 @@ function bs_donate_sc($atts, $content = null) {
 
 function bs_donate_vc() {
   $bs_donate_sections = [];
-  
+
 
   foreach([1,2,3] as $section) {
 
@@ -176,7 +178,7 @@ function bs_donate_vc() {
       "param_name" => "link_text",
       "value" => ''
     ],
-    
+
     [
       "type" => "textfield",
       "heading" => "Link anchor",
@@ -215,12 +217,12 @@ function bs_donate_vc() {
   );
 
   $fields = [
-    'card', 
-    'month', 
-    'year', 
-    'cvc', 
-    'name', 
-    'email', 
+    'card',
+    'month',
+    'year',
+    'cvc',
+    'name',
+    'email',
     'country'
   ];
 
@@ -234,7 +236,7 @@ function bs_donate_vc() {
 
     array_push($bs_donate_sections, $validation);
   }
-    
+
     array_push($bs_donate_sections, [
         "type" => "textfield",
         "heading" => "validation message for declined",
@@ -243,14 +245,14 @@ function bs_donate_vc() {
     ]);
 
     $placeholders = [
-      'loading', 
-      'amount', 
-      'credit_card', 
-      'month', 
-      'year', 
-      'cvc', 
-      'name', 
-      'email', 
+      'loading',
+      'amount',
+      'credit_card',
+      'month',
+      'year',
+      'cvc',
+      'name',
+      'email',
       'country'
     ];
 
@@ -271,7 +273,7 @@ function bs_donate_vc() {
         "param_name" => "vertical",
         "value" => false
     ));
-    
+
     array_push($bs_donate_sections, array(
        "type" => "checkbox",
         "heading" => "Show Amount texts",
@@ -304,7 +306,7 @@ function bs_donate_vc() {
       "base" => "bs_donate",
       "category" =>  "BS",
       "params" => $bs_donate_sections
-    ) 
+    )
   );
 }
 
