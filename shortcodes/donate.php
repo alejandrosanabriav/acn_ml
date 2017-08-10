@@ -50,7 +50,7 @@ function bs_donate_sc($atts, $content = null) {
 ?>
 
 <donate-landing
-    tags="<?php echo $at['tags'] ?>"
+    cl-tags="<?php echo $at['tags'] ?>"
     donation_type="monthly"
     url="<?php echo get_template_directory_uri() ?>"
     currency="usd"
