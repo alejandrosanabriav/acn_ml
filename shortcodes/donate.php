@@ -206,14 +206,18 @@ function bs_donate_vc() {
       "param_name" => "amount",
       "value" => 'Amount'
     ],
-
     [
       "type" => "textfield",
       "heading" => "back",
       "param_name" => "back_text",
       "value" => ""
+    ],
+    [
+      "type" => "textfield",
+      "heading" => "tags convertloop",
+      "param_name" => "tags",
+      "value" => ""
     ]
-
   );
 
   $fields = [
