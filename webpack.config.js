@@ -1,14 +1,14 @@
 'use strict';
-var webpack = require('webpack');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
-	watch: true,
 	entry: {
-		app: './client/index.js',
-		admin: './client/admin/index.js',
+		app: path.resolve('./client/index.js'),
+		admin: path.resolve('./client/admin/index.js'),
 	},
 	output: {
-		path: './public/js',
+		path: path.resolve('./public/js'),
 		filename: '[name].js'
 	},
 	module: {

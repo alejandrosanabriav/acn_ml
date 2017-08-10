@@ -42,7 +42,7 @@ const componentData = {
 };
 
 export default () => ({
-	props: [ 
+	props: [
 		'captcha_name',
 		'url',
 		'currency',
@@ -78,7 +78,7 @@ export default () => ({
 	},
 
 	ready() {
-		const $el = this.$el; 
+		const $el = this.$el;
 		this.addStylesToNodes($el);
 		this.setViewportWidth($el);
 		let firstNode = $($el).find('.donate_landing__section-1');
@@ -96,19 +96,19 @@ export default () => ({
 			let textKey  = 'thirty';
 
 			 switch(this.amount) {
-				case 10: 
+				case 10:
 					textKey = 'ten';
 				break;
-				case 30: 
+				case 30:
 					textKey = 'thirty';
 				break;
 				case 50:
 					textKey = 'fifty';
 				break;
-					case 100: 
+					case 100:
 					textKey = 'hundred';
 				break;
-				default: 
+				default:
 				 	textKey = 'other';
 				break;
 			 }
@@ -194,7 +194,7 @@ export default () => ({
 
 		cardValidation(action = {type: '', field: ''}) {
 			const {type, field} = action;
-			let isValid = Stripe.card[type](this.$get(field)); 
+			let isValid = Stripe.card[type](this.$get(field));
 			this.$set(`errors.${field}`, !isValid);
 		},
 
@@ -276,7 +276,7 @@ export default () => ({
 				data: data
 			})
   	},
-		
+
 		onSubmit(e) {
 			e.preventDefault();
 			const { contact, currency, amount, donation_type, stripe: {token} } = this;
@@ -284,16 +284,13 @@ export default () => ({
 
 			this.contactValidations();
 			this.toggleLoading();
-			
+
 			if(this.isValid()) {
-				
+
 				this.stripeCharge(data)
 				.then(response => {
 					if (response.id) {
-						return this.infusion(contact)
-						.then(() => {
-							return $.Deferred().resolve(response);
-						});
+						return $.Deferred().resolve(response);
 					} else {
 						this.declined = true;
 						this.toggleLoading();
@@ -365,7 +362,7 @@ export default () => ({
 			let viewport = parent.querySelector('.donate_landing__viewport');
 			let next = section * 100;
 			viewport.style.left = `-${next}%`;
-			this.changeViewportHeight( section + 1 );			
+			this.changeViewportHeight( section + 1 );
 			this.progress = `${progress}%`;
 			this.section = section + 1;
 		},
@@ -392,7 +389,7 @@ export default () => ({
 		} else {
 			this.allSubmit();
 		}
-			
+
 	},
 
 	allSubmit() {
@@ -403,14 +400,14 @@ export default () => ({
 	template: `
     <form method="post" class="donate_landing" v-bind:class="{'donate_landing--blue': isBlue}">
       <div class="donate_landing__viewport">
-			
+
       <div class="donate_landing__section donate_landing__section-1">
         <div class="donate_landing__section__title col-sm-12">
           <h3 class="color-red">{{texts.sectionOne.title}}</h3>
           <p>{{texts.sectionOne.content}}</p>
 					<i style="font-size: 1.28571em">{{ subtext }}</i>
         </div>
-      
+
         <change-amount other="Other" v-bind:amount-text="amountText" v-bind:show-amount-texts="showAmountTexts"></change-amount>
 
           <div class="form-group col-md-7 col-sm-8" style="float: left">
@@ -428,16 +425,16 @@ export default () => ({
           </div>
 
           <div class="col-md-5">
-            <a 
+            <a
               href="#"
               v-on:click="changeType('monthly', $event)"
               v-bind:class="[donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type' ]"
             >
               {{monthly}}
             </a>
-            
+
             <a
-              href="#" 
+              href="#"
               v-on:click="changeType('once', $event)"
               v-bind:class="[donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type' ]"
             >
@@ -463,37 +460,37 @@ export default () => ({
            <div class="row">
 
           <div class="form-group col-sm-12 donate_landing__cards">
-            <img 
-              v-bind:class="{'card-type--active': card.Visa}" 
-              class="card-type" 
-              :src="cardSrc.Visa" 
+            <img
+              v-bind:class="{'card-type--active': card.Visa}"
+              class="card-type"
+              :src="cardSrc.Visa"
             >
 
             <img
-              v-bind:class="{'card-type--active': card.MasterCard}" 
-              class="card-type" 
-              :src="cardSrc.MasterCard" 
+              v-bind:class="{'card-type--active': card.MasterCard}"
+              class="card-type"
+              :src="cardSrc.MasterCard"
             >
 
-            <img 
-              v-bind:class="{'card-type--active': card.DinersClub}" 
-              class="card-type" 
-              :src="cardSrc.DinersClub" 
-            >
-            
-            <img 
-              v-bind:class="{'card-type--active': card.AmericanExpress}" 
-              class="card-type" 
-              :src="cardSrc.AmericanExpress" 
+            <img
+              v-bind:class="{'card-type--active': card.DinersClub}"
+              class="card-type"
+              :src="cardSrc.DinersClub"
             >
 
-            <img 
-              v-bind:class="{'card-type--active': card.Discover}" 
-              class="card-type" 
-              :src="cardSrc.Discover" 
+            <img
+              v-bind:class="{'card-type--active': card.AmericanExpress}"
+              class="card-type"
+              :src="cardSrc.AmericanExpress"
+            >
+
+            <img
+              v-bind:class="{'card-type--active': card.Discover}"
+              class="card-type"
+              :src="cardSrc.Discover"
             >
           </div>
-        
+
         </div>
 
         <div class="form-group col-sm-12">
@@ -523,8 +520,8 @@ export default () => ({
           >
 
           <span class="form-group__error" v-if="errors.stripe.exp_month">
-            {{validationMessages.month}}  
-          </span> 
+            {{validationMessages.month}}
+          </span>
         </div>
 
         <div class="form-group col-xs-4" >
@@ -559,9 +556,9 @@ export default () => ({
         </div>
 
         <div class="col-md-12 form-group next-section-group">
-            <button 
-              class="donate_landing__submit donate_landing__submit-get_token pull-left" 
-              v-on:click.prevent="getToken" 
+            <button
+              class="donate_landing__submit donate_landing__submit-get_token pull-left"
+              v-on:click.prevent="getToken"
               :disabled="loading"
             >
             	{{loading ? placeholders.loading : texts.sectionTwo.btn}}
@@ -622,10 +619,10 @@ export default () => ({
 
         <div class="col-sm-12">
           <div class="form-group">
-            <select 
+            <select
 							class="form-control form-control--outline"
 							v-bind:class="{'form-group--error': errors.contact.country}"
-							name="country" 
+							name="country"
 							v-model="contact.country"
 						>
                 <option value="{{country}}" v-for="country in countries">{{country}}</option>
@@ -635,12 +632,12 @@ export default () => ({
             </span>
           </div>
         </div>
-  
+
       <div class="col-md-12">
-        
-        <button 
-          class="donate_landing__submit pull-left" 
-          v-on:click.prevent="onSubmit" 
+
+        <button
+          class="donate_landing__submit pull-left"
+          v-on:click.prevent="onSubmit"
           :disabled="loading"
         >
           {{loading ? placeholders.loading : texts.sectionThree.btn}}
