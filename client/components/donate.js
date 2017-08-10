@@ -44,6 +44,7 @@ const componentData = {
 
 export default () => ({
 	props: [
+		'clTags',
 		'captcha_name',
 		'url',
 		'currency',
