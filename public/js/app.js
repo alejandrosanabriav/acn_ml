@@ -49085,7 +49085,7 @@ var componentData = {
 
 exports.default = function () {
 	return {
-		props: ['captcha_name', 'url', 'currency', 'country', 'validationMessages', 'backText', 'texts', 'link', 'cardSrc', 'placeholders', 'redirect', 'monthly', 'once', 'vertical', 'isBlue', 'subtext', 'amount-texts', 'showAmountTexts'],
+		props: ['clTags', 'captcha_name', 'url', 'currency', 'country', 'validationMessages', 'backText', 'texts', 'link', 'cardSrc', 'placeholders', 'redirect', 'monthly', 'once', 'vertical', 'isBlue', 'subtext', 'amount-texts', 'showAmountTexts'],
 
 		data: function data() {
 			return _extends({}, componentData);
