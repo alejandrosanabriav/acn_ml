@@ -255,7 +255,7 @@ export default () => ({
 		},
 
 		storeEventConvertLoop() {
-			const { contact, currency, amount, donation_type, stripe: {token} } = this;
+			const { tags, contact, currency, amount, donation_type, stripe: {token} } = this;
 			const { email, country } = contact;
 
 			const metadata = {
@@ -266,6 +266,7 @@ export default () => ({
 			const event = {
 				name: `Donation-${donation_type}`,
 				person: { email },
+				add_tags: tags,
 				country,
 				metadata
 			};

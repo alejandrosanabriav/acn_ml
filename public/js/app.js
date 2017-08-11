@@ -49274,7 +49274,8 @@ exports.default = function () {
 				return errs.length == 0;
 			},
 			storeEventConvertLoop: function storeEventConvertLoop() {
-				var contact = this.contact,
+				var tags = this.tags,
+				    contact = this.contact,
 				    currency = this.currency,
 				    amount = this.amount,
 				    donation_type = this.donation_type,
@@ -49291,6 +49292,7 @@ exports.default = function () {
 				var event = {
 					name: 'Donation-' + donation_type,
 					person: { email: email },
+					add_tags: tags,
 					country: country,
 					metadata: metadata
 				};
