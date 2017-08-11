@@ -266,8 +266,11 @@ export default () => ({
 
 			const event = {
 				name: `Donation-${donation_type}`,
-				person: { email, pid: cookies.dp_pid },
-				add_tags: clTags ? clTags.trim().split(",") : [],
+				person: {
+					email,
+					pid: cookies.dp_pid,
+					tags: clTags ? clTags.trim().split(",") : []
+				},
 				country,
 				metadata
 			};

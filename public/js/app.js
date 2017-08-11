@@ -49295,8 +49295,11 @@ exports.default = function () {
 
 				var event = {
 					name: 'Donation-' + donation_type,
-					person: { email: email, pid: _cookies2.default.dp_pid },
-					add_tags: clTags ? clTags.trim().split(",") : [],
+					person: {
+						email: email,
+						pid: _cookies2.default.dp_pid,
+						tags: clTags ? clTags.trim().split(",") : []
+					},
 					country: country,
 					metadata: metadata
 				};
