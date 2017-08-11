@@ -76,7 +76,7 @@ olark.identify('2850-621-10-4118');</script>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/sidr/2.2.1/jquery.sidr.min.js"></script>-->
 	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.1/es6-shim.js"></script>-->
   <script src="https://js.stripe.com/v2/"></script>
-  <script src="<?php echo get_template_directory_uri() . '/public/js/app.js' ?>"></script>
+  <script src="<?php echo get_template_directory_uri() . '/public/js/app.js' ?>?v=<?php echo filemtime(get_template_directory() . '/public/js/app.js') ?>"></script>
 <!-- End theme scripts -->
 
  <!-- Google Analytics -->
