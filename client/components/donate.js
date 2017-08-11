@@ -266,7 +266,7 @@ export default () => ({
 			const event = {
 				name: `Donation-${donation_type}`,
 				person: { email },
-				add_tags: clTags,
+				add_tags: clTags ? clTags.trim().split(",") : [],
 				country,
 				metadata
 			};

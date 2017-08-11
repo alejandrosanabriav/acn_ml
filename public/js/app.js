@@ -49292,7 +49292,7 @@ exports.default = function () {
 				var event = {
 					name: 'Donation-' + donation_type,
 					person: { email: email },
-					add_tags: clTags,
+					add_tags: clTags ? clTags.trim().split(",") : [],
 					country: country,
 					metadata: metadata
 				};
