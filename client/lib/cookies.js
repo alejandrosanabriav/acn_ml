@@ -9,4 +9,4 @@ const getCookies = () => {
   return cookies;
 }
 
-export default getCookies;
+export default getCookies();

@@ -2,6 +2,7 @@
 import validator from 'validator';
 import validateStripe from '../stripe/validation';
 import sendTransaction from '../lib/sendTransaction';
+import cookies from '../lib/cookies';
 
 global.$ = require('jquery');
 
@@ -265,13 +266,15 @@ export default () => ({
 
 			const event = {
 				name: `Donation-${donation_type}`,
-				person: { email },
+				person: { email, pid: cookies.dp_pid },
 				add_tags: clTags ? clTags.trim().split(",") : [],
 				country,
 				metadata
 			};
 
 			const data = { data: event, action: "convertloop_event" };
+
+			console.log('convertloop_event',data);
 
 			return $.ajax({
 				type: 'post',

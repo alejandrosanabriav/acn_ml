@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 616);
+/******/ 	return __webpack_require__(__webpack_require__.s = 617);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -297,7 +297,7 @@ rawAsap.makeRequestCallFromTimer = makeRequestCallFromTimer;
 
 /***/ }),
 
-/***/ 616:
+/***/ 617:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -307,7 +307,7 @@ var _jquery = __webpack_require__(87);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _uploader = __webpack_require__(617);
+var _uploader = __webpack_require__(618);
 
 var _uploader2 = _interopRequireDefault(_uploader);
 
@@ -330,7 +330,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 617:
+/***/ 618:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -344,7 +344,7 @@ var _jquery = __webpack_require__(87);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _promise = __webpack_require__(618);
+var _promise = __webpack_require__(619);
 
 var _promise2 = _interopRequireDefault(_promise);
 
@@ -383,34 +383,34 @@ exports.default = section;
 
 /***/ }),
 
-/***/ 618:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(619)
-
-
-/***/ }),
-
 /***/ 619:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(70);
-__webpack_require__(620);
-__webpack_require__(621);
-__webpack_require__(622);
-__webpack_require__(623);
-__webpack_require__(625);
+module.exports = __webpack_require__(620)
 
 
 /***/ }),
 
 /***/ 620:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(70);
+__webpack_require__(621);
+__webpack_require__(622);
+__webpack_require__(623);
+__webpack_require__(624);
+__webpack_require__(626);
+
+
+/***/ }),
+
+/***/ 621:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -431,7 +431,7 @@ Promise.prototype.done = function (onFulfilled, onRejected) {
 
 /***/ }),
 
-/***/ 621:
+/***/ 622:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -455,7 +455,7 @@ Promise.prototype['finally'] = function (f) {
 
 /***/ }),
 
-/***/ 622:
+/***/ 623:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -570,7 +570,7 @@ Promise.prototype['catch'] = function (onRejected) {
 
 /***/ }),
 
-/***/ 623:
+/***/ 624:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -580,7 +580,7 @@ Promise.prototype['catch'] = function (onRejected) {
 // for node.js interop
 
 var Promise = __webpack_require__(70);
-var asap = __webpack_require__(624);
+var asap = __webpack_require__(625);
 
 module.exports = Promise;
 
@@ -708,7 +708,7 @@ Promise.prototype.nodeify = function (callback, ctx) {
 
 /***/ }),
 
-/***/ 624:
+/***/ 625:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -782,7 +782,7 @@ RawTask.prototype.call = function () {
 
 /***/ }),
 
-/***/ 625:
+/***/ 626:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
