@@ -49173,7 +49173,7 @@ exports.default = function () {
 				});
 			},
 			cleanNumber: function cleanNumber(keypath) {
-				var val = this.$get(keypath);
+				var val = this.$get(keypath) ? this.$get(keypath) : '';
 				this.$set(keypath, val.replace(/[^0-9]+/, ''));
 			},
 			maxLength: function maxLength(keypath, length) {

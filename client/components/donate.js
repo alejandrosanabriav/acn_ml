@@ -149,7 +149,7 @@ export default () => ({
 		},
 
 		cleanNumber(keypath) {
-			let val = this.$get(keypath);
+			let val = this.$get(keypath) ? this.$get(keypath) : '';
 			this.$set(keypath, val.replace(/[^0-9]+/, ''));
 		},
 
