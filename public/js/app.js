@@ -49274,7 +49274,7 @@ exports.default = function () {
 				return errs.length == 0;
 			},
 			storeEventConvertLoop: function storeEventConvertLoop() {
-				var tags = this.tags,
+				var clTags = this.clTags,
 				    contact = this.contact,
 				    currency = this.currency,
 				    amount = this.amount,
