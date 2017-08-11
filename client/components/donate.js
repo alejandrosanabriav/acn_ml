@@ -266,7 +266,7 @@ export default () => ({
 			const event = {
 				name: `Donation-${donation_type}`,
 				person: { email },
-				add_tags: tags,
+				add_tags: clTags,
 				country,
 				metadata
 			};
@@ -278,6 +278,7 @@ export default () => ({
 				url: 'https://acninternational.org/wp-admin/admin-ajax.php',
 				data: data
 			})
+
   	},
 
 		onSubmit(e) {

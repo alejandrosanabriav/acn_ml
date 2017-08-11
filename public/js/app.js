@@ -49292,7 +49292,7 @@ exports.default = function () {
 				var event = {
 					name: 'Donation-' + donation_type,
 					person: { email: email },
-					add_tags: tags,
+					add_tags: clTags,
 					country: country,
 					metadata: metadata
 				};
