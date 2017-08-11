@@ -268,12 +268,13 @@ export default () => ({
 				name: `Donation-${donation_type}`,
 				person: {
 					email,
-					pid: cookies.dp_pid,
-					tags: clTags ? clTags.trim().split(",") : []
+					pid: cookies.dp_pid
 				},
 				country,
 				metadata
 			};
+
+			const personData = { ...contact, add_tags: clTags ? clTags.trim().split(",") : [] };
 
 			const data = { data: event, action: "convertloop_event" };
 
@@ -286,6 +287,19 @@ export default () => ({
 			})
 
   	},
+
+		storePersonConvertLoop() {
+			const { clTags, contact } = this;
+			const personData = { ...contact, add_tags: clTags ? clTags.trim().split(",") : [] };
+			const data = { data: personData, action: "convertloop_contact" };
+
+			console.log('convertloop_person', personData);
+			return $.ajax({
+				type: 'post',
+				url: 'https://acninternational.org/wp-admin/admin-ajax.php',
+				data: data
+			})
+		},
 
 		onSubmit(e) {
 			e.preventDefault();
@@ -311,6 +325,7 @@ export default () => ({
 					const {donation_type, amount} = this;
 
 					sendTransaction({id:  `${this.contact.email}-${id}`, amount})
+						.then(this.storePersonConvertLoop)
 						.then(this.storeEventConvertLoop)
 						.then(() => {
 							let url = `${this.redirect[donation_type]}?customer_id=${customer}-${this.contact.email}&order_revenue=${amount}&order_id=${id}`;

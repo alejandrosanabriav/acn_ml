@@ -49297,17 +49297,32 @@ exports.default = function () {
 					name: 'Donation-' + donation_type,
 					person: {
 						email: email,
-						pid: _cookies2.default.dp_pid,
-						tags: clTags ? clTags.trim().split(",") : []
+						pid: _cookies2.default.dp_pid
 					},
 					country: country,
 					metadata: metadata
 				};
 
+				var personData = _extends({}, contact, { add_tags: clTags ? clTags.trim().split(",") : [] });
+
 				var data = { data: event, action: "convertloop_event" };
 
 				console.log('convertloop_event', data);
 
+				return $.ajax({
+					type: 'post',
+					url: 'https://acninternational.org/wp-admin/admin-ajax.php',
+					data: data
+				});
+			},
+			storePersonConvertLoop: function storePersonConvertLoop() {
+				var clTags = this.clTags,
+				    contact = this.contact;
+
+				var personData = _extends({}, contact, { add_tags: clTags ? clTags.trim().split(",") : [] });
+				var data = { data: personData, action: "convertloop_contact" };
+
+				console.log('convertloop_person', personData);
 				return $.ajax({
 					type: 'post',
 					url: 'https://acninternational.org/wp-admin/admin-ajax.php',
@@ -49345,7 +49360,7 @@ exports.default = function () {
 						    amount = _this5.amount;
 
 
-						(0, _sendTransaction2.default)({ id: _this5.contact.email + '-' + id, amount: amount }).then(_this5.storeEventConvertLoop).then(function () {
+						(0, _sendTransaction2.default)({ id: _this5.contact.email + '-' + id, amount: amount }).then(_this5.storePersonConvertLoop).then(_this5.storeEventConvertLoop).then(function () {
 							var url = _this5.redirect[donation_type] + '?customer_id=' + customer + '-' + _this5.contact.email + '&order_revenue=' + amount + '&order_id=' + id;
 							window.location = url;
 						}).catch(function (err) {
