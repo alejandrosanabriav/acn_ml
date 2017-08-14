@@ -290,7 +290,7 @@ export default () => ({
 
 		storePersonConvertLoop() {
 			const { clTags, contact } = this;
-			const personData = { ...contact, add_tags: clTags ? clTags.trim().split(",") : [] };
+			const personData = { ...contact, pid: cookies.dp_pid, add_tags: clTags ? clTags.trim().split(",") : [] };
 			const data = { data: personData, action: "convertloop_contact" };
 
 			console.log('convertloop_person', personData);
