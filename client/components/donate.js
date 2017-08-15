@@ -273,8 +273,8 @@ export default () => ({
 				country,
 				metadata
 			};
-			
-			const add_tags = lTags ? clTags.trim().split(",") : [];
+
+			const add_tags = clTags ? clTags.trim().split(",") : [];
 			const personData = { ...contact, add_tags };
 			const data = { data: event, action: "convertloop_event" };
 
