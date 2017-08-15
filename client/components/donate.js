@@ -180,7 +180,6 @@ export default () => ({
 				data: data
 			})
 			.done(res => this.handleToken(res));
-
 		},
 
 		handleToken(response) {
@@ -285,7 +284,6 @@ export default () => ({
 				url: 'https://acninternational.org/wp-admin/admin-ajax.php',
 				data: data
 			})
-
   	},
 
 		storePersonConvertLoop() {
