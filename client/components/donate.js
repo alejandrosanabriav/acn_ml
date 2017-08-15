@@ -31,7 +31,8 @@ const componentData = {
 	contact: {
 		name: null,
 		email: null,
-		country: null
+		country: null,
+		pid: cookies.dp_pid
 	},
 
 	card: {
