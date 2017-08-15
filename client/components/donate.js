@@ -290,6 +290,7 @@ export default () => ({
 			const add_tags = clTags ? clTags.trim().split(",") : [];
 			const personData = { ...contact, add_tags };
 			const data = { data: personData, action: "convertloop_contact" };
+			localStorage.setItem('cl_person', JSON.stringify(data));
 
 			return $.ajax({
 				type: 'post',
