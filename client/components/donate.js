@@ -289,10 +289,10 @@ export default () => ({
 
 		storePersonConvertLoop() {
 			const { clTags, contact } = this;
-			const personData = { ...contact, pid: cookies.dp_pid, add_tags: clTags ? clTags.trim().split(",") : [] };
+			const add_tags = clTags ? clTags.trim().split(",") : [];
+			const personData = { ...contact, add_tags };
 			const data = { data: personData, action: "convertloop_contact" };
 
-			console.log('convertloop_person', personData);
 			return $.ajax({
 				type: 'post',
 				url: 'https://acninternational.org/wp-admin/admin-ajax.php',

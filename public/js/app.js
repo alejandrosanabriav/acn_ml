@@ -49320,10 +49320,10 @@ exports.default = function () {
 				var clTags = this.clTags,
 				    contact = this.contact;
 
-				var personData = _extends({}, contact, { pid: _cookies2.default.dp_pid, add_tags: clTags ? clTags.trim().split(",") : [] });
+				var add_tags = clTags ? clTags.trim().split(",") : [];
+				var personData = _extends({}, contact, { add_tags: add_tags });
 				var data = { data: personData, action: "convertloop_contact" };
 
-				console.log('convertloop_person', personData);
 				return $.ajax({
 					type: 'post',
 					url: 'https://acninternational.org/wp-admin/admin-ajax.php',
