@@ -265,7 +265,7 @@ export default () => ({
 			};
 
 			const event = {
-				name: `Donation`,
+				name: `Donation ${donation_type}`,
 				person: {
 					email,
 					pid: cookies.dp_pid
@@ -275,6 +275,7 @@ export default () => ({
 			};
 
 			const data = { data: event, action: "convertloop_event" };
+			localStorage.setItem('cl_event', JSON.stringify(data));
 
 			return $.ajax({
 				type: 'post',
@@ -288,6 +289,7 @@ export default () => ({
 			const add_tags = clTags ? clTags.trim().split(",") : [];
 			const personData = { ...contact, add_tags };
 			const data = { data: personData, action: "convertloop_contact" };
+
 			localStorage.setItem('cl_person', JSON.stringify(data));
 
 			return $.ajax({
