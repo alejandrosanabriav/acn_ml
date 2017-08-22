@@ -12,10 +12,13 @@ A theme for ACN
 - infusionsoft
 
 ## Options
-### Mailchimp 
+### Mailchimp
 - map lists
 - set apikey
 - add merge fields
 
 ### Stripe
 - set apikey
+
+### regex
+\(\/\/acninternational.org\/wp-content\/uploads\/.+?.\/.+?\/.+?")\g
