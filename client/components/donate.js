@@ -265,7 +265,7 @@ export default () => ({
 			};
 
 			const event = {
-				name: `Donation-${donation_type}`,
+				name: `Donation`,
 				person: {
 					email,
 					pid: cookies.dp_pid
@@ -274,8 +274,6 @@ export default () => ({
 				metadata
 			};
 
-			const add_tags = clTags ? clTags.trim().split(",") : [];
-			const personData = { ...contact, add_tags };
 			const data = { data: event, action: "convertloop_event" };
 
 			return $.ajax({
